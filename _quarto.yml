@@ -4,7 +4,11 @@ project:
 book:
   title: "MathNotes"
   author: "Jonas Benjamin Rose Aldous"
-  date: "18.6.2025"
+  date: last-modified
+  date-format: long
+  sidebar:
+    title: "MathNotes"
+    search: true
   chapters:
     - index.qmd
     - intro.qmd
@@ -15,15 +19,10 @@ book:
     - Chapters/Spartial_Statistics.qmd
     - references.qmd
 
+reference-section-title: "References"
 bibliography: references.bib
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-  pdf:
-    documentclass: scrreprt
-
-
-
+    theme: cosmo
+    toc: true
