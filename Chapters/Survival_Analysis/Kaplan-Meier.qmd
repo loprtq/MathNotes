@@ -1,0 +1,15 @@
+# Kaplan-meier (KM) {#KaplanMeier}
+
+<!-- ``` {r}
+## Packages
+library(survival)
+
+## Data
+data <- d
+
+## Model
+# * status == 1: event, status == 0: censored
+KM_fit <- survival::survfit(survival::Surv(time, status == 1) ~ 1, data)
+``` -->
+
+

@@ -1,0 +1,5 @@
+# Bootstrap {#sec-Bootstrap}
+Bootstrapping is a produce for estimating the distribution of an estimator
+
+## Bias
+## Variance

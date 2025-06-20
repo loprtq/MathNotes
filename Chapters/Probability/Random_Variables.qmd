@@ -1,0 +1,4 @@
+# Random Variables
+
+## Discrete random variables
+## Continuos random variables

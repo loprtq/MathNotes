@@ -1,0 +1,3 @@
+# Statistical Power
+
+# Type I errors and Type II errors

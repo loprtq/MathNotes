@@ -12,12 +12,29 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - Chapters/Data.qmd
-    - Chapters/Models.qmd
-    - Chapters/Survival_Analysis.qmd
-    - Chapters/Time_Series_Analysis.qmd
-    - Chapters/Spartial_Statistics.qmd
-    - references.qmd
+    - part: "Data Science"
+      - Chapters/Data_Science/Statistical_Power.qmd
+      - Chapters/Data_Science/Missing_Data.qmd
+      - Chapters/Data_Science/Bootstrap.qmd
+      - Chapters/Data_Science/Models.qmd
+    - part: "Linear Algebra"
+      - Chapters/Linear_Algebra/Introduction.qmd
+    - part: "Probability Theory"
+      - Chapters/Probability/Introduction.qmd
+      - Chapters/Probability/Random_Variables.qmd
+    - part: "Survival Analysis"
+      - Chapters/Survival_Analysis/Introduction.qmd
+      - Chapters/Survival_Analysis/Kaplan-Meier.qmd
+      - Chapters/Survival_Analysis/Cox-ph.qmd
+      - Chapters/Survival_Analysis/Competing_Risk.qmd
+    - part: "Time Series"
+      - Chapters/Time_Series/Introduction.qmd
+      - Chapters/Time_Series/Autocorrelation.qmd
+      - Chapters/Time_Series/Models.qmd
+    - part: "Spatial Statistics"
+      - Chapters/Spartial/Introduction.qmd
+    - part: "References"
+      - references.qmd
 
 reference-section-title: "References"
 bibliography: references.bib

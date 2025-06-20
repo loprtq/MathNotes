@@ -1,0 +1,45 @@
+# Models {#Models}
+
+## Collapsability
+
+
+## Mixed Models
+### Linear mixed models
+The general linear mixed model can be expressed as:
+$$
+y = X \cdot \alpha + Z \cdot \beta + \varepsilon
+$$
+where $X$ is the fixed effects design matrix, $Z$ is the random effects design matrix, and $\varepsilon$ is a zero mean error term.
+
+#### Mixed models for repeated measures (MMRM) {#sec-MMRM}
+When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model's assumptions.
+
+The MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)
+
+### Non-linear mixed models
+
+
+### Fixed effects
+### Randon effects
+As opposed to the fixed effects, which describe a group effects, the random effects are able to describe subject-specific devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.
+
+## Collapsability
+Collapsibility in models refers to the property of a measure of association remaining unchanged when a variable is added to or removed from the model, provided the variable is not associated with the response and (potential) other exploratory variables.
+
+## Covariates
+### Discrete/categorical variables
+### Continuous variables
+
+
+## Covariance structures
+### Unstructured covariance
+No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.
+
+As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters $\left(\frac{n\cdot\left(n-1\right)}{2}\right)$. This (the number of additional parameters) also has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
+
+
+### Compound covariance
+### Toeplitz
+### ARMA(p, q)
+#### AR(p)
+#### MA(q)

@@ -1,0 +1,40 @@
+# Cox Regression {#sec-Cox}
+
+$$
+h(t) = h_0(t) \cdot \operatorname{e}^{\left(\sum_{i=1}^p b_ix_i\right)}
+$$
+where $h_0$ is the baseline hazard function
+
+
+The assumptions of the CPH model is that .... Specifically, the model can be formulated as
+h(t)= h_0 (t)×e^((∑24_(i=1)^p▒〖b_i x_i 〗) )
+where:
+	• t : survival time
+	• (x_1,x_2,…,x_p )  : covariates
+	• b_i  : Impact/effect size of the covariates
+	• h(t)  : hazard function at survival time t
+h_0 (t) : baseline hazard at survival time t
+
+## Stratification
+When stratifying a Cox model, it allows the model to fix different baseline hazard functions $h_0$ for each stratum.
+
+::: {#exm-Porportional Cox model}
+```{r}
+#| echo: true
+#| warning: false
+## Packages
+library(survival)
+library(survminer)
+
+## Model
+cox_fit <- survival::Coxph(survival::Surv(time, status == 1) ~ 1, data, ties = "breslow")
+
+# Coefficients
+survival::cox.zph(Cox) # Test if covariate HR changes over time
+
+
+## Plot
+plot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it would not change)
+survminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)
+```
+:::
