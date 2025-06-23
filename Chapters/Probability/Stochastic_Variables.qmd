@@ -1,0 +1,39 @@
+# Stochastic Variables
+
+
+## Probability mass function
+
+$$
+p_X(x) = \operatorname{P}\left(X = x\right)
+$$
+
+## Cumulative distribution function
+
+$$
+F_X(x) = \operatorname{P}\left(X \leq x\right)
+$$
+
+## Probability density function
+
+$$
+f_X(x) = 
+$$
+
+## Expected Value
+
+$$
+\begin{aligned}
+    \mathbb{E}\left[X\right] &= \begin{cases}1\\2\end{cases}
+\end{aligned}
+$$
+
+### Conditional Expected Value
+$$
+\begin{aligned}
+    \mathbb{E}\left[X\right] &= \begin{cases}1\\2\end{cases}
+\end{aligned}
+$$
+
+$$
+\mathbb{E}\left[X\right] = \mathbb{E}\left[\mathbb{E}\left[Y\mid X\right]\right]
+$$

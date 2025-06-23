@@ -1,0 +1,5 @@
+# ARMA(p, q) {#sec-ARMA}
+## AR(p) {#sec-AR}
+## MA(q) {#sec-MA}
+## ARIMA(p, D, q)
+## ARFIMA

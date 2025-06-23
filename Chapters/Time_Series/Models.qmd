@@ -1,5 +1,0 @@
-# AR(p)
-# MA(q)
-
-# ARMA(p, q)
-# ARIMA(p, D, q)

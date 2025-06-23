@@ -1,0 +1,292 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Example 1.1  \n\n\nRemark 1.1.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Cox.html",
+    "href": "Chapters/Survival_Analysis/Cox.html",
+    "title": "10  Cox Regression",
+    "section": "",
+    "text": "10.1 Stratification\n\\[\nh(t) = h_0(t) \\cdot \\operatorname{e}^{\\left(\\sum_{i=1}^p b_ix_i\\right)}\n\\] where \\(h_0\\) is the baseline hazard function\nwhere: • t : survival time • (x_1,x_2,…,x_p ) : covariates • b_i : Impact/effect size of the covariates\nWhen stratifying a Cox model, it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum.",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cox Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Competing_Risk.html",
+    "href": "Chapters/Survival_Analysis/Competing_Risk.html",
+    "title": "11  Competing Risk Analysis",
+    "section": "",
+    "text": "Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Section 4) for a specific event, \\(F_j(t) = \\operatorname{P}(T\\leq t, C = j) = \\int_t^t h_j(u) \\cdot S(u)\\,\\textrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html",
+    "href": "Chapters/Time_Series/Introduction.html",
+    "title": "13  Data",
+    "section": "",
+    "text": "13.1 Trend",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html#seasonality",
+    "href": "Chapters/Time_Series/Introduction.html#seasonality",
+    "title": "13  Data",
+    "section": "13.2 Seasonality",
+    "text": "13.2 Seasonality",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Models.html",
+    "href": "Chapters/Time_Series/Models.html",
+    "title": "15  AR(p)",
+    "section": "",
+    "text": "16 MA(q)\n\n\n17 ARMA(p, q)\n\n\n18 ARIMA(p, D, q)",
+    "crumbs": [
+      "Time Series",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>AR(p)</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Statistical_Power.html",
+    "href": "Chapters/Data_Science/Statistical_Power.html",
+    "title": "2  Statistical Power",
+    "section": "",
+    "text": "3 Type I errors and Type II errors",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistical Power</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MathNotes",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Models.html",
+    "href": "Chapters/Data_Science/Models.html",
+    "title": "5  Models",
+    "section": "",
+    "text": "5.1 Collapsability",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Models.html#mixed-models",
+    "href": "Chapters/Data_Science/Models.html#mixed-models",
+    "title": "5  Models",
+    "section": "5.2 Mixed Models",
+    "text": "5.2 Mixed Models\n\n5.2.1 Linear mixed models\nThe general linear mixed model can be expressed as: \\[\ny = X \\cdot \\alpha + Z \\cdot \\beta + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, \\(Z\\) is the random effects design matrix, and \\(\\varepsilon\\) is a zero mean error term.\n\n5.2.1.1 Mixed models for repeated measures (MMRM)\nWhen working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model’s assumptions.\nThe MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)\n\n\n\n5.2.2 Non-linear mixed models\n\n\n5.2.3 Fixed effects\n\n\n5.2.4 Randon effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe subject-specific devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Models.html#collapsability-1",
+    "href": "Chapters/Data_Science/Models.html#collapsability-1",
+    "title": "5  Models",
+    "section": "5.3 Collapsability",
+    "text": "5.3 Collapsability\nCollapsibility in models refers to the property of a measure of association remaining unchanged when a variable is added to or removed from the model, provided the variable is not associated with the response and (potential) other exploratory variables.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Models.html#covariates",
+    "href": "Chapters/Data_Science/Models.html#covariates",
+    "title": "5  Models",
+    "section": "5.4 Covariates",
+    "text": "5.4 Covariates\n\n5.4.1 Discrete/categorical variables\n\n\n5.4.2 Continuous variables",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Models.html#covariance-structures",
+    "href": "Chapters/Data_Science/Models.html#covariance-structures",
+    "title": "5  Models",
+    "section": "5.5 Covariance structures",
+    "text": "5.5 Covariance structures\n\n5.5.1 Unstructured covariance\nNo constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.\nAs there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters \\(\\left(\\frac{n\\cdot\\left(n-1\\right)}{2}\\right)\\). This (the number of additional parameters) also has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.\n\n\n5.5.2 Compound covariance\n\n\n5.5.3 Toeplitz\n\n\n5.5.4 ARMA(p, q)\n\n5.5.4.1 AR(p)\n\n\n5.5.4.2 MA(q)",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Linear_Algebra/Introduction.html",
+    "href": "Chapters/Linear_Algebra/Introduction.html",
+    "title": "6  Matrix",
+    "section": "",
+    "text": "7 Vector",
+    "crumbs": [
+      "Linear Algebra",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Matrix</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Introduction.html",
+    "href": "Chapters/Survival_Analysis/Introduction.html",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "Censoring\nCensoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event\nThe most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.",
+    "crumbs": [
+      "Survival Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Introduction.html#censoring",
+    "href": "Chapters/Survival_Analysis/Introduction.html#censoring",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "Left-Censored \\(T &gt; t\\): has not yet occurred at time \\(t\\)\nRight censoring \\(T &lt; t\\): has occurred before time \\(t\\)\n\n\n\nInterval-censoring \\(t_1 &lt; T &lt; t_2\\):\nType I censoring:\nType II censoring:\nType III censoring:\n\n\nNon-informative censoring",
+    "crumbs": [
+      "Survival Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-SurvivalFunction",
+    "href": "Chapters/Survival_Analysis/Introduction.html#sec-SurvivalFunction",
+    "title": "Survival Analysis",
+    "section": "Survival function",
+    "text": "Survival function\n\\[\\begin{aligned}\nS(t) &= \\operatorname{P}(T &gt; t) \\\\&= 1 - F(t)\n\\end{aligned}\\]\nProperties\n\nMonotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).",
+    "crumbs": [
+      "Survival Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-HazardFunction",
+    "href": "Chapters/Survival_Analysis/Introduction.html#sec-HazardFunction",
+    "title": "Survival Analysis",
+    "section": "Hazard function",
+    "text": "Hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). \\[\\begin{aligned}\nh(t) &= \\lambda(t) \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\operatorname{P}\\left(t \\leq T &lt; t + \\Delta t \\mid T \\geq t\\right)}{\\Delta t}\n\\end{aligned}\\]\n\nCumulative hazard function\n\\[\nH(t) = \\int_0^t h(u)\\,\\textrm{d}u\n\\]\n\n\nHazard ratio (HR)\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference",
+    "crumbs": [
+      "Survival Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-CIF",
+    "href": "Chapters/Survival_Analysis/Introduction.html#sec-CIF",
+    "title": "Survival Analysis",
+    "section": "Cumulative incidence function (CIF)",
+    "text": "Cumulative incidence function (CIF)\n\\[\\begin{aligned}\nF(t) &= \\operatorname{P}(T \\leq t) \\\\&= \\int_0^t h(u) \\cdot S(u) \\,\\textrm{d}u\n\\end{aligned}\\]",
+    "crumbs": [
+      "Survival Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html",
+    "href": "Chapters/Data_Science/Missing_Data.html",
+    "title": "3  Missing data",
+    "section": "",
+    "text": "3.1 Missing completly at random (MCAR)\nDepending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html#missing-completly-at-random-mcar",
+    "href": "Chapters/Data_Science/Missing_Data.html#missing-completly-at-random-mcar",
+    "title": "3  Missing data",
+    "section": "",
+    "text": "The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases\nAssumes that the reason why data is missing is unrelated to the data\nUsually an unreaslistic assumption\n\n\n3.1.1 Missing at random (MAR)\n\nThe missingness of the data is related to the observed variables, and not the unobserved variables.\nA more realistic assumption than MCAR\n\n\n\n3.1.2 Missing not at random (MNAR)/Not missing at random (NMAR)\n\nMissingness depends on both the observed and unobserved variables.\nIf it is neither MCAR or MAR, then it is MNAR.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html#missing-data-patterns",
+    "href": "Chapters/Data_Science/Missing_Data.html#missing-data-patterns",
+    "title": "3  Missing data",
+    "section": "3.2 Missing data patterns",
+    "text": "3.2 Missing data patterns\n\n3.2.1 Monotone missingness\nImagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let’s say the trial gives provides values \\(Y_1,Y_2,\\dots,Y_52\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is not monotone.\n\n\n3.2.2 Non-monotone missingness\nWhen there is a missing value between two observed data points. For example, let’s say the trial gives provides values \\(Y_1,Y_2,\\dots,Y_52\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is non-monotone.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Bootstrap.html",
+    "href": "Chapters/Data_Science/Bootstrap.html",
+    "title": "4  Bootstrap",
+    "section": "",
+    "text": "4.1 Bias\nBootstrapping is a produce for estimating the distribution of an estimator",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Bootstrap.html#variance",
+    "href": "Chapters/Data_Science/Bootstrap.html#variance",
+    "title": "4  Bootstrap",
+    "section": "4.2 Variance",
+    "text": "4.2 Variance",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Random_Variables.html",
+    "href": "Chapters/Probability/Random_Variables.html",
+    "title": "8  Random Variables",
+    "section": "",
+    "text": "8.1 Discrete random variables",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Random_Variables.html#continuos-random-variables",
+    "href": "Chapters/Probability/Random_Variables.html#continuos-random-variables",
+    "title": "8  Random Variables",
+    "section": "8.2 Continuos random variables",
+    "text": "8.2 Continuos random variables",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Cox.html#stratification",
+    "href": "Chapters/Survival_Analysis/Cox.html#stratification",
+    "title": "10  Cox Regression",
+    "section": "",
+    "text": "Example 10.1 (Proportional Cox model)  \n\n## Packages\nlibrary(survival)\nlibrary(survminer)\n\n## Model\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = \"breslow\")\n\n# Coefficients\nsurvival::cox.zph(Cox) # Test if covariate HR changes over time\n\n\n## Plot\nplot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it would not change)\nsurvminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cox Regression</span>"
+    ]
+  }
+]

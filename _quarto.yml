@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "MathNotes"
@@ -13,28 +14,34 @@ book:
     - index.qmd
     - intro.qmd
     - part: "Data Science"
-      - Chapters/Data_Science/Statistical_Power.qmd
-      - Chapters/Data_Science/Missing_Data.qmd
-      - Chapters/Data_Science/Bootstrap.qmd
-      - Chapters/Data_Science/Models.qmd
-    - part: "Linear Algebra"
-      - Chapters/Linear_Algebra/Introduction.qmd
-    - part: "Probability Theory"
-      - Chapters/Probability/Introduction.qmd
-      - Chapters/Probability/Random_Variables.qmd
-    - part: "Survival Analysis"
-      - Chapters/Survival_Analysis/Introduction.qmd
-      - Chapters/Survival_Analysis/Kaplan-Meier.qmd
-      - Chapters/Survival_Analysis/Cox-ph.qmd
-      - Chapters/Survival_Analysis/Competing_Risk.qmd
-    - part: "Time Series"
-      - Chapters/Time_Series/Introduction.qmd
-      - Chapters/Time_Series/Autocorrelation.qmd
-      - Chapters/Time_Series/Models.qmd
+      chapters:
+        - Chapters/Data_Science/Statistical_Power.qmd
+        - Chapters/Data_Science/Missing_Data.qmd
+        - Chapters/Data_Science/Bootstrap.qmd
+        - Chapters/Data_Science/Models.qmd
+        
+    - part: Chapters/Linear_Algebra/Introduction.qmd
+      chapters:
+        - Chapters/Linear_Algebra/Matrix.qmd
+
+    - part: Chapters/Probability/Introduction.qmd
+      chapters:
+        - Chapters/Probability/Random_Variables.qmd
+
+    - part: Chapters/Survival_Analysis/Introduction.qmd
+      chapters:
+        - Chapters/Survival_Analysis/Kaplan-Meier.qmd
+        - Chapters/Survival_Analysis/Cox.qmd
+        - Chapters/Survival_Analysis/Competing_Risk.qmd
+
+    - part: Chapters/Time_Series/Introduction.qmd
+      chapters:
+        - Chapters/Time_Series/Autocorrelation.qmd
+        - Chapters/Time_Series/ARMA.qmd
+        
     - part: "Spatial Statistics"
-      - Chapters/Spartial/Introduction.qmd
-    - part: "References"
-      - references.qmd
+      chapters:
+        - Chapters/Spatial/Introduction.qmd
 
 reference-section-title: "References"
 bibliography: references.bib
