@@ -26,7 +26,7 @@ book:
 
     - part: Chapters/Probability/Introduction.qmd
       chapters:
-        - Chapters/Probability/Random_Variables.qmd
+        - Chapters/Probability/Stochastic_Variables.qmd
 
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:

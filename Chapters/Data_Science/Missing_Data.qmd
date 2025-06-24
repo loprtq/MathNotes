@@ -10,13 +10,13 @@ Depending on the analysis, some missing data patterns do not matter as much. How
 - The missingness of the data is related to the observed variables, and not the unobserved variables.
 - A more realistic assumption than MCAR
 
-### Missing not at random (MNAR)/Not missing at random (NMAR)
+### Missing not at random (MNAR)
 - Missingness depends on both the observed and unobserved variables.
 - If it is neither MCAR or MAR, then it is MNAR.
 
 ## Missing data patterns
 ### Monotone missingness
-Imagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_52$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is not monotone.
+Imagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is not monotone.
 
 ### Non-monotone missingness
-When there is a missing value between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_52$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is non-monotone.
+When there is a missing value between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is non-monotone.

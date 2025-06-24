@@ -1,22 +1,24 @@
 # Cox Regression {#sec-Cox}
 
 $$
-h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right)
+h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right)
 $$ {#eq-Cox}
-where $h_0$ is the baseline hazard function, $x_1,x_2,\dots,x_p$ are the covariates and $b_1,b_2,\dots,b_p$ the associated effect sizes of the covariates.
+where $h_0$ is the baseline hazard function, $x_1,x_2,\dots,x_p$ are the covariates and $\beta_1,\beta_2,\dots,\beta_p$ the associated effect sizes of the covariates.
 
 ## Stratification
 When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum. Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as 
 $$
 h(t) = \begin{cases}
-h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) & \textrm{if } g=1\\
-h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) & \textrm{if } g=2
+h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=1\\
+h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=2
 \end{cases}
 $$ {#eq-Cox-stratification}
-meaning that the two stratum share the same effect sizes $b_1,b_2,\dots,b_p$. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.
+meaning that the two stratum share the same effect sizes $\beta_1,\beta_2,\dots,\beta_p$. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.
 
 :::{#exm-Cox}
 ## Proportional Cox model
+:::{.panel-tabset}
+## R
 ```{r}
 #| eval: false
 #| echo: true
@@ -39,4 +41,47 @@ survival::cox.zph(Cox) # Test if covariate HR changes over time
 plot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it would not change)
 survminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)
 ```
+
+## SAS
+```{{sas}}
+proc phreg data=mydata.sample_data;
+    class covariate1 covariate2;
+    model time*status(0) = covariate1 covariate2 covariate3 / ties=breslow;
+    baseline out = baseline_data survival = surv_prob;
+    output out = cox_output predicted = predicted_values;
+run;
+```
+
+## Python
+```{python}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+import pandas as pd
+import lifelines
+
+## Data
+
+## Model
+# * status == 1: event, status == 0: censored
+cph = CoxPHFitter()
+cph.fit(data, duration_col = 'time', event_col = 'status')
+
+# Coefficients
+cph.print_summary()
+
+
+## Plot
+cph.plot()
+```
 :::
+:::
+
+## Mixed Effects Cox Model
+$$
+\begin{aligned}
+    h(t) &= h_0(t) \cdot \exp\left(X\beta + Zb\right)\\
+    b &\widetilde G\left(0, \Sigma\left(\theta\right)\right)
+\end{aligned}
+$$

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Models – MathNotes</title>
+<title>6&nbsp; Matrix – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Linear_Algebra/Introduction.html" rel="next">
-<link href="../../Chapters/Data_Science/Bootstrap.html" rel="prev">
+<link href="../../Chapters/Probability/Introduction.html" rel="next">
+<link href="../../Chapters/Linear_Algebra/Introduction.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -111,7 +82,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Statistical_Power.html">Data Science</a></li><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Models.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Linear_Algebra/Introduction.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../Chapters/Linear_Algebra/Matrix.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -177,7 +148,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Models.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../Chapters/Data_Science/Models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></span></a>
   </div>
 </li>
@@ -194,7 +165,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Linear_Algebra/Matrix.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Chapters/Linear_Algebra/Matrix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
   </div>
 </li>
@@ -296,36 +267,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#collapsability" id="toc-collapsability" class="nav-link active" data-scroll-target="#collapsability"><span class="header-section-number">5.1</span> Collapsability</a></li>
-  <li><a href="#mixed-models" id="toc-mixed-models" class="nav-link" data-scroll-target="#mixed-models"><span class="header-section-number">5.2</span> Mixed Models</a>
-  <ul class="collapse">
-  <li><a href="#linear-mixed-models" id="toc-linear-mixed-models" class="nav-link" data-scroll-target="#linear-mixed-models"><span class="header-section-number">5.2.1</span> Linear mixed models</a></li>
-  <li><a href="#non-linear-mixed-models" id="toc-non-linear-mixed-models" class="nav-link" data-scroll-target="#non-linear-mixed-models"><span class="header-section-number">5.2.2</span> Non-linear mixed models</a></li>
-  <li><a href="#fixed-effects" id="toc-fixed-effects" class="nav-link" data-scroll-target="#fixed-effects"><span class="header-section-number">5.2.3</span> Fixed effects</a></li>
-  <li><a href="#randon-effects" id="toc-randon-effects" class="nav-link" data-scroll-target="#randon-effects"><span class="header-section-number">5.2.4</span> Randon effects</a></li>
-  </ul></li>
-  <li><a href="#collapsability-1" id="toc-collapsability-1" class="nav-link" data-scroll-target="#collapsability-1"><span class="header-section-number">5.3</span> Collapsability</a></li>
-  <li><a href="#covariates" id="toc-covariates" class="nav-link" data-scroll-target="#covariates"><span class="header-section-number">5.4</span> Covariates</a>
-  <ul class="collapse">
-  <li><a href="#discretecategorical-variables" id="toc-discretecategorical-variables" class="nav-link" data-scroll-target="#discretecategorical-variables"><span class="header-section-number">5.4.1</span> Discrete/categorical variables</a></li>
-  <li><a href="#continuous-variables" id="toc-continuous-variables" class="nav-link" data-scroll-target="#continuous-variables"><span class="header-section-number">5.4.2</span> Continuous variables</a></li>
-  </ul></li>
-  <li><a href="#covariance-structures" id="toc-covariance-structures" class="nav-link" data-scroll-target="#covariance-structures"><span class="header-section-number">5.5</span> Covariance structures</a>
-  <ul class="collapse">
-  <li><a href="#unstructured-covariance" id="toc-unstructured-covariance" class="nav-link" data-scroll-target="#unstructured-covariance"><span class="header-section-number">5.5.1</span> Unstructured covariance</a></li>
-  <li><a href="#compound-covariance" id="toc-compound-covariance" class="nav-link" data-scroll-target="#compound-covariance"><span class="header-section-number">5.5.2</span> Compound covariance</a></li>
-  <li><a href="#toeplitz" id="toc-toeplitz" class="nav-link" data-scroll-target="#toeplitz"><span class="header-section-number">5.5.3</span> Toeplitz</a></li>
-  <li><a href="#armap-q" id="toc-armap-q" class="nav-link" data-scroll-target="#armap-q"><span class="header-section-number">5.5.4</span> ARMA(p, q)</a></li>
-  </ul></li>
+  <li><a href="#determinant" id="toc-determinant" class="nav-link active" data-scroll-target="#determinant"><span class="header-section-number">6.1</span> Determinant</a></li>
+  <li><a href="#rank" id="toc-rank" class="nav-link" data-scroll-target="#rank"><span class="header-section-number">6.2</span> Rank</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Statistical_Power.html">Data Science</a></li><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Models.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Linear_Algebra/Introduction.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../../Chapters/Linear_Algebra/Matrix.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="Models" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></h1>
 </div>
 
 
@@ -342,70 +294,13 @@ window.Quarto = {
 </header>
 
 
-<section id="collapsability" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="collapsability"><span class="header-section-number">5.1</span> Collapsability</h2>
+<section id="determinant" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="determinant"><span class="header-section-number">6.1</span> Determinant</h2>
 </section>
-<section id="mixed-models" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="mixed-models"><span class="header-section-number">5.2</span> Mixed Models</h2>
-<section id="linear-mixed-models" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="linear-mixed-models"><span class="header-section-number">5.2.1</span> Linear mixed models</h3>
-<p>The general linear mixed model can be expressed as: <span class="math display">\[
-y = X \cdot \alpha + Z \cdot \beta + \varepsilon
-\]</span> where <span class="math inline">\(X\)</span> is the fixed effects design matrix, <span class="math inline">\(Z\)</span> is the random effects design matrix, and <span class="math inline">\(\varepsilon\)</span> is a zero mean error term.</p>
-<section id="sec-MMRM" class="level4" data-number="5.2.1.1">
-<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="sec-MMRM"><span class="header-section-number">5.2.1.1</span> Mixed models for repeated measures (MMRM)</h4>
-<p>When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model’s assumptions.</p>
-<p>The MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)</p>
-</section>
-</section>
-<section id="non-linear-mixed-models" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="non-linear-mixed-models"><span class="header-section-number">5.2.2</span> Non-linear mixed models</h3>
-</section>
-<section id="fixed-effects" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="fixed-effects"><span class="header-section-number">5.2.3</span> Fixed effects</h3>
-</section>
-<section id="randon-effects" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="randon-effects"><span class="header-section-number">5.2.4</span> Randon effects</h3>
-<p>As opposed to the fixed effects, which describe a group effects, the random effects are able to describe subject-specific devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.</p>
-</section>
-</section>
-<section id="collapsability-1" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="collapsability-1"><span class="header-section-number">5.3</span> Collapsability</h2>
-<p>Collapsibility in models refers to the property of a measure of association remaining unchanged when a variable is added to or removed from the model, provided the variable is not associated with the response and (potential) other exploratory variables.</p>
-</section>
-<section id="covariates" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="covariates"><span class="header-section-number">5.4</span> Covariates</h2>
-<section id="discretecategorical-variables" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="discretecategorical-variables"><span class="header-section-number">5.4.1</span> Discrete/categorical variables</h3>
-</section>
-<section id="continuous-variables" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="continuous-variables"><span class="header-section-number">5.4.2</span> Continuous variables</h3>
-</section>
-</section>
-<section id="covariance-structures" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="covariance-structures"><span class="header-section-number">5.5</span> Covariance structures</h2>
-<section id="unstructured-covariance" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="unstructured-covariance"><span class="header-section-number">5.5.1</span> Unstructured covariance</h3>
-<p>No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.</p>
-<p>As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters <span class="math inline">\(\left(\frac{n\cdot\left(n-1\right)}{2}\right)\)</span>. This (the number of additional parameters) also has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.</p>
-</section>
-<section id="compound-covariance" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="compound-covariance"><span class="header-section-number">5.5.2</span> Compound covariance</h3>
-</section>
-<section id="toeplitz" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="toeplitz"><span class="header-section-number">5.5.3</span> Toeplitz</h3>
-</section>
-<section id="armap-q" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="armap-q"><span class="header-section-number">5.5.4</span> ARMA(p, q)</h3>
-<section id="arp" class="level4" data-number="5.5.4.1">
-<h4 data-number="5.5.4.1" class="anchored" data-anchor-id="arp"><span class="header-section-number">5.5.4.1</span> AR(p)</h4>
-</section>
-<section id="maq" class="level4" data-number="5.5.4.2">
-<h4 data-number="5.5.4.2" class="anchored" data-anchor-id="maq"><span class="header-section-number">5.5.4.2</span> MA(q)</h4>
+<section id="rank" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="rank"><span class="header-section-number">6.2</span> Rank</h2>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -810,13 +705,13 @@ y = X \cdot \alpha + Z \cdot \beta + \varepsilon
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Data_Science/Bootstrap.html" class="pagination-link" aria-label="Bootstrap">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bootstrap</span></span>
+      <a href="../../Chapters/Linear_Algebra/Introduction.html" class="pagination-link" aria-label="Linear Algebra">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Algebra</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Linear_Algebra/Introduction.html" class="pagination-link" aria-label="Linear Algebra">
-        <span class="nav-page-text">Linear Algebra</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Probability/Introduction.html" class="pagination-link" aria-label="Probability Theory">
+        <span class="nav-page-text">Probability Theory</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
