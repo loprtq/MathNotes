@@ -1,25 +1,25 @@
 # Stochastic Variables
 
 
-## Probability mass function
+## Probability mass function (PMF) {#sec-PMF}
 
 $$
 p_X(x) = \operatorname{P}\left(X = x\right)
 $$
 
-## Cumulative distribution function
+## Cumulative distribution function (CDF) {#sec-CDF}
 
 $$
 F_X(x) = \operatorname{P}\left(X \leq x\right)
 $$
 
-## Probability density function
+## Probability density function (PDF) {#sec-PDF}
 
 $$
 f_X(x) = 
 $$
 
-## Expected Value
+## Expected Value {#sec-Expected_Value}
 
 $$
 \begin{aligned}

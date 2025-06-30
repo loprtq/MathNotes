@@ -1,0 +1,45 @@
+# Stochastic Variables
+## Bernoulli
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Gaussian
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Uniform
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Bionomial
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Poisson
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Exponential
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Geometric
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Gamma
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+## Chi-square
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}

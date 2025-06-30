@@ -1,0 +1,43 @@
+# Hazard function {#sec-HazardFunction}
+The hazard function $h$ describes the instantaneous risk of an event at a time $t$.
+$$
+\begin{aligned}
+    h(t) &= \lambda(t)
+    \\&= \lim_{\Delta t \to 0}\frac{\operatorname{P}\left(t \leq T < t + \Delta t \mid T \geq t\right)}{\Delta t}
+\end{aligned}
+$$
+
+## Cumulative hazard function
+
+$$
+H(t) = \int_0^t h(u)\,\textrm{d}u
+$$
+
+## Hazard ratio (HR) {#HazardRatio}
+Provided that one wants to compare 
+-   $\textrm{HR} < 1$: increased survival probability, compared to reference
+-   $\textrm{HR} = 1$: No difference in survival probability, compared to reference
+-   $\textrm{HR} > 1$: decreased survival probability, compared to reference
+
+:::{rem-HR}
+The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(survival)
+library(ggplot2)
+
+## Data
+
+## Model
+# * status == 1: event, status == 0: censored
+cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = "breslow")
+
+
+## Forest plot
+
+```

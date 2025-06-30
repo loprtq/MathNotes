@@ -1,0 +1,7 @@
+# Logistic Regression {#sec-Logistic_Regression}
+
+## Separation
+When all outcomes with a level of a covariate is always 0 or always 1, this is called separation. 
+
+### Complete Separation
+### Quasi-Complete Separation
