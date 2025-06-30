@@ -1,4 +1,8 @@
 # Probability Theory
 Probability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.
 
-Probability is assigned to events as a number between $0$ and $1$, where $0$ indicates impossibility and $1$ indicates certainty. For example, the probability of rolling a 4 on a fair six-sided die is 1/6. Some basic rules of probability include: the probability of the entire sample space is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities.
+Probability is assigned to events as a number between $0$ and $1$, where $0$ indicates impossibility and $1$ indicates certainty. For example, the probability of rolling a $4$ on a fair six-sided die is $1/6$. Some basic rules of probability include: the probability of the entire sample space is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities.
+
+## Sample Space
+The sample space of an experiment, e.g. rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be $\Omega = \{1,2,3,4,5,6\}$, and each event $E\in\Omega$. 
+

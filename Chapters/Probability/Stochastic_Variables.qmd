@@ -1,5 +1,5 @@
 # Stochastic Variables
-
+Stochastistic variables
 
 ## Probability mass function (PMF) {#sec-PMF}
 
@@ -36,4 +36,19 @@ $$
 
 $$
 \mathbb{E}\left[X\right] = \mathbb{E}\left[\mathbb{E}\left[Y\mid X\right]\right]
+$$
+
+## Variance {#sec-Variance}
+$$
+\operatorname{Var}\left[X\right] = \mathbb{E}\left[\left(X - \mathbb{E}\left[X\right]\right)^2\right]
+$$
+
+### Covariance
+$$
+\operatorname{Cov}\left[X, Y\right] = 
+$$
+
+### Correlation
+$$
+\operatorname{Cor}\left[X, Y\right] = 
 $$
