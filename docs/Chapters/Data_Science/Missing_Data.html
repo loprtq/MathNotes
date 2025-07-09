@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>introduction – MathNotes</title>
+<title>3&nbsp; Missing data – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Time_Series/Models.html" rel="prev">
+<link href="../../Chapters/Data_Science/Bootstrap.html" rel="next">
+<link href="../../Chapters/Data_Science/Statistical_Power.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -69,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Spatial/Introduction.html">Spatial Statistics</a></li><li class="breadcrumb-item"><a href="../../Chapters/Spatial/Introduction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Introduction.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Statistical_Power.html">Data Science</a></li><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Missing_Data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -135,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></span></a>
   </div>
 </li>
@@ -155,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a href="../../Chapters/Linear_Algebra/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Algebra</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -164,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Linear_Algebra/Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Chapters/Linear_Algebra/Matrix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
   </div>
 </li>
@@ -172,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Probability Theory</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -181,14 +211,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction.html</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Probability/Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  <a href="../../Chapters/Probability/Stochastic_Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></a>
   </div>
 </li>
       </ul>
@@ -205,27 +229,27 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kaplan-meier (KM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kaplan-meier (KM)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Time Series</span></a>
+            <a href="../../Chapters/Time_Series/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time Series Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -233,20 +257,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Time_Series/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/Autocorrelation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Autocorrelation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Autocorrelation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Time_Series/Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">AR(p)</span></span></a>
+  <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -262,8 +280,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Spatial/Introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Introduction.html</span></span></a>
+  <a href="../../Chapters/Spatial/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction.html</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,17 +291,82 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#missing-completly-at-random-mcar" id="toc-missing-completly-at-random-mcar" class="nav-link active" data-scroll-target="#missing-completly-at-random-mcar"><span class="header-section-number">3.1</span> Missing completly at random (MCAR)</a>
+  <ul class="collapse">
+  <li><a href="#missing-at-random-mar" id="toc-missing-at-random-mar" class="nav-link" data-scroll-target="#missing-at-random-mar"><span class="header-section-number">3.1.1</span> Missing at random (MAR)</a></li>
+  <li><a href="#missing-not-at-random-mnar" id="toc-missing-not-at-random-mnar" class="nav-link" data-scroll-target="#missing-not-at-random-mnar"><span class="header-section-number">3.1.2</span> Missing not at random (MNAR)</a></li>
+  </ul></li>
+  <li><a href="#missing-data-patterns" id="toc-missing-data-patterns" class="nav-link" data-scroll-target="#missing-data-patterns"><span class="header-section-number">3.2</span> Missing data patterns</a>
+  <ul class="collapse">
+  <li><a href="#monotone-missingness" id="toc-monotone-missingness" class="nav-link" data-scroll-target="#monotone-missingness"><span class="header-section-number">3.2.1</span> Monotone missingness</a></li>
+  <li><a href="#non-monotone-missingness" id="toc-non-monotone-missingness" class="nav-link" data-scroll-target="#non-monotone-missingness"><span class="header-section-number">3.2.2</span> Non-monotone missingness</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Spatial/Introduction.html">Spatial Statistics</a></li><li class="breadcrumb-item"><a href="../../Chapters/Spatial/Introduction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Introduction.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Statistical_Power.html">Data Science</a></li><li class="breadcrumb-item"><a href="../../Chapters/Data_Science/Missing_Data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<p>Depending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.</p>
+<section id="missing-completly-at-random-mcar" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="missing-completly-at-random-mcar"><span class="header-section-number">3.1</span> Missing completly at random (MCAR)</h2>
+<ul>
+<li>The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases</li>
+<li>Assumes that the reason why data is missing is unrelated to the data</li>
+<li>Usually an unreaslistic assumption</li>
+</ul>
+<section id="missing-at-random-mar" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="missing-at-random-mar"><span class="header-section-number">3.1.1</span> Missing at random (MAR)</h3>
+<ul>
+<li>The missingness of the data is related to the observed variables, and not the unobserved variables.</li>
+<li>A more realistic assumption than MCAR</li>
+</ul>
+</section>
+<section id="missing-not-at-random-mnar" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="missing-not-at-random-mnar"><span class="header-section-number">3.1.2</span> Missing not at random (MNAR)</h3>
+<ul>
+<li>Missingness depends on both the observed and unobserved variables.</li>
+<li>If it is neither MCAR or MAR, then it is MNAR.</li>
+</ul>
+</section>
+</section>
+<section id="missing-data-patterns" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="missing-data-patterns"><span class="header-section-number">3.2</span> Missing data patterns</h2>
+<section id="monotone-missingness" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="monotone-missingness"><span class="header-section-number">3.2.1</span> Monotone missingness</h3>
+<p>Imagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let’s say the trial gives provides values <span class="math inline">\(Y_1,Y_2,\dots,Y_{52}\)</span>, where the index is the week. If we have <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_3\)</span>, but not <span class="math inline">\(Y_2\)</span> then the data pattern is not monotone.</p>
+</section>
+<section id="non-monotone-missingness" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="non-monotone-missingness"><span class="header-section-number">3.2.2</span> Non-monotone missingness</h3>
+<p>When there is a missing value between two observed data points. For example, let’s say the trial gives provides values <span class="math inline">\(Y_1,Y_2,\dots,Y_{52}\)</span>, where the index is the week. If we have <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_3\)</span>, but not <span class="math inline">\(Y_2\)</span> then the data pattern is non-monotone.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -687,11 +770,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Time_Series/Models.html" class="pagination-link" aria-label="AR(p)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">AR(p)</span></span>
+      <a href="../../Chapters/Data_Science/Statistical_Power.html" class="pagination-link" aria-label="Statistical Power">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Power</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../Chapters/Data_Science/Bootstrap.html" class="pagination-link" aria-label="Bootstrap">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bootstrap</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

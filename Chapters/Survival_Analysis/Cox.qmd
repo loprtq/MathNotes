@@ -42,16 +42,6 @@ plot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it 
 survminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)
 ```
 
-## SAS
-```{{sas}}
-proc phreg data=mydata.sample_data;
-    class covariate1 covariate2;
-    model time*status(0) = covariate1 covariate2 covariate3 / ties=breslow;
-    baseline out = baseline_data survival = surv_prob;
-    output out = cox_output predicted = predicted_values;
-run;
-```
-
 ## Python
 ```{python}
 #| eval: false
@@ -74,6 +64,14 @@ cph.print_summary()
 
 ## Plot
 cph.plot()
+```
+
+## Julia
+```{julia}
+#| eval: false
+#| echo: true
+#| warning: false
+
 ```
 :::
 :::
