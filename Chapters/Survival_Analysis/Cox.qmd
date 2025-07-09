@@ -5,12 +5,20 @@ h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right)
 $$ {#eq-Cox}
 where $h_0$ is the baseline hazard function, $x_1,x_2,\dots,x_p$ are the covariates and $\beta_1,\beta_2,\dots,\beta_p$ the associated effect sizes of the covariates.
 
+The Cox model assumes that continuous covariates have a linear relationship with $h$.
+
+## Separation
+Similar to logistic regression (see @sec-Logistic_Regression), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:
+- **Estimation Instability:** The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.
+- **Convergence Issues**: The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.
+- **Invalid Inference**: Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.
+
 ## Stratification
-When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum. Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as 
+When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum. Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as
 $$
 h(t) = \begin{cases}
-h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=1\\
-h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=2
+    h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=1\\
+    h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=2
 \end{cases}
 $$ {#eq-Cox-stratification}
 meaning that the two stratum share the same effect sizes $\beta_1,\beta_2,\dots,\beta_p$. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.
@@ -80,6 +88,16 @@ cph.plot()
 $$
 \begin{aligned}
     h(t) &= h_0(t) \cdot \exp\left(X\beta + Zb\right)\\
-    b &\widetilde G\left(0, \Sigma\left(\theta\right)\right)
+    b &\sim \operatorname{N}\left(0, \Sigma\left(\theta\right)\right)
 \end{aligned}
 $$
+where $\operatorname{N}$ is a Gaussian distribution with mean $0$ and covariance $\Sigma(\theta)$. 
+
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(survival)
+library(coxme)
+```

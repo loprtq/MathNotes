@@ -1,25 +1,25 @@
 # Stochastic Variables
+Stochastistic variables
 
-
-## Probability mass function
+## Probability mass function (PMF) {#sec-PMF}
 
 $$
 p_X(x) = \operatorname{P}\left(X = x\right)
 $$
 
-## Cumulative distribution function
+## Cumulative distribution function (CDF) {#sec-CDF}
 
 $$
 F_X(x) = \operatorname{P}\left(X \leq x\right)
 $$
 
-## Probability density function
+## Probability density function (PDF) {#sec-PDF}
 
 $$
 f_X(x) = 
 $$
 
-## Expected Value
+## Expected Value {#sec-Expected_Value}
 
 $$
 \begin{aligned}
@@ -36,4 +36,19 @@ $$
 
 $$
 \mathbb{E}\left[X\right] = \mathbb{E}\left[\mathbb{E}\left[Y\mid X\right]\right]
+$$
+
+## Variance {#sec-Variance}
+$$
+\operatorname{Var}\left[X\right] = \mathbb{E}\left[\left(X - \mathbb{E}\left[X\right]\right)^2\right]
+$$
+
+### Covariance
+$$
+\operatorname{Cov}\left[X, Y\right] = 
+$$
+
+### Correlation
+$$
+\operatorname{Cor}\left[X, Y\right] = 
 $$

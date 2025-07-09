@@ -1,37 +1,5 @@
 # Survival Analysis {#SurvivalAnalysis}
+The expression "survival analysis" can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.
 
-## Survival function {#sec-SurvivalFunction}
+## Survival data
 
-$$
-\begin{aligned}
-S(t) &= \operatorname{P}(T > t) \\&= 1 - F(t)
-\end{aligned}
-$$
-
-**Properties**
-
--   Monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
-
-## Hazard function {#sec-HazardFunction}
-
-The hazard function $h$ describes the instantaneous risk of an event at a time $t$. $$\begin{aligned}
-h(t) &= \lambda(t) \\&= \lim_{\Delta t \to 0}\frac{\operatorname{P}\left(t \leq T < t + \Delta t \mid T \geq t\right)}{\Delta t}
-\end{aligned}$$
-
-### Cumulative hazard function
-
-$$
-H(t) = \int_0^t h(u)\,\textrm{d}u
-$$
-
-### Hazard ratio (HR) {#HazardRatio}
-
--   $\textrm{HR} < 1$: increased survival probability, compared to reference
--   $\textrm{HR} = 1$: No difference in survival probability, compared to reference
--   $\textrm{HR} > 1$: decreased survival probability, compared to reference
-
-## Cumulative incidence function (CIF) {#sec-CIF}
-
-$$\begin{aligned}
-F(t) &= \operatorname{P}(T \leq t) \\&= \int_0^t h(u) \cdot S(u) \,\textrm{d}u
-\end{aligned}$$

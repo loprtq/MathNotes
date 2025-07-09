@@ -1,0 +1,33 @@
+# Survival function {#sec-SurvivalFunction}
+To describe how probable it is for a person to survive until some time $t$, we can use the concept of stochastic variables. More precisely, the CDF (see @sec-CDF) can be used to describe the probability that an event occurs prior to time $t$ - $\operatorname{P}(T \leq t)$. However in survival analysis, the opposite is of interest - that a person has survived past time $t$. Thus, the survival function can be defined as
+$$
+\begin{aligned}
+S(t) &= \operatorname{P}(T > t) \\&= 1 - F(t)
+\end{aligned}
+$$
+where $F$ is the CDF of the stochastic variable $T$ - stochastic event time.
+
+**Properties**
+
+- Monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
+
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(survival)
+
+## Data
+
+
+## Plot
+
+```
+
+## Cumulative incidence function (CIF) {#sec-CIF}
+
+$$\begin{aligned}
+    F(t) &= \operatorname{P}(T \leq t) \\
+    &= \int_0^t h(u) \cdot S(u) \,\textrm{d}u
+\end{aligned}$$

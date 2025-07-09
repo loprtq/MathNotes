@@ -1,0 +1,81 @@
+# Common Stochastic Variables
+## Bernoulli
+A bernoulli stochastic variable $X\sim\operatorname{B}(n, p)$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\operatorname{P}\left(X = 1\right) = p$ and the opposite, $\operatorname{P}\left(X = 0\right) = 1 - p$.
+
+### Distribution {.unnumbered}
+$$
+\begin{cases}p &\textrm{if } x = 1\\ 1 - p &\textrm{if } x = 0\end{cases}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\mathbb{E}\left[X\right] = p
+$$
+
+### Variance {.unnumbered}
+$$
+\operatorname{Var}\left[X\right] = p \cdot (1-p)
+$$
+
+
+## Bionomial
+A bionomial stochastic variable is a bernoulli stochastic variable repeated $n$ times.
+
+### Distribution {.unnumbered}
+The PMF (see @sec-PMF) of a bionomial stochastic variable is
+$$
+\binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}
+$$
+where $k$ is the number of $1$'s out of the possible $n$ experiments.
+
+### Expected Value {.unnumbered}
+$$
+\mathbb{E}\left[X\right] = n \cdot p
+$$
+
+### Variance {.unnumbered}
+$$
+\operatorname{Var}\left[X\right] = n \cdot p \cdot (1-p)
+$$
+
+
+## Gaussian
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Uniform
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Poisson
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Exponential
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Geometric
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Gamma
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## Chi-square
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}

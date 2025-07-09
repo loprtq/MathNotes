@@ -1,0 +1,3 @@
+# Multiple Imputation
+
+## Rubin's rule
