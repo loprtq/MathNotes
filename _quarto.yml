@@ -12,14 +12,12 @@ book:
     search: true
   chapters:
     - index.qmd
-    - intro.qmd
     - part: "Data Science"
       chapters:
         - Chapters/Data_Science/Statistical_Power.qmd
         - Chapters/Data_Science/Missing_Data.qmd
+        - Chapters/Data_Science/Causality.qmd
         - Chapters/Data_Science/Bootstrap.qmd
-        - Chapters/Data_Science/Models.qmd
-        - Chapters/Data_Science/Logistic_Regression.qmd
         
     - part: Chapters/Linear_Algebra/Introduction.qmd
       chapters:
@@ -28,6 +26,13 @@ book:
     - part: Chapters/Probability/Introduction.qmd
       chapters:
         - Chapters/Probability/Stochastic_Variables.qmd
+
+    - part: Chapters/Statistical_Models/Introduction.qmd
+      chapters:
+        - Chapters/Statistical_Models/Logistic_Regression.qmd
+        - Chapters/Statistical_Models/Linear_Regression.qmd
+        - Chapters/Statistical_Models/Linear_Mixed_Models.qmd
+        - Chapters/Statistical_Models/Non-linear_Mixed_Models.qmd
 
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:
@@ -47,7 +52,7 @@ book:
         - Chapters/Spatial/Introduction.qmd
 
   appendices: 
-    - Chapters/Survival_Analysis/APP-Stochastic_Variables.qmd
+    - Chapters/Probability/APP-Stochastic_Variables.qmd
 
 reference-section-title: "References"
 bibliography: references.bib
@@ -56,3 +61,6 @@ format:
   html:
     theme: cosmo
     toc: true
+
+nameref:
+  section-number: true
