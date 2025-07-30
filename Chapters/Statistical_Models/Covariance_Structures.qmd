@@ -1,0 +1,13 @@
+# Covariance Structures {#sec-Covariance_Structures}
+## Unstructured covariance
+No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.
+
+As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters $\left(\frac{n\cdot\left(n-1\right)}{2}\right)$. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
+
+## Compound covariance
+## Toeplitz
+## ARMA(p, q)
+@sec-ARMA
+
+### AR(p)
+### MA(q)

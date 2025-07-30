@@ -1,22 +1,22 @@
-# Missing data
+# Missing data {#sec-Missing_Data}
 Depending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.
 
-## Missing completly at random (MCAR)
+## Missing completly at random (MCAR) {#sec-MCAR}
 - The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases
 - Assumes that the reason why data is missing is unrelated to the data
 - Usually an unreaslistic assumption
 
-### Missing at random (MAR)
+### Missing at random (MAR) {#sec-MAR}
 - The missingness of the data is related to the observed variables, and not the unobserved variables.
 - A more realistic assumption than MCAR
 
-### Missing not at random (MNAR)
+### Missing not at random (MNAR) {#sec-MNAR}
 - Missingness depends on both the observed and unobserved variables.
 - If it is neither MCAR or MAR, then it is MNAR.
 
-## Missing data patterns
-### Monotone missingness
-Imagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is not monotone.
+## Missing data patterns {#sec-Missing_Data_Pattern}
+### Monotone missingness {#sec-Monotone_Missingness}
+Imagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let's say the trial gives provides values $Y_1, Y_2, \dots, Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is not monotone.
 
-### Non-monotone missingness
-When there is a missing value between two observed data points. For example, let's say the trial gives provides values $Y_1,Y_2,\dots,Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is non-monotone.
+### Non-monotone missingness {#sec-Non-Monotone_Missingness}
+When there is a missing value between two observed data points. For example, let's say the trial gives provides values $Y_1, Y_2, \dots, Y_{52}$, where the index is the week. If we have $Y_1$ and $Y_3$, but not $Y_2$ then the data pattern is non-monotone.

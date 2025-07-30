@@ -1,0 +1,13 @@
+# Statistical Models {#sec-Statistical_Models}
+
+## Covariates
+### Discrete/categorical variables
+### Continuous variables
+
+
+## Fixed Effects
+
+## Random Effects
+As opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.
+
+As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitive, there should be some form of correlation between there height at age 10 and then at age 20. If one were to try and model this under a linear assumption, it could make sense to model them individually, but some general information of systemic growth would be lost in doing so. Instead, one could use a linear mixed model (see @sec-Linear_Mixed_Model)

@@ -1,0 +1,25 @@
+# Linear Regression {#sec-Linear_Regression}
+
+$$
+y = X \cdot \alpha + \varepsilon
+$$
+where $X$ is the fixed effects design matrix, $\alpha$ is the fixed effect regression coefficients, and $\varepsilon$ is the zero-mean errors.
+
+:::{#exm-Linear_Regression_Simple}
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(lme4)
+library(mmrm)
+library(broom.mixed)
+library(emmeans)
+
+## Data
+
+## Model
+
+## Plot
+```
+:::
