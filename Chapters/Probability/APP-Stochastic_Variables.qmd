@@ -39,7 +39,7 @@ $$
 $$
 
 
-## Gaussian
+## Gaussian {#sec-Gaussian_Stochastic_Variable}
 ### Distribution {.unnumbered}
 ### Expected Value {.unnumbered}
 ### Variance {.unnumbered}

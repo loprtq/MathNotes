@@ -1,4 +1,6 @@
 # Statistical Models {#sec-Statistical_Models}
+This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters. 
+
 
 ## Covariates
 ### Discrete/categorical variables
@@ -7,7 +9,8 @@
 
 ## Fixed Effects
 
+
 ## Random Effects
 As opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.
 
-As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but then some general information of systemic growth would be lost with this approach. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see @sec-Linear_Mixed_Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years 
+As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see @sec-Linear_Mixed_Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.

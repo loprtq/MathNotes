@@ -3,6 +3,8 @@ Expanding upon the concepts introduced in @sec-Linear_Regression and @sec-Random
 $$
 y = X \cdot \alpha + Z \cdot \beta + \varepsilon.
 $$
+Similar to how the errors
+
 
 To justify the addtion of the random effects, the data somehow has to include some individual devation. 
 
@@ -25,9 +27,3 @@ library(emmeans)
 ## Plot
 ```
 :::
-
-
-#### Mixed models for repeated measures (MMRM) {#sec-MMRM}
-When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model's assumptions.
-
-The MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)
