@@ -32,6 +32,7 @@ book:
         - Chapters/Statistical_Models/Logistic_Regression.qmd
         - Chapters/Statistical_Models/Linear_Regression.qmd
         - Chapters/Statistical_Models/Linear_Mixed_Model.qmd
+        - Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.qmd
         - Chapters/Statistical_Models/Non-linear_Mixed_Model.qmd
         - Chapters/Statistical_Models/Covariance_Structures.qmd
 
@@ -56,7 +57,9 @@ book:
     - Chapters/Probability/APP-Stochastic_Variables.qmd
 
 reference-section-title: "References"
-bibliography: references.bib
+bibliography:
+  - Bibliography/articles.bib
+  - Bibliography/books.bib
 
 format:
   html:
