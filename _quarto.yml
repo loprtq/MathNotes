@@ -18,6 +18,12 @@ book:
         - Chapters/Data_Science/Missing_Data.qmd
         - Chapters/Data_Science/Causality.qmd
         - Chapters/Data_Science/Bootstrap.qmd
+
+    - part: Chapters/Calculus/Introduction.qmd
+      chapters:
+        - Chapters/Calculus/Differential.qmd
+        - Chapters/Calculus/Differential_Equations.qmd
+        - Chapters/Calculus/Integration.qmd
         
     - part: Chapters/Linear_Algebra/Introduction.qmd
       chapters:
