@@ -1,4 +1,4 @@
-# Kaplan-meier (KM) {#KaplanMeier}
+# Kaplan-meier {#KaplanMeier}
 
 ``` {r}
 #| eval: false

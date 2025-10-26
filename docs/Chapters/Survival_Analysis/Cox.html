@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Cox Regression – MathNotes</title>
+<title>21&nbsp; Cox Regression – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-ed0c75a7687b803111fa3c672eb1ee15.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -135,6 +135,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -146,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Cox.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Cox.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +157,7 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -174,19 +175,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Science</span></a>
+            <a href="../../Chapters/Calculus/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,26 +189,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Statistical_Power.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Power</span></span></a>
+  <a href="../../Chapters/Calculus/Differential.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Differential</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></span></a>
+  <a href="../../Chapters/Calculus/Differential_Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differential Equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Bootstrap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bootstrap</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></span></a>
+  <a href="../../Chapters/Calculus/Integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Integration</span></span></a>
   </div>
 </li>
       </ul>
@@ -230,7 +219,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Linear_Algebra/Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +236,89 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Probability/Stochastic_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Statistical_Power.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical Power</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Missing data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Causality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Bootstrap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrap</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Chapters/Statistical_Models/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -256,27 +327,45 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Survival_Analysis/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Survival Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kaplan-meier (KM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,38 +374,49 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Time_Series/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Time Series Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Time_Series/Autocorrelation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Autocorrelation</span></span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a href="../../Chapters/Spatial_Statistics/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Spatial Statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Spatial/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction.html</span></span></a>
+  <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Probability/APP-Stochastic_Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Common Stochastic Variables</span></span></a>
   </div>
 </li>
       </ul>
@@ -331,21 +431,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#stratification" id="toc-stratification" class="nav-link active" data-scroll-target="#stratification"><span class="header-section-number">9.1</span> Stratification</a></li>
+  <li><a href="#separation" id="toc-separation" class="nav-link active" data-scroll-target="#separation"><span class="header-section-number">21.1</span> Separation</a></li>
+  <li><a href="#stratification" id="toc-stratification" class="nav-link" data-scroll-target="#stratification"><span class="header-section-number">21.2</span> Stratification</a></li>
+  <li><a href="#mixed-effects-cox-model" id="toc-mixed-effects-cox-model" class="nav-link" data-scroll-target="#mixed-effects-cox-model"><span class="header-section-number">21.3</span> Mixed Effects Cox Model</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Cox.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Cox.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Cox" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></h1>
+<h1 class="title"><span id="sec-Cox" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -358,20 +460,30 @@ window.Quarto = {
 
 
 <p><span id="eq-Cox"><span class="math display">\[
-h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right)
-\tag{9.1}\]</span></span> where <span class="math inline">\(h_0\)</span> is the baseline hazard function, <span class="math inline">\(x_1,x_2,\dots,x_p\)</span> are the covariates and <span class="math inline">\(b_1,b_2,\dots,b_p\)</span> the associated effect sizes of the covariates.</p>
-<section id="stratification" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="stratification"><span class="header-section-number">9.1</span> Stratification</h2>
-<p>When stratifying a Cox model (See <a href="#eq-Cox" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>), it allows the model to fix different baseline hazard functions <span class="math inline">\(h_0\)</span> for each stratum. Thus, if there are two stratum, <span class="math inline">\(g=1\)</span> and <span class="math inline">\(g=2\)</span>, the Cox model is given as <span id="eq-Cox-stratification"><span class="math display">\[
+h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right)
+\tag{21.1}\]</span></span> where <span class="math inline">\(h_0\)</span> is the baseline hazard function, <span class="math inline">\(x_1,x_2,\dots,x_p\)</span> are the covariates and <span class="math inline">\(\beta_1,\beta_2,\dots,\beta_p\)</span> the associated effect sizes of the covariates.</p>
+<p>The Cox model assumes that continuous covariates have a linear relationship with <span class="math inline">\(h\)</span>.</p>
+<section id="separation" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="separation"><span class="header-section-number">21.1</span> Separation</h2>
+<p>Similar to logistic regression (see <a href="../Statistical_Models/Logistic_Regression.html" class="quarto-xref"><span>Chapter 11</span></a>), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:</p>
+<ul>
+<li><p><strong>Estimation Instability:</strong> The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.</p></li>
+<li><p><strong>Convergence Issues</strong>: The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.</p></li>
+<li><p><strong>Invalid Inference</strong>: Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.</p></li>
+</ul>
+</section>
+<section id="stratification" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="stratification"><span class="header-section-number">21.2</span> Stratification</h2>
+<p>When stratifying a Cox model (See <a href="#eq-Cox" class="quarto-xref">Equation&nbsp;<span>21.1</span></a>), it allows the model to fix different baseline hazard functions <span class="math inline">\(h_0\)</span> for each stratum. Thus, if there are two stratum, <span class="math inline">\(g=1\)</span> and <span class="math inline">\(g=2\)</span>, the Cox model is given as <span id="eq-Cox-stratification"><span class="math display">\[
 h(t) = \begin{cases}
-h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) &amp; \textrm{if } g=1\\
-h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) &amp; \textrm{if } g=2
+    h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) &amp; \textrm{if } g=1\\
+    h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) &amp; \textrm{if } g=2
 \end{cases}
-\tag{9.2}\]</span></span> meaning that the two stratum share the same effect sizes <span class="math inline">\(b_1,b_2,\dots,b_p\)</span>. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.</p>
+\tag{21.2}\]</span></span> meaning that the two stratum share the same effect sizes <span class="math inline">\(\beta_1,\beta_2,\dots,\beta_p\)</span>. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.</p>
 <div id="exm-Cox" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9.1 (Proportional Cox model)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 21.1 (Proportional Cox model)</strong></span> &nbsp;</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">SAS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
@@ -395,9 +507,6 @@ h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) &amp; \textrm{if } g=2
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>`<code>wiwzala proc phreg data=mydata.sample_data;     class covariate1 covariate2;     model time*status(0) = covariate1 covariate2 covariate3 / ties=breslow;     baseline out = baseline_data survival = surv_prob;     output out = cox_output predicted = predicted_values; run;</code></p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Packages</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -420,6 +529,20 @@ h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) &amp; \textrm{if } g=2
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="mixed-effects-cox-model" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="mixed-effects-cox-model"><span class="header-section-number">21.3</span> Mixed Effects Cox Model</h2>
+<p><span class="math display">\[
+\begin{aligned}
+    h(t) &amp;= h_0(t) \cdot \exp\left(X\beta + Zb\right)\\
+    b &amp;\sim \operatorname{N}\left(0, \Sigma\left(\theta\right)\right)
+\end{aligned}
+\]</span> where <span class="math inline">\(\operatorname{N}\)</span> is a Gaussian distribution with mean <span class="math inline">\(0\)</span> and covariance <span class="math inline">\(\Sigma(\theta)\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(coxme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -825,15 +948,15 @@ h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p b_ix_i\right) &amp; \textrm{if } g=2
     }
   });
   </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="pagination-link" aria-label="Kaplan-meier (KM)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kaplan-meier (KM)</span></span>
+      <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="pagination-link" aria-label="Kaplan-meier">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="pagination-link" aria-label="Competing Risk Analysis">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

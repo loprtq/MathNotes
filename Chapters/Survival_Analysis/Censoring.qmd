@@ -1,16 +1,19 @@
-# Censoring
-
+# Censoring {#sec-Censoring}
 Censoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.
 
 An event time $T$ is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event
--   **Left-Censored** $T > t$**:** has not yet occurred at time $t$
--   **Right censoring** $T < t$**:** has occurred before time $t$
+- **Left-Censored** $T > t$**:** has not yet occurred at time $t$
+
+- **Right censoring** $T < t$**:** has occurred before time $t$
 
 The most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.
 
--   **Interval-censoring** $t_1 < T < t_2$**:**
--   **Type I censoring:**
--   **Type II censoring:**
--   **Type III censoring:**
+- **Interval-censoring** $t_1 < T < t_2$**:**
+
+- **Type I censoring:**
+
+- **Type II censoring:**
+
+- **Type III censoring:**
 
 ### Non-informative censoring

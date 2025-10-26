@@ -1,4 +1,4 @@
 # Competing Risk Analysis
 Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: $h_j(t)$, where the overall hazard rate, with $k$ different events, would then be described as: $h(t) = \sum_{j=1}^k h_j(t)$.
 
-The CIF (See @sec-CIF) for a specific event, $F_j(t) = \operatorname{P}(T\leq t, C = j) = \int_t^t h_j(u) \cdot S(u)\,\textrm{d}u$, describes. Similar to the overall hazard ratio, the overall CIF can be described by $F(t) = \sum_{j=1}^k F_j(t)$.
+The CIF (See @eq-CIF) for a specific event, $F_j(t) = \operatorname{P}(T\leq t, C = j) = \int_t^t h_j(u) \cdot S(u)\,\textrm{d}u$, describes. Similar to the overall hazard ratio, the overall CIF can be described by $F(t) = \sum_{j=1}^k F_j(t)$.

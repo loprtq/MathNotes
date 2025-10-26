@@ -1,0 +1,32 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| tbl-cap: Survival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.
+## Library
+library(dplyr)
+
+## Data
+# Get data
+data(cancer, package = "survival")
+
+# Transform and select data
+data_f <- lung %>%
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
+    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+    dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
+
+# Add labels as column names
+data_c <- data_f
+names(data_c) <- c(
+    "Institution code",
+    "Survival time in days",
+    "Censoring status",
+    "Age in years",
+    "Sex"
+)
+
+
+## Table
+knitr::kable(data_c[1:10, ])
+```

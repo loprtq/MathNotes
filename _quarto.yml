@@ -10,14 +10,9 @@ book:
   sidebar:
     title: "MathNotes"
     search: true
+  
   chapters:
     - index.qmd
-    - part: "Data Science"
-      chapters:
-        - Chapters/Data_Science/Statistical_Power.qmd
-        - Chapters/Data_Science/Missing_Data.qmd
-        - Chapters/Data_Science/Causality.qmd
-        - Chapters/Data_Science/Bootstrap.qmd
 
     - part: Chapters/Calculus/Introduction.qmd
       chapters:
@@ -33,6 +28,13 @@ book:
       chapters:
         - Chapters/Probability/Stochastic_Variables.qmd
 
+    - part: "Data Science"
+      chapters:
+        - Chapters/Data_Science/Statistical_Power.qmd
+        - Chapters/Data_Science/Missing_Data.qmd
+        - Chapters/Data_Science/Causality.qmd
+        - Chapters/Data_Science/Bootstrap.qmd
+
     - part: Chapters/Statistical_Models/Introduction.qmd
       chapters:
         - Chapters/Statistical_Models/Logistic_Regression.qmd
@@ -46,18 +48,18 @@ book:
       chapters:
         - Chapters/Survival_Analysis/Survival_Function.qmd
         - Chapters/Survival_Analysis/Hazard_Function.qmd
+        - Chapters/Survival_Analysis/Censoring.qmd
         - Chapters/Survival_Analysis/Kaplan-Meier.qmd
         - Chapters/Survival_Analysis/Cox.qmd
         - Chapters/Survival_Analysis/Competing_Risk.qmd
 
     - part: Chapters/Time_Series/Introduction.qmd
       chapters:
-        - Chapters/Time_Series/Autocorrelation.qmd
         - Chapters/Time_Series/ARMA.qmd
         
-    - part: "Spatial Statistics"
+    - part: Chapters/Spatial_Statistics/Introduction.qmd
       chapters:
-        - Chapters/Spatial/Introduction.qmd
+        - Chapters/Spatial_Statistics/Summary_Statistics.qmd
 
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
@@ -71,6 +73,10 @@ format:
   html:
     theme: cosmo
     toc: true
+    css: styles.css
+    page-layout: full
+    grid:
+      body-width: 1200px
 
 nameref:
   section-number: true

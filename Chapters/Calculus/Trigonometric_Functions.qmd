@@ -1,0 +1,23 @@
+::: {.hidden}
+$$
+\renewcommand{\sin}[1]{\operatorname{sin}\left(#1\right)}
+\renewcommand{\cos}[1]{\operatorname{cos}\left(#1\right)}
+\renewcommand{\tan}[1]{\operatorname{tan}\left(#1\right)}
+$$
+:::
+
+# Trigonometric Functions
+## Sine
+$$
+\sin{x} = 
+$$
+
+## Cosine
+$$
+\cos{x} =
+$$
+
+## Tangent
+$$
+\tan{x} =
+$$

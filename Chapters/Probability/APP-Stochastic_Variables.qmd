@@ -1,6 +1,26 @@
+::: {.hidden}
+$$
+\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
+\renewcommand{\exp}[1]{\operatorname{exp}\left(#1\right)}
+
+\newcommand{\Ber}[1]{\operatorname{B}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
+\newcommand{\Ud}[1]{\operatorname{U}\left(#1\right)}
+\newcommand{\Gamd}[1]{\operatorname{Gamma}\left(#1\right)}
+\newcommand{\Geom}[1]{\operatorname{Geom}\left(#1\right)}
+\newcommand{\Betad}[1]{\operatorname{Beta}\left(#1\right)}
+\newcommand{\Ed}[1]{\operatorname{Exp}\left(#1\right)}
+\newcommand{\Pd}[1]{\operatorname{Po}\left(#1\right)}
+\newcommand{\Bin}[1]{\operatorname{Bin}\left(#1\right)}
+\newcommand{\NegBin}[1]{\operatorname{NegBin}\left(#1\right)}
+$$
+:::
+
 # Common Stochastic Variables
 ## Bernoulli
-A bernoulli stochastic variable $X\sim\operatorname{B}(n, p)$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\operatorname{P}\left(X = 1\right) = p$ and the opposite, $\operatorname{P}\left(X = 0\right) = 1 - p$.
+A bernoulli stochastic variable $X\sim\Ber{n, p}$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\Pr{X = 1} = p$ and the opposite, $\Pr{X = 0} = 1 - p$.
 
 ### Distribution {.unnumbered}
 $$
@@ -9,20 +29,21 @@ $$
 
 ### Expected Value {.unnumbered}
 $$
-\mathbb{E}\left[X\right] = p
+\E{X} = p
 $$
 
 ### Variance {.unnumbered}
 $$
-\operatorname{Var}\left[X\right] = p \cdot (1-p)
+\Var{X} = p \cdot (1-p)
 $$
+
 
 
 ## Bionomial
 A bionomial stochastic variable is a bernoulli stochastic variable repeated $n$ times.
 
 ### Distribution {.unnumbered}
-The PMF (see @sec-PMF) of a bionomial stochastic variable is
+The PMF (see @sec-PMF) is given as
 $$
 \binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}
 $$
@@ -30,37 +51,130 @@ where $k$ is the number of $1$'s out of the possible $n$ experiments.
 
 ### Expected Value {.unnumbered}
 $$
-\mathbb{E}\left[X\right] = n \cdot p
+\E{X} = n \cdot p
 $$
 
 ### Variance {.unnumbered}
 $$
-\operatorname{Var}\left[X\right] = n \cdot p \cdot (1-p)
+\Var{X} = n \cdot p \cdot (1-p)
 $$
 
 
-## Gaussian {#sec-Gaussian_Stochastic_Variable}
-### Distribution {.unnumbered}
-### Expected Value {.unnumbered}
-### Variance {.unnumbered}
-
-
-## Uniform
+## Negative Binomial
 ### Distribution {.unnumbered}
 ### Expected Value {.unnumbered}
 ### Variance {.unnumbered}
 
 
 ## Poisson
-### Distribution {.unnumbered}
-### Expected Value {.unnumbered}
-### Variance {.unnumbered}
+$X \sim \Pd{\lambda}$
+$\lambda > 0$
 
+### Distribution {.unnumbered}
+The PMF (see @sec-PMF) is given as
+$$
+p_X(x) = \frac{\lambda^x}{x!}\exp{-\lambda}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \lambda
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \lambda
+$$
+
+
+## Poisson
+$X \sim \Pd{\lambda}$
+$\lambda > 0$
+
+### Distribution {.unnumbered}
+The PMF (see @sec-PMF) is given as
+$$
+p_X(x) = \frac{\lambda^x}{x!}\exp{-\lambda}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \lambda
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \lambda
+$$
+
+
+## Gaussian {#sec-Gaussian_Stochastic_Variable}
+$X \sim \Nd{\mu, \sigma^2}$. The standard Gaussian distribution is given as $X \sim \Nd{0, 1}$.
+
+### Distribution {.unnumbered}
+The PDF (see @sec-PDF) is given as
+$$
+f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma}\exp{- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \mu
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \sigma^2
+$$
+
+
+## Uniform
+$X \sim \Ud{a, b}$
+
+### Distribution {.unnumbered}
+$$
+f_X(x) = \begin{cases}
+    \frac{1}{b - a} & x \in [a, b]\\
+    0 & x \notin [a,b]
+\end{cases}
+$$
+$$
+F_X(x) = \begin{cases}
+    0 & x < a\\
+    \frac{x - a}{b - a} & a \leq x \leq b\\
+    1 & x > b
+\end{cases}
+$$
+
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{2}\left(a + b\right)
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1}{12}\left(b - a\right)^2
+$$
 
 ## Exponential
 ### Distribution {.unnumbered}
+$$
+f_X(x) = \begin{cases}
+    \lambda \cdot \exp{-\lambda \cdot x} & x > 0\\
+    0 & x \leq 0
+\end{cases}
+$$
+
 ### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{\lambda}
+$$
+
 ### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1}{\lambda^2}
+$$
 
 
 ## Geometric
@@ -68,14 +182,57 @@ $$
 ### Expected Value {.unnumbered}
 ### Variance {.unnumbered}
 
-
 ## Gamma
 ### Distribution {.unnumbered}
+$X \sim \Gamd{\alpha, \beta}$
+$$
+f_X(x) = \begin{cases}
+    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\exp{-\beta \cdot x} & x > 0\\
+    0 & x \leq 0
+\end{cases}
+$$
+
 ### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{\alpha}{\beta}
+$$
+
 ### Variance {.unnumbered}
+$$
+\Var{X} = \frac{\alpha}{\beta^2}
+$$
+
+## Beta
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+$$
+\E{X}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X}
+$$
 
 
 ## Chi-square
+$X \sim \Gamd{\frac{k}{2}, \frac{1}{2}}$
+$k\in\mathbb{N}$
+
 ### Distribution {.unnumbered}
+$$
+f_X(x) = \begin{cases}
+    \frac{x^{\frac{k}{2} - 1}\exp{- \frac{x}{2}}}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} & x > 0\\
+    0 & x \leq 0
+\end{cases}
+$$
+
 ### Expected Value {.unnumbered}
+$$
+\E{X} = k
+$$
+
 ### Variance {.unnumbered}
+$$
+\Var{X} = 2 \cdot k
+$$

@@ -1,1 +1,9 @@
 # Time Series Analysis
+Time series analysis expands some of the concepts of @sec-Stochastic_Variables to time
+
+## Autocovariance and Autocorrelation
+Building upon the concepts introduced in @sec-Covariance and @sec-Correlation, the autocovariance and autocorrelation functions expand these concepts to time series data, to explain how stochastic 
+
+## Stationarity
+## Trend
+## Seasonality

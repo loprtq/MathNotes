@@ -4,162 +4,31 @@
     "href": "index.html",
     "title": "MathNotes",
     "section": "",
-    "text": "Preface",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "Example 1.1  \n\n\nRemark 1.1.",
+    "text": "1 Introduction",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
-    "objectID": "Chapters/Data_Science/Statistical_Power.html",
-    "href": "Chapters/Data_Science/Statistical_Power.html",
-    "title": "2  Statistical Power",
-    "section": "",
-    "text": "3 Type I errors and Type II errors",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistical Power</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Missing_Data.html",
-    "href": "Chapters/Data_Science/Missing_Data.html",
-    "title": "3  Missing data",
-    "section": "",
-    "text": "3.1 Missing completly at random (MCAR)\nDepending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Missing_Data.html#missing-completly-at-random-mcar",
-    "href": "Chapters/Data_Science/Missing_Data.html#missing-completly-at-random-mcar",
-    "title": "3  Missing data",
-    "section": "",
-    "text": "The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases\nAssumes that the reason why data is missing is unrelated to the data\nUsually an unreaslistic assumption\n\n\n3.1.1 Missing at random (MAR)\n\nThe missingness of the data is related to the observed variables, and not the unobserved variables.\nA more realistic assumption than MCAR\n\n\n\n3.1.2 Missing not at random (MNAR)\n\nMissingness depends on both the observed and unobserved variables.\nIf it is neither MCAR or MAR, then it is MNAR.",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Missing_Data.html#missing-data-patterns",
-    "href": "Chapters/Data_Science/Missing_Data.html#missing-data-patterns",
-    "title": "3  Missing data",
-    "section": "3.2 Missing data patterns",
-    "text": "3.2 Missing data patterns\n\n3.2.1 Monotone missingness\nImagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let’s say the trial gives provides values \\(Y_1,Y_2,\\dots,Y_{52}\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is not monotone.\n\n\n3.2.2 Non-monotone missingness\nWhen there is a missing value between two observed data points. For example, let’s say the trial gives provides values \\(Y_1,Y_2,\\dots,Y_{52}\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is non-monotone.",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Missing data</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Bootstrap.html",
-    "href": "Chapters/Data_Science/Bootstrap.html",
-    "title": "4  Bootstrap",
-    "section": "",
-    "text": "4.1 Bias\nBootstrapping is a produce for estimating the distribution of an estimator",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Bootstrap</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Bootstrap.html#variance",
-    "href": "Chapters/Data_Science/Bootstrap.html#variance",
-    "title": "4  Bootstrap",
-    "section": "4.2 Variance",
-    "text": "4.2 Variance",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Bootstrap</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Models.html",
-    "href": "Chapters/Data_Science/Models.html",
-    "title": "5  Models",
-    "section": "",
-    "text": "5.1 Collapsability",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Models.html#mixed-models",
-    "href": "Chapters/Data_Science/Models.html#mixed-models",
-    "title": "5  Models",
-    "section": "5.2 Mixed Models",
-    "text": "5.2 Mixed Models\n\n5.2.1 Linear mixed models\nThe general linear mixed model can be expressed as: \\[\ny = X \\cdot \\alpha + Z \\cdot \\beta + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, \\(Z\\) is the random effects design matrix, and \\(\\varepsilon\\) is a zero mean error term.\n\n5.2.1.1 Mixed models for repeated measures (MMRM)\nWhen working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model’s assumptions.\nThe MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)\n\n\n\n5.2.2 Non-linear mixed models\n\n\n5.2.3 Fixed effects\n\n\n5.2.4 Randon effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe subject-specific devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Models.html#collapsability-1",
-    "href": "Chapters/Data_Science/Models.html#collapsability-1",
-    "title": "5  Models",
-    "section": "5.3 Collapsability",
-    "text": "5.3 Collapsability\nCollapsibility in models refers to the property of a measure of association remaining unchanged when a variable is added to or removed from the model, provided the variable is not associated with the response and (potential) other exploratory variables.",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Models.html#covariates",
-    "href": "Chapters/Data_Science/Models.html#covariates",
-    "title": "5  Models",
-    "section": "5.4 Covariates",
-    "text": "5.4 Covariates\n\n5.4.1 Discrete/categorical variables\n\n\n5.4.2 Continuous variables",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Data_Science/Models.html#covariance-structures",
-    "href": "Chapters/Data_Science/Models.html#covariance-structures",
-    "title": "5  Models",
-    "section": "5.5 Covariance structures",
-    "text": "5.5 Covariance structures\n\n5.5.1 Unstructured covariance\nNo constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.\nAs there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters \\(\\left(\\frac{n\\cdot\\left(n-1\\right)}{2}\\right)\\). This (the number of additional parameters) also has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.\n\n\n5.5.2 Compound covariance\n\n\n5.5.3 Toeplitz\n\n\n5.5.4 ARMA(p, q)\n\n5.5.4.1 AR(p)\n\n\n5.5.4.2 MA(q)",
-    "crumbs": [
-      "Data Science",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Models</span>"
-    ]
-  },
-  {
     "objectID": "Chapters/Linear_Algebra/Matrix.html",
     "href": "Chapters/Linear_Algebra/Matrix.html",
-    "title": "6  Matrix",
+    "title": "5  Matrix",
     "section": "",
-    "text": "6.1 Determinant",
+    "text": "5.1 Determinant",
     "crumbs": [
       "Linear Algebra",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Matrix</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Matrix</span>"
     ]
   },
   {
     "objectID": "Chapters/Linear_Algebra/Matrix.html#rank",
     "href": "Chapters/Linear_Algebra/Matrix.html#rank",
-    "title": "6  Matrix",
-    "section": "6.2 Rank",
-    "text": "6.2 Rank",
+    "title": "5  Matrix",
+    "section": "5.2 Rank",
+    "text": "5.2 Rank",
     "crumbs": [
       "Linear Algebra",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Matrix</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Matrix</span>"
     ]
   },
   {
@@ -167,7 +36,17 @@
     "href": "Chapters/Probability/Introduction.html",
     "title": "Probability Theory",
     "section": "",
-    "text": "Probability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.\nProbability is assigned to events as a number between \\(0\\) and \\(1\\), where \\(0\\) indicates impossibility and \\(1\\) indicates certainty. For example, the probability of rolling a 4 on a fair six-sided die is 1/6. Some basic rules of probability include: the probability of the entire sample space is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities.",
+    "text": "Sample Space\nProbability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.\nThe sample space of an experiment, e.g. rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be \\(\\Omega = \\{1,2,3,4,5,6\\}\\), and each event \\(E\\subseteq\\Omega\\). The probability that an event \\(E\\) occurs is denoted \\(\\Pr{E}\\), where \\(0 \\leq \\Pr{E} \\leq \\Pr{\\Omega} = 1\\).",
+    "crumbs": [
+      "Probability Theory"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Introduction.html#sec-Probability_Function",
+    "href": "Chapters/Probability/Introduction.html#sec-Probability_Function",
+    "title": "Probability Theory",
+    "section": "Probability Function",
+    "text": "Probability Function\nProbability is assigned to events as a number between \\(0\\) and \\(1\\), where \\(0\\) indicates impossibility and \\(1\\) indicates certainty - \\(\\mathbb{P}: \\mathcal{A} \\to [0, 1]\\) for \\(E \\subseteq \\mathcal{A}\\). For example, the probability of rolling a \\(4\\) on a fair six-sided die is \\(1/6\\). Some basic rules of probability include: the probability of the entire sample space \\(\\Omega\\) is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.\n\\[\n\\begin{aligned}\n    \\Pr{E^\\mathrm{C}} &= 1 - \\Pr{E}\\\\\n    \\Pr{E_1 \\setminus E_2} &= \\Pr{E_1} - \\Pr{E_1 \\cap E_2}\\\\\n    \\Pr{E_1 \\cup E_2} &= \\Pr{E_1} + \\Pr{E_2} - \\Pr{E_1 \\cap E_2}\n\\end{aligned}\n\\]\n\\[\n\\Pr{E \\cap E^\\mathrm{C}} = 0\n\\]\n\nConditional Probability\n\\[\n\\Pr{E_1 \\mid E_2} = \\frac{\\Pr{E_1 \\cap E_2}}{\\Pr{E_2}}\n\\]\nTwo events are said to be independent if \\(\\Pr{E_1 \\cap E_2} = \\Pr{E_1}\\Pr{E_2}\\) meaning that if \\(\\Pr{E_2} &gt; 0\\), then \\(\\Pr{E_1 \\mid E_2} = \\Pr{E_1}\\).\n\nBayes Formula\n\\[\n\\Pr{E_2 \\mid E_1} = \\frac{\\Pr{E_1 \\mid E_2}\\Pr{E_1}}{\\Pr{E_2}},\\quad \\Pr{E_2} \\neq 0\n\\]",
     "crumbs": [
       "Probability Theory"
     ]
@@ -175,45 +54,283 @@
   {
     "objectID": "Chapters/Probability/Stochastic_Variables.html",
     "href": "Chapters/Probability/Stochastic_Variables.html",
-    "title": "7  Stochastic Variables",
+    "title": "6  Stochastic Variables",
     "section": "",
-    "text": "7.1 Probability mass function\n\\[\np_X(x) = \\operatorname{P}\\left(X = x\\right)\n\\]",
+    "text": "6.1 Probability mass function (PMF)\nStochastistic variables are functions \\(X: \\Omega \\to \\mathcal{E}\\), where \\(\\mathcal{E}\\) is typically a countable space for discrete stochastic variables and \\(\\mathbb{R}\\) for continuous stochastic variables.\nThe probability mass function describes the probability of a discrete stochastic variable \\(X\\) being equal to \\(x\\). Think back to the example of a six sided die, where the probability of each side is \\(1/6\\), then the PMF would be constant. \\[\np_X(x) = \\Pr{X = x}\n\\] where \\(\\sum_{x} p_X\\left(x\\right) = 1\\).",
     "crumbs": [
       "Probability Theory",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stochastic Variables</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/Stochastic_Variables.html#cumulative-distribution-function",
-    "href": "Chapters/Probability/Stochastic_Variables.html#cumulative-distribution-function",
-    "title": "7  Stochastic Variables",
-    "section": "7.2 Cumulative distribution function",
-    "text": "7.2 Cumulative distribution function\n\\[\nF_X(x) = \\operatorname{P}\\left(X \\leq x\\right)\n\\]",
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-CDF",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-CDF",
+    "title": "6  Stochastic Variables",
+    "section": "6.2 Cumulative distribution function (CDF)",
+    "text": "6.2 Cumulative distribution function (CDF)\nThe cumulative distribution function describes the probability of a stochastic variable being less than or equal to \\(x\\) - the probability that some \\(x\\) is larger than the stochastic variable \\(X\\): \\[\nF_X(x) = \\Pr{X \\leq x}.\n\\] The phrasing of the CDF might sound familiar if you have previously worked with p-values (see Section 7.2).\nThe median of a stochastic variable is the \\(x_m\\) where \\(F_X\\left(x_m\\right) = 0.5\\).\nmonotone decreasing and right-continuous.",
     "crumbs": [
       "Probability Theory",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stochastic Variables</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/Stochastic_Variables.html#probability-density-function",
-    "href": "Chapters/Probability/Stochastic_Variables.html#probability-density-function",
-    "title": "7  Stochastic Variables",
-    "section": "7.3 Probability density function",
-    "text": "7.3 Probability density function\n\\[\nf_X(x) =\n\\]",
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-PDF",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-PDF",
+    "title": "6  Stochastic Variables",
+    "section": "6.3 Probability density function (PDF)",
+    "text": "6.3 Probability density function (PDF)\nThe probability density function is an extension to the PMF for continuous stochastic variables. \\[\nf_X(x) = \\frac{\\partial}{\\partial x} F_X(x)\n\\] where \\(\\int_0^\\infty f_x(x)\\,\\mathrm{d}x = 1\\) - the area under the curve is exactly 1.",
     "crumbs": [
       "Probability Theory",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stochastic Variables</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/Stochastic_Variables.html#expected-value",
-    "href": "Chapters/Probability/Stochastic_Variables.html#expected-value",
-    "title": "7  Stochastic Variables",
-    "section": "7.4 Expected Value",
-    "text": "7.4 Expected Value\n\\[\n\\begin{aligned}\n    \\mathbb{E}\\left[X\\right] &= \\begin{cases}1\\\\2\\end{cases}\n\\end{aligned}\n\\]\n\n7.4.1 Conditional Expected Value\n\\[\n\\begin{aligned}\n    \\mathbb{E}\\left[X\\right] &= \\begin{cases}1\\\\2\\end{cases}\n\\end{aligned}\n\\]\n\\[\n\\mathbb{E}\\left[X\\right] = \\mathbb{E}\\left[\\mathbb{E}\\left[Y\\mid X\\right]\\right]\n\\]",
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-Expected_Value",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-Expected_Value",
+    "title": "6  Stochastic Variables",
+    "section": "6.4 Expected Value",
+    "text": "6.4 Expected Value\nThe expected value of a stochastic variable, is often referred to as the mean of the stochastic variable. This is easier to see for discrete stochastic variables in the following. \\[\n\\begin{aligned}\n    \\E{X} &= \\begin{cases}\n        \\sum_{k = 1}^\\infty x_k \\cdot p_X\\left(x_k\\right) & X\\textrm{ is a discrete stochastic variable}\\\\\n        \\int_{-\\infty}^\\infty x \\cdot f_X\\left(x\\right) & X\\textrm{ is a continous stochastic variable}\\end{cases}\n\\end{aligned}\n\\tag{6.1}\\]\nFor a series of stochastic variables \\(X_1, X_2,\\dots, X_n\\), the sum of the expected values is the same as the expected value of the sum of stochastic variables - \\(\\sum_{i=1}^n\\E{X_i} = \\E{\\sum_{i=1}^n X_i}\\).\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent, then \\(\\E{X \\cdot Y} = \\E{X} \\cdot \\E{Y}\\).\n\n6.4.1 Conditional Expected Value\n\\[\n\\begin{aligned}\n    \\E{X} &= \\begin{cases}1\\\\2\\end{cases}\n\\end{aligned}\n\\]\n\\[\n\\E{X} = \\E{\\E{Y\\mid X}}\n\\]",
     "crumbs": [
       "Probability Theory",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Stochastic Variables</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-Variance",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-Variance",
+    "title": "6  Stochastic Variables",
+    "section": "6.5 Variance",
+    "text": "6.5 Variance\n\\[\n\\begin{aligned}\n    \\Var{X} &= \\E{\\left(X - \\E{X}\\right)^2}\\\\\n    &= \\E{X^2} - \\left(\\E{X}\\right)^2\n\\end{aligned}\n\\] where \\(\\Var{X} \\geq 0\\).\n\\(\\Var{a \\cdot X + b} = a^2 \\cdot \\Var{X}\\), because \\(\\Var{b} = 0\\).\nThe standard deviation of the stochastic variable is \\(\\sqrt{\\Var{X}}\\). The standard deviation can be thought of as what the\n\n6.5.1 Covariance\n\\[\n\\begin{aligned}\n    \\Cov{X, Y} &= \\E{X \\cdot Y} - \\E{X}\\E{Y}\\\\\n    &= \\E{\\left(X - \\E{X}\\right)\\left(Y - \\E{Y}\\right)}\n\\end{aligned}\n\\tag{6.2}\\]\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent, then their covariance is 0. However, the converse is not true - even though the covariance between two stochastic variables is 0, then they are not independent.\nThe covariance between a stochastic variable and itself is equivalent to the stochastic variable’s variance - \\(\\Cov{X,X} = \\Var{X}\\).\n\\(\\Cov{a \\cdot X + b, c \\cdot Y + d} = a \\cdot c \\cdot \\Cov{X, Y}\\).\n\\(\\Var{X + Y} = \\Var{X} + \\Var{Y} + 2 \\cdot \\Cov{X, Y}\\).\n\n\n6.5.2 Correlation\n\\[\n\\Cor{X, Y} = \\frac{\\Cov{X, Y}}{\\sqrt{\\Var{X} \\Var{Y}}}\n\\] {eq-Correlation} Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. However, even if two stochastic variables are uncorrelated (their correlation is 0), they are not neccesarily independent.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Statistical_Power.html",
+    "href": "Chapters/Data_Science/Statistical_Power.html",
+    "title": "7  Statistical Power",
+    "section": "",
+    "text": "7.1 Type I errors and Type II errors",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Statistical Power</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Statistical_Power.html#sec-p_values",
+    "href": "Chapters/Data_Science/Statistical_Power.html#sec-p_values",
+    "title": "7  Statistical Power",
+    "section": "7.2 p-values",
+    "text": "7.2 p-values\nThe purpose of p-values is often to conclude whether something is significant or not - whether it is an unlikely\nSection 6.2",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Statistical Power</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html",
+    "href": "Chapters/Data_Science/Missing_Data.html",
+    "title": "8  Missing data",
+    "section": "",
+    "text": "8.1 Missing completly at random (MCAR)\nDepending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html#sec-MCAR",
+    "href": "Chapters/Data_Science/Missing_Data.html#sec-MCAR",
+    "title": "8  Missing data",
+    "section": "",
+    "text": "The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases\nAssumes that the reason why data is missing is unrelated to the data\nUsually an unreaslistic assumption\n\n\n8.1.1 Missing at random (MAR)\n\nThe missingness of the data is related to the observed variables, and not the unobserved variables.\nA more realistic assumption than MCAR\n\n\n\n8.1.2 Missing not at random (MNAR)\n\nMissingness depends on both the observed and unobserved variables.\nIf it is neither MCAR or MAR, then it is MNAR.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Missing_Data.html#sec-Missing_Data_Pattern",
+    "href": "Chapters/Data_Science/Missing_Data.html#sec-Missing_Data_Pattern",
+    "title": "8  Missing data",
+    "section": "8.2 Missing data patterns",
+    "text": "8.2 Missing data patterns\n\n8.2.1 Monotone missingness\nImagine a trial where a subject it measured each week. The missing data pattern is considered monotone, if there are not any missing values between two observed data points. For example, let’s say the trial gives provides values \\(Y_1, Y_2, \\dots, Y_{52}\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is not monotone.\n\n\n8.2.2 Non-monotone missingness\nWhen there is a missing value between two observed data points. For example, let’s say the trial gives provides values \\(Y_1, Y_2, \\dots, Y_{52}\\), where the index is the week. If we have \\(Y_1\\) and \\(Y_3\\), but not \\(Y_2\\) then the data pattern is non-monotone.",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Missing data</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Bootstrap.html",
+    "href": "Chapters/Data_Science/Bootstrap.html",
+    "title": "10  Bootstrap",
+    "section": "",
+    "text": "10.1 Bias\nBootstrapping is a produce for estimating the distribution of an estimator",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Data_Science/Bootstrap.html#variance",
+    "href": "Chapters/Data_Science/Bootstrap.html#variance",
+    "title": "10  Bootstrap",
+    "section": "10.2 Variance",
+    "text": "10.2 Variance",
+    "crumbs": [
+      "Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html",
+    "href": "Chapters/Statistical_Models/Introduction.html",
+    "title": "Statistical Models",
+    "section": "",
+    "text": "Covariates\nThis part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.",
+    "crumbs": [
+      "Statistical Models"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html#covariates",
+    "href": "Chapters/Statistical_Models/Introduction.html#covariates",
+    "title": "Statistical Models",
+    "section": "",
+    "text": "Discrete/categorical variables\n\n\nContinuous variables",
+    "crumbs": [
+      "Statistical Models"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html#fixed-effects",
+    "href": "Chapters/Statistical_Models/Introduction.html#fixed-effects",
+    "title": "Statistical Models",
+    "section": "Fixed Effects",
+    "text": "Fixed Effects",
+    "crumbs": [
+      "Statistical Models"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html#random-effects",
+    "href": "Chapters/Statistical_Models/Introduction.html#random-effects",
+    "title": "Statistical Models",
+    "section": "Random Effects",
+    "text": "Random Effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.\nAs an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see 13  Linear Mixed Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.",
+    "crumbs": [
+      "Statistical Models"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html",
+    "href": "Chapters/Statistical_Models/Logistic_Regression.html",
+    "title": "11  Logistic Regression",
+    "section": "",
+    "text": "11.1 Separation\nWhen all outcomes with a level of a covariate is always 0 or always 1, this is called separation.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html#separation",
+    "href": "Chapters/Statistical_Models/Logistic_Regression.html#separation",
+    "title": "11  Logistic Regression",
+    "section": "",
+    "text": "11.1.1 Complete Separation\n\n\n11.1.2 Quasi-Complete Separation",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Regression.html",
+    "href": "Chapters/Statistical_Models/Linear_Regression.html",
+    "title": "12  Linear Regression",
+    "section": "",
+    "text": "Shortcomings\nLinear regression is used to model the relationship between response- and exploratory variable(s). Let \\(y\\) be the response variable(s) and \\(X \\cdot \\alpha\\) the system of exploratory variables with regression coefficients described by \\(\\alpha\\) also called fixed effects. \\[\ny = X \\cdot \\alpha + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, describing where, \\(\\varepsilon\\) is the zero-mean errors.\nThat does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see Section A.6) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
+    "href": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
+    "title": "12  Linear Regression",
+    "section": "",
+    "text": "Example 12.1  \n\n## Packages\nlibrary(lme4)\nlibrary(mmrm)\nlibrary(broom.mixed)\nlibrary(emmeans)\n\n## Data\n\n## Model\n\n## Plot",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
+    "href": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
+    "title": "13  Linear Mixed Model",
+    "section": "",
+    "text": "Expanding upon the concepts introduced in Chapter 12 and Section 3, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see Example 13.1). Thus, similar to how the fixed effects are inccorporrated in the linear regression, the random effects can be included as \\(Z \\cdot \\beta\\), where \\(Z\\) describes the design matrix for the random effects and \\(\\beta\\) the random effect regression coefficients. Hereby, the linear mixed model is defined as: \\[\ny = X \\cdot \\alpha + Z \\cdot \\beta + \\varepsilon.\n\\] Similar to how the errors\nTo justify the addtion of the random effects, the data somehow has to include some individual devation.\n\nExample 13.1  \n\n## Packages\nlibrary(lme4)\nlibrary(mmrm)\nlibrary(broom.mixed)\nlibrary(emmeans)\n\n## Data\n\n\n## Model\n\n## Plot",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Linear Mixed Model</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html",
+    "href": "Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html",
+    "title": "14  Mixed Models for Repeated Measures",
+    "section": "",
+    "text": "When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model’s assumptions.\nThe MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Mixed Models for Repeated Measures</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html",
+    "title": "16  Covariance Structures",
+    "section": "",
+    "text": "16.1 Unstructured covariance\nNo constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.\nAs there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters \\(\\left(\\frac{n\\cdot\\left(n-1\\right)}{2}\\right)\\). This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Covariance Structures</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#compound-covariance",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#compound-covariance",
+    "title": "16  Covariance Structures",
+    "section": "16.2 Compound covariance",
+    "text": "16.2 Compound covariance",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Covariance Structures</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#toeplitz",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#toeplitz",
+    "title": "16  Covariance Structures",
+    "section": "16.3 Toeplitz",
+    "text": "16.3 Toeplitz",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Covariance Structures</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#armap-q",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#armap-q",
+    "title": "16  Covariance Structures",
+    "section": "16.4 ARMA(p, q)",
+    "text": "16.4 ARMA(p, q)\nChapter 23\n\n16.4.1 AR(p)\n\n\n16.4.2 MA(q)",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Covariance Structures</span>"
     ]
   },
   {
@@ -221,127 +338,408 @@
     "href": "Chapters/Survival_Analysis/Introduction.html",
     "title": "Survival Analysis",
     "section": "",
-    "text": "Survival function\n\\[\n\\begin{aligned}\nS(t) &= \\operatorname{P}(T &gt; t) \\\\&= 1 - F(t)\n\\end{aligned}\n\\]\nProperties",
+    "text": "The expression “survival analysis” can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term “time to event analysis”, where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.\n\nExample 1  \n\n\n\nSurvival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.\n\n\n\n\n\n\n\n\n\nInstitution code\nSurvival time in days\nCensoring status\nAge in years\nSex\n\n\n\n\n3\n306\n2\n74\nMale\n\n\n3\n455\n2\n68\nMale\n\n\n3\n1010\n1\n56\nMale\n\n\n5\n210\n2\n57\nMale\n\n\n1\n883\n2\n60\nMale\n\n\n12\n1022\n1\n74\nMale\n\n\n7\n310\n2\n68\nFemale\n\n\n11\n361\n2\n71\nFemale\n\n\n1\n218\n2\n53\nMale\n\n\n7\n166\n2\n61\nMale",
     "crumbs": [
       "Survival Analysis"
     ]
   },
   {
-    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-SurvivalFunction",
-    "href": "Chapters/Survival_Analysis/Introduction.html#sec-SurvivalFunction",
-    "title": "Survival Analysis",
+    "objectID": "Chapters/Survival_Analysis/Survival_Function.html",
+    "href": "Chapters/Survival_Analysis/Survival_Function.html",
+    "title": "17  Survival function",
     "section": "",
-    "text": "Monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).",
+    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\]\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can use the concept of stochastic variables. More precisely, the CDF (see Section 6.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\Pr{T \\leq t}\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\Pr{T \\leq t} \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\textrm{d}u\n\\end{aligned}\n\\tag{17.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\Pr{T &gt; t} = \\int_t^\\infty f_T(x)\\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\n## Packages\nlibrary(survival)\n\n## Data\n\n\n## Plot",
     "crumbs": [
-      "Survival Analysis"
+      "Survival Analysis",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Survival function</span>"
     ]
   },
   {
-    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-HazardFunction",
-    "href": "Chapters/Survival_Analysis/Introduction.html#sec-HazardFunction",
-    "title": "Survival Analysis",
-    "section": "Hazard function",
-    "text": "Hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). \\[\\begin{aligned}\nh(t) &= \\lambda(t) \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\operatorname{P}\\left(t \\leq T &lt; t + \\Delta t \\mid T \\geq t\\right)}{\\Delta t}\n\\end{aligned}\\]\n\nCumulative hazard function\n\\[\nH(t) = \\int_0^t h(u)\\,\\textrm{d}u\n\\]\n\n\nHazard ratio (HR)\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference",
+    "objectID": "Chapters/Survival_Analysis/Hazard_Function.html",
+    "href": "Chapters/Survival_Analysis/Hazard_Function.html",
+    "title": "18  Hazard function",
+    "section": "",
+    "text": "18.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\Pr{t \\leq T &lt; t + \\Delta t \\mid T \\geq t}}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(p\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\ln{S(t)}\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 17), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
     "crumbs": [
-      "Survival Analysis"
+      "Survival Analysis",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Hazard function</span>"
     ]
   },
   {
-    "objectID": "Chapters/Survival_Analysis/Introduction.html#sec-CIF",
-    "href": "Chapters/Survival_Analysis/Introduction.html#sec-CIF",
-    "title": "Survival Analysis",
-    "section": "Cumulative incidence function (CIF)",
-    "text": "Cumulative incidence function (CIF)\n\\[\\begin{aligned}\nF(t) &= \\operatorname{P}(T \\leq t) \\\\&= \\int_0^t h(u) \\cdot S(u) \\,\\textrm{d}u\n\\end{aligned}\\]",
+    "objectID": "Chapters/Survival_Analysis/Hazard_Function.html#HazardRatio",
+    "href": "Chapters/Survival_Analysis/Hazard_Function.html#HazardRatio",
+    "title": "18  Hazard function",
+    "section": "18.2 Hazard ratio (HR)",
+    "text": "18.2 Hazard ratio (HR)\nThe hazard ratio is often utilized when there is a desire to compare the hazard in one group to the hazard in another.\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference\n\n\nRemark 18.1. The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.\n\n\n## Packages\nlibrary(survival)\nlibrary(ggplot2)\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = \"breslow\")\n\n\n## Forest plot",
     "crumbs": [
-      "Survival Analysis"
+      "Survival Analysis",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Hazard function</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Censoring.html",
+    "href": "Chapters/Survival_Analysis/Censoring.html",
+    "title": "19  Censoring",
+    "section": "",
+    "text": "Censoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event - Left-Censored \\(T &gt; t\\): has not yet occurred at time \\(t\\)\n\nRight censoring \\(T &lt; t\\): has occurred before time \\(t\\)\n\nThe most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.\n\nInterval-censoring \\(t_1 &lt; T &lt; t_2\\):\nType I censoring:\nType II censoring:\nType III censoring:\n\n\n19.0.1 Non-informative censoring",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Censoring</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html",
     "href": "Chapters/Survival_Analysis/Kaplan-Meier.html",
-    "title": "8  Kaplan-meier (KM)",
+    "title": "20  Kaplan-meier",
     "section": "",
     "text": "## Packages\nlibrary(survival)\n\n## Data\ndata\n\n## Model\n# * status == 1: event, status == 0: censored\nKM_fit &lt;- survival::survfit(survival::Surv(time, status == 1) ~ 1, data)",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Kaplan-meier (KM)</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Kaplan-meier</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html",
     "href": "Chapters/Survival_Analysis/Cox.html",
-    "title": "9  Cox Regression",
+    "title": "21  Cox Regression",
     "section": "",
-    "text": "9.1 Stratification\n\\[\nh(t) = h_0(t) \\cdot \\exp\\left(\\sum_{i=1}^p b_ix_i\\right)\n\\tag{9.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1,x_2,\\dots,x_p\\) are the covariates and \\(b_1,b_2,\\dots,b_p\\) the associated effect sizes of the covariates.\nWhen stratifying a Cox model (See Equation 9.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum. Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\nh_{0, g=1}(t) \\cdot \\exp\\left(\\sum_{i=1}^p b_ix_i\\right) & \\textrm{if } g=1\\\\\nh_{0, g=2}(t) \\cdot \\exp\\left(\\sum_{i=1}^p b_ix_i\\right) & \\textrm{if } g=2\n\\end{cases}\n\\tag{9.2}\\] meaning that the two stratum share the same effect sizes \\(b_1,b_2,\\dots,b_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.",
+    "text": "21.1 Separation\n\\[\nh(t) = h_0(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right)\n\\tag{21.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1,x_2,\\dots,x_p\\) are the covariates and \\(\\beta_1,\\beta_2,\\dots,\\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 11), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Cox Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Cox.html#separation",
+    "href": "Chapters/Survival_Analysis/Cox.html#separation",
+    "title": "21  Cox Regression",
+    "section": "",
+    "text": "Estimation Instability: The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.\nConvergence Issues: The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.\nInvalid Inference: Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#stratification",
     "href": "Chapters/Survival_Analysis/Cox.html#stratification",
-    "title": "9  Cox Regression",
-    "section": "",
-    "text": "Example 9.1 (Proportional Cox model)  \n\nRSASPython\n\n\n\n## Packages\nlibrary(survival)\nlibrary(survminer)\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = \"breslow\")\n\n# Coefficients\nsurvival::cox.zph(Cox) # Test if covariate HR changes over time\n\n\n## Plot\nplot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it would not change)\nsurvminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)\n\n\n\n`wiwzala proc phreg data=mydata.sample_data;     class covariate1 covariate2;     model time*status(0) = covariate1 covariate2 covariate3 / ties=breslow;     baseline out = baseline_data survival = surv_prob;     output out = cox_output predicted = predicted_values; run;\n\n\n\n## Packages\nimport pandas as pd\nimport lifelines\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n# Coefficients\ncph.print_summary()\n\n\n## Plot\ncph.plot()",
+    "title": "21  Cox Regression",
+    "section": "21.2 Stratification",
+    "text": "21.2 Stratification\nWhen stratifying a Cox model (See Equation 21.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum. Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g=1}(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right) & \\textrm{if } g=1\\\\\n    h_{0, g=2}(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right) & \\textrm{if } g=2\n\\end{cases}\n\\tag{21.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1,\\beta_2,\\dots,\\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 21.1 (Proportional Cox model)  \n\nRPython\n\n\n\n## Packages\nlibrary(survival)\nlibrary(survminer)\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = \"breslow\")\n\n# Coefficients\nsurvival::cox.zph(Cox) # Test if covariate HR changes over time\n\n\n## Plot\nplot(survival::cox.zph(Cox)) # See much it would change over time (when y=0, it would not change)\nsurvminer::ggsurvplot(survfit(Cox), conf.int = TRUE, data)\n\n\n\n\n## Packages\nimport pandas as pd\nimport lifelines\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n# Coefficients\ncph.print_summary()\n\n\n## Plot\ncph.plot()",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Cox Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
+    "href": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
+    "title": "21  Cox Regression",
+    "section": "21.3 Mixed Effects Cox Model",
+    "text": "21.3 Mixed Effects Cox Model\n\\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\exp\\left(X\\beta + Zb\\right)\\\\\n    b &\\sim \\operatorname{N}\\left(0, \\Sigma\\left(\\theta\\right)\\right)\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\n## Packages\nlibrary(survival)\nlibrary(coxme)",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Competing_Risk.html",
     "href": "Chapters/Survival_Analysis/Competing_Risk.html",
-    "title": "10  Competing Risk Analysis",
+    "title": "22  Competing Risk Analysis",
     "section": "",
-    "text": "Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Section 3) for a specific event, \\(F_j(t) = \\operatorname{P}(T\\leq t, C = j) = \\int_t^t h_j(u) \\cdot S(u)\\,\\textrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
+    "text": "Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 17.1) for a specific event, \\(F_j(t) = \\operatorname{P}(T\\leq t, C = j) = \\int_t^t h_j(u) \\cdot S(u)\\,\\textrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html",
+    "href": "Chapters/Time_Series/Introduction.html",
+    "title": "Time Series Analysis",
+    "section": "",
+    "text": "Autocovariance and Autocorrelation\nTime series analysis expands some of the concepts of 6  Stochastic Variables to time\nBuilding upon the concepts introduced in Covariance and Correlation, the autocovariance and autocorrelation functions expand these concepts to time series data, to explain how stochastic",
+    "crumbs": [
+      "Time Series Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html#stationarity",
+    "href": "Chapters/Time_Series/Introduction.html#stationarity",
+    "title": "Time Series Analysis",
+    "section": "Stationarity",
+    "text": "Stationarity",
+    "crumbs": [
+      "Time Series Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html#trend",
+    "href": "Chapters/Time_Series/Introduction.html#trend",
+    "title": "Time Series Analysis",
+    "section": "Trend",
+    "text": "Trend",
+    "crumbs": [
+      "Time Series Analysis"
+    ]
+  },
+  {
+    "objectID": "Chapters/Time_Series/Introduction.html#seasonality",
+    "href": "Chapters/Time_Series/Introduction.html#seasonality",
+    "title": "Time Series Analysis",
+    "section": "Seasonality",
+    "text": "Seasonality",
+    "crumbs": [
+      "Time Series Analysis"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html",
     "href": "Chapters/Time_Series/ARMA.html",
-    "title": "12  ARMA(p, q)",
+    "title": "23  ARMA(p, q)",
     "section": "",
-    "text": "12.1 AR(p)",
+    "text": "23.1 AR(p)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#sec-MA",
     "href": "Chapters/Time_Series/ARMA.html#sec-MA",
-    "title": "12  ARMA(p, q)",
-    "section": "12.2 MA(q)",
-    "text": "12.2 MA(q)",
+    "title": "23  ARMA(p, q)",
+    "section": "23.2 MA(q)",
+    "text": "23.2 MA(q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arimap-d-q",
     "href": "Chapters/Time_Series/ARMA.html#arimap-d-q",
-    "title": "12  ARMA(p, q)",
-    "section": "12.3 ARIMA(p, D, q)",
-    "text": "12.3 ARIMA(p, D, q)",
+    "title": "23  ARMA(p, q)",
+    "section": "23.3 ARIMA(p, D, q)",
+    "text": "23.3 ARIMA(p, D, q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arfima",
     "href": "Chapters/Time_Series/ARMA.html#arfima",
-    "title": "12  ARMA(p, q)",
-    "section": "12.4 ARFIMA",
-    "text": "12.4 ARFIMA",
+    "title": "23  ARMA(p, q)",
+    "section": "23.4 ARFIMA",
+    "text": "23.4 ARFIMA",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Spatial_Statistics/Introduction.html",
+    "href": "Chapters/Spatial_Statistics/Introduction.html",
+    "title": "Spatial Statistics",
+    "section": "",
+    "text": "Point patterns",
+    "crumbs": [
+      "Spatial Statistics"
+    ]
+  },
+  {
+    "objectID": "Chapters/Spatial_Statistics/Introduction.html#point-patterns",
+    "href": "Chapters/Spatial_Statistics/Introduction.html#point-patterns",
+    "title": "Spatial Statistics",
+    "section": "",
+    "text": "Regular\n\n\nClustering\n\n\nHomogenous\n\n\nInhomogenous",
+    "crumbs": [
+      "Spatial Statistics"
+    ]
+  },
+  {
+    "objectID": "Chapters/Spatial_Statistics/Summary_Statistics.html",
+    "href": "Chapters/Spatial_Statistics/Summary_Statistics.html",
+    "title": "24  Summary Statistics",
+    "section": "",
+    "text": "24.1 Pair correlation function",
+    "crumbs": [
+      "Spatial Statistics",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Summary Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Spatial_Statistics/Summary_Statistics.html#envelopes",
+    "href": "Chapters/Spatial_Statistics/Summary_Statistics.html#envelopes",
+    "title": "24  Summary Statistics",
+    "section": "24.2 Envelopes",
+    "text": "24.2 Envelopes",
+    "crumbs": [
+      "Spatial Statistics",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Summary Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "",
+    "text": "A.1 Bernoulli\nA bernoulli stochastic variable \\(X\\sim\\operatorname{B}\\left(n, p\\right)\\) has the sample space \\(\\Omega = \\{0, 1\\}\\) with the probabilities \\(\\mathbb{P}\\left(X = 1\\right) = p\\) and the opposite, \\(\\mathbb{P}\\left(X = 0\\right) = 1 - p\\).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#bernoulli",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#bernoulli",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "",
+    "text": "Distribution\n\\[\n\\begin{cases}p &\\textrm{if } x = 1\\\\ 1 - p &\\textrm{if } x = 0\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = p \\cdot (1-p)\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#bionomial",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#bionomial",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.2 Bionomial",
+    "text": "A.2 Bionomial\nA bionomial stochastic variable is a bernoulli stochastic variable repeated \\(n\\) times.\n\nDistribution\nThe PMF (see Section 6.1) is given as \\[\n\\binom{n}{k}\\cdot p^k \\cdot \\left(1-p\\right)^{n-k}\n\\] where \\(k\\) is the number of \\(1\\)’s out of the possible \\(n\\) experiments.\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = n \\cdot p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = n \\cdot p \\cdot (1-p)\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#negative-binomial",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#negative-binomial",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.3 Negative Binomial",
+    "text": "A.3 Negative Binomial\n\nDistribution\n\n\nExpected Value\n\n\nVariance",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#poisson",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#poisson",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.4 Poisson",
+    "text": "A.4 Poisson\n\\(X \\sim \\operatorname{Po}\\left(\\lambda\\right)\\) \\(\\lambda &gt; 0\\)\n\nDistribution\nThe PMF (see Section 6.1) is given as \\[\np_X(x) = \\frac{\\lambda^x}{x!}\\operatorname{exp}\\left(-\\lambda\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\lambda\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\lambda\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#poisson-1",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#poisson-1",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.5 Poisson",
+    "text": "A.5 Poisson\n\\(X \\sim \\operatorname{Po}\\left(\\lambda\\right)\\) \\(\\lambda &gt; 0\\)\n\nDistribution\nThe PMF (see Section 6.1) is given as \\[\np_X(x) = \\frac{\\lambda^x}{x!}\\operatorname{exp}\\left(-\\lambda\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\lambda\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\lambda\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.6 Gaussian",
+    "text": "A.6 Gaussian\n\\(X \\sim \\operatorname{N}\\left(\\mu, \\sigma^2\\right)\\). The standard Gaussian distribution is given as \\(X \\sim \\operatorname{N}\\left(0, 1\\right)\\).\n\nDistribution\nThe PDF (see Section 6.3) is given as \\[\nf_X(x) = \\frac{1}{\\sqrt{2 \\cdot \\pi} \\cdot \\sigma}\\operatorname{exp}\\left(- \\frac{1}{2 \\cdot \\sigma^2}\\left(x - \\mu\\right)^2\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\mu\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\sigma^2\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#uniform",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#uniform",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.7 Uniform",
+    "text": "A.7 Uniform\n\\(X \\sim \\operatorname{U}\\left(a, b\\right)\\)\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{1}{b - a} & x \\in [a, b]\\\\\n    0 & x \\notin [a,b]\n\\end{cases}\n\\] \\[\nF_X(x) = \\begin{cases}\n    0 & x &lt; a\\\\\n    \\frac{x - a}{b - a} & a \\leq x \\leq b\\\\\n    1 & x &gt; b\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{2}\\left(a + b\\right)\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{12}\\left(b - a\\right)^2\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#exponential",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#exponential",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.8 Exponential",
+    "text": "A.8 Exponential\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\lambda \\cdot \\operatorname{exp}\\left(-\\lambda \\cdot x\\right) & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{\\lambda}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{\\lambda^2}\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#geometric",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#geometric",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.9 Geometric",
+    "text": "A.9 Geometric\n\nDistribution\n\n\nExpected Value\n\n\nVariance",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#gamma",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#gamma",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.10 Gamma",
+    "text": "A.10 Gamma\n\nDistribution\n\\(X \\sim \\operatorname{Gamma}\\left(\\alpha, \\beta\\right)\\) \\[\nf_X(x) = \\begin{cases}\n    \\frac{\\beta^\\alpha}{\\varGamma(\\alpha)} x^{\\alpha - 1}\\operatorname{exp}\\left(-\\beta \\cdot x\\right) & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{\\alpha}{\\beta}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{\\alpha}{\\beta^2}\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#beta",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#beta",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.11 Beta",
+    "text": "A.11 Beta\n\nDistribution\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right]\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right]\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#chi-square",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#chi-square",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.12 Chi-square",
+    "text": "A.12 Chi-square\n\\(X \\sim \\operatorname{Gamma}\\left(\\frac{k}{2}, \\frac{1}{2}\\right)\\) \\(k\\in\\mathbb{N}\\)\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{x^{\\frac{k}{2} - 1}\\operatorname{exp}\\left(- \\frac{x}{2}\\right)}{2^{\\frac{k}{2} \\cdot \\varGamma\\left(\\frac{k}{2}\\right)}} & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = k\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = 2 \\cdot k\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Fixed_Effects",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Fixed_Effects",
+    "title": "Statistical Models",
+    "section": "Fixed Effects",
+    "text": "Fixed Effects",
+    "crumbs": [
+      "Statistical Models"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Random_Effects",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Random_Effects",
+    "title": "Statistical Models",
+    "section": "Random Effects",
+    "text": "Random Effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.\nAs an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see 13  Linear Mixed Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.",
+    "crumbs": [
+      "Statistical Models"
     ]
   }
 ]

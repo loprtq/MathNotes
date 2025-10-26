@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Stochastic Variables – MathNotes</title>
+<title>6&nbsp; Stochastic Variables – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Survival_Analysis/Introduction.html" rel="next">
+<link href="../../Chapters/Data_Science/Statistical_Power.html" rel="next">
 <link href="../../Chapters/Probability/Introduction.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-ed0c75a7687b803111fa3c672eb1ee15.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -100,6 +100,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -111,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../Chapters/Probability/Stochastic_Variables.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../Chapters/Probability/Stochastic_Variables.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -121,7 +122,7 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -139,19 +140,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Science</span></a>
+            <a href="../../Chapters/Calculus/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculus</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -159,26 +154,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Statistical_Power.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistical Power</span></span></a>
+  <a href="../../Chapters/Calculus/Differential.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Differential</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Missing data</span></span></a>
+  <a href="../../Chapters/Calculus/Differential_Equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differential Equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Bootstrap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bootstrap</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Data_Science/Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Models</span></span></a>
+  <a href="../../Chapters/Calculus/Integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Integration</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,7 +184,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Linear_Algebra/Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrix</span></span></a>
   </div>
 </li>
       </ul>
@@ -212,7 +201,89 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Probability/Stochastic_Variables.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Statistical_Power.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical Power</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Missing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Missing data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Causality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Data_Science/Bootstrap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrap</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../Chapters/Statistical_Models/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,27 +292,45 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Survival_Analysis/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Survival Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kaplan-meier (KM)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -250,38 +339,49 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Time_Series/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Time Series Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Time_Series/Autocorrelation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Autocorrelation</span></span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a href="../../Chapters/Spatial_Statistics/Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Spatial Statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Spatial/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introduction.html</span></span></a>
+  <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Probability/APP-Stochastic_Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Common Stochastic Variables</span></span></a>
   </div>
 </li>
       </ul>
@@ -296,27 +396,32 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#probability-mass-function" id="toc-probability-mass-function" class="nav-link active" data-scroll-target="#probability-mass-function"><span class="header-section-number">7.1</span> Probability mass function</a></li>
-  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function"><span class="header-section-number">7.2</span> Cumulative distribution function</a></li>
-  <li><a href="#probability-density-function" id="toc-probability-density-function" class="nav-link" data-scroll-target="#probability-density-function"><span class="header-section-number">7.3</span> Probability density function</a></li>
-  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value"><span class="header-section-number">7.4</span> Expected Value</a>
+  <li><a href="#sec-PMF" id="toc-sec-PMF" class="nav-link active" data-scroll-target="#sec-PMF"><span class="header-section-number">6.1</span> Probability mass function (PMF)</a></li>
+  <li><a href="#sec-CDF" id="toc-sec-CDF" class="nav-link" data-scroll-target="#sec-CDF"><span class="header-section-number">6.2</span> Cumulative distribution function (CDF)</a></li>
+  <li><a href="#sec-PDF" id="toc-sec-PDF" class="nav-link" data-scroll-target="#sec-PDF"><span class="header-section-number">6.3</span> Probability density function (PDF)</a></li>
+  <li><a href="#sec-Expected_Value" id="toc-sec-Expected_Value" class="nav-link" data-scroll-target="#sec-Expected_Value"><span class="header-section-number">6.4</span> Expected Value</a>
   <ul class="collapse">
-  <li><a href="#conditional-expected-value" id="toc-conditional-expected-value" class="nav-link" data-scroll-target="#conditional-expected-value"><span class="header-section-number">7.4.1</span> Conditional Expected Value</a></li>
+  <li><a href="#sec-Cond_Expected_Value" id="toc-sec-Cond_Expected_Value" class="nav-link" data-scroll-target="#sec-Cond_Expected_Value"><span class="header-section-number">6.4.1</span> Conditional Expected Value</a></li>
+  </ul></li>
+  <li><a href="#sec-Variance" id="toc-sec-Variance" class="nav-link" data-scroll-target="#sec-Variance"><span class="header-section-number">6.5</span> Variance</a>
+  <ul class="collapse">
+  <li><a href="#sec-Covariance" id="toc-sec-Covariance" class="nav-link" data-scroll-target="#sec-Covariance"><span class="header-section-number">6.5.1</span> Covariance</a></li>
+  <li><a href="#sec-Correlation" id="toc-sec-Correlation" class="nav-link" data-scroll-target="#sec-Correlation"><span class="header-section-number">6.5.2</span> Correlation</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../Chapters/Probability/Stochastic_Variables.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../../Chapters/Probability/Stochastic_Variables.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></h1>
+<h1 class="title"><span id="sec-Stochastic_Variables" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stochastic Variables</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -328,41 +433,87 @@ window.Quarto = {
 </header>
 
 
-<section id="probability-mass-function" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="probability-mass-function"><span class="header-section-number">7.1</span> Probability mass function</h2>
+<div class="hidden">
 <p><span class="math display">\[
-p_X(x) = \operatorname{P}\left(X = x\right)
+\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
+\newcommand{\Cov}[1]{\operatorname{Cov}\left[#1\right]}
+\newcommand{\Cor}[1]{\operatorname{Cor}\left[#1\right]}
 \]</span></p>
+</div>
+<p>Stochastistic variables are functions <span class="math inline">\(X: \Omega \to \mathcal{E}\)</span>, where <span class="math inline">\(\mathcal{E}\)</span> is typically a countable space for discrete stochastic variables and <span class="math inline">\(\mathbb{R}\)</span> for continuous stochastic variables.</p>
+<section id="sec-PMF" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-PMF"><span class="header-section-number">6.1</span> Probability mass function (PMF)</h2>
+<p>The probability mass function describes the probability of a discrete stochastic variable <span class="math inline">\(X\)</span> being equal to <span class="math inline">\(x\)</span>. Think back to the example of a six sided die, where the probability of each side is <span class="math inline">\(1/6\)</span>, then the PMF would be constant. <span class="math display">\[
+p_X(x) = \Pr{X = x}
+\]</span> where <span class="math inline">\(\sum_{x} p_X\left(x\right) = 1\)</span>.</p>
 </section>
-<section id="cumulative-distribution-function" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="cumulative-distribution-function"><span class="header-section-number">7.2</span> Cumulative distribution function</h2>
-<p><span class="math display">\[
-F_X(x) = \operatorname{P}\left(X \leq x\right)
-\]</span></p>
+<section id="sec-CDF" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-CDF"><span class="header-section-number">6.2</span> Cumulative distribution function (CDF)</h2>
+<p>The cumulative distribution function describes the probability of a stochastic variable being less than or equal to <span class="math inline">\(x\)</span> - the probability that some <span class="math inline">\(x\)</span> is larger than the stochastic variable <span class="math inline">\(X\)</span>: <span class="math display">\[
+F_X(x) = \Pr{X \leq x}.
+\]</span> The phrasing of the CDF might sound familiar if you have previously worked with p-values (see <a href="../Data_Science/Statistical_Power.html#sec-p_values" class="quarto-xref"><span>Section 7.2</span></a>).</p>
+<p>The median of a stochastic variable is the <span class="math inline">\(x_m\)</span> where <span class="math inline">\(F_X\left(x_m\right) = 0.5\)</span>.</p>
+<p>monotone decreasing and right-continuous.</p>
 </section>
-<section id="probability-density-function" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="probability-density-function"><span class="header-section-number">7.3</span> Probability density function</h2>
-<p><span class="math display">\[
-f_X(x) =
-\]</span></p>
+<section id="sec-PDF" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-PDF"><span class="header-section-number">6.3</span> Probability density function (PDF)</h2>
+<p>The probability density function is an extension to the PMF for continuous stochastic variables. <span class="math display">\[
+f_X(x) = \frac{\partial}{\partial x} F_X(x)
+\]</span> where <span class="math inline">\(\int_0^\infty f_x(x)\,\mathrm{d}x = 1\)</span> - the area under the curve is exactly 1.</p>
 </section>
-<section id="expected-value" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="expected-value"><span class="header-section-number">7.4</span> Expected Value</h2>
+<section id="sec-Expected_Value" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-Expected_Value"><span class="header-section-number">6.4</span> Expected Value</h2>
+<p>The expected value of a stochastic variable, is often referred to as the mean of the stochastic variable. This is easier to see for discrete stochastic variables in the following. <span id="eq-Expected_Value"><span class="math display">\[
+\begin{aligned}
+    \E{X} &amp;= \begin{cases}
+        \sum_{k = 1}^\infty x_k \cdot p_X\left(x_k\right) &amp; X\textrm{ is a discrete stochastic variable}\\
+        \int_{-\infty}^\infty x \cdot f_X\left(x\right) &amp; X\textrm{ is a continous stochastic variable}\end{cases}
+\end{aligned}
+\tag{6.1}\]</span></span></p>
+<p>For a series of stochastic variables <span class="math inline">\(X_1, X_2,\dots, X_n\)</span>, the sum of the expected values is the same as the expected value of the sum of stochastic variables - <span class="math inline">\(\sum_{i=1}^n\E{X_i} = \E{\sum_{i=1}^n X_i}\)</span>.</p>
+<p>If the two stochastic variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(\E{X \cdot Y} = \E{X} \cdot \E{Y}\)</span>.</p>
+<section id="sec-Cond_Expected_Value" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="sec-Cond_Expected_Value"><span class="header-section-number">6.4.1</span> Conditional Expected Value</h3>
 <p><span class="math display">\[
 \begin{aligned}
-    \mathbb{E}\left[X\right] &amp;= \begin{cases}1\\2\end{cases}
+    \E{X} &amp;= \begin{cases}1\\2\end{cases}
 \end{aligned}
 \]</span></p>
-<section id="conditional-expected-value" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="conditional-expected-value"><span class="header-section-number">7.4.1</span> Conditional Expected Value</h3>
+<p><span class="math display">\[
+\E{X} = \E{\E{Y\mid X}}
+\]</span></p>
+</section>
+</section>
+<section id="sec-Variance" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-Variance"><span class="header-section-number">6.5</span> Variance</h2>
 <p><span class="math display">\[
 \begin{aligned}
-    \mathbb{E}\left[X\right] &amp;= \begin{cases}1\\2\end{cases}
+    \Var{X} &amp;= \E{\left(X - \E{X}\right)^2}\\
+    &amp;= \E{X^2} - \left(\E{X}\right)^2
 \end{aligned}
-\]</span></p>
+\]</span> where <span class="math inline">\(\Var{X} \geq 0\)</span>.</p>
+<p><span class="math inline">\(\Var{a \cdot X + b} = a^2 \cdot \Var{X}\)</span>, because <span class="math inline">\(\Var{b} = 0\)</span>.</p>
+<p>The standard deviation of the stochastic variable is <span class="math inline">\(\sqrt{\Var{X}}\)</span>. The standard deviation can be thought of as what the</p>
+<section id="sec-Covariance" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="sec-Covariance"><span class="header-section-number">6.5.1</span> Covariance</h3>
+<p><span id="eq-Covariance"><span class="math display">\[
+\begin{aligned}
+    \Cov{X, Y} &amp;= \E{X \cdot Y} - \E{X}\E{Y}\\
+    &amp;= \E{\left(X - \E{X}\right)\left(Y - \E{Y}\right)}
+\end{aligned}
+\tag{6.2}\]</span></span></p>
+<p>If the two stochastic variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then their covariance is 0. However, the converse is not true - even though the covariance between two stochastic variables is 0, then they are not independent.</p>
+<p>The covariance between a stochastic variable and itself is equivalent to the stochastic variable’s variance - <span class="math inline">\(\Cov{X,X} = \Var{X}\)</span>.</p>
+<p><span class="math inline">\(\Cov{a \cdot X + b, c \cdot Y + d} = a \cdot c \cdot \Cov{X, Y}\)</span>.</p>
+<p><span class="math inline">\(\Var{X + Y} = \Var{X} + \Var{Y} + 2 \cdot \Cov{X, Y}\)</span>.</p>
+</section>
+<section id="sec-Correlation" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="sec-Correlation"><span class="header-section-number">6.5.2</span> Correlation</h3>
 <p><span class="math display">\[
-\mathbb{E}\left[X\right] = \mathbb{E}\left[\mathbb{E}\left[Y\mid X\right]\right]
-\]</span></p>
+\Cor{X, Y} = \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}}
+\]</span> {eq-Correlation} Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. However, even if two stochastic variables are uncorrelated (their correlation is 0), they are not neccesarily independent.</p>
 
 
 </section>
@@ -768,15 +919,15 @@ f_X(x) =
     }
   });
   </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../Chapters/Probability/Introduction.html" class="pagination-link" aria-label="Probability Theory">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Probability Theory</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Survival_Analysis/Introduction.html" class="pagination-link" aria-label="Survival Analysis">
-        <span class="nav-page-text">Survival Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Data_Science/Statistical_Power.html" class="pagination-link" aria-label="Statistical Power">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical Power</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

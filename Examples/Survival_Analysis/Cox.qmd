@@ -1,0 +1,58 @@
+:::{#exm-Cox}
+## Proportional Cox model
+:::{.panel-tabset}
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(dplyr)
+
+## Data
+# Get data
+data(cancer, package = "survival")
+
+# Transform and select data
+data_f <- lung %>%
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
+    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+    dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
+
+## Model
+# * status == 2: event, status == 1: censored
+cox_fit <- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = "breslow")
+
+# Coefficients
+survival::cox.zph(cox_fit) # Test if covariate HR changes over time
+
+## Plot
+plot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)
+survminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data)
+```
+
+## Python
+```{python}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+import pandas as pd
+import lifelines
+
+## Data
+
+## Model
+# * status == 1: event, status == 0: censored
+cph = CoxPHFitter()
+cph.fit(data, duration_col = 'time', event_col = 'status')
+
+# Coefficients
+cph.print_summary()
+
+
+## Plot
+cph.plot()
+```
+:::
+:::
