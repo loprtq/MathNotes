@@ -288,20 +288,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kaplan-Meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,7 +324,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ARMA(p, q) {#sec-ARMA}s</span></span></a>
   </div>
 </li>
       </ul>
@@ -335,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
   </div>
 </li>
       </ul>
@@ -370,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="SurvivalAnalysis" class="quarto-section-identifier">Survival Analysis</span></h1>
+<h1 class="title"><span id="sec-Survival_Analysis" class="quarto-section-identifier">Survival Analysis</span></h1>
 </div>
 
 
@@ -387,9 +393,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The expression “survival analysis” can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term “time to event analysis”, where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.</p>
-<div id="exm-Survival_Data" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> &nbsp;</p>
+<p>The expression “survival analysis” can be rather misleading, as even though these analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term “time to event analysis”, where the interest might not be death, but something else.</p>
+<p>Say that you want an idea of the likelihood of getting a disease. You are also interested in whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis, as you would be able to get a general idea of the likelihood of attaining the disease over time, for each group. Naturally, as with many other statistical analysis, the sample size has to be sufficient to be able to show the true likelihood.</p>
 <div class="cell" data-tbl-cap="Survival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -483,7 +488,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 

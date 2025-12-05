@@ -1,3 +1,5 @@
+{{< include /preamble/commands.qmd >}}
+
 # Cox Regression {#sec-Cox}
 
 $$
@@ -10,11 +12,14 @@ The Cox model assumes that continuous covariates have a linear relationship with
 ## Separation
 Similar to logistic regression (see @sec-Logistic_Regression), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:
 
-- **Estimation Instability:** The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.
+### Estimation Instability {.unnumbered}
+The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.
 
-- **Convergence Issues**: The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.
+### Convergence Issues {.unnumbered}
+The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.
 
-- **Invalid Inference**: Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.
+### Invalid Inference {.unnumbered}
+Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.
 
 ## Stratification
 When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum. Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as
@@ -29,10 +34,11 @@ meaning that the two stratum share the same effect sizes $\beta_1,\beta_2,\dots,
 {{< include /Examples/Survival_Analysis/Cox.qmd >}}
 
 ## Mixed Effects Cox Model
+The Cox model can be @sec-Random_Effects
 $$
 \begin{aligned}
     h(t) &= h_0(t) \cdot \exp\left(X\beta + Zb\right)\\
-    b &\sim \operatorname{N}\left(0, \Sigma\left(\theta\right)\right)
+    b &\sim \Nd{0, \Sigma\left(\theta\right)}
 \end{aligned}
 $$
 where $\operatorname{N}$ is a Gaussian distribution with mean $0$ and covariance $\Sigma(\theta)$. 

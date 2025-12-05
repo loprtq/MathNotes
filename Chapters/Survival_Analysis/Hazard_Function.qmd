@@ -1,12 +1,7 @@
-::: {.hidden}
-$$
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
-$$
-:::
+{{< include /preamble/commands.qmd >}}
 
-# Hazard function {#sec-HazardFunction}
-The hazard function $h$ describes the instantaneous risk of an event at a time $t$.
+# Hazard function {#sec-Hazard_Function}
+The hazard function $h$ describes the instantaneous risk of an event at a time $t$. The instantaneuos risk at a time $t$ is bounded between 0 and 1, where the sum over all $t$ is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between $t$ and $t+\Delta t$ divided by the population size at risk at time $t$, divided by $\Delta t$. In the continuous case, the hazard function is given as
 $$
 \begin{aligned}
     h(t) &= \lambda(t)
@@ -15,17 +10,17 @@ $$
 $$
 
 ## Cumulative hazard function
-The cumulative hazard function $H$ describes the cumulative hazard up until a time $p$.
+The cumulative hazard function $H$ describes the cumulative hazard up until a time $t$.
 $$
 \begin{aligned}
     H(t) &= \int_0^t h(u)\,\textrm{d}u\\
     &= \ln{S(t)}
 \end{aligned}
 $$
-As opposed to the survival function (see @sec-SurvivalFunction), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \leq H(t_1)$ for all $t_1 \geq t_2$.
+As opposed to the survival function (see @sec-Survival_Function), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \leq H(t_1)$ for all $t_1 \geq t_2$.
 
-## Hazard ratio (HR) {#HazardRatio}
-The hazard ratio is often utilized when there is a desire to compare the hazard in one group to the hazard in another. 
+## Hazard ratio {#Hazard_Ratio}
+The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.
 
 - $\textrm{HR} < 1$: increased survival probability, compared to reference
 
@@ -37,21 +32,3 @@ The hazard ratio is often utilized when there is a desire to compare the hazard 
 The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.
 :::
 
-```{r}
-#| eval: false
-#| echo: true
-#| warning: false
-## Packages
-library(survival)
-library(ggplot2)
-
-## Data
-
-## Model
-# * status == 1: event, status == 0: censored
-cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = "breslow")
-
-
-## Forest plot
-
-```

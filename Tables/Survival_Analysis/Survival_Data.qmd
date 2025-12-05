@@ -5,6 +5,8 @@
 #| tbl-cap: Survival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.
 ## Library
 library(dplyr)
+library(survival)
+library(knitr)
 
 ## Data
 # Get data
@@ -25,7 +27,6 @@ names(data_c) <- c(
     "Age in years",
     "Sex"
 )
-
 
 ## Table
 knitr::kable(data_c[1:10, ])

@@ -1,0 +1,18 @@
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(survival)
+library(ggplot2)
+
+## Data
+
+## Model
+# * status == 1: event, status == 0: censored
+cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = "breslow")
+
+
+## Forest plot
+
+```

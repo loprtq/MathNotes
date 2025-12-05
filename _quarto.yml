@@ -49,6 +49,7 @@ book:
         - Chapters/Survival_Analysis/Survival_Function.qmd
         - Chapters/Survival_Analysis/Hazard_Function.qmd
         - Chapters/Survival_Analysis/Censoring.qmd
+        - Chapters/Survival_Analysis/Truncation.qmd
         - Chapters/Survival_Analysis/Kaplan-Meier.qmd
         - Chapters/Survival_Analysis/Cox.qmd
         - Chapters/Survival_Analysis/Competing_Risk.qmd

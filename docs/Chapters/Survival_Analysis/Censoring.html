@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" rel="next">
+<link href="../../Chapters/Survival_Analysis/Truncation.html" rel="next">
 <link href="../../Chapters/Survival_Analysis/Hazard_Function.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -317,20 +317,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kaplan-Meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -347,7 +353,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ARMA(p, q) {#sec-ARMA}s</span></span></a>
   </div>
 </li>
       </ul>
@@ -364,7 +370,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
   </div>
 </li>
       </ul>
@@ -396,7 +402,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#non-informative-censoring" id="toc-non-informative-censoring" class="nav-link active" data-scroll-target="#non-informative-censoring"><span class="header-section-number">19.0.1</span> Non-informative censoring</a></li>
+  <li><a href="#sec-Left_Censoring" id="toc-sec-Left_Censoring" class="nav-link active" data-scroll-target="#sec-Left_Censoring"><span class="header-section-number">19.1</span> Left censoring</a></li>
+  <li><a href="#sec-Right_Censoring" id="toc-sec-Right_Censoring" class="nav-link" data-scroll-target="#sec-Right_Censoring"><span class="header-section-number">19.2</span> Right censoring</a></li>
+  <li><a href="#sec-Interval_Censoring" id="toc-sec-Interval_Censoring" class="nav-link" data-scroll-target="#sec-Interval_Censoring"><span class="header-section-number">19.3</span> Interval-censoring</a>
+  <ul class="collapse">
+  <li><a href="#non-informative-censoring" id="toc-non-informative-censoring" class="nav-link" data-scroll-target="#non-informative-censoring"><span class="header-section-number">19.3.1</span> Non-informative censoring</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -422,22 +433,37 @@ window.Quarto = {
 </header>
 
 
-<p>Censoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.</p>
-<p>An event time <span class="math inline">\(T\)</span> is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event - <strong>Left-Censored</strong> <span class="math inline">\(T &gt; t\)</span><strong>:</strong> has not yet occurred at time <span class="math inline">\(t\)</span></p>
+<div class="hidden">
+<p><span class="math display">\[
+\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
+\]</span></p>
+</div>
+<p>Censoring is the act of some information not being observed, possibly due to other events than the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.</p>
+<p>An event time <span class="math inline">\(T\)</span> is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event does not occur in the period</p>
+<section id="sec-Left_Censoring" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="sec-Left_Censoring"><span class="header-section-number">19.1</span> Left censoring</h2>
+<p><span class="math inline">\(T &gt; t\)</span>: has not yet occurred at time <span class="math inline">\(t\)</span></p>
+</section>
+<section id="sec-Right_Censoring" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="sec-Right_Censoring"><span class="header-section-number">19.2</span> Right censoring</h2>
+<p><span class="math inline">\(T &lt; t\)</span>: has occurred before time <span class="math inline">\(t\)</span></p>
+<p>The most common form of censoring to occur in clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.</p>
+</section>
+<section id="sec-Interval_Censoring" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="sec-Interval_Censoring"><span class="header-section-number">19.3</span> Interval-censoring</h2>
+<p><span class="math inline">\(t_1 &lt; T &lt; t_2\)</span>:</p>
 <ul>
-<li><strong>Right censoring</strong> <span class="math inline">\(T &lt; t\)</span><strong>:</strong> has occurred before time <span class="math inline">\(t\)</span></li>
-</ul>
-<p>The most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.</p>
-<ul>
-<li><p><strong>Interval-censoring</strong> <span class="math inline">\(t_1 &lt; T &lt; t_2\)</span><strong>:</strong></p></li>
 <li><p><strong>Type I censoring:</strong></p></li>
 <li><p><strong>Type II censoring:</strong></p></li>
 <li><p><strong>Type III censoring:</strong></p></li>
 </ul>
-<section id="non-informative-censoring" class="level3" data-number="19.0.1">
-<h3 data-number="19.0.1" class="anchored" data-anchor-id="non-informative-censoring"><span class="header-section-number">19.0.1</span> Non-informative censoring</h3>
+<section id="non-informative-censoring" class="level3" data-number="19.3.1">
+<h3 data-number="19.3.1" class="anchored" data-anchor-id="non-informative-censoring"><span class="header-section-number">19.3.1</span> Non-informative censoring</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -847,8 +873,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="pagination-link" aria-label="Kaplan-meier">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Survival_Analysis/Truncation.html" class="pagination-link" aria-label="Truncation">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Truncation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

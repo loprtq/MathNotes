@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -352,20 +317,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kaplan-Meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -382,7 +353,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ARMA(p, q) {#sec-ARMA}s</span></span></a>
   </div>
 </li>
       </ul>
@@ -399,7 +370,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
   </div>
 </li>
       </ul>
@@ -432,7 +403,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#cumulative-hazard-function" id="toc-cumulative-hazard-function" class="nav-link active" data-scroll-target="#cumulative-hazard-function"><span class="header-section-number">18.1</span> Cumulative hazard function</a></li>
-  <li><a href="#HazardRatio" id="toc-HazardRatio" class="nav-link" data-scroll-target="#HazardRatio"><span class="header-section-number">18.2</span> Hazard ratio (HR)</a></li>
+  <li><a href="#Hazard_Ratio" id="toc-Hazard_Ratio" class="nav-link" data-scroll-target="#Hazard_Ratio"><span class="header-section-number">18.2</span> Hazard ratio</a></li>
   </ul>
 </nav>
     </div>
@@ -441,7 +412,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Hazard_Function.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hazard function</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-HazardFunction" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hazard function</span></span></h1>
+<h1 class="title"><span id="sec-Hazard_Function" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hazard function</span></span></h1>
 </div>
 
 
@@ -462,9 +433,10 @@ window.Quarto = {
 <p><span class="math display">\[
 \newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
 \newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
 \]</span></p>
 </div>
-<p>The hazard function <span class="math inline">\(h\)</span> describes the instantaneous risk of an event at a time <span class="math inline">\(t\)</span>. <span class="math display">\[
+<p>The hazard function <span class="math inline">\(h\)</span> describes the instantaneous risk of an event at a time <span class="math inline">\(t\)</span>. The instantaneuos risk at a time <span class="math inline">\(t\)</span> is bounded between 0 and 1, where the sum over all <span class="math inline">\(t\)</span> is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between <span class="math inline">\(t\)</span> and <span class="math inline">\(t+\Delta t\)</span> divided by the population size at risk at time <span class="math inline">\(t\)</span>, divided by <span class="math inline">\(\Delta t\)</span>. In the continuous case, the hazard function is given as <span class="math display">\[
 \begin{aligned}
     h(t) &amp;= \lambda(t)
     \\&amp;= \lim_{\Delta t \to 0}\frac{\Pr{t \leq T &lt; t + \Delta t \mid T \geq t}}{\Delta t}
@@ -472,16 +444,16 @@ window.Quarto = {
 \]</span></p>
 <section id="cumulative-hazard-function" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="cumulative-hazard-function"><span class="header-section-number">18.1</span> Cumulative hazard function</h2>
-<p>The cumulative hazard function <span class="math inline">\(H\)</span> describes the cumulative hazard up until a time <span class="math inline">\(p\)</span>. <span class="math display">\[
+<p>The cumulative hazard function <span class="math inline">\(H\)</span> describes the cumulative hazard up until a time <span class="math inline">\(t\)</span>. <span class="math display">\[
 \begin{aligned}
     H(t) &amp;= \int_0^t h(u)\,\textrm{d}u\\
     &amp;= \ln{S(t)}
 \end{aligned}
 \]</span> As opposed to the survival function (see <a href="Survival_Function.html" class="quarto-xref"><span>Chapter 17</span></a>), the cumulative hazard function is monotonically increasing, i.e.&nbsp;<span class="math inline">\(H(t_2) \leq H(t_1)\)</span> for all <span class="math inline">\(t_1 \geq t_2\)</span>.</p>
 </section>
-<section id="HazardRatio" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="HazardRatio"><span class="header-section-number">18.2</span> Hazard ratio (HR)</h2>
-<p>The hazard ratio is often utilized when there is a desire to compare the hazard in one group to the hazard in another.</p>
+<section id="Hazard_Ratio" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="Hazard_Ratio"><span class="header-section-number">18.2</span> Hazard ratio</h2>
+<p>The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.</p>
 <ul>
 <li><p><span class="math inline">\(\textrm{HR} &lt; 1\)</span>: increased survival probability, compared to reference</p></li>
 <li><p><span class="math inline">\(\textrm{HR} = 1\)</span>: No difference in survival probability, compared to reference</p></li>
@@ -489,20 +461,6 @@ window.Quarto = {
 </ul>
 <div id="rem-HR" class="proof remark">
 <p><span class="proof-title"><em>Remark 18.1</em>. </span>The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Data</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Model</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># * status == 1: event, status == 0: censored</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cox_fit <span class="ot">&lt;-</span> survival<span class="sc">::</span><span class="fu">coxph</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(time, status <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="dv">1</span>, data, <span class="at">ties =</span> <span class="st">"breslow"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Forest plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

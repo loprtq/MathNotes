@@ -1,0 +1,57 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Survival curve for lung cancer patients at different institutes.
+## Packages
+library(dplyr)
+library(broom)
+library(ggplot2)
+library(scales)
+
+## Data
+# Get data
+data(cancer, package = "survival")
+
+# Transform and select data
+data_f <- lung %>%
+  dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
+  dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+  dplyr::mutate_at(.vars = c("sex", "status"), .funs = as.factor)
+
+## Model
+# * status == 2: event, status == 1: censored
+surv_fit <- survival::survfit(survival::Surv(time, status == 2) ~ strata(sex), data_f)
+
+# Data
+surv_data <- surv_fit %>%
+  broom::tidy() %>%
+  dplyr::mutate(strata = gsub("strata\\(sex\\)=", "", strata)) %>%
+  dplyr::mutate(
+    TIME = time,
+    SURV = estimate * 1E2,
+    CIF = 1E2 - SURV
+  ) %>%
+  dplyr::rename(SEX = strata)
+
+## Plot
+# Aesthetics
+time_lim <- c(min(surv_data$TIME), max(surv_data$TIME))
+
+# Graph
+ggplot2::ggplot(data = surv_data,
+                ggplot2::aes(x = TIME, y = SURV, color = SEX, group = SEX, fill = SEX)) +
+  ggplot2::xlab(NULL) + 
+  ggplot2::ylab(label = "Survival rate (%)") + 
+  ggplot2::geom_step() +
+  ggplot2::scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  ggplot2::coord_cartesian(xlim = time_lim) +
+  ggplot2::theme_minimal() +
+  ggplot2::guides(color = ggplot2::guide_legend(title = "")) +
+  ggplot2::theme(
+    plot.margin = margin(b = 0, unit = "pt"),
+    legend.position = "bottom",
+    legend.background = element_rect(color = NA)
+  ) +
+  ggplot2::scale_y_continuous(sec.axis = dup_axis())
+```

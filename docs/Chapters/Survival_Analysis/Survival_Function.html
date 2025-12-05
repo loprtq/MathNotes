@@ -352,20 +352,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Kaplan-Meier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -382,7 +388,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">ARMA(p, q) {#sec-ARMA}s</span></span></a>
   </div>
 </li>
       </ul>
@@ -399,7 +405,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Spatial_Statistics/Summary_Statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Summary Statistics</span></span></a>
   </div>
 </li>
       </ul>
@@ -434,7 +440,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Survival_Function.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Survival function</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-SurvivalFunction" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Survival function</span></span></h1>
+<h1 class="title"><span id="sec-Survival_Function" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Survival function</span></span></h1>
 </div>
 
 
@@ -454,17 +460,19 @@ window.Quarto = {
 <div class="hidden">
 <p><span class="math display">\[
 \newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
 \]</span></p>
 </div>
-<p>To describe how probable it is for a person to survive until some time <span class="math inline">\(t\)</span>, we can use the concept of stochastic variables. More precisely, the CDF (see <a href="../Probability/Stochastic_Variables.html#sec-CDF" class="quarto-xref"><span>Section 6.2</span></a>) can be used to describe the probability that an event occurs prior to time <span class="math inline">\(t\)</span> - <span class="math inline">\(\Pr{T \leq t}\)</span>. The CDF of the stochastic variable <span class="math inline">\(T\)</span> is often referred to as the cumulative incidence function and can be expressed as <span id="eq-CIF"><span class="math display">\[
+<p>To describe how probable it is for a person to survive until some time <span class="math inline">\(t\)</span>, we can utilize the concept of stochastic variables (see <a href="../Probability/Stochastic_Variables.html" class="quarto-xref"><span>Chapter 6</span></a>). The CDF (see <a href="../Probability/Stochastic_Variables.html#sec-CDF" class="quarto-xref"><span>Section 6.2</span></a>) can be used to describe the probability that an event occurs prior to time <span class="math inline">\(t\)</span> - <span class="math inline">\(\Pr{T \leq t}\)</span>. The CDF of the stochastic variable <span class="math inline">\(T\)</span> is often referred to as the cumulative incidence function (CIF) and can be expressed as <span id="eq-CIF"><span class="math display">\[
 \begin{aligned}
     F_T(t) &amp;= \Pr{T \leq t} \\
-    &amp;= \int_0^t h(u) \cdot S(u) \,\textrm{d}u
+    &amp;= \int_0^t h(u) \cdot S(u) \,\mathrm{d}u
 \end{aligned}
 \tag{17.1}\]</span></span> where <span class="math inline">\(S\)</span> is the survival function and <span class="math inline">\(h\)</span> is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time <span class="math inline">\(t\)</span>. Thus, the survival function can be defined as <span class="math display">\[
 \begin{aligned}
     S(t) &amp;= 1 - F_T(t) \\
-    &amp;= \Pr{T &gt; t} = \int_t^\infty f_T(x)\,\mathrm{d}x
+    &amp;= \Pr{T &gt; t} = \int_t^\infty f_T(x) \,\mathrm{d}x
 \end{aligned}
 \]</span> where <span class="math inline">\(F_T\)</span> is the CIF and <span class="math inline">\(f_T\)</span> the pdf of <span class="math inline">\(T\)</span>. One of the proporties of the survival function is that it is monotonically decreasing, i.e.&nbsp;<span class="math inline">\(S(t_2) \leq S(t_1)\)</span> for all <span class="math inline">\(t_1 \geq t_2\)</span>.</p>
 <div class="cell">
@@ -475,6 +483,16 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Survival_Function_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Survival curve for lung cancer patients at different institutes.</figcaption>
+</figure>
+</div>
+</div>
 </div>
 
 
