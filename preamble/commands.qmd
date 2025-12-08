@@ -1,0 +1,7 @@
+::: {.hidden}
+$$
+\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
+$$
+:::
