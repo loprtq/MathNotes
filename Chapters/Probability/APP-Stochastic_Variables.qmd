@@ -62,12 +62,15 @@ $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = r \frac{\left(1-p\right)}{p^2}
+\Var{X} = r \frac{\left(1 - p\right)}{p^2}
 $$
+
 
 ## Poisson {#sec-Poisson_Stochastic_Variable}
 $X \sim \Pd{\lambda}$
 $\lambda > 0$
+Observations are independent.
+$\log{\lambda}$ is a linear function of $x$.
 
 ### Distribution {.unnumbered}
 The PMF (see @sec-PMF) is given as
