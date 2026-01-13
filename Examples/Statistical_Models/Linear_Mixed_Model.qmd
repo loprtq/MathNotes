@@ -1,0 +1,19 @@
+:::{#exm-Linear_Mixed_Model_Simple}
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(lme4)
+library(mmrm)
+library(broom.mixed)
+library(emmeans)
+
+## Data
+
+
+## Model
+
+## Plot
+```
+:::

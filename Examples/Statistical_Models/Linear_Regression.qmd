@@ -1,0 +1,26 @@
+:::{#exm-Linear_Regression_Simple}
+:::{.panel-tabset}
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(lme4)
+library(mmrm)
+library(broom.mixed)
+library(emmeans)
+
+## Data
+
+## Model
+
+## Plot
+```
+
+## SAS
+```{SAS}
+
+```
+:::
+:::

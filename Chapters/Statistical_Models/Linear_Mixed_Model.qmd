@@ -8,22 +8,4 @@ Similar to how the errors
 
 To justify the addtion of the random effects, the data somehow has to include some individual devation. 
 
-:::{#exm-Linear_Mixed_Model_Simple}
-```{r}
-#| eval: false
-#| echo: true
-#| warning: false
-## Packages
-library(lme4)
-library(mmrm)
-library(broom.mixed)
-library(emmeans)
-
-## Data
-
-
-## Model
-
-## Plot
-```
-:::
+{{< include /Examples/Statistical_Models/Linear_Mixed_Model.qmd >}}

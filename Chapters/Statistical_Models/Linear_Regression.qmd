@@ -8,22 +8,4 @@ where $X$ is the fixed effects design matrix, describing where, $\varepsilon$ is
 ## Shortcomings {.unnumbered}
 That does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see @sec-Gaussian_Stochastic_Variable) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.
 
-
-:::{#exm-Linear_Regression_Simple}
-```{r}
-#| eval: false
-#| echo: true
-#| warning: false
-## Packages
-library(lme4)
-library(mmrm)
-library(broom.mixed)
-library(emmeans)
-
-## Data
-
-## Model
-
-## Plot
-```
-:::
+{{< include /Examples/Statistical_Models/Linear_Regression.qmd >}}
