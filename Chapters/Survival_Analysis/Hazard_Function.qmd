@@ -22,6 +22,8 @@ As opposed to the survival function (see @sec-Survival_Function), the cumulative
 ## Hazard ratio {#Hazard_Ratio}
 The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.
 
+Non-collapsable. Not a causal estimand
+
 - $\textrm{HR} < 1$: increased survival probability, compared to reference
 
 - $\textrm{HR} = 1$: No difference in survival probability, compared to reference
