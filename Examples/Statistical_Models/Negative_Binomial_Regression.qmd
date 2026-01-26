@@ -1,0 +1,27 @@
+:::{#exm-Negative_Binomial_Regression}
+:::{.panel-tabset}
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(dplyr)
+library(MASS)
+
+## Data
+
+## Model
+nbr_fit <- MASS::glm.nb(, data = data)
+
+# Coefficients
+
+## Plot
+```
+
+## SAS
+```{SAS}
+
+```
+:::
+:::

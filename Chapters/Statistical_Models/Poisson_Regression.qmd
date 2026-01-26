@@ -1,0 +1,48 @@
+# Poisson Regression {#sec-Poisson_Regression}
+Consider the example where you are interested in modeling the number of trafic incidents per year. Intuitively, the number of trafic incidents are discrete ($\in\mathbb{N}$) and non-negative ($0 \geq$). As this is the case, linear regression (see @sec-Linear_Regression) is not be applicable, as it can achieve negative and continuos values. 
+
+The Poisson distribution is good at describing rare independent events, such as trafic incidents.  
+
+$$
+\E{Y \mid x} = \exp{x \cdot \alpha}
+$$
+
+Due to the constraints of the Poisson distribution, the Poisson regression assumes equidispersion, meaning that if used incorrectly, it might present artificially small standard errors, leaning to articificially small p-values for the regression coefficients. 
+
+
+
+
+
+
+
+
+
+
+
+- Linear regression assumes constant variance across prediction levels
+
+Poisson regression is also approriate for rate data, if the rate is a count by some measure of a unit, e.g. a year, a square kilometer.
+
+Based on the Poisson distribution (see @sec-Poission_Stochastic_Variable), which describes count data.
+Poisson distribution has a single parameter $\lambda$, that represents both the mean and variance.
+Independent events
+
+
+
+Offset: If we in the rate want to for example account for individual-level exposure time $t$ to a treatment, then we can do so by dividing with the exposure on both sides; $\E{Y \mid x} = \exp{x \cdot \alpha} + t$
+
+{{< include /Examples/Statistical_Models/Poisson_Regression.qmd >}}
+
+
+Another method for dealing with overdispersion is to use a negative binomial distribution (see @sec-Negative_Binomial_Stochastic_Variable) instead. How this looks is further described in @sec-Negative_Binomial_Regression
+
+## Incidence rate ratio (IRR)
+Lower bound (can not be less than 0)
+Symmetry on the log scale, but not the regular? Same as HR?
+- 0.5: 50% decrease in the rate
+- 1: No effect - no change in the rate
+- 2: 100% increase in the rate
+
+
+## Scaled Poisson Regression
+To overcome some of the aforementioned contraints of the Poison distribution - equidispersion - the Poisson regression can be scaled

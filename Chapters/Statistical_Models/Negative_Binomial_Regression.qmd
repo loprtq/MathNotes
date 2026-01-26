@@ -1,0 +1,12 @@
+# Negative Binomial Regression {#sec-Negative_Binomial_Regression}
+The Poisson regression (see @sec-Poisson_Regression) is only applicable in cases where there is equidispersion i.e. the mean and variance of the data is equal. As this is not always the case, the Poisson regression can be generalized to instead account for overdispersion i.e. the variance is strictly larger than the mean. For a stochastic variable $X$, which follows a negative binomial distribution (see @sec-Negative_Binomial_Stochastic_Variable), the mean is determined by as
+$$
+\E{Y \mid x} = \exp{\log{t} + X \cdot \alpha}
+$$
+where $t$ is the exposure time, $X$ is the fixed effects design matrix and $\alpha$ the fixed effects. $\log{t}$ is the offset.
+
+{{< include /Examples/Statistical_Models/Negative_Binomial_Regression.qmd >}}
+
+
+## Likelihood function
+
