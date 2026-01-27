@@ -61,6 +61,11 @@ book:
       chapters:
         - Chapters/Spatial_Statistics/Summary_Statistics.qmd
 
+    - part: Chapters/Computational_Statistics/Introduction.qmd
+      chapters:
+        - Chapters/Computational_Statistics/Machine_Learning.qmd
+        - Chapters/Computational_Statistics/Neural_Networks.qmd
+
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
 
