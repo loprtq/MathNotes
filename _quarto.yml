@@ -10,6 +10,7 @@ book:
   sidebar:
     title: "MathNotes"
     search: true
+  repo-url: https://github.com/loprtq/MathNotes
   
   chapters:
     - index.qmd
