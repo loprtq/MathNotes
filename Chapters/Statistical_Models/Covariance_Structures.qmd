@@ -1,13 +1,34 @@
 # Covariance Structures {#sec-Covariance_Structures}
-## Unstructured covariance
-No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.
+In statistical modeling, particularly when dealing with repeated measures or longitudinal data, observations within the same individual are often correlated. The covariance structure describes the pattern of correlations and variances among these observations. Choosing an appropriate covariance structure is crucial for obtaining valid statistical inferences and accurate standard errors. Different covariance structures make different assumptions about how observation relationships. The choice of the covariance structure should reflect the underlying process. Each structure involves trade-offs between flexibility and parsimony. More complex structures can better capture the true correlation pattern but require more parameters to estimate, which may lead to overfitting when sample sizes are limited.
 
-As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters $\left(\frac{n\cdot\left(n-1\right)}{2}\right)$. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
 
-## Compound covariance
-## Toeplitz
-## ARMA(p, q)
-@sec-ARMA
+## Unstructured covariance {#sec-Unstructured_Covariance_Structures}
+No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters $\left(\frac{n\cdot\left(n-1\right)}{2}\right)$. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
 
-### AR(p)
-### MA(q)
+
+## Compound symmetry covariance {#sec-Compound_Covariance_Structures}
+Compound symmetry assumes that all observations within an individual have the same variance, and all pairs of observations have the same correlation, regardless of the time or order of measurements. This structure implies that the correlation between measurements does not depend on how far apart they are in time.
+
+The compound symmetry structure requires only two parameters: one for the common variance and one for the common correlation. This parsimony makes it computationally efficient and stable even with smaller sample sizes. However, the assumption of constant correlation is often unrealistic for longitudinal data, where observations closer in time tend to be more correlated than those further apart. Despite this limitation, compound symmetry is frequently used as a simple baseline structure or when the measurement occasions are not inherently ordered (e.g., measurements from different body parts).
+
+
+## Toeplitz {#sec-Toeplitz_Covariance_Structures}
+The Toeplitz structure assumes that the correlation between observations depends only on the distance (lag) between them, not on their absolute positions. Observations that are the same distance apart in time have the same correlation, forming bands of equal correlation in the covariance matrix.
+
+This structure is more flexible than compound symmetry as it allows correlations to decrease (or change) with increasing time lag, which is often more realistic for longitudinal data. For $n$ time points, the Toeplitz structure requires $n$ parameters (one variance and $n-1$ unique correlations for each lag). While more flexible than compound symmetry, it can still be parsimonious compared to the unstructured covariance. The Toeplitz structure is particularly appropriate when measurements are equally spaced in time and the correlation pattern is expected to depend primarily on the temporal distance between observations.
+
+
+## ARMA(p, q) {#sec-ARMA_Covariance_Structures}
+The ARMA (see @sec-ARMA) covariance structure combines autoregressive and moving average components (see following subsections) to model temporal dependencies. This structure is based on time series methodology (see @sec-Time_Series) and is particularly suited for longitudinal data where observations are correlated in a way that decays with time in a specific pattern.
+
+This covariance structure requires $p + q + 1$ parameters, making it more parsimonious than unstructured or Toeplitz structures while still capturing complex temporal correlation patterns. The ARMA structure is appropriate when the underlying process follows autoregressive or moving average dynamics, which enables modeling both short-term and long-term dependencies efficiently.
+
+### AR(p) {#sec-AR_Covariance_Structures}
+The AR (see @sec-AR) covariance structure is a special case of ARMA where $q = 0$. It assumes that each observation is a linear combination of the previous $p$ observations plus random noise. The correlation between observations decays according to the autoregressive parameters, typically showing exponential decay with increasing lag.
+
+The covariance structure requires $p + 1$ parameters. When $p = 1$ it requires two parameters, and is particularly popular as it captures the common pattern where recent observations are more strongly correlated than distant ones. This general covariance structure is appropriate when observations are influenced primarily by their recent observations. Examples of this can be found in financial systems and  biological processes.
+
+### MA(q) {#sec-MA_Covariance_Structures}
+The MA (see @sec-MA) covariance structure is a special case of ARMA where $p = 0$. It assumes that each observation is affected by the current random shock plus a weighted average of the previous $q$ random shocks. Unlike the AR structure, the MA structure implies that correlations become exactly zero beyond lag $q$.
+
+The covariance structure requires $q + 1$ parameters. This covariance structure is appropriate when observations are influenced by short-term random fluctuations that persist for only a limited number of time periods. This general covariance structure can be useful when modeling measurement error or when observations are affected by transient factors that do not have long-lasting effects. The distinct cutoff in correlation at lag $q$ distinguishes it from AR structures, where correlations decay gradually.
