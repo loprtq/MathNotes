@@ -1,4 +1,4 @@
-# Time Series Analysis
+# Time Series Analysis {#sec-Time_Series}
 Time series analysis expands some of the concepts of @sec-Stochastic_Variables to time
 
 ## Autocovariance and Autocorrelation
