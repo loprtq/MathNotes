@@ -24,7 +24,25 @@ As opposed to the fixed effects, which describe a group effects, the random effe
 Continuing with the height example described in the fixed effects section, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see @sec-Linear_Mixed_Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.
 
 
-## Count data
-
-
 ## Repeated measures {#sec-Repeated_Measures}
+Repeated measures data arise when the same individuals or units are observed multiple times under different conditions or at different time points. This design is common in longitudinal studies, clinical trials with multiple follow-up visits, and experiments where each subject serves as their own control. An example of this is measuring blood pressure at baseline, week 4, and week 8 in a clinical trial. Intuitively, the observations from the same individual are typically correlated - they tend to be more similar, when compared to observations from other individuals. This correlation violates the independence assumption of other statistical methods such as linear regression (see @sec-Linear_Regression). Ignoring this correlation can lead to incorrect standard errors, confidence intervals, and hypothesis tests. The correlation structure often depends on factors such as the time between measurements, with observations closer in time generally being more strongly correlated.
+
+Specialised statistical methods are required to properly analyse repeated measures data. Linear mixed models (see @sec-Linear_Mixed_Model) are particularly well-suited for this purpose as they can account for both fixed effects and random effects. The choice of covariance structure (see @sec-Covariance_Structures) is crucial for these models, as different structures make different assumptions about how observations within an individual are correlated.
+
+
+## Count data {#sec-Count_Data}
+Count data represent the number of occurenses within an observation period or similarly. Unlike continuous measurements, count data consist of non-negative integers ($0, 1, 2, \dots$) and thus cannot take fractional values. Examples include the number of hospital admissions per month, or the number of fish observed in a given lake.
+
+Count data often exhibit characteristics that violate the assumptions of linear regression (see @sec-Linear_Regression). The distribution of counts is typically right-skewed, particularly when the mean count is small, and the variance often increases with the mean. Additionally, the discrete nature of count data means that predictions from linear models could inappropriately produce negative values. For these reasons, specialized models such as Poisson regression (see @sec-Poisson_Regression) and negative binomial regression (see @sec-Negative_Binomial_Regression) are used to model count data. These models ensure that predicted values are non-negative and properly account for the distributional characteristics of count outcomes.
+
+### Incidence rates
+While the above-mentioned models directly analyse the number of event occurences, the same statistical framework can be extended to model incidence rates, which express the frequency of events relative to the amount of exposure or time at risk. Incidence rates are particularly useful when individuals or units have different observation periods or when the goal is to compare event frequencies across groups with varying exposure times.
+
+An incidence rate is calculated as the number of events divided by the total person-time at risk, often expressed per standard time unit (e.g., events per 100 person-years). In the context of the above-mentioned models, incidence rates are incorporated using an offset term - a covariate with a coefficient fixed at 1, typically on the log scale. The offset accounts for varying exposure times, effectively shifting the model from predicting event counts to predicting event rates. For instance, in Poisson regression with an offset for $\log{t_i}$, the model estimates the rate of events per unit of exposure, adjusting for the fact that some individuals ($i$) may have been observed for longer periods than others. This approach allows for valid comparisons of event rates across different exposure periods while maintaining the computational and inferential framework of the above-mentioned models.
+
+#### Incidence rate ratio (IRR) {.unnumbered}
+Lower bound (can not be less than 0)
+Symmetry on the log scale, but not the regular? Same as HR?
+- 0.5: 50% decrease in the rate
+- 1: No effect - no change in the rate
+- 2: 100% increase in the rate

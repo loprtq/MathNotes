@@ -1,12 +1,20 @@
 # Negative Binomial Regression {#sec-Negative_Binomial_Regression}
-The Poisson regression (see @sec-Poisson_Regression) is only applicable in cases where there is equidispersion i.e. the mean and variance of the data is equal. As this is not always the case, the Poisson regression can be generalized to instead account for overdispersion i.e. the variance is strictly larger than the mean. For a stochastic variable $X$, which follows a negative binomial distribution (see @sec-Negative_Binomial_Stochastic_Variable), the mean is determined by as
+Negative binomial regression is used to model count data where the variance exceeds the mean - overdispersion. While Poisson regression (see @sec-Poisson_Regression) assumes equidispersion - the mean and variance are equal, this assumption is often violated in real-world data. Consider the example of modeling the number of hospital visits per patient, where individual heterogeneity in health status creates substantial variability that cannot be captured by covariates alone. In such cases, the observed variance often exceeds what the Poisson distribution would predict, making negative binomial regression the appropriate choice.
+
+Based on the negative binomial distribution (see @sec-Negative_Binomial_Stochastic_Variable), which introduces an additional dispersion parameter to accommodate overdispersion, the negative binomial regression models the conditional distribution of the response variable $Y$ given covariates $x$ as
 $$
-\E{Y \mid x} = \exp{\log{t} + X \cdot \alpha}
+\begin{aligned}
+    \E{Y \mid x} &= \mu = \exp{X \cdot \alpha} \\
+    \text{Var}{Y \mid x} &= \mu + \frac{\mu^2}{\theta},
+\end{aligned}
 $$
-where $t$ is the exposure time, $X$ is the fixed effects design matrix and $\alpha$ the fixed effects. $\log{t}$ is the offset.
+where $X$ is the fixed effects design matrix, $\alpha$ is the fixed effects vector, and $\theta$ is the dispersion parameter. When $\theta \to \infty$, the variance approaches the mean, and the negative binomial distribution converges to the Poisson distribution. The exponential link function ensures that the predicted counts remain positive.
+
+Similar to Poisson regression, negative binomial regression is appropriate for rate data. If we want to account for individual-level exposure time $t$, then we can include an offset term ($\log{t}$) to the model as such
+$$
+\E{Y \mid x} = \exp{\log{t} + X \cdot \alpha}.
+$$
+
+The primary advantage of the negative binomial regression over the Poisson regression is its flexibility in handling overdispersion by estimating $\theta$ from the data. Compared to the scaled Poisson regression (see @sec-Scaled_Poisson_Regression), which only adjusts standard errors post hoc, the negative binomial regression explicitly models the overdispersion mechanism as part of the likelihood function. This makes it particularly suitable when the overdispersion is substantial, when unobserved heterogeneity is the source of overdispersion, or when accurate prediction of individual counts is important.
 
 {{< include /Examples/Statistical_Models/Negative_Binomial_Regression.qmd >}}
-
-
-## Likelihood function
-

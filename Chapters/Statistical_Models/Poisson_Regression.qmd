@@ -1,48 +1,29 @@
 # Poisson Regression {#sec-Poisson_Regression}
-Consider the example where you are interested in modeling the number of trafic incidents per year. Intuitively, the number of trafic incidents are discrete ($\in\mathbb{N}$) and non-negative ($0 \geq$). As this is the case, linear regression (see @sec-Linear_Regression) is not be applicable, as it can achieve negative and continuos values. 
+Poisson regression is used to model count data, where the response variable represents the number of occurrences of an event. Consider the example where you are interested in modeling the number of births per year. Intuitively, the number of births are discrete ($\in\mathbb{N}$) and non-negative ($\geq 0$). As this is the case, linear regression (see @sec-Linear_Regression) is not applicable, as it can produce negative and continuous values. 
 
-The Poisson distribution is good at describing rare independent events, such as trafic incidents.  
-
+Based on the Poisson distribution (see @sec-Poission_Stochastic_Variable), which describes count data and rare independent events, the Poisson regression models the conditional distribution of the response variable $Y$ given covariates $x$ as
 $$
-\E{Y \mid x} = \exp{x \cdot \alpha}
+\begin{aligned}
+    \Pr{Y = y \mid x} &= \exp{-\mu} \cdot \mu^{y}\frac{1}{y!} \\
+    \E{Y \mid x} = \mu &= \exp{x \cdot \alpha}
+\end{aligned}
 $$
+where $X$ is the fixed effects design matrix, $\alpha$ is the fixed effects vector, and $y$ is non-negative and discrete. The exponential link function ensures that the predicted counts are always positive.
 
-Due to the constraints of the Poisson distribution, the Poisson regression assumes equidispersion, meaning that if used incorrectly, it might present artificially small standard errors, leaning to articificially small p-values for the regression coefficients. 
-
-
-
+Poisson regression is also appropriate for rate data, where the rate is a count by some measure of a unit, e.g. per year or per square kilometer. If we want to account for individual-level exposure time $t$ to a treatment, then we can include an offset term: $\E{Y \mid x} = \exp{\log{t} + X \cdot \alpha}$, where $\log{t}$ is referred to as the offset.
 
 
+## Shortcomings {.unnumbered}
+Due to the constraints of the Poisson distribution, the Poisson regression assumes equidispersion - the mean and variance of $y$ are equal. This assumption is often violated in real-world data, where overdispersion (variance exceeding the mean) is common. If used incorrectly with overdispersed data, Poisson regression might present artificially small standard errors, leading to artificially small p-values for the regression coefficients and incorrect inference.
 
-
-
-
-
-
-- Linear regression assumes constant variance across prediction levels
-
-Poisson regression is also approriate for rate data, if the rate is a count by some measure of a unit, e.g. a year, a square kilometer.
-
-Based on the Poisson distribution (see @sec-Poission_Stochastic_Variable), which describes count data.
-Poisson distribution has a single parameter $\lambda$, that represents both the mean and variance.
-Independent events
-
-
-
-Offset: If we in the rate want to for example account for individual-level exposure time $t$ to a treatment, then we can do so by dividing with the exposure on both sides; $\E{Y \mid x} = \exp{x \cdot \alpha} + t$
+When faced with overdispersion, two primary alternatives are available: the scaled Poisson regression, which adjusts the standard errors while maintaining the Poisson regression structure, or negative binomial regression (see @sec-Negative_Binomial_Regression), which explicitly models the overdispersion through an additional dispersion parameter.
 
 {{< include /Examples/Statistical_Models/Poisson_Regression.qmd >}}
 
 
-Another method for dealing with overdispersion is to use a negative binomial distribution (see @sec-Negative_Binomial_Stochastic_Variable) instead. How this looks is further described in @sec-Negative_Binomial_Regression
-
-## Incidence rate ratio (IRR)
-Lower bound (can not be less than 0)
-Symmetry on the log scale, but not the regular? Same as HR?
-- 0.5: 50% decrease in the rate
-- 1: No effect - no change in the rate
-- 2: 100% increase in the rate
-
-
-## Scaled Poisson Regression
-To overcome some of the aforementioned contraints of the Poison distribution - equidispersion - the Poisson regression can be scaled
+## Scaled Poisson Regression {#sec-Scaled_Poisson_Regression}
+To overcome the equidispersion constraint of the Poisson distribution while maintaining the Poisson regression framework, a scaled Poisson regression can be used. This approach retains the Poisson regression structure for the mean but adjusts the standard errors by estimating a dispersion parameter $\phi$ from the data. The scaled standard errors are computed as
+$$
+\sigma_{\textrm{scaled}} = \sqrt{\phi} \cdot \sigma,
+$$
+where $\phi$ is typically estimated as the Pearson chi-squared statistic divided by the residual degrees of freedom. When $\phi > 1$, overdispersion is present, and the scaled standard errors will be larger than the naive Poisson standard errors, resulting in more conservative inference. This method is computationally simpler than negative binomial regression (see @sec-Negative_Binomial_Regression) and is appropriate when the primary concern is correcting the standard errors rather than modeling the overdispersion mechanism explicitly. However, when the overdispersion is substantial or when the mechanism generating overdispersion is of interest, the negative binomial regression is preferred as it explicitly models the overdispersion as part of the likelihood function.
