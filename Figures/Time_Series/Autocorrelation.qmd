@@ -1,0 +1,6 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Time series curve.
+```

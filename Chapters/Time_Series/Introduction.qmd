@@ -1,9 +1,79 @@
-# Time Series Analysis
-Time series analysis expands some of the concepts of @sec-Stochastic_Variables to time
+{{< include /preamble/commands.qmd >}}
 
-## Autocovariance and Autocorrelation
-Building upon the concepts introduced in @sec-Covariance and @sec-Correlation, the autocovariance and autocorrelation functions expand these concepts to time series data, to explain how stochastic 
+# Time Series Analysis {#sec-Time_Series}
+Time series analysis expands some of the concepts of @sec-Stochastic_Variables to observations indexed by time. A time series is a sequence of observations from a stochatic process $\{X_t\}_{t \in T}$ where $T$ is an set representing time points. These observations are typically ordered chronologically and often exhibit temporal dependence - observations at nearby time points tend to be related. This violates the often assumed independence of observations, requiring another approach. The key challenge when working with time series data is to indetify patterns (trend and seasonality), understanding the covariance/correlation structure across time, and then using this information (and historical data) to forecast. Examples of where time series data and models are used is in the utility markets, such as energy, where  specialised models are used to forecast prices, such that traders can buy and sell for profit.
 
-## Stationarity
-## Trend
-## Seasonality
+{{< include /Figures/Time_Series/Time_series.qmd >}}
+
+
+## Autocovariance Function {#sec-Autocovariance}
+Building upon the concepts introduced in @sec-Covariance, the autocovariance function expands this concept to time series data. The autocovariance function measures the covariance between observations at different time points. For a time series $\{X_t\}$, the autocovariance at lag $h$ is defined as:
+$$
+\gamma(h) = \Cov{X_t, X_{t+h}} = \E{(X_t - \mu)(X_{t+h} - \mu)}
+$$ {#eq-Autocovariance}
+where $\mu = \E{X_t}$ is the mean of the process. Note that $\gamma(0) = \Var{X_t}$, and for stationary processes, $\gamma(h) = \gamma(-h)$.
+
+
+## Autocorrelation Function {#sec-Autocorrelation}
+The autocorrelation function (ACF) is the normalized version of the autocovariance function:
+$$
+\rho(h) = \frac{\gamma(h)}{\gamma(0)} = \frac{\Cov{X_t, X_{t+h}}}{\Var{X_t}}
+$$ {#eq-ACF}
+The ACF always satisfies $\rho(0) = 1$ and $|\rho(h)| \leq 1$ for all $h$. The ACF is crucial for identifying patterns in time series data and is commonly used in model diagnostics for @sec-ARMA models.
+
+{{< include /Figures/Time_Series/Autocorrelation.qmd >}}
+
+### Partial Autocorrelation Function {#sec-Partial_Autocorrelation}
+The partial autocorrelation function (PACF) measures the correlation between $X_t$ and $X_{t+h}$ after removing the linear dependence on the intermediate observations $X_{t+1}, \ldots, X_{t+h-1}$. The PACF is particularly useful for identifying the order of autoregressive processes (see @sec-AR).
+
+
+## Stationarity {#sec-Stationarity}
+A time series is said to be stationary if its statistical properties do not change over time. Stationarity is a crucial assumption for many time series models and forecasting techniques.
+
+### Weak (Covariance) Stationarity
+A time series $\{X_t\}$ is weakly stationary (or covariance stationary) if:
+
+1. The mean is constant: $\E{X_t} = \mu$ for all $t$
+2. The variance is constant: $\Var{X_t} = \sigma^2$ for all $t$
+3. The autocovariance depends only on the lag: $\Cov{X_t, X_{t+h}} = \gamma(h)$ for all $t$
+
+This means that the correlation structure is time-invariant, depending only on the distance between observations, not their absolute position in time.
+
+### Strong Stationarity
+A time series is strongly stationary if the joint distribution of $(X_{t_1}, X_{t_2}, \ldots, X_{t_k})$ is the same as $(X_{t_1+h}, X_{t_2+h}, \ldots, X_{t_k+h})$ for all $t_1, \ldots, t_k$ and $h$. Strong stationarity implies weak stationarity under finite second moments.
+
+Many time series in practice are non-stationary and require transformations (such as differencing) to achieve stationarity before modeling.
+
+
+## Trend {#sec-Trend}
+A trend is a long-term change in the mean level of a time series. Trends can be deterministic (a function of time) or stochastic (such as a random walk). Identifying and removing trends is often necessary before applying stationary time series models.
+
+{{< include /Figures/Time_Series/Trend.qmd >}}
+
+### Deterministic Trend
+A deterministic trend can be modeled as:
+$$
+X_t = \mu_t + \epsilon_t
+$$
+where $\mu_t$ is a deterministic function of time (e.g., linear $\mu_t = \alpha + \beta t$ or polynomial), and $\epsilon_t$ is a stationary process.
+
+### Stochastic Trend
+A stochastic trend arises when the series follows a random walk or unit root process:
+$$
+X_t = X_{t-1} + \epsilon_t
+$$
+where $\epsilon_t$ is white noise. Such processes are non-stationary and require differencing to achieve stationarity.
+
+
+## Seasonality {#sec-Seasonality}
+Seasonality refers to periodic fluctuations in a time series that occur at regular intervals. Seasonal patterns are common in economic, environmental, and business data, where observations exhibit regular cycles over days, months, quarters, or years.
+
+A time series with seasonality can be decomposed as:
+$$
+X_t = T_t + S_t + \epsilon_t
+$$
+where $T_t$ is the trend component, $S_t$ is the seasonal component with period $d$ (i.e., $S_t = S_{t+d}$), and $\epsilon_t$ is the irregular component.
+
+Identifying and modeling seasonal patterns is crucial for accurate forecasting and understanding the underlying structure of time series data. Common approaches include seasonal differencing, seasonal ARIMA models (see @sec-ARMA), and decomposition methods.
+
+{{< include /Figures/Time_Series/Seasonality.qmd >}}
