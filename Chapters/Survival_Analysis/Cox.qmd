@@ -1,13 +1,18 @@
 {{< include /preamble/commands.qmd >}}
 
 # Cox Regression {#sec-Cox}
+The Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see @sec-Hazard_Function), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.
 
+The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.
+
+The Cox proportional hazards model is defined as:
 $$
-h(t) = h_0(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right)
+h(t) = h_0(t) \cdot \exp{\sum_{i=1}^p \beta_i x_i}
 $$ {#eq-Cox}
 where $h_0$ is the baseline hazard function, $x_1,x_2,\dots,x_p$ are the covariates and $\beta_1,\beta_2,\dots,\beta_p$ the associated effect sizes of the covariates.
 
 The Cox model assumes that continuous covariates have a linear relationship with $h$.
+
 
 ## Separation
 Similar to logistic regression (see @sec-Logistic_Regression), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:
@@ -21,26 +26,28 @@ The iterative estimation algorithm (typically Newton-Raphson) may fail to conver
 ### Invalid Inference {.unnumbered}
 Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.
 
+
 ## Stratification
-When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum. Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as
+When stratifying a Cox model (See @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum (each level of the stratification variable). Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as
 $$
 h(t) = \begin{cases}
-    h_{0, g=1}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=1\\
-    h_{0, g=2}(t) \cdot \exp\left(\sum_{i=1}^p \beta_i x_i\right) & \textrm{if } g=2
+    h_{0, g = 1}(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i} & \textrm{if } g = 1\\
+    h_{0, g = 2}(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i} & \textrm{if } g = 2
 \end{cases}
 $$ {#eq-Cox-stratification}
 meaning that the two stratum share the same effect sizes $\beta_1,\beta_2,\dots,\beta_p$. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.
 
 {{< include /Examples/Survival_Analysis/Cox.qmd >}}
 
+
 ## Mixed Effects Cox Model
 The Cox model can be @sec-Random_Effects
 $$
 \begin{aligned}
-    h(t) &= h_0(t) \cdot \exp\left(X\beta + Zb\right)\\
+    h(t) &= h_0(t) \cdot \exp{X\beta + Zb}\\
     b &\sim \Nd{0, \Sigma\left(\theta\right)}
 \end{aligned}
 $$
-where $\operatorname{N}$ is a Gaussian distribution with mean $0$ and covariance $\Sigma(\theta)$. 
+where $\operatorname{N}$ is a Gaussian distribution (see @sec-Gaussian_Stochastic_Variable) with mean $0$ and covariance $\Sigma(\theta)$. 
 
 {{< include /Examples/Survival_Analysis/Coxme.qmd >}}

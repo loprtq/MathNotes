@@ -1,16 +1,38 @@
 {{< include /preamble/commands.qmd >}}
 
-# Kaplan-Meier {#sec-Kaplan-Meier}
-The Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function. 
+# Kaplan-Meier Estimator {#sec-Kaplan-Meier}
+The Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see @sec-Survival_Function) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see @sec-Censoring) without making assumptions about the underlying survival distribution.
 
-censoring is independent of survival time.
+An advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see @sec-Right_Censoring) - individuals who have not experienced the event by the time of censoring.
 
+The Kaplan-Meier estimate of the survival function at time $t$ is given by:
 $$
 \begin{aligned}
-    S(t) &= \prod_{t_i \leq t} \left(1 - \frac{d_{t_i}}{n_{t_i}}\right)
+    \hat{S}(t) &= \prod_{t_i \leq t} \left(1 - \frac{d_{t_i}}{n_{t_i}}\right)
 \end{aligned}
-$$
-where $t_i$ is the time that an event occured, $d_{t_i}$ is the number of events that occured at this time, and $n_{t_i}$ the number of individuals who has survived up until this time.
+$$ {#eq-Kaplan-Meier}
+where $t_i$ represents the event times, $d_{t_i} > 0$ is the number of events that occurred at time $t_i$, and $n_{t_i} \geq 0$ is the number of individuals at risk just prior to time $t_i$.
+
+The estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time $t_i$, the probability of surviving that time point is estimated as $1 - d_{t_i}/n_{t_i}$, which represents one minus the empirical hazard rate at that time.
+
+
+## Properties {.unnumbered}
+The Kaplan-Meier estimator has several important properties, most of which are also properties of the survival curve. Firstly, $\hat{S}(0) = 1$ - all individuals are alive at the start. Secondly, $\hat{S}(t)$ is a right-continuous step function that decreases only at observed event times. This also has the implication the it is monotonically decreasing - $\hat{S}(t_2) \leq \hat{S}(t_1)$ for all $t_2 > t_1$.
+
+Under appropriate conditions, $\hat{S}(t)$ converges to the true survival function $S(t)$ as the sample size increases.
+
+
+## Assumptions {.unnumbered}
+The validity of the Kaplan-Meier estimator relies on several key assumptions:
+
+### Independent Censoring
+The most critical assumption is that censoring is independent of survival time. Formally, the censoring time $C$ and the event time $T$ must be independent. This means that censored individuals should have the same survival prospects as those who remain under observation. Violations of this assumption can lead to biased estimates. For example, if patients with worse prognoses are more likely to drop out of a study, the Kaplan-Meier curve will overestimate survival.
+
+### Non-informative Censoring
+Related to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time $t$ should not depend on the event time $T$, given the observed covariates.
+
+### No Loss to Follow-up
+Ideally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.
 
 {{< include /Examples/Survival_Analysis/Kaplan-Meier.qmd >}}
 
