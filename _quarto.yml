@@ -37,12 +37,11 @@ book:
 
     - part: Chapters/Statistical_Models/Introduction.qmd
       chapters:
+        - Chapters/Statistical_Models/Covariance_Structures.qmd
         - Chapters/Statistical_Models/Logistic_Regression.qmd
         - Chapters/Statistical_Models/Linear_Regression.qmd
         - Chapters/Statistical_Models/Linear_Mixed_Model.qmd
-        - Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.qmd
         - Chapters/Statistical_Models/Non-linear_Mixed_Model.qmd
-        - Chapters/Statistical_Models/Covariance_Structures.qmd
 
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:
