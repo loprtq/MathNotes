@@ -1,7 +1,27 @@
-# Logistic Regression {#sec-Logistic_Regression}
+{{< include /preamble/commands.qmd >}}
 
-## Separation
-When all outcomes with a level of a covariate is always 0 or always 1, this is called separation. 
+# Logistic Regression {#sec-Logistic_Regression}
+Logistic regression is used to model binary outcomes or cases where the response variable takes only two possible values. Consider the example where you are interested in modeling whether a patient responds to treatment or not. Intuitively, the response is discrete and bounded between 0 (no) and 1 (yes). As this is the case, linear regression (see @sec-Linear_Regression) is not applicable, as it can produce values outside the $[0, 1]$ interval and does not respect the binary nature of the outcome.
+
+Based on the Bernoulli distribution (see @sec-Bernoulli_Stochastic_Variable), which describes binary outcomes, logistic regression models the conditional probability of the response variable $Y$ being 1 given covariates $x$ as
+$$
+\begin{aligned}
+    \Pr{Y = 1 \mid x} &= p \\
+    &= \frac{\exp{X \cdot \alpha}}{1 + \exp{X \cdot \alpha}} = \frac{1}{1 + \exp{-X \cdot \alpha}} \\
+    &= \log{\frac{p}{1-p}} = X \cdot \alpha
+\end{aligned}
+$$
+where $X$ is the fixed effects design matrix, $\alpha$ is the fixed effects, and $\frac{p}{1-p}$ is called the odds. The logistic link function (logit) ensures that the predicted probabilities remain between 0 and 1. The log-odds $\log{\frac{p}{1-p}}$ is linear in the covariates, which allows for straightforward interpretation: a one-unit increase in $x_j$ changes the log-odds by $\alpha_j$, or equivalently, multiplies the odds by $\exp{\alpha_j}$.
+
+## Shortcomings {.unnumbered}
+Logistic regression, like other statistical models, has limitations. Firstly, the assumption of a linear relationship between the covariates and the log-odds may not hold for all data. When this assumption is violated, the model may provide poor predictions and misleading inference. Secondly, logistic regression does not handle missing data very well, and preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, logistic regression is prone to overfitting, reducing the generalization of the fit. Furthermore, logistic regression assumes independence of observations - when observations are clustered or repeated measurements are taken on the same individuals, mixed-effects logistic regression should be considered instead. Additionally, the presence of separation (see @sec-Separation) can lead to infinite coefficient estimates and numerical instability, requiring special handling.
+
+
+## Separation {#sec-Separation}
+When all outcomes within a level of a categorical variable is always 0 or always 1, this is called separation. Separation occurs when a covariate or combination of covariates perfectly predicts the binary outcome. In such cases, the maximum likelihood estimation procedure fails to converge, as the estimated coefficients approach infinity. This is because the algorithm attempts to find a coefficient that makes the predicted probability exactly 0 or 1 for those observations, which requires an infinite coefficient value.
 
 ### Complete Separation
+Complete separation occurs when there exists a linear combination of the covariates that perfectly separates the outcomes. More formally, complete separation exists if there is a vector $\beta$ such that $X \cdot \beta > 0$ for all observations where $Y = 1$ and $X \cdot \beta < 0$ for all observations where $Y = 0$. In this case, the likelihood function is monotone and the maximum likelihood estimates do not exist. Complete separation often happens with small sample sizes, rare outcomes, or when a level of a categorical variable share the same outcome. When complete separation is present, standard logistic regression cannot be used, and alternatives should be considered.
+
 ### Quasi-Complete Separation
+Quasi-complete separation occurs when the outcomes can be nearly, but not perfectly, separated by the covariates. Unlike complete separation, some observations exist where the perfect separation rule is violated, but these violations are rare. Formally, quasi-complete separation exists when there exists a $\beta$ such that $X \cdot \beta \geq 0$ for all observations where $Y = 1$ and $X \cdot \beta \leq 0$ for all observations where $Y = 0$, with at least one inequality being strict. While the maximum likelihood estimates technically exist in this case, they are extremely large and the standard errors are inflated, making the estimates and inference unreliable. Similar to complete separation, the likelihood function is nearly flat in certain directions, causing numerical instability in the estimation algorithm. Quasi-complete separation is more common than complete separation and can be difficult to detect, as the algorithm may appear to converge but with suspiciously large coefficient estimates and standard errors.
