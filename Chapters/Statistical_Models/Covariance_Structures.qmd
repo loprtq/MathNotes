@@ -1,9 +1,9 @@
 # Covariance Structures {#sec-Covariance_Structures}
-In statistical modeling, particularly when dealing with repeated measures or longitudinal data, observations within the same individual are often correlated. The covariance structure describes the pattern of correlations and variances among these observations. Choosing an appropriate covariance structure is crucial for obtaining valid statistical inferences and accurate standard errors. Different covariance structures make different assumptions about how observation relationships. The choice of the covariance structure should reflect the underlying process. Each structure involves trade-offs between flexibility and parsimony. More complex structures can better capture the true correlation pattern but require more parameters to estimate, which may lead to overfitting when sample sizes are limited.
+In statistical modeling, particularly when dealing with repeated measures (see @sec-Repeated_Measures) or longitudinal data, observations within the same individual are often correlated. The covariance structure describes the pattern of correlations and variances among these observations. Choosing an appropriate covariance structure is crucial for obtaining valid statistical inferences and accurate standard errors. Different covariance structures make different assumptions about how observation relationships. The choice of the covariance structure should reflect the underlying process. Each structure involves trade-offs between flexibility and parsimony. More complex structures can better capture the true correlation pattern but require more parameters to estimate, which may lead to overfitting when sample sizes are limited.
 
 
 ## Unstructured covariance {#sec-Unstructured_Covariance_Structures}
-No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters $\left(\frac{n\cdot\left(n-1\right)}{2}\right)$. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
+No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires $(n\cdot\left(n-1\right)) \cdot \frac{1}{2}$ parameters. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
 
 
 ## Compound symmetry covariance {#sec-Compound_Covariance_Structures}
@@ -19,7 +19,7 @@ This structure is more flexible than compound symmetry as it allows correlations
 
 
 ## ARMA(p, q) {#sec-ARMA_Covariance_Structures}
-The ARMA (see @sec-ARMA) covariance structure combines autoregressive and moving average components (see following subsections) to model temporal dependencies. This structure is based on time series methodology (see @sec-Time_Series) and is particularly suited for longitudinal data where observations are correlated in a way that decays with time in a specific pattern.
+The ARMA (see @sec-ARMA) covariance structure combines AR and MA components (see following subsections) to model temporal dependencies. This structure is based on time series methodology (see @sec-Time_Series) and is particularly suited for longitudinal data where observations are correlated in a way that decays with time in a specific pattern.
 
 This covariance structure requires $p + q + 1$ parameters, making it more parsimonious than unstructured or Toeplitz structures while still capturing complex temporal correlation patterns. The ARMA structure is appropriate when the underlying process follows autoregressive or moving average dynamics, which enables modeling both short-term and long-term dependencies efficiently.
 
