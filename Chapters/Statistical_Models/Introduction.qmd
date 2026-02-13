@@ -2,20 +2,25 @@
 This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.
 
 
-## Covariates
+## Covariates {#sec-Covariates}
 Covariates are the explanatory variables used to predict or explain the response variable in a statistical model. They represent the factors that may influence the outcome of interest. Covariates can be broadly classified into two main types based on their nature, described in the following subsections.
 
-### Discrete/categorical variables
-Discrete or categorical covariates take on a limited set of distinct values, representing different categories or groups. Examples include age groups ($\geq 75$, $75>x\geq 50$, $50>$), gender (male, female), or country of origin. In statistical models, categorical variables are typically encoded using indicator/dummy variables, where each level of the variable, except a reference level, gets its own binary variable taking the value 0 or 1.
+### Discrete/categorical variables {#sec-Discrete_variables}
+Discrete/categorical covariates take on a limited set of distinct values, representing different categories or groups. Examples include age groups ($\geq 75$, $75>x\geq 50$, $50>$), gender (male, female), or country of origin. In statistical models, categorical variables are typically encoded using indicator/dummy variables, where each level of the variable, except a reference level, gets its own binary variable taking the value 0 or 1.
 
-### Continuous variables
+#### Stratification variables {#sec-Stratification_variables}
+Stratification variables are categorical covariates used to divide a population into distinct, non-overlapping subgroups (strata) based on characteristics that may influence the relationship between other covariates and the response variable. Unlike regular categorical covariates that are included as terms in a model, stratification involves fitting separate models or allowing different baseline functions within each stratum.
+
+In practice, stratification variables define groups within which the analysis is performed separately. For example, stratifying by center in a multi-center clinical trial allows each center to have its own baseline response level while estimating common treatment effects across centers. This approach provides more flexibility than simply including the stratification variable as a fixed effect, particularly when the variable has many levels or when assumptions about its relationship with the response variable are questionable.
+
+### Continuous variables {#sec-Continous_Variables}
 Continuous covariates can take any value within a range and typically represent quantitative measurements. Examples include age, weight, or temperature. Continuous covariates are often included directly in models, though they may sometimes be transformed to better satisfy model assumptions or describe non-linear relationships with the response variable.
 
 
 ## Fixed Effects {#sec-Fixed_Effects}
-Fixed effects describe the average relationship between covariates and the response variable - the systematic effects within a group. In the context of linear models (see @sec-Linear_Regression), fixed effects are the coefficients that quantify how the expected value of the response variable changes with the covariates. These effects are "fixed" in the sense that they are constant across all observations in the population, though they may vary across different levels of discrete/categorical covariates.
+Fixed effects describe the average relationship between covariates and the response variable - the systematic effects within a group. In the context of linear models (see @sec-Linear_Regression), fixed effects are the coefficients that quantify how the expected value of the response variable changes with the covariates. These effects are "fixed" in the sense that they are constant across all observations in the population, though they may vary across different levels of categorical covariates.
 
-As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. In this example, the fixed effects would capture the systemic growth pattern shared by all 20-year-old males in the population. This includes the average height at age 10 (fixed intercept) and the average rate of growth over the 10-year period (fixed slope). These parameters describe the general trajectory that applies to the entire group, before considering individual variations.
+As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. In this example, the fixed effects would capture the systemic growth pattern shared by all 20 year old males in the population. This includes the average height at age 10 (fixed intercept) and the average rate of growth over the 10-year period (fixed slope). These parameters describe the general trajectory that applies to the entire group, before considering individual variations.
 
 
 ## Random Effects {#sec-Random_Effects}
@@ -27,7 +32,7 @@ Continuing with the height example described in the fixed effects section, there
 ## Repeated measures {#sec-Repeated_Measures}
 Repeated measures data arise when the same individuals or units are observed multiple times under different conditions or at different time points. This design is common in longitudinal studies, clinical trials with multiple follow-up visits, and experiments where each subject serves as their own control. An example of this is measuring blood pressure at baseline, week 4, and week 8 in a clinical trial. Intuitively, the observations from the same individual are typically correlated - they tend to be more similar, when compared to observations from other individuals. This correlation violates the independence assumption of other statistical methods such as linear regression (see @sec-Linear_Regression). Ignoring this correlation can lead to incorrect standard errors, confidence intervals, and hypothesis tests. The correlation structure often depends on factors such as the time between measurements, with observations closer in time generally being more strongly correlated.
 
-Specialised statistical methods are required to properly analyse repeated measures data. Linear mixed models (see @sec-Linear_Mixed_Model) are particularly well-suited for this purpose as they can account for both fixed effects and random effects. The choice of covariance structure (see @sec-Covariance_Structures) is crucial for these models, as different structures make different assumptions about how observations within an individual are correlated.
+Specialised statistical methods are required to properly analyse repeated measures data. Linear mixed models (see @sec-Linear_Mixed_Model) and non-linear mixed models (see @sec-Non-linear_Mixed_Model) are particularly well-suited for this purpose as they can account for both fixed effects and random effects. The choice of covariance structure (see @sec-Covariance_Structures) is crucial for these models, as different structures make different assumptions about how observations within an individual are correlated.
 
 
 ## Count data {#sec-Count_Data}
