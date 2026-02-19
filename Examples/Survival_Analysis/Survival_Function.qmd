@@ -1,13 +1,28 @@
+:::{#exm-Survival_Function}
+## Survival Function
+
+:::{.panel-tabset}
+## R
 ```{r}
 #| eval: false
 #| echo: true
 #| warning: false
-## Packages
+# Packages
 library(survival)
+library(dplyr)
 
-## Data
+# Data
+## Get data
+data(cancer, package = "survival")
 
+## Transform and select data
+data_f <- lung %>%
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
+    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+    dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
 
-## Plot
+# Plot
 
 ```
+:::
+:::

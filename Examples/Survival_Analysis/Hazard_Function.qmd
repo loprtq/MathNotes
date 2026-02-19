@@ -2,17 +2,23 @@
 #| eval: false
 #| echo: true
 #| warning: false
-## Packages
+# Packages
 library(survival)
 library(ggplot2)
 
-## Data
+# Data
+## Get data
+data(cancer, package = "survival")
 
-## Model
+## Transform and select data
+data_f <- lung %>%
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
+    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+    dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
+
+# Model
 # * status == 1: event, status == 0: censored
-cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = "breslow")
+cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data_f, ties = "breslow")
 
-
-## Forest plot
-
+# Forest plot
 ```
