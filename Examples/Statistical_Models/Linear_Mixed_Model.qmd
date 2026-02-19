@@ -1,19 +1,63 @@
 :::{#exm-Linear_Mixed_Model_Simple}
+:::{.panel-tabset}
+## Data
 ```{r}
 #| eval: false
 #| echo: true
 #| warning: false
 ## Packages
+library(dplyr)
+library(mmrm)
+
+# Data
+mmrm::bcva_data %>%
+  dplyr::rename_with(toupper) %>%
+  dplyr::slice_head(n = 15)
+```
+
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(tidyverse)
 library(lme4)
 library(mmrm)
 library(broom.mixed)
-library(emmeans)
 
 ## Data
-
+data <- mmrm::bcva_data %>%
+    dplyr::rename_with(toupper)
 
 ## Model
+# * Random intercept for each subject (1 | USUBJID)
+lmm_fit <- lme4::lmer(BCVA_CHG ~ VISITN + BCVA_BL + (1 | USUBJID), data = data)
+
+## Coefficients
+broom.mixed::tidy(lmm_fit, conf.int = TRUE, conf.level = 0.95)
 
 ## Plot
+data %>%
+  ggplot2::ggplot(aes(x = VISITN, y = BCVA_CHG)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(x = "Visit Number", y = "Change in BCVA") +
+  ggplot2::geom_line(
+    data = data %>%
+      dplyr::mutate(predicted = predict(lmm_fit)),
+    aes(x = VISITN, y = predicted),
+    color = "blue"
+  ) +
+  ggplot2::theme_minimal()
 ```
+
+## SAS
+```{SAS}
+PROC MIXED data = data method = REML;
+    class USUBJID;
+    model BCVA_CHG = VISITN BCVA_BL / solution;
+    random intercept / subject = USUBJID;
+run;
+```
+:::
 :::

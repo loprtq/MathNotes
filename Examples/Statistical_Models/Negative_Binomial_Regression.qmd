@@ -1,6 +1,6 @@
 :::{#exm-Negative_Binomial_Regression}
 :::{.panel-tabset}
-## R
+## Data
 ```{r}
 #| eval: false
 #| echo: true
@@ -10,18 +10,39 @@ library(dplyr)
 library(MASS)
 
 ## Data
+MASS::quine %>%
+  dplyr::rename_with(toupper)
+```
 
-## Model
-nbr_fit <- MASS::glm.nb(, data = data)
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+# Packages
+library(tidyverse)
+library(MASS)
 
-# Coefficients
+# Data
+data <- MASS::quine %>%
+  dplyr::rename_with(toupper)
 
-## Plot
+# Model
+nbr_fit <- MASS::glm.nb(DAYS ~ SEX + ETH, data = data)
+
+## Coefficients
+broom::tidy(nbr_fit, conf.int = TRUE, conf.level = 0.95)
 ```
 
 ## SAS
 ```{SAS}
-
+proc genmod data = data;
+  class SEX ETH;
+  model DAYS = SEX ETH /
+	noint dist = negbin
+	alpha = 0.05;
+  ods output ParameterEstimates = EST;
+run;
 ```
 :::
 :::

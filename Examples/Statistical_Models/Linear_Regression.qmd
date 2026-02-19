@@ -1,26 +1,58 @@
 :::{#exm-Linear_Regression_Simple}
 :::{.panel-tabset}
+## Data
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(dplyr)
+library(mmrm)
+
+# Data
+mmrm::bcva_data %>%
+  dplyr::rename_with(toupper) %>%
+  dplyr::slice_head(n = 15)
+```
+
 ## R
 ```{r}
 #| eval: false
 #| echo: true
 #| warning: false
 ## Packages
-library(lme4)
+library(tidyverse)
 library(mmrm)
-library(broom.mixed)
-library(emmeans)
 
-## Data
+# Data
+data <- mmrm::bcva_data %>%
+  dplyr::rename_with(toupper)
 
-## Model
+# Model
+lm_fit <- stats::lm(BCVA_CHG ~ VISITN + BCVA_BL, data = data)
 
-## Plot
+## Coefficients
+broom::tidy(lm_fit, conf.int = TRUE, conf.level = 0.95)
+
+# Plot
+data %>%
+  ggplot2::ggplot(aes(x = VISITN, y = BCVA_CHG)) +
+  ggplot2::geom_point() +
+  ggplot2::labs(x = "Visit Number", y = "Change in BCVA") +
+  ggplot2::geom_line(
+    data = data %>%
+      dplyr::mutate(predicted = predict(lm_fit)),
+    aes(x = VISITN, y = predicted),
+    color = "blue"
+  ) +
+  ggplot2::theme_minimal()
 ```
 
 ## SAS
 ```{SAS}
-
+PROC GLM data = data;
+    model BCVA_CHG = VISITN BCVA_BL / solution;
+run;
 ```
 :::
 :::

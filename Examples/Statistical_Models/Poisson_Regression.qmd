@@ -1,36 +1,47 @@
 :::{#exm-Poisson_Regression}
 :::{.panel-tabset}
+## Data
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+# Packages
+library(dplyr)
+library(MASS)
+
+# Data
+MASS::quine %>%
+  dplyr::rename_with(toupper)
+```
+
 ## R
 ```{r}
 #| eval: false
 #| echo: true
 #| warning: false
-## Packages
-library(dplyr)
+# Packages
+library(tidyverse)
+library(MASS)
 
-## Data
+# Data
+data <- MASS::quine %>%
+  dplyr::rename_with(toupper)
 
-## Model
-pr_fit <- stats::glm(, family = poisson, data = data)
+# Model
+pr_fit <- stats::glm(DAYS ~ SEX + ETH, family = poisson, data = data)
 
-# Coefficients
-
-## Plot
+## Coefficients
+broom::tidy(pr_fit, conf.int = TRUE, conf.level = 0.95)
 ```
 
 ## SAS
 ```{SAS}
-proc genmod data = data_poisson;
-	by GRP;
-   	class TRTA CLASSVAR USUBJID;
-    model AVAL = TRTA CLASSVAR /
+proc genmod data = data;
+  class SEX ETH;
+  model DAYS = SEX ETH /
 	noint dist = poisson
-	link = log
-	offset = OFFSET
 	alpha = 0.05;
-	repeated SUBJECT = USUBJID / type = unstr corrw covb;
-    lsmeans TRTA / exp cl om bylevel;
-    ods output lsmeans = lsmean;
+  ods output ParameterEstimates = EST;
 run;
 ```
 :::
