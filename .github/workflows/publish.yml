@@ -29,12 +29,13 @@ jobs:
           r-version: '4.4.1'
           use-public-rspm: true
 
+      - name: Install R packages
+        run: |
+          install.packages(c("rmarkdown", "knitr", "reticulate"))
+        shell: Rscript {0}
+
       - name: Install R Dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            any::rmarkdown
-            any::knitr
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
