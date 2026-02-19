@@ -1,0 +1,11 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| label: fig-Neural_Network_Simple
+#| fig-cap: Neural network
+# Packages
+
+# Plot
+
+```

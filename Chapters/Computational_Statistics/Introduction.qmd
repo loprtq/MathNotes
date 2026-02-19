@@ -1,1 +1,13 @@
-# Computational statistics {#sec-Computational_Statistics}
+# Computational Statistics {#sec-Computational_Statistics}
+Computational statistics is the intersection of statistics and computing, focusing on methods that use computational power to solve statistical problems. Statistics often rely on analytical solutions and mathematical proofs, whereas computational statistics tackles problems that are analytically intractable or computationally intensive. This field has become increasingly important as data grows in size and complexity.
+
+## Resampling Methods {#sec-Resampling_Methods}
+Resampling techniques form a cornerstone of computational statistics. These methods involve repeatedly drawing samples from observed data to make inferences about population parameters or assess the variability of estimates. The bootstrap (see @sec-Bootstrap) is perhaps the most well-known resampling method, allowing us to estimate standard errors and confidence intervals without making strong parametric assumptions. Cross-validation is another resampling approach used extensively in model selection and validation, particularly in machine learning contexts.
+
+These methods are particularly valuable when the theoretical distribution of a statistic is unknown or difficult to derive. For example, if we want to estimate the standard error of the median from a sample of 50 observations, the bootstrap provides a practical computational solution where analytical methods would be complex.
+
+
+## Computational Modeling {#sec-Computational_Modeling}
+Beyond resampling, computational statistics encompasses sophisticated modeling techniques that learn data patterns. Machine learning (see @sec-Machine_Learning) represents a major branch of this area, focusing on techniques that can improve their performance through experience. These methods range from relatively simple approaches like decision trees to complex ensemble methods and support vector machines.
+
+Neural networks (see @sec-Neural_Networks) take this further, using interconnected layers of computational units inspired by neurons to model highly complex relationships. A simple neural network might take input features like temperature and humidity to predict whether it will rain, learning the complex interactions between these variables through an iterative training process.

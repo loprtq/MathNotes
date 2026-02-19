@@ -1,1 +1,14 @@
 # Machine Learning {#sec-Machine_Learning}
+Machine learning is a subfield of computational statistics and artificial intelligence that focuses on developing algorithms that can learn patterns from data and make predictions or decisions without being explicitly programmed for specific tasks. The fundamental premise is that computers can identify patterns in historical data and use these patterns to make informed predictions about new, unseen data.
+
+
+## Supervised Learning {#sec-Supervised_Learning}
+Supervised learning involves training algorithms on labeled data - observations include both input features and a known output. The algorithm learns a mapping from inputs to outputs that can then be applied to new data. For example, given historical data on house characteristics (size, location, number of bedrooms) and their sale prices, a supervised learning algorithm can learn to predict prices for new houses.
+
+Classification and regression are the two main types of supervised learning. Classification predicts categorical outcomes such as whether an email is spam or not, while regression predicts continuous values, like predicting a patient's blood pressure. Linear regression (see @sec-Linear_Regression) and logistic regression (see @sec-Logistic_Regression) are foundational examples of supervised learning methods.
+
+
+## Unsupervised Learning {#sec-Unsupervised_Learning}
+Unsupervised learning works with unlabeled data, seeking to discover hidden structure or patterns without predetermined outcomes. Clustering is a common unsupervised task, where the algorithm groups similar observations together. For instance, a retail company might cluster customers based on purchasing behavior to identify distinct market segments, even without knowing in advance how many segments exist or what defines them.
+
+Dimensionality reduction is another unsupervised technique that transforms high-dimensional data into a lower-dimensional representation while preserving important structure. Principal Component Analysis (PCA) is a classical example, often used to visualize complex datasets or reduce computational burden before applying other methods.

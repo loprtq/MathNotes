@@ -1,1 +1,10 @@
-# Neural Network {#sec-Neural_Network}
+# Neural Networks {#sec-Neural_Networks}
+Neural networks are computational models inspired by the human brain's network of neurons. They consist of interconnected layers of artificial neurons that process information through weighted connections, learning to recognize complex patterns through training on data. While conceptually related to traditional statistical models, neural networks can capture highly nonlinear relationships and interactions that would be difficult or impossible to specify manually.
+
+{{< include /Figures/Computational_Statistics/Neural_Network_Simple.qmd >}}
+
+
+## Architecture {#sec-Neural_Network_Architecture}
+A neural network is organized into layers (see @fig-Neural_Network_Simple): an input layer that receives the data, one or more hidden layers that transform the data through learned representations, and an output layer that produces predictions. Each neuron in a layer receives inputs, applies a weighted sum, adds a bias term, and passes the result through an activation function. For example, a simple network for predicting whether a student will pass an exam might take input features (hours studied, previous test scores) in the input layer, process them through hidden layers, and output a probability of passing.
+
+The activation function introduces nonlinearity into the network, allowing it to learn complex patterns. Common activation functions include the sigmoid function (which outputs values between 0 and 1), the hyperbolic tangent (tanh), and the Rectified Linear Unit (ReLU), which outputs the input if positive and zero otherwise. Without these nonlinear activations, even deep networks would be equivalent to simple linear models.
