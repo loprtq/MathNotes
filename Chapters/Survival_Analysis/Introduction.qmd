@@ -1,4 +1,0 @@
-# Survival Analysis {#SurvivalAnalysis}
-The expression "survival analysis" can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.
-
-{{< include /Tables/Survival_Analysis/Survival_Data.qmd >}}

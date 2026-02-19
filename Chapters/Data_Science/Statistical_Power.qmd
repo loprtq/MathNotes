@@ -1,8 +1,0 @@
-# Statistical Power
-
-## Type I errors and Type II errors
-
-## p-values {#sec-p_values}
-The purpose of p-values is often to conclude whether something is significant or not - whether it is an unlikely
-
-@sec-CDF

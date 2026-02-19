@@ -1,7 +1,0 @@
-# Spatial Statistics
-
-## Point patterns
-### Regular
-### Clustering
-### Homogenous
-### Inhomogenous
