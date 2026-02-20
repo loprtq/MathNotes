@@ -4,7 +4,10 @@ $$
 \newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
 \newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
 
+\renewcommand{\det}[1]{\operatorname{det}\left(#1\right)}
+
 \renewcommand{\exp}[1]{\operatorname{exp}\left(#1\right)}
+\renewcommand{\log}[1]{\operatorname{log}\left(#1\right)}
 \newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
 
 \newcommand{\Ber}[1]{\operatorname{B}\left(#1\right)}
