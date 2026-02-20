@@ -1,3 +1,5 @@
+{{< include /preamble/commands.qmd >}}
+
 # Linear Mixed Model {#sec-Linear_Mixed_Model}
 Expanding upon the concepts introduced in @sec-Linear_Regression and @sec-Random_Effects, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see @exm-Linear_Mixed_Model_Simple). While linear regression assumes that all observations are independent, this assumption is often violated in practice when multiple observations come from the same subject, family, or group. Linear mixed models address this limitation by incorporating both fixed effects (see @sec-Fixed_Effects) and random effects. Thus, similar to how the fixed effects are incorporated in the linear regression, the random effects can be included as $Z \cdot \beta$, where $Z$ describes the design matrix for the random effects and $\beta$ the random effect regression coefficients. Hereby, the linear mixed model is defined as:
 $$
@@ -28,6 +30,17 @@ Furthermore, the interpretation of fixed effects in linear mixed models can be m
 
 
 ## Estimation {#sec-LMM_Estimation}
+The estimation process for linear mixed models differ from linear regression, as the inclusion of random effects introduces additional parameters that need to be estimated. The estimation typically involves three main steps: estimation of fixed effects, estimation of covariance parameters, and prediction of random effects. Each step requires specific methods and considerations to ensure accurate and reliable results.
+
+To ease the estimation process, it will be assumed that the random effects and errors follow a Gaussian distribution (see @sec-Gaussian_Stochastic_Variable), that is
+$$
+\beta \sim \mathcal{N}(0, D) \quad \text{and} \quad \varepsilon \sim \mathcal{N}(0, R).
+$$
+
 ### Estimation of Fixed Effects {#sec-LMM_Estimation_Fixed_Effects}
+
+
 ### Estimation of Covariance Parameters {#sec-LMM_Estimation_Covariance_Parameters}
+
+
 ### Prediction of Random Effects {#sec-LMM_Prediction_Random_Effects}

@@ -1,3 +1,5 @@
+{{< include /preamble/commands.qmd >}}
+
 # Statistical Models {#sec-Statistical_Models}
 This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.
 
@@ -13,7 +15,7 @@ Stratification variables are categorical covariates used to divide a population 
 
 In practice, stratification variables define groups within which the analysis is performed separately. For example, stratifying by center in a multi-center clinical trial allows each center to have its own baseline response level while estimating common treatment effects across centers. This approach provides more flexibility than simply including the stratification variable as a fixed effect, particularly when the variable has many levels or when assumptions about its relationship with the response variable are questionable.
 
-### Continuous variables {#sec-Continous_Variables}
+### Continuous variables {#sec-Continuous_Variables}
 Continuous covariates can take any value within a range and typically represent quantitative measurements. Examples include age, weight, or temperature. Continuous covariates are often included directly in models, though they may sometimes be transformed to better satisfy model assumptions or describe non-linear relationships with the response variable.
 
 
@@ -51,3 +53,23 @@ Symmetry on the log scale, but not the regular? Same as HR?
 - 0.5: 50% decrease in the rate
 - 1: No effect - no change in the rate
 - 2: 100% increase in the rate
+
+
+## Model Selection Criteria {#sec-Model_Selection_Criteria}
+When comparing statistical models for the same data, an objective criterion is needed to determine which model provides the best balance between goodness of fit and model complexity. Simply choosing the model with the lowest residual error or highest likelihood would always favor more complex models with more parameters, leading to overfitting. Model selection criteria address this by penalizing model complexity, thereby encouraging parsimonious models that generalize well to new data.
+
+The two most widely used information criteria are the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Both criteria are derived from different theoretical frameworks but share the common goal of balancing model fit with simplicity.
+
+### Akaike Information Criterion {#sec-AIC}
+The Akaike Information Criterion is based on information theory and estimates the relative quality of statistical models. For a given dataset, AIC estimates the information lost when a particular model is used to approximate the true data-generating process. The model with the lowest AIC is preferred as it represents the best approximation with the least information loss. AIC is defined as:
+$$
+\text{AIC} = -2\log{\mathcal{L}} + 2k
+$$
+where $\mathcal{L}$ is the maximized likelihood of the model and $k$ is the number of estimated parameters. The first term measures how well the model fits the data (lower values indicate better fit), while the second term penalizes model complexity. For example, comparing two linear regression models where one includes an additional predictor variable, AIC helps determine whether the improved fit from the extra predictor justifies the added complexity.
+
+### Bayesian Information Criterion {#sec-BIC}
+The Bayesian Information Criterion is derived from Bayesian model selection principles. Unlike AIC, which focuses on predictive accuracy, BIC approximates the posterior probability of a model being the true model given the data. BIC tends to favor simpler models more strongly than AIC, especially as sample size increases. BIC is defined as:
+$$
+\text{BIC} = -2\log{\mathcal{L}} + k\log{n}
+$$
+where $n$ is the sample size, $\mathcal{L}$ is the maximized likelihood of the model, and $k$ is the number of estimated parameters. The penalty term $k\log{n}$ grows with sample size, making BIC increasingly conservative as more data becomes available.
