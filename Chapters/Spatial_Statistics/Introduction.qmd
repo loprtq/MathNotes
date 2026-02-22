@@ -1,7 +1,22 @@
-# Spatial Statistics
+# Spatial Statistics {#sec-Spatial_Statistics}
+Spatial statistics deals with data distributed across geographic space or more general; spatial domains. Unlike "traditional" statistics where observations are assumed to be independent, spatial data exhibits spatial dependence, meaning that observations closer together in space are often more similar to each other than observations that are farther apart - spatial autocorrelation. This requires specialized statistical methods which account for the inherent structure and relationships within the spatial data.
 
-## Point patterns
-### Regular
-### Clustering
-### Homogenous
-### Inhomogenous
+
+## Point Patterns {#sec-Point_Patterns}
+Point patterns refer to the locations of events recorded as points in a spatial domain. A point pattern is characterized by the set of coordinates of these points and can be represented as a finite collection of locations within a bounded or unbounded region. The analysis of point patterns aims to understand whether the spatial distribution of points follows a random process or exhibits clustering, regularity, or other systematic spatial structure. Understanding these patterns is essential for identifying underlying processes and can provide insights into the factors driving the occurrence of events.
+
+### Random {#sec-Point_Patterns_Random}
+A completely random point pattern occurs when points are distributed independently and uniformly across the spatial domain. In a random pattern, the location of one point has no influence on the location of other points (independence), and every location in the region has an equal probability of containing a point (uniformity). The key property of a random point pattern is that the number of points in a region follows a Poisson distribution (see @sec-Poisson_Stochastic_Variable), and the expected number of points is proportional to the area of the region. Testing for randomness is often an important step in point pattern analysis, as deviations from randomness suggest the presence of clustering or regularity.
+
+### Regular {#sec-Point_Patterns_Regular}
+Regular point patterns occur when points are more evenly spaced across the region than would be expected in a random distribution. This type of point pattern suggests that there is a repulsive interaction between points, meaning that the presence of one point makes the nearby occurrence of another point less likely. Regular patterns are often observed in nature, such as in the spacing of trees in a forest due to competition for resources, or in human-made contexts, such as the placement of utility poles along a road. The analysis of regular patterns involves testing whether the observed spacing is significantly more uniform than expected under complete spatial randomness, often using methods based on nearest-neighbor distances or point process models.
+
+### Clustering {#sec-Point_Patterns_Clustering}
+Clustering occurs when points are more concentrated in certain areas of the spatial domain than others, resulting in a non-uniform distribution with identifiable clusters or hotspots. This pattern suggests that there are attractive interactions drawing points together. Clustering can arise from multiple causes, such as the presence of favorable environmental conditions in specific areas, social or economic factors that attract individuals to certain locations, or contagious processes where events tend to occur near previous events. Identifying and characterizing clusters is often an important objective in spatial analysis, as it can reveal underlying drivers of the events being studied.
+
+### Inhomogeneous {#sec-Point_Patterns_Inhomogeneous}
+Inhomogeneous point patterns occur when the overall intensity of points varies across the spatial domain, but this variation is due to systematic spatial factors rather than clustering. In an inhomogeneous pattern, the density of points is not uniform, but there is no inherent clustering or repulsion between points beyond what is explained by the varying intensity. For example, the distribution of cities in a country may have higher intensity in certain regions due to geographic factors like proximity to water or flat terrain, rather than due to interactions between cities. Distinguishing between inhomogeneous patterns and clustering is important for proper interpretation of spatial data. In an inhomogeneous pattern, once the spatial trend in intensity is accounted for, the point locations may be described as a non-stationary Poisson process with varying intensity across space.
+
+
+## Count Functions {#sec-Count_Functions}
+## Spatial Autocorrelation {#sec-Spatial_Autocorrelation}
