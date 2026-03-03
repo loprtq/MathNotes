@@ -10,7 +10,7 @@ Unlike linear regression where $\varepsilon$ is the only source of variability, 
 
 
 ## Differences from Linear Regression {.unnumbered}
-The primary difference between linear mixed models and linear regression lies in the handling of correlation structures. Linear regression assumes that all observations are independent, with constant variance $\sigma^2$ for the errors. This assumption is encoded in the covariance matrix of $y$, which is $\sigma^2 I$ where $I$ is the identity matrix. In contrast, the linear mixed model allows for a more complex covariance structure $V = ZDZ^T + R$, where $ZDZ^T$ captures the between-individual variability and $R$ captures the within-individual variability. This flexibility enables the model to account for correlation between observations from the same individual while maintaining independence between individuals.
+The primary difference between linear mixed models and linear regression lies in the handling of correlation structures. Linear regression assumes that all observations are independent, with constant variance $\sigma^2$ for the errors. This assumption is encoded in the covariance matrix of $y$, which is $\sigma^2 I$ where $I$ is the identity matrix. In contrast, the linear mixed model allows for a more complex covariance structure $V = ZDZ^\top + R$, where $ZDZ^\top$ captures the between-individual variability and $R$ captures the within-individual variability. This flexibility enables the model to account for correlation between observations from the same individual while maintaining independence between individuals.
 
 Another key difference is in the interpretation of the regression coefficients. In linear regression, the fixed effects $\alpha$ represent the change in the expected response for a one-unit increase in the covariate, averaging over all observations. In linear mixed models, the fixed effects $\alpha$ have the same interpretation at the population level, but the model additionally estimates random effects $\beta$ that quantify how much each individual deviates from this population average. This allows for individual-specific predictions that account for each subject's unique characteristics.
 
@@ -34,13 +34,56 @@ The estimation process for linear mixed models differ from linear regression, as
 
 To ease the estimation process, it will be assumed that the random effects and errors follow a Gaussian distribution (see @sec-Gaussian_Stochastic_Variable), that is
 $$
-\beta \sim \mathcal{N}(0, D) \quad \text{and} \quad \varepsilon \sim \mathcal{N}(0, R).
+\beta \sim \Nd{0, D} \quad \text{and} \quad \varepsilon \sim \Nd{0, R}.
 $$
+Under this assumption, the marginal distribution of the response variable $y$ is also Gaussian with mean $X \cdot \alpha$ and covariance matrix $V = ZDZ^\top + R$. This would mean that the likelihood function can be expressed as
+$$
+\begin{aligned}
+    \mathcal{L}(\alpha, D, R \mid y) = \frac{1}{(2\pi)^{n/2} \sqrt{\det{V}}} \cdot \exp{-\frac{1}{2} (y - X\alpha)^\top V^{-1} (y - X\alpha)}
+\end{aligned}
+$$ {#eq-LMM_Likelihood}
+with the log-likelihood function given by
+$$
+\ell(\alpha, D, R \mid y) = -\frac{n}{2} \log{2\pi} - \frac{1}{2} \left(\log{\det{V}} + (y - X\alpha)^\top V^{-1} (y - X\alpha)\right)
+$$ {#eq-LMM_Log-Likelihood}
 
 ### Estimation of Fixed Effects {#sec-LMM_Estimation_Fixed_Effects}
 
+$$
+\hat{\alpha} = \left(X^\top V^{-1} X\right)^{-1} \left(X^\top V^{-1} y\right)
+$$
+
+::: {.callout-note icon=false collapse="true"}
+
+$$
+\begin{align*}
+    \frac{\partial}{\partial \alpha} \ell(\alpha, D, R \mid y) &= \\
+\end{align*}
+$$
+:::
 
 ### Estimation of Covariance Parameters {#sec-LMM_Estimation_Covariance_Parameters}
+#### Maximum Likelihood Estimation {#sec-LMM_Estimation_Covariance_Parameters_MLE}
+To estimate the covariance parameters, the maximum likelihood estimation (MLE) approach can be used. This involves maximizing the profile log-likelihood function
+$$
+\ell_{\text{profile}}\left(D, R \mid y\right) \approx -\frac{1}{2} \log{\det{V}} - \frac{1}{2} (y - X\hat{\alpha})^\top V^{-1} (y - X\hat{\alpha})
+$$
+where $\hat{\alpha}$ is the estimate of the fixed effects obtained from the previous step. However, it is important to note that MLE can lead to biased estimates of the covariance parameters, particularly when the number of fixed effects $p$ is large relative to the sample size $n$. This bias arises because MLE does not account for the loss of degrees of freedom due to the estimation of fixed effects.
 
+$$
+\begin{align*}
+    \E{\sigma_{\text{ML}}^2} &= \frac{1}{n} \E{(y - X\hat{\alpha})^\top (y - X\hat{\alpha})} \\
+    &= \sigma^2 \cdot \left(1 - \frac{n - p}{n}\right) \\
+\end{align*}
+$$
+
+#### Restricted Maximum Likelihood Estimation {#sec-LMM_Estimation_Covariance_Parameters_REML}
+As opposed to MLE, the restricted maximum likelihood estimation (REML) approach accounts for the loss of degrees of freedom due to the estimation of fixed effects. REML achieves this by maximizing a modified likelihood function that is based on the residuals from the fixed effects model. Maximizing the REML likelihood function leads to unbiased estimates of the covariance parameters, as it effectively adjusts for the number of fixed effects $p$ being estimated. The REML estimate for $\sigma^2$ can be expressed as
+$$
+\begin{align*}
+   \E{\sigma_{\text{REML}}^2} &= \frac{1}{n - p} \E{(y - X\hat{\alpha})^\top (y - X\hat{\alpha})} \\
+   &= \sigma^2
+\end{align*}
+$$
 
 ### Prediction of Random Effects {#sec-LMM_Prediction_Random_Effects}
