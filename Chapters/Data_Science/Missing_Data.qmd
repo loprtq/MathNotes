@@ -1,6 +1,7 @@
 # Missing data {#sec-Missing_Data}
 Depending on the analysis, some missing data patterns do not matter as much. However, generally, missing data can be seen as a problem, why as much data as possible should be attempted to be recovered. This is especially true for baseline characteristics/demographics or other data that it is not possible to impute, without running into issues of whether it can be included in the different TFLs etc.
 
+
 ## Missing completly at random (MCAR) {#sec-MCAR}
 - The missing data are unrelated to the observed and unobserved variables - the probability of a data point being missing it the same for all cases
 - Assumes that the reason why data is missing is unrelated to the data
@@ -13,6 +14,7 @@ Depending on the analysis, some missing data patterns do not matter as much. How
 ### Missing not at random (MNAR) {#sec-MNAR}
 - Missingness depends on both the observed and unobserved variables.
 - If it is neither MCAR or MAR, then it is MNAR.
+
 
 ## Missing data patterns {#sec-Missing_Data_Pattern}
 ### Monotone missingness {#sec-Monotone_Missingness}

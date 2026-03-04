@@ -1,0 +1,25 @@
+:::{#exm-Rubins_Rule}
+## Multiple Imputation: Rubin's Rule
+:::{.panel-tabset}
+## R
+```{r}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+library(dplyr)
+library(mice)
+
+## Data
+```
+
+## Python
+```{python}
+#| eval: false
+#| echo: true
+#| warning: false
+## Packages
+
+```
+:::
+:::

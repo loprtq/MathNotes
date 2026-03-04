@@ -1,3 +1,34 @@
-# Multiple Imputation
+# Multiple Imputation {#sec-Multiple_Imputation}
+Multiple imputation is a statistical technique for handling missing data (see @sec-Missing_Data) by creating multiple complete datasets, analyzing each separately, and combining the results. Rather than filling in a single value for each missing observation, multiple imputation generates several plausible values that reflect the uncertainty about the true missing values. This approach properly accounts for the additional variability introduced by the imputation process, leading to valid statistical inference.
 
-## Rubin's rule
+Consider a clinical study measuring blood pressure where 20% of measurements are missing at random (@sec-MAR). Instead of replacing each missing value with a single estimate (like the mean), we create $m$ complete datasets where each missing value is filled with different plausible values drawn from a predictive distribution. After analyzing all $m$ datasets separately, we combine the estimates and their standard errors using Rubin's rules to obtain final results that reflect both within-imputation and between-imputation variability.
+
+
+## Rubin's Rule {#sec-Rubins_Rule}
+Rubin's rule provides a method for pooling parameter estimates across multiple imputed datasets. This includes both the point estimates and their associated variances, allowing for proper inference that accounts for the uncertainty due to missing data.
+
+When pooling estimates, Rubin's rule assumes that these are normally distributed. In practice, this is often a reasonable assumption, especially when the sample size is large. However, if the estimates are not normally distributed, alternative methods may be needed to combine results appropriately.
+
+### Point estimates {.unnumbered}
+The pooling of point estimates is straightforward, as it is simply the average of the estimates from each imputed dataset:
+$$
+\bar{\theta} = \frac{1}{m} \sum_{i=1}^{m} \hat{\theta}_i
+$$
+where $\hat{\theta}_i$ is the estimate from the $i$th imputed dataset, and $m$ is the total number of imputations.
+
+### Variance estimates {.unnumbered}
+The variance of the pooled estimate is more complex, as it must account for both the variability within each imputed dataset and the variability between the different imputed datasets. Rubin's rule combines these two sources of variability to provide an overall variance estimate for the pooled estimate.
+
+The within-imputation variance $V_W$ and between-imputation variance $V_B$ are calculated as follows:
+$$
+V_W = \frac{1}{m} \sum_{i=1}^{m} \hat{V}_i, \quad V_B = \frac{1}{m-1} \sum_{i=1}^{m} \left(\hat{\theta}_i - \bar{\theta}\right)^2
+$$
+
+The total variance $V_T$ of the pooled estimate combines these, accounting for the number of imputations $m$:
+$$
+V_T = V_W + \left(1 + \frac{1}{m}\right)V_B
+$$
+where as $m \to \infty$, the factor $(1 + 1/m)$ approaches 1, and the total variance simplifies to $V_W + V_B$. The final pooled estimate is $\bar{\theta}$ with standard error $\sqrt{V_T}$.
+
+### Degrees of freedom {.unnumbered}
+### Confidence intervals {.unnumbered}

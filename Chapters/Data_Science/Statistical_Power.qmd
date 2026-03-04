@@ -1,8 +1,35 @@
-# Statistical Power
+# Statistical Hypotheses
+Statistical hypothesis testing is fundamentally about making decisions under uncertainty. When conducting a statistical test, one is trying to answer a question like "Is this drug effective?" or "Is there a difference between these two groups?" However, we can never be 100% certain of our conclusion based on sample data. This uncertainty means we can make errors, and understanding these errors is crucial for interpreting statistical results.
 
-## Type I errors and Type II errors
 
-## p-values {#sec-p_values}
-The purpose of p-values is often to conclude whether something is significant or not - whether it is an unlikely
+## Type I Error {#sec-Type_I_Error}
+Rejecting $\mathcal{H}_0$ when it is actually true
 
-@sec-CDF
+
+## Type II Error {#sec-Type_II_Error}
+Failing to reject $\mathcal{H}_0$ when $\mathcal{H}_a$ is true
+
+
+## Type III Error {#sec-Type_III_Error}
+Rejecting $\mathcal{H}_0$ and accepting $\mathcal{H}_a$ when the null hypothesis was actually the correct specification of the research question.
+
+
+## Statistical Power {#sec-Statistical_Power}
+Statistical power is the probability that we will correctly detect an effect when it truly exists. It is one of the most important concepts in clinical study design, helping us determine how large a sample size we need and evaluate the reliability of our findings. The power of a test with null hypothesis $\mathcal{H}_0$ and alternative hypothesis $\mathcal{H}_a$ is defined as:
+$$
+\text{Power} = \Pr{\text{Reject } \mathcal{H}_0 \mid \mathcal{H}_a \text{ is true}}.
+$$
+To provide a more intuitive understanding, consider the following scenarios: $\text{Power} = 0.50$, and $\text{Power} = 0.95$. A power of 0.50 means that if there truly is an effect, we have only a 50% chance of detecting it, which is essentially like flipping a coin. This indicates a poorly designed experiment that may not yield reliable results. On the other hand, a power of 0.95 means that if there truly is an effect, we have a 95% chance of detecting it, which is generally considered a good level of power for an experiment. This means that the experiment is well-designed to detect meaningful effects when they exist, reducing the likelihood of Type II errors. Intuitively, a power of 1 might seem ideal, but in practice, obtaining a power of 1 is typically limited by practical constraints such as sample size, cost, and ethical considerations. Therefore, researchers often aim for a power of 0.80 or higher to balance the likelihood of detecting true effects while managing resources effectively. This is of cause a huge topic of its own and will not be covered here.
+
+
+## p-values {#sec-p-values}
+A p-value is the probability of observing data as extreme as (or more extreme than) what we actually observed, assuming the null hypothesis $\mathcal{H}_0$ is true. It is a measure of how compatible our data is with the null hypothesis. The smaller the p-value, the stronger the evidence against $\mathcal{H}_0$. Formally, the p-value can be expressed as:
+$$
+\text{p-value} = \Pr{\text{Data as or more extreme} \mid \mathcal{H}_0 \text{ is true}}
+$$
+
+The p-value is directly related to our Type I error rate $\alpha$. When we set a significance level $\alpha$, we are defining a threshold for how extreme our data must be to reject the null hypothesis. The decision rule is as follows:
+- If the p-value is less than $\alpha$, we reject $\mathcal{H}_0$ (declare significance)
+- If the p-value is greater than or equal to $\alpha$, we fail to reject $\mathcal{H}_0$
+
+When we set $\alpha = 0.05$, we are willing to incorrectly reject a null hypothesis 5% of the time. The p-value tells us how extreme our particular result is under $\mathcal{H}_0$.
