@@ -2,13 +2,13 @@
 #| eval: true
 #| echo: false
 #| warning: false
-#| fig-cap: Autocorrelation function of the `treering` data set.
+#| fig-cap: Autocorrelation function of the `AirPassengers` data set.
 # Packages
 library(ggplot2)
 
 # Data
-data <- datasets::treering |>
-  acf(plot = FALSE, lag.max = 15) |>
+data <- datasets::AirPassengers |>
+  acf(plot = FALSE, lag.max = 144) |>
   with(expr = data.frame(lag, acf))
 
 # Plot

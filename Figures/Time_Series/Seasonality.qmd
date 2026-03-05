@@ -2,5 +2,21 @@
 #| eval: true
 #| echo: false
 #| warning: false
-#| fig-cap: Time series curve.
+#| fig-cap: Time series seasonal component for the `AirPassengers` data set.
+# Packages
+library(ggplot2)
+library(purrr)
+
+# Data
+data <- datasets::AirPassengers |>
+  decompose() |>
+  purrr:::pluck("seasonal") |>
+  (\(x) data.frame(y = x, x = time(x)))()
+
+# Plot
+ggplot2::ggplot(data = data, aes(x = x, y = y)) +
+  ggplot2::geom_line() +
+  ggplot2::theme_minimal() +
+  ggplot2::xlab(label = "Time") +
+  ggplot2::ylab(label = "AirPassengers: Seasonal Component")
 ```
