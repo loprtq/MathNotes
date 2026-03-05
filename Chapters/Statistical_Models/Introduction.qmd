@@ -40,6 +40,8 @@ Specialised statistical methods are required to properly analyse repeated measur
 ## Count data {#sec-Count_Data}
 Count data represent the number of occurenses within an observation period or similarly. Unlike continuous measurements, count data consist of non-negative integers ($0, 1, 2, \dots$) and thus cannot take fractional values. Examples include the number of hospital admissions per month, or the number of fish observed in a given lake.
 
+{{< include /Figures/Statistical_Models/Count_Data.qmd >}}
+
 Count data often exhibit characteristics that violate the assumptions of linear regression (see @sec-Linear_Regression). The distribution of counts is typically right-skewed, particularly when the mean count is small, and the variance often increases with the mean. Additionally, the discrete nature of count data means that predictions from linear models could inappropriately produce negative values. For these reasons, specialized models such as Poisson regression (see @sec-Poisson_Regression) and negative binomial regression (see @sec-Negative_Binomial_Regression) are used to model count data. These models ensure that predicted values are non-negative and properly account for the distributional characteristics of count outcomes.
 
 ### Incidence rates

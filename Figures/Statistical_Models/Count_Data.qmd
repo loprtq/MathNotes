@@ -1,0 +1,21 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Absenteeism from school. Visualization of the distribution of count data.
+# Packages
+library(dplyr)
+library(ggplot2)
+library(MASS)
+
+# Data
+data <- MASS::quine |>
+  dplyr::rename_with(toupper)
+
+# Plot
+ggplot2::ggplot(data = data, aes(x = DAYS)) +
+  ggplot2::geom_histogram(binwidth = 1) +
+  ggplot2::theme_minimal() +
+  ggplot2::xlab(label = "Days") +
+  ggplot2::ylab(label = "Frequency")
+```

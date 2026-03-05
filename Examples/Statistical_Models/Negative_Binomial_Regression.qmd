@@ -5,12 +5,12 @@
 #| eval: false
 #| echo: true
 #| warning: false
-## Packages
+# Packages
 library(dplyr)
 library(MASS)
 
-## Data
-MASS::quine %>%
+# Data
+MASS::quine |>
   dplyr::rename_with(toupper)
 ```
 
@@ -24,7 +24,7 @@ library(tidyverse)
 library(MASS)
 
 # Data
-data <- MASS::quine %>%
+data <- MASS::quine |>
   dplyr::rename_with(toupper)
 
 # Model
