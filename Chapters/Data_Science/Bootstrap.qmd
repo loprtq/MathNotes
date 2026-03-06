@@ -1,5 +1,31 @@
+{{< include /preamble/commands.qmd >}}
+
 # Bootstrap {#sec-Bootstrap}
-Bootstrapping is a produce for estimating the distribution of an estimator
+Bootstrapping is a resampling procedure for estimating the sampling distribution of an estimator without relying on strong distributional assumptions. Given an observed sample $x = (x_1, \dots, x_n)$, bootstrap samples are drawn with replacement (the same sample can be drawn multiple times) from $x$, each of size $n \in \N$. By computing the estimator $\hat{\theta}_b$ on many such samples, one approximates the variability of $\hat{\theta}$.
+
+Let $\hat{\theta}$ be an estimator computed from the original sample. The bootstrap procedure can be summarized as follows:
+1. Draw $B \in \N$ bootstrap samples $x_1^*, \dots, x_B^*$, each by sampling $n$ observations with replacement from $x$.
+2. Compute the estimate $\hat{\theta}_b$ for each bootstrap sample $b = 1, \dots, B$.
+3. Use the distribution of $\hat{\theta}_1, \dots, \hat{\theta}_B$ to estimate properties of $\hat{\theta}$.
+
 
 ## Bias
+The bootstrap estimate of the bias of $\hat{\theta}$ is
+$$
+\text{Bias} = \bar{\theta} - \hat{\theta}, \quad \bar{\theta} = \frac{1}{B}\sum_{b=1}^{B}\hat{\theta}_b.
+$$
+This estimates how far the estimator is, on average, from the true parameter.
+
+
 ## Variance
+The bootstrap estimate of the variance of $\hat{\theta}$ is
+$$
+\Var{\hat{\theta}} = \frac{1}{B - 1}\sum_{b = 1}^{B}\left(\hat{\theta}_b - \bar{\theta}\right)^2.
+$$
+
+
+## Confidence Intervals
+A simple bootstrap confidence interval at level $1 - \alpha$ is the percentile interval, taken as the $\frac{\alpha}{2}$ and $1 - \frac{\alpha}{2}$ quantiles of $\hat{\theta}_1, \dots, \hat{\theta}_B$:
+$$
+\left[Q_{\alpha/2},\; Q_{1-\alpha/2}\right].
+$$
