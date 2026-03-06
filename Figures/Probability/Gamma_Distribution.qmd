@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Gamma distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 20)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dgamma, args = list(shape = 2, rate = 0.5),
+    aes(color = "α=2, β=0.5"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dgamma, args = list(shape = 5, rate = 1),
+    aes(color = "α=5, β=1"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dgamma, args = list(shape = 10, rate = 2),
+    aes(color = "α=10, β=2"),  linewidth = 1
+  ) +
+  ggplot2::labs(color = "Parameters") +
+  ggplot2::ylab("Density") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

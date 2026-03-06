@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Exponential distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 5)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dexp, args = list(rate = 0.5),
+    aes(color = "λ=0.5"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dexp, args = list(rate = 1),
+    aes(color = "λ=1"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dexp, args = list(rate = 2),
+    aes(color = "λ=2"),  linewidth = 1
+  ) +
+  ggplot2::labs(color = "Parameters") +
+  ggplot2::ylab("Density") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Poisson distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 20)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dpois, args = list(lambda = 1), geom = "col",
+    aes(fill = "λ=1"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::stat_function(
+    fun = dpois, args = list(lambda = 5), geom = "col",
+    aes(fill = "λ=5"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::stat_function(
+    fun = dpois, args = list(lambda = 10), geom = "col",
+    aes(fill = "λ=10"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::labs(fill = "Parameters") +
+  ggplot2::ylab("Probability") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Gaussian distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(-10, 10)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dnorm, args = list(mean = 0, sd = 1),
+    aes(color = "µ=0, σ=1"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dnorm, args = list(mean = 0, sd = 2),
+    aes(color = "µ=0, σ=2"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dnorm, args = list(mean = 0, sd = 3),
+    aes(color = "µ=0, σ=3"),  linewidth = 1
+  ) +
+  ggplot2::labs(color = "Parameters") +
+  ggplot2::ylab("Density") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```
