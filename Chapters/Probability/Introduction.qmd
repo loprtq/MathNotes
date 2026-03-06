@@ -9,13 +9,13 @@ The sample space of an experiment, e.g. rolling a die once, is the set of all of
 
 
 ## Probability Function {#sec-Probability_Function}
-Probability is assigned to events as a number between $0$ and $1$, where $0$ indicates impossibility and $1$ indicates certainty - $\mathbb{P}: \mathcal{A} \to [0, 1]$ for $E \subseteq \mathcal{A}$. For example, the probability of rolling a $4$ on a fair six-sided die is $1/6$. Some basic rules of probability include: the probability of the entire sample space $\Omega$ is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.
+Probability is assigned to events as a number between $0$ and $1$, where $0$ indicates impossibility and $1$ indicates certainty - $\mathbb{P}: \mathcal{A} \to [0, 1]$ for $E \subseteq \mathcal{A}$. For example, the probability of rolling a $4$ (E = $\{4\}$) on a fair six-sided die is $1/6$. Some basic rules of probability include: the probability of the entire sample space $\Omega$ is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.
 
 ::: {.callout-tip collapse = true title = "Probability Arithmetics" #tip-Probability_Arithmetics}
 $$
 \begin{aligned}
-    \Pr{E^\mathrm{C}} &= 1 - \Pr{E}\\
-    \Pr{E_1 \setminus E_2} &= \Pr{E_1} - \Pr{E_1 \cap E_2}\\
+    \Pr{E^\mathrm{C}} &= 1 - \Pr{E} \\
+    \Pr{E_1 \setminus E_2} &= \Pr{E_1} - \Pr{E_1 \cap E_2} \\
     \Pr{E_1 \cup E_2} &= \Pr{E_1} + \Pr{E_2} - \Pr{E_1 \cap E_2}
 \end{aligned}
 $$

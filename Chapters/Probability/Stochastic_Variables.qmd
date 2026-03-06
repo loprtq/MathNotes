@@ -37,8 +37,8 @@ The expected value of a stochastic variable, is often referred to as the mean of
 $$
 \begin{aligned}
     \E{X} &= \begin{cases}
-        \sum_{k = 1}^\infty x_k \cdot p_X\left(x_k\right) & X\text{ is a discrete stochastic variable}\\
-        \int_{-\infty}^\infty x \cdot f_X\left(x\right) \, \mathrm{d}x & X\text{ is a continuous stochastic variable}
+        \sum_{k = 1}^\infty x_k \cdot p_X\left(x_k\right) & X\text{ is a discrete stochastic variable} \\
+        \int_{-\infty}^\infty x \cdot f_X\left(x\right)\,\mathrm{d}x & X\text{ is a continuous stochastic variable}
     \end{cases}
 \end{aligned}
 $$ {#eq-Expected_Value}
@@ -48,9 +48,13 @@ For a series of stochastic variables $X_1, X_2,\dots, X_n$, the sum of the expec
 If the two stochastic variables $X$ and $Y$ are independent, then $\E{X \cdot Y} = \E{X} \cdot \E{Y}$.
 
 ### Conditional Expected Value {#sec-Cond_Expected_Value}
+The conditional expected value of a stochastic variable $Y$ given another stochastic variable $X$ is the expected value of $Y$ given that $X$ takes on a specific value. The conditional expected value is defined as
 $$
 \begin{aligned}
-    \E{X} &= \begin{cases}1\\2\end{cases}
+    \E{X \mid Y = y} &= \begin{cases}
+        \sum_{x} x \cdot \Pr{X = x \mid Y = y} & X\text{ is a discrete stochastic variable} \\
+        \int_{-\infty}^\infty x \cdot f_{X\mid Y}\left(x \mid Y = y\right) \, \mathrm{d}x & X\text{ is a continuous stochastic variable}
+    \end{cases}
 \end{aligned}
 $$
 
