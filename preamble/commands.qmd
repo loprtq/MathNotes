@@ -1,5 +1,11 @@
 ::: {.hidden}
 $$
+% Basic sets/Variables
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
 % Probability and statistics
 \newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
 \newcommand{\E}[1]{\mathbb{E}\left[#1\right]}

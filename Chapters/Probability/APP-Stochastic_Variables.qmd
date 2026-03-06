@@ -6,7 +6,10 @@ A bernoulli stochastic variable $X\sim\Ber{n, p}$ has the sample space $\Omega =
 
 ### Distribution {.unnumbered}
 $$
-\begin{cases}p &\textrm{if } x = 1\\ 1 - p &\textrm{if } x = 0\end{cases}
+\begin{cases}
+    p &\textrm{if } x = 1 \\
+    1 - p &\textrm{if } x = 0
+\end{cases}
 $$
 
 ### Expected Value {.unnumbered}
@@ -16,18 +19,17 @@ $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = p \cdot (1-p)
+\Var{X} = p \cdot (1 - p)
 $$
 
 
-
-## Bionomial {#sec-Binomial_Stochastic_Variable}
-A bionomial stochastic variable is a bernoulli stochastic variable repeated $n$ times.
+## Binomial {#sec-Binomial_Stochastic_Variable}
+A binomial stochastic variable is a Bernoulli stochastic variable repeated $n$ times.
 
 ### Distribution {.unnumbered}
 The PMF (see @sec-PMF) is given as
 $$
-\binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}
+\binom{n}{k}\cdot p^k \cdot \left(1 - p\right)^{n - k}
 $$
 where $k$ is the number of $1$'s out of the possible $n$ experiments.
 
@@ -38,7 +40,7 @@ $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = n \cdot p \cdot (1-p)
+\Var{X} = n \cdot p \cdot (1 - p)
 $$
 
 
@@ -69,10 +71,9 @@ $$
 
 
 ## Poisson {#sec-Poisson_Stochastic_Variable}
-$X \sim \Pd{\lambda}$
-$\lambda > 0$
-Observations are independent.
-$\log{\lambda}$ is a linear function of $x$.
+The Poisson distribution models the number of events occurring in a fixed interval of time or space, given that events occur independently at a constant average rate $\lambda > 0$. It is often used for count data such as the number of arrivals per hour or defects per unit.
+
+$X \sim \Pd{\lambda}$, $\lambda > 0$, observations are independent, and $\log{\lambda}$ is a linear function of $x$.
 
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Poisson_Distribution.qmd >}}
@@ -94,14 +95,14 @@ $$
 
 
 ## Gaussian {#sec-Gaussian_Stochastic_Variable}
-$X \sim \Nd{\mu, \sigma^2}$. The standard Gaussian distribution is given as $X \sim \Nd{0, 1}$.
+The Gaussian distribution is the most widely used continuous distribution, characterized by its symmetric bell-shaped curve. It arises naturally in many settings due to the central limit theorem, which states that sums of independent random variables tend toward a Gaussian distribution. $X \sim \Nd{\mu, \sigma^2}$, with the standard Gaussian given as $X \sim \Nd{0, 1}$.
 
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Gaussian_Distribution.qmd >}}
 
 The PDF (see @sec-PDF) is given as
 $$
-f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma}\exp{- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2}
+f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma} \cdot \exp{- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2}
 $$
 
 ### Expected Value {.unnumbered}
@@ -116,7 +117,7 @@ $$
 
 
 ## Uniform {#sec-Uniform_Stochastic_Variable}
-$X \sim \Ud{a, b}$
+The uniform distribution assigns equal probability to all values within a bounded interval $[a, b]$. It is the simplest continuous distribution and is commonly used as a non-informative prior or for generating random samples via inverse transform sampling. $X \sim \Ud{a, b}$.
 
 ### Distribution {.unnumbered}
 $$
@@ -145,12 +146,14 @@ $$
 $$
 
 ## Exponential {#sec-Exponential_Stochastic_Variable}
+The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate $\lambda > 0$. It has the memoryless property: the probability of waiting an additional time $t$ does not depend on how long one has already waited.
+
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Exponential_Distribution.qmd >}}
 
 $$
 f_X(x) = \begin{cases}
-    \lambda \cdot \exp{-\lambda \cdot x} & x > 0\\
+    \lambda \cdot \exp{-\lambda \cdot x} & x > 0 \\
     0 & x \leq 0
 \end{cases}
 $$
@@ -167,13 +170,24 @@ $$
 
 
 ## Geometric {#sec-Geometric_Stochastic_Variable}
+The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability $p$. It is the discrete analogue of the exponential distribution and shares the memoryless property.
+
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Geometric_Distribution.qmd >}}
 
 ### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{p}
+$$
+
 ### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1 - p}{p^2}
+$$
 
 ## Gamma {#sec-Gamma_Stochastic_Variable}
+The gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the $\alpha$-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. $X \sim \Gamd{\alpha, \beta}$, where $\alpha > 0$ is the shape parameter and $\beta > 0$ is the rate parameter.
+
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Gamma_Distribution.qmd >}}
 
@@ -196,30 +210,31 @@ $$
 $$
 
 ## Beta {#sec-Beta_Stochastic_Variable}
+The beta distribution is a continuous distribution defined on the interval $[0, 1]$, making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters $\alpha$ and $\beta$ that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.
+
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Beta_Distribution.qmd >}}
 
 ### Expected Value {.unnumbered}
 $$
-\E{X}
+\E{X} = \frac{\alpha}{\alpha + \beta}
 $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X}
+\Var{X} = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
 $$
 
 
 ## Chi-square {#sec-Chi-square_Stochastic_Variable}
-$X \sim \Gamd{\frac{k}{2}, \frac{1}{2}}$
-$k\in\mathbb{N}$
+The chi-square distribution is a special case of the gamma distribution and arises as the distribution of the sum of squares of $k$ independent standard Gaussian random variables. It is widely used in hypothesis testing (e.g., goodness-of-fit tests) and in the construction of confidence intervals for variance. $X \sim \Gamd{\frac{k}{2}, \frac{1}{2}}$, $k \in \N$.
 
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Chi-square_Distribution.qmd >}}
 
 $$
 f_X(x) = \begin{cases}
-    \frac{x^{\frac{k}{2} - 1}\exp{- \frac{x}{2}}}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} & x > 0\\
+    \frac{x^{\frac{k}{2} - 1}\exp{-\frac{x}{2}}}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} & x > 0 \\
     0 & x \leq 0
 \end{cases}
 $$
