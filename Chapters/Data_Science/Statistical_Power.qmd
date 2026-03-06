@@ -1,6 +1,11 @@
 # Statistical Hypotheses
 Statistical hypothesis testing is fundamentally about making decisions under uncertainty. When conducting a statistical test, one is trying to answer a question like "Is this drug effective?" or "Is there a difference between these two groups?" However, we can never be 100% certain of our conclusion based on sample data. This uncertainty means we can make errors, and understanding these errors is crucial for interpreting statistical results.
 
+|                                | Null hypothesis is true | Null hypothesis is false |
+|:-------------------------------|:-----------------------:|:------------------------:|
+| Reject $\mathcal{H}_0$         | Type I Error            | Correct Decision         |
+| Fail to reject $\mathcal{H}_0$ | Correct Decision        | Type II Error            |
+
 
 ## Type I Error {#sec-Type_I_Error}
 Rejecting $\mathcal{H}_0$ when it is actually true
