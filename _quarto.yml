@@ -41,6 +41,10 @@ book:
       chapters:
         - Chapters/Time_Series/ARMA.qmd
 
+    - part: Chapters/Graph_Theory/Introduction.qmd
+      chapters:
+        - Chapters/Graph_Theory/Introduction.qmd
+
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
 
