@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Count_Data
 #| fig-cap: Absenteeism from school. Visualization of the distribution of count data.
 # Packages
 library(dplyr)

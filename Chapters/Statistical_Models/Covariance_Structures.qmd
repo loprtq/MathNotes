@@ -3,7 +3,7 @@ In statistical modeling, particularly when dealing with repeated measures (see @
 
 
 ## Unstructured covariance {#sec-Unstructured_Covariance_Structures}
-No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires $(n\cdot\left(n-1\right)) \cdot \frac{1}{2}$ parameters. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
+No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires $\left(n \cdot \left(n - 1\right)\right) \cdot \frac{1}{2}$ parameters. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.
 
 
 ## Compound symmetry covariance {#sec-Compound_Covariance_Structures}

@@ -13,3 +13,4 @@ That does not mean that the linear regression does not have its shortcomings. Fi
 
 
 ## Estimation {#sec-Linear_Regression_Estimation}
+The estimation of the fixed effects $\alpha$ is commonly done using the method of least squares, which minimizes the sum of squared residuals (the differences between observed and predicted values).
