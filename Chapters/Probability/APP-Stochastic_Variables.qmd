@@ -272,3 +272,35 @@ $$
 $$
 \Var{X} = 2 \cdot k
 $$
+
+
+## F {#sec-F_Stochastic_Variable}
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## T {#sec-T_Stochastic_Variable}
+### Distribution {.unnumbered}
+$$
+\frac{\Gamma\left(\frac{d + 1}{2}\right)}{\sqrt{\pi d} \cdot \Gamma\left(\frac{d}{2}\right)} \cdot \left(1 + \frac{x^2}{d}\right)^{-\frac{d + 1}{2}}
+$$
+$d > 0$ is the degrees of freedom.
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \begin{cases}
+    0 & d > 1\\
+    \textrm{undefined} & d \leq 1
+\end{cases}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \begin{cases}
+    \frac{d}{d - 2} & d > 2 \\
+    \infty & 1 < d \leq 2 \\
+    \textrm{undefined} & d \leq 1
+\end{cases}
+$$
+$$
