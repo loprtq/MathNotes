@@ -44,6 +44,23 @@ $$
 $$
 
 
+## Geometric {#sec-Geometric_Stochastic_Variable}
+The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability $p$. It is the discrete analogue of the exponential distribution and shares the memoryless property.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Geometric_Distribution.qmd >}}
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{p}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1 - p}{p^2}
+$$
+
+
 ## Negative Binomial {#sec-Negative_Binomial_Stochastic_Variable}
 Consider an experiment of independent Bernoulli (see @sec-Bernoulli_Stochastic_Variable) trials, each with probability $p$. If we are interested in when we have $r$ successes consider the Negative Binomial distribution
 $$
@@ -67,6 +84,27 @@ $$
 ### Variance {.unnumbered}
 $$
 \Var{X} = r \frac{\left(1 - p\right)}{p^2}
+$$
+
+
+## Hypergeometric {#sec-Hypergeometric_Stochastic_Variable}
+The hypergeometric distribution models the number of successes in a sample drawn without replacement from a finite population containing a fixed number of successes. It is used in scenarios such as quality control or card games where the order of selection matters and the population is not infinite.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Hypergeometric_Distribution.qmd >}}
+
+$$
+\frac{\binom{m}{y} \binom{N - m}{n - y}}{\binom{N}{n}}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = n \cdot \frac{m}{N}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = n \cdot \frac{m}{N} \cdot \left(1 - \frac{m}{N}\right) \cdot \frac{N - n}{N - 1}
 $$
 
 
@@ -94,6 +132,55 @@ $$
 $$
 
 
+## Exponential {#sec-Exponential_Stochastic_Variable}
+The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate $\lambda > 0$. It has the memoryless property: the probability of waiting an additional time $t$ does not depend on how long one has already waited.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Exponential_Distribution.qmd >}}
+
+$$
+f_X(x) = \begin{cases}
+    \lambda \cdot \exp{-\lambda \cdot x} & x > 0 \\
+    0 & x \leq 0
+\end{cases}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{\lambda}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1}{\lambda^2}
+$$
+
+
+## Gamma {#sec-Gamma_Stochastic_Variable}
+The gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the $\alpha$-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. $X \sim \Gamd{\alpha, \beta}$, where $\alpha > 0$ is the shape parameter and $\beta > 0$ is the rate parameter.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Gamma_Distribution.qmd >}}
+
+$X \sim \Gamd{\alpha, \beta}$
+$$
+f_X(x) = \begin{cases}
+    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\exp{-\beta \cdot x} & x > 0\\
+    0 & x \leq 0
+\end{cases}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{\alpha}{\beta}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{\alpha}{\beta^2}
+$$
+
+
 ## Gaussian {#sec-Gaussian_Stochastic_Variable}
 The Gaussian distribution is the most widely used continuous distribution, characterized by its symmetric bell-shaped curve. It arises naturally in many settings due to the central limit theorem, which states that sums of independent random variables tend toward a Gaussian distribution. $X \sim \Nd{\mu, \sigma^2}$, with the standard Gaussian given as $X \sim \Nd{0, 1}$.
 
@@ -113,6 +200,23 @@ $$
 ### Variance {.unnumbered}
 $$
 \Var{X} = \sigma^2
+$$
+
+
+## Beta {#sec-Beta_Stochastic_Variable}
+The beta distribution is a continuous distribution defined on the interval $[0, 1]$, making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters $\alpha$ and $\beta$ that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Beta_Distribution.qmd >}}
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{\alpha}{\alpha + \beta}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
 $$
 
 
@@ -143,86 +247,6 @@ $$
 ### Variance {.unnumbered}
 $$
 \Var{X} = \frac{1}{12}\left(b - a\right)^2
-$$
-
-## Exponential {#sec-Exponential_Stochastic_Variable}
-The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate $\lambda > 0$. It has the memoryless property: the probability of waiting an additional time $t$ does not depend on how long one has already waited.
-
-### Distribution {.unnumbered}
-{{< include /Figures/Probability/Exponential_Distribution.qmd >}}
-
-$$
-f_X(x) = \begin{cases}
-    \lambda \cdot \exp{-\lambda \cdot x} & x > 0 \\
-    0 & x \leq 0
-\end{cases}
-$$
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{1}{\lambda}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{1}{\lambda^2}
-$$
-
-
-## Geometric {#sec-Geometric_Stochastic_Variable}
-The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability $p$. It is the discrete analogue of the exponential distribution and shares the memoryless property.
-
-### Distribution {.unnumbered}
-{{< include /Figures/Probability/Geometric_Distribution.qmd >}}
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{1}{p}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{1 - p}{p^2}
-$$
-
-## Gamma {#sec-Gamma_Stochastic_Variable}
-The gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the $\alpha$-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. $X \sim \Gamd{\alpha, \beta}$, where $\alpha > 0$ is the shape parameter and $\beta > 0$ is the rate parameter.
-
-### Distribution {.unnumbered}
-{{< include /Figures/Probability/Gamma_Distribution.qmd >}}
-
-$X \sim \Gamd{\alpha, \beta}$
-$$
-f_X(x) = \begin{cases}
-    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\exp{-\beta \cdot x} & x > 0\\
-    0 & x \leq 0
-\end{cases}
-$$
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{\alpha}{\beta}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{\alpha}{\beta^2}
-$$
-
-## Beta {#sec-Beta_Stochastic_Variable}
-The beta distribution is a continuous distribution defined on the interval $[0, 1]$, making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters $\alpha$ and $\beta$ that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.
-
-### Distribution {.unnumbered}
-{{< include /Figures/Probability/Beta_Distribution.qmd >}}
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{\alpha}{\alpha + \beta}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
 $$
 
 
