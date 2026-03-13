@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Covariance Structures – MathNotes</title>
+<title>3&nbsp; Covariance Structures – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Survival_Analysis/Introduction.html" rel="next">
-<link href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" rel="prev">
+<link href="../../Chapters/Statistical_Models/Logistic_Regression.html" rel="next">
+<link href="../../Chapters/Statistical_Models/Introduction.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Covariance_Structures.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Covariance_Structures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,38 +175,32 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -223,43 +217,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -276,7 +270,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -314,13 +308,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#unstructured-covariance" id="toc-unstructured-covariance" class="nav-link active" data-scroll-target="#unstructured-covariance"><span class="header-section-number">8.1</span> Unstructured covariance</a></li>
-  <li><a href="#compound-covariance" id="toc-compound-covariance" class="nav-link" data-scroll-target="#compound-covariance"><span class="header-section-number">8.2</span> Compound covariance</a></li>
-  <li><a href="#toeplitz" id="toc-toeplitz" class="nav-link" data-scroll-target="#toeplitz"><span class="header-section-number">8.3</span> Toeplitz</a></li>
-  <li><a href="#armap-q" id="toc-armap-q" class="nav-link" data-scroll-target="#armap-q"><span class="header-section-number">8.4</span> ARMA(p, q)</a>
+  <li><a href="#sec-Unstructured_Covariance_Structures" id="toc-sec-Unstructured_Covariance_Structures" class="nav-link active" data-scroll-target="#sec-Unstructured_Covariance_Structures"><span class="header-section-number">3.1</span> Unstructured covariance</a></li>
+  <li><a href="#sec-Compound_Covariance_Structures" id="toc-sec-Compound_Covariance_Structures" class="nav-link" data-scroll-target="#sec-Compound_Covariance_Structures"><span class="header-section-number">3.2</span> Compound symmetry covariance</a></li>
+  <li><a href="#sec-Toeplitz_Covariance_Structures" id="toc-sec-Toeplitz_Covariance_Structures" class="nav-link" data-scroll-target="#sec-Toeplitz_Covariance_Structures"><span class="header-section-number">3.3</span> Toeplitz</a></li>
+  <li><a href="#sec-ARMA_Covariance_Structures" id="toc-sec-ARMA_Covariance_Structures" class="nav-link" data-scroll-target="#sec-ARMA_Covariance_Structures"><span class="header-section-number">3.4</span> ARMA(p, q)</a>
   <ul class="collapse">
-  <li><a href="#arp" id="toc-arp" class="nav-link" data-scroll-target="#arp"><span class="header-section-number">8.4.1</span> AR(p)</a></li>
-  <li><a href="#maq" id="toc-maq" class="nav-link" data-scroll-target="#maq"><span class="header-section-number">8.4.2</span> MA(q)</a></li>
+  <li><a href="#sec-AR_Covariance_Structures" id="toc-sec-AR_Covariance_Structures" class="nav-link" data-scroll-target="#sec-AR_Covariance_Structures"><span class="header-section-number">3.4.1</span> AR(p)</a></li>
+  <li><a href="#sec-MA_Covariance_Structures" id="toc-sec-MA_Covariance_Structures" class="nav-link" data-scroll-target="#sec-MA_Covariance_Structures"><span class="header-section-number">3.4.2</span> MA(q)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -328,9 +322,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Covariance_Structures.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Covariance_Structures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Covariance_Structures" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></h1>
+<h1 class="title"><span id="sec-Covariance_Structures" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></h1>
 </div>
 
 
@@ -347,25 +341,34 @@ window.Quarto = {
 </header>
 
 
-<section id="unstructured-covariance" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="unstructured-covariance"><span class="header-section-number">8.1</span> Unstructured covariance</h2>
-<p>No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.</p>
-<p>As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters <span class="math inline">\(\left(\frac{n\cdot\left(n-1\right)}{2}\right)\)</span>. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.</p>
+<p>In statistical modeling, particularly when dealing with repeated measures (see <a href="Introduction.html#sec-Repeated_Measures" class="quarto-xref"><span>Section 4</span></a>) or longitudinal data, observations within the same individual are often correlated. The covariance structure describes the pattern of correlations and variances among these observations. Choosing an appropriate covariance structure is crucial for obtaining valid statistical inferences and accurate standard errors. Different covariance structures make different assumptions about how observation relationships. The choice of the covariance structure should reflect the underlying process. Each structure involves trade-offs between flexibility and parsimony. More complex structures can better capture the true correlation pattern but require more parameters to estimate, which may lead to overfitting when sample sizes are limited.</p>
+<section id="sec-Unstructured_Covariance_Structures" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-Unstructured_Covariance_Structures"><span class="header-section-number">3.1</span> Unstructured covariance</h2>
+<p>No constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires <span class="math inline">\(\left(n \cdot \left(n - 1\right)\right) \cdot \frac{1}{2}\)</span> parameters. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.</p>
 </section>
-<section id="compound-covariance" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="compound-covariance"><span class="header-section-number">8.2</span> Compound covariance</h2>
+<section id="sec-Compound_Covariance_Structures" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-Compound_Covariance_Structures"><span class="header-section-number">3.2</span> Compound symmetry covariance</h2>
+<p>Compound symmetry assumes that all observations within an individual have the same variance, and all pairs of observations have the same correlation, regardless of the time or order of measurements. This structure implies that the correlation between measurements does not depend on how far apart they are in time.</p>
+<p>The compound symmetry structure requires only two parameters: one for the common variance and one for the common correlation. This parsimony makes it computationally efficient and stable even with smaller sample sizes. However, the assumption of constant correlation is often unrealistic for longitudinal data, where observations closer in time tend to be more correlated than those further apart. Despite this limitation, compound symmetry is frequently used as a simple baseline structure or when the measurement occasions are not inherently ordered (e.g., measurements from different body parts).</p>
 </section>
-<section id="toeplitz" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="toeplitz"><span class="header-section-number">8.3</span> Toeplitz</h2>
+<section id="sec-Toeplitz_Covariance_Structures" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-Toeplitz_Covariance_Structures"><span class="header-section-number">3.3</span> Toeplitz</h2>
+<p>The Toeplitz structure assumes that the correlation between observations depends only on the distance (lag) between them, not on their absolute positions. Observations that are the same distance apart in time have the same correlation, forming bands of equal correlation in the covariance matrix.</p>
+<p>This structure is more flexible than compound symmetry as it allows correlations to decrease (or change) with increasing time lag, which is often more realistic for longitudinal data. For <span class="math inline">\(n\)</span> time points, the Toeplitz structure requires <span class="math inline">\(n\)</span> parameters (one variance and <span class="math inline">\(n-1\)</span> unique correlations for each lag). While more flexible than compound symmetry, it can still be parsimonious compared to the unstructured covariance. The Toeplitz structure is particularly appropriate when measurements are equally spaced in time and the correlation pattern is expected to depend primarily on the temporal distance between observations.</p>
 </section>
-<section id="armap-q" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="armap-q"><span class="header-section-number">8.4</span> ARMA(p, q)</h2>
-<p><a href="../Time_Series/ARMA.html" class="quarto-xref"><span>Chapter 16</span></a></p>
-<section id="arp" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="arp"><span class="header-section-number">8.4.1</span> AR(p)</h3>
+<section id="sec-ARMA_Covariance_Structures" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-ARMA_Covariance_Structures"><span class="header-section-number">3.4</span> ARMA(p, q)</h2>
+<p>The ARMA (see <a href="../Time_Series/ARMA.html" class="quarto-xref"><span>Chapter 15</span></a>) covariance structure combines AR and MA components (see following subsections) to model temporal dependencies. This structure is based on time series methodology (see <span class="quarto-unresolved-ref">?sec-Time_Series</span>) and is particularly suited for longitudinal data where observations are correlated in a way that decays with time in a specific pattern.</p>
+<p>This covariance structure requires <span class="math inline">\(p + q + 1\)</span> parameters, making it more parsimonious than unstructured or Toeplitz structures while still capturing complex temporal correlation patterns. The ARMA structure is appropriate when the underlying process follows autoregressive or moving average dynamics, which enables modeling both short-term and long-term dependencies efficiently.</p>
+<section id="sec-AR_Covariance_Structures" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="sec-AR_Covariance_Structures"><span class="header-section-number">3.4.1</span> AR(p)</h3>
+<p>The AR (see <a href="../Time_Series/ARMA.html#sec-AR" class="quarto-xref"><span>Section 15.1</span></a>) covariance structure is a special case of ARMA where <span class="math inline">\(q = 0\)</span>. It assumes that each observation is a linear combination of the previous <span class="math inline">\(p\)</span> observations plus random noise. The correlation between observations decays according to the autoregressive parameters, typically showing exponential decay with increasing lag.</p>
+<p>The covariance structure requires <span class="math inline">\(p + 1\)</span> parameters. When <span class="math inline">\(p = 1\)</span> it requires two parameters, and is particularly popular as it captures the common pattern where recent observations are more strongly correlated than distant ones. This general covariance structure is appropriate when observations are influenced primarily by their recent observations. Examples of this can be found in financial systems and biological processes.</p>
 </section>
-<section id="maq" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="maq"><span class="header-section-number">8.4.2</span> MA(q)</h3>
+<section id="sec-MA_Covariance_Structures" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sec-MA_Covariance_Structures"><span class="header-section-number">3.4.2</span> MA(q)</h3>
+<p>The MA (see <a href="../Time_Series/ARMA.html#sec-MA" class="quarto-xref"><span>Section 15.2</span></a>) covariance structure is a special case of ARMA where <span class="math inline">\(p = 0\)</span>. It assumes that each observation is affected by the current random shock plus a weighted average of the previous <span class="math inline">\(q\)</span> random shocks. Unlike the AR structure, the MA structure implies that correlations become exactly zero beyond lag <span class="math inline">\(q\)</span>.</p>
+<p>The covariance structure requires <span class="math inline">\(q + 1\)</span> parameters. This covariance structure is appropriate when observations are influenced by short-term random fluctuations that persist for only a limited number of time periods. This general covariance structure can be useful when modeling measurement error or when observations are affected by transient factors that do not have long-lasting effects. The distinct cutoff in correlation at lag <span class="math inline">\(q\)</span> distinguishes it from AR structures, where correlations decay gradually.</p>
 
 
 </section>
@@ -774,13 +777,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="pagination-link" aria-label="Non-linear mixed models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span>
+      <a href="../../Chapters/Statistical_Models/Introduction.html" class="pagination-link" aria-label="Statistical Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Survival_Analysis/Introduction.html" class="pagination-link" aria-label="Survival Analysis">
-        <span class="nav-page-text">Survival Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="pagination-link" aria-label="Logistic Regression">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

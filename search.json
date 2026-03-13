@@ -161,17 +161,17 @@
     "href": "Chapters/Statistical_Models/Introduction.html",
     "title": "Statistical Models",
     "section": "",
-    "text": "Covariates\nThis part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.",
+    "text": "Covariates\nThis part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.\nCovariates are the explanatory variables used to predict or explain the response variable in a statistical model. They represent the factors that may influence the outcome of interest. Covariates can be broadly classified into two main types based on their nature, described in the following subsections.",
     "crumbs": [
       "Statistical Models"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Introduction.html#covariates",
-    "href": "Chapters/Statistical_Models/Introduction.html#covariates",
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Covariates",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Covariates",
     "title": "Statistical Models",
     "section": "",
-    "text": "Discrete/categorical variables\n\n\nContinuous variables",
+    "text": "Discrete/categorical variables\nDiscrete/categorical covariates take on a limited set of distinct values, representing different categories or groups. Examples include age groups (\\(\\geq 75\\), \\(75&gt;x\\geq 50\\), \\(50&gt;\\)), gender (male, female), or country of origin. In statistical models, categorical variables are typically encoded using indicator/dummy variables, where each level of the variable, except a reference level, gets its own binary variable taking the value 0 or 1.\n\nStratification variables\nStratification variables are categorical covariates used to divide a population into distinct, non-overlapping subgroups (strata) based on characteristics that may influence the relationship between other covariates and the response variable. Unlike regular categorical covariates that are included as terms in a model, stratification involves fitting separate models or allowing different baseline functions within each stratum.\nIn practice, stratification variables define groups within which the analysis is performed separately. For example, stratifying by center in a multi-center clinical trial allows each center to have its own baseline response level while estimating common treatment effects across centers. This approach provides more flexibility than simply including the stratification variable as a fixed effect, particularly when the variable has many levels or when assumptions about its relationship with the response variable are questionable.\n\n\n\nContinuous variables\nContinuous covariates can take any value within a range and typically represent quantitative measurements. Examples include age, weight, or temperature. Continuous covariates are often included directly in models, though they may sometimes be transformed to better satisfy model assumptions or describe non-linear relationships with the response variable.",
     "crumbs": [
       "Statistical Models"
     ]
@@ -181,7 +181,7 @@
     "href": "Chapters/Statistical_Models/Introduction.html#sec-Fixed_Effects",
     "title": "Statistical Models",
     "section": "Fixed Effects",
-    "text": "Fixed Effects",
+    "text": "Fixed Effects\nFixed effects describe the average relationship between covariates and the response variable - the systematic effects within a group. In the context of linear models (see 5  Linear Regression), fixed effects are the coefficients that quantify how the expected value of the response variable changes with the covariates. These effects are “fixed” in the sense that they are constant across all observations in the population, though they may vary across different levels of categorical covariates.\nAs an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. In this example, the fixed effects would capture the systemic growth pattern shared by all 20 year old males in the population. This includes the average height at age 10 (fixed intercept) and the average rate of growth over the 10-year period (fixed slope). These parameters describe the general trajectory that applies to the entire group, before considering individual variations.",
     "crumbs": [
       "Statistical Models"
     ]
@@ -191,119 +191,193 @@
     "href": "Chapters/Statistical_Models/Introduction.html#sec-Random_Effects",
     "title": "Statistical Models",
     "section": "Random Effects",
-    "text": "Random Effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.\nAs an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see 5  Linear Mixed Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.",
+    "text": "Random Effects\nAs opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if an individual generally has larger values (random intercept), or has a tendency to evolve/progress differently than the whole group (random slope).\nContinuing with the height example described in the fixed effects section, there should be some form of correlation between an individual’s height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one approach might be to model them individually, but with this approach information about the systemic growth would be lost. Another approach would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see 6  Linear Mixed Model) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years - allowing some to grow faster/slower than the systemic growth, and capturing this effect.",
     "crumbs": [
       "Statistical Models"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html",
-    "href": "Chapters/Statistical_Models/Logistic_Regression.html",
-    "title": "3  Logistic Regression",
-    "section": "",
-    "text": "3.1 Separation\nWhen all outcomes with a level of a covariate is always 0 or always 1, this is called separation.",
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Repeated_Measures",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Repeated_Measures",
+    "title": "Statistical Models",
+    "section": "Repeated measures",
+    "text": "Repeated measures\nRepeated measures data arise when the same individuals or units are observed multiple times under different conditions or at different time points. This design is common in longitudinal studies, clinical trials with multiple follow-up visits, and experiments where each subject serves as their own control. An example of this is measuring blood pressure at baseline, week 4, and week 8 in a clinical trial. Intuitively, the observations from the same individual are typically correlated - they tend to be more similar, when compared to observations from other individuals. This correlation violates the independence assumption of other statistical methods such as linear regression (see 5  Linear Regression). Ignoring this correlation can lead to incorrect standard errors, confidence intervals, and hypothesis tests. The correlation structure often depends on factors such as the time between measurements, with observations closer in time generally being more strongly correlated.\nSpecialised statistical methods are required to properly analyse repeated measures data. Linear mixed models (see 6  Linear Mixed Model) and non-linear mixed models (see 7  Non-linear mixed models) are particularly well-suited for this purpose as they can account for both fixed effects and random effects. The choice of covariance structure (see 3  Covariance Structures) is crucial for these models, as different structures make different assumptions about how observations within an individual are correlated.",
     "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "Statistical Models"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html#separation",
-    "href": "Chapters/Statistical_Models/Logistic_Regression.html#separation",
-    "title": "3  Logistic Regression",
-    "section": "",
-    "text": "3.1.1 Complete Separation\n\n\n3.1.2 Quasi-Complete Separation",
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Count_Data",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Count_Data",
+    "title": "Statistical Models",
+    "section": "Count data",
+    "text": "Count data\nCount data represent the number of occurenses within an observation period or similarly. Unlike continuous measurements, count data consist of non-negative integers (\\(0, 1, 2, \\dots\\)) and thus cannot take fractional values. Examples include the number of hospital admissions per month, or the number of fish observed in a given lake.\n\n\n\n\n\n\n\n\nFigure 1: Absenteeism from school. Visualization of the distribution of count data.\n\n\n\n\n\nCount data often exhibit characteristics that violate the assumptions of linear regression (see 5  Linear Regression). The distribution of counts is typically right-skewed (E.g. Figure 1), particularly when the mean count is small, and the variance often increases with the mean. Additionally, the discrete nature of count data means that predictions from linear regression could inappropriately produce negative values. For these reasons, specialized models such as Poisson regression (see ?sec-Poisson_Regression) and negative binomial regression (see ?sec-Negative_Binomial_Regression) are used to model count data. These models ensure that predicted values are non-negative and properly account for the distributional characteristics of count outcomes.\n\nIncidence rates\nWhile the above-mentioned models directly analyze the number of event occurences, the same statistical framework can be extended to model incidence rates, which express the frequency of events relative to the amount of exposure or time at risk. Incidence rates are particularly useful when individuals or units have different observation periods or when the goal is to compare event frequencies across groups with varying exposure times.\nAn incidence rate is calculated as the number of events divided by the total person-time at risk, often expressed per standard time unit (e.g., events per 100 person-years). In the context of the above-mentioned models, incidence rates are incorporated using an offset term - a covariate with a coefficient fixed at 1, typically on the log scale. The offset accounts for varying exposure times, effectively shifting the model from predicting event counts to predicting event rates. For instance, in Poisson regression with an offset for \\(\\operatorname{log}\\left(t_i\\right)\\), the model estimates the rate of events per unit of exposure, adjusting for the fact that some individuals (\\(i\\)) may have been observed for longer periods than others. This approach allows for valid comparisons of event rates across different exposure periods while maintaining the computational and inferential framework of the above-mentioned models.\n\nIncidence Rate Ratio (IRR)\nThe incidence rate ratio (IRR) is a measure of association used in the context of count data models, particularly when modeling incidence rates. The IRR quantifies the relative change in the incidence rate of an event associated with a one-unit change in a covariate, holding other variables constant. It is calculated as the exponentiated coefficient from a regression model that includes the covariate of interest. It shares some similarities with the hazard ratio (see ?sec-Hazard_Ratio) used in survival analysis, as both are derived from exponentiated coefficients and represent relative changes in rates. However, while the hazard ratio pertains to the instantaneous risk of an event occurring at a specific time point, the IRR pertains to the overall rate of events over a specified period. Both measures are multiplicative and can be interpreted in terms of percentage increases or decreases in risk/rate, but they apply to different types of data and models. The interpretation of the IRR is as follows:\n\n\\(\\text{IRR} = 1\\) indicates no association (no difference in incidence rates)\n\\(\\text{IRR} &gt; 1\\) indicates increased incidence rate in the comparison group\n\\(0 &lt; \\text{IRR} &lt; 1\\) indicates decreased incidence rate in the comparison group",
     "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "Statistical Models"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Linear_Regression.html",
-    "href": "Chapters/Statistical_Models/Linear_Regression.html",
-    "title": "4  Linear Regression",
-    "section": "",
-    "text": "Shortcomings\nLinear regression is used to model the relationship between response- and exploratory variable(s). Let \\(y\\) be the response variable(s) and \\(X \\cdot \\alpha\\) the system of exploratory variables with regression coefficients described by \\(\\alpha\\) also called fixed effects. \\[\ny = X \\cdot \\alpha + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, describing where, \\(\\varepsilon\\) is the zero-mean errors.\nThat does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see Section A.9) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.",
+    "objectID": "Chapters/Statistical_Models/Introduction.html#sec-Model_Selection_Criteria",
+    "href": "Chapters/Statistical_Models/Introduction.html#sec-Model_Selection_Criteria",
+    "title": "Statistical Models",
+    "section": "Model Selection Criteria",
+    "text": "Model Selection Criteria\nWhen comparing statistical models for the same data, an objective criterion is needed to determine which model provides the best balance between goodness of fit and model complexity. Simply choosing the model with the lowest residual error or highest likelihood would always favor more complex models with more parameters, leading to overfitting. Model selection criteria address this by penalizing model complexity, thereby encouraging parsimonious models that generalize well to new data.\nThe two most widely used information criteria are the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Both criteria are derived from different theoretical frameworks but share the common goal of balancing model fit with simplicity.\n\nAkaike Information Criterion\nThe Akaike Information Criterion is based on information theory and estimates the relative quality of statistical models. For a given dataset, AIC estimates the information lost when a particular model is used to approximate the true data-generating process. The model with the lowest AIC is preferred as it represents the best approximation with the least information loss. AIC is defined as: \\[\n\\text{AIC} = -2\\operatorname{log}\\left(\\mathcal{L}\\right) + 2k\n\\] where \\(\\mathcal{L}\\) is the maximized likelihood of the model and \\(k\\) is the number of estimated parameters. The first term measures how well the model fits the data (lower values indicate better fit), while the second term penalizes model complexity. For example, comparing two linear regression models where one includes an additional predictor variable, AIC helps determine whether the improved fit from the extra predictor justifies the added complexity.\n\n\nBayesian Information Criterion\nThe Bayesian Information Criterion is derived from Bayesian model selection principles. Unlike AIC, which focuses on predictive accuracy, BIC approximates the posterior probability of a model being the true model given the data. BIC tends to favor simpler models more strongly than AIC, especially as sample size increases. BIC is defined as: \\[\n\\text{BIC} = -2\\operatorname{log}\\left(\\mathcal{L}\\right) + k\\operatorname{log}\\left(n\\right)\n\\] where \\(n\\) is the sample size, \\(\\mathcal{L}\\) is the maximized likelihood of the model, and \\(k\\) is the number of estimated parameters. The penalty term \\(k\\operatorname{log}\\left(n\\right)\\) grows with sample size, making BIC increasingly conservative as more data becomes available.",
     "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
-    "href": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
-    "title": "4  Linear Regression",
-    "section": "",
-    "text": "Example 4.1  \n\n## Packages\nlibrary(lme4)\nlibrary(mmrm)\nlibrary(broom.mixed)\nlibrary(emmeans)\n\n## Data\n\n## Model\n\n## Plot",
-    "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Linear Regression</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
-    "href": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
-    "title": "5  Linear Mixed Model",
-    "section": "",
-    "text": "Expanding upon the concepts introduced in Chapter 4 and Section 3, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see Example 5.1). Thus, similar to how the fixed effects are inccorporrated in the linear regression, the random effects can be included as \\(Z \\cdot \\beta\\), where \\(Z\\) describes the design matrix for the random effects and \\(\\beta\\) the random effect regression coefficients. Hereby, the linear mixed model is defined as: \\[\ny = X \\cdot \\alpha + Z \\cdot \\beta + \\varepsilon.\n\\] Similar to how the errors\nTo justify the addtion of the random effects, the data somehow has to include some individual devation.\n\nExample 5.1  \n\n## Packages\nlibrary(lme4)\nlibrary(mmrm)\nlibrary(broom.mixed)\nlibrary(emmeans)\n\n## Data\n\n\n## Model\n\n## Plot",
-    "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Mixed Model</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html",
-    "href": "Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html",
-    "title": "6  Mixed Models for Repeated Measures",
-    "section": "",
-    "text": "When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model’s assumptions.\nThe MMRM cannot distinguish between data before and after an IE (ref p.2, https://arxiv.org/pdf/2402.12850)",
-    "crumbs": [
-      "Statistical Models",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mixed Models for Repeated Measures</span>"
+      "Statistical Models"
     ]
   },
   {
     "objectID": "Chapters/Statistical_Models/Covariance_Structures.html",
     "href": "Chapters/Statistical_Models/Covariance_Structures.html",
-    "title": "8  Covariance Structures",
+    "title": "3  Covariance Structures",
     "section": "",
-    "text": "8.1 Unstructured covariance\nNo constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately.\nAs there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires many parameters \\(\\left(\\frac{n\\cdot\\left(n-1\\right)}{2}\\right)\\). This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.",
+    "text": "3.1 Unstructured covariance\nIn statistical modeling, particularly when dealing with repeated measures (see Section 4) or longitudinal data, observations within the same individual are often correlated. The covariance structure describes the pattern of correlations and variances among these observations. Choosing an appropriate covariance structure is crucial for obtaining valid statistical inferences and accurate standard errors. Different covariance structures make different assumptions about how observation relationships. The choice of the covariance structure should reflect the underlying process. Each structure involves trade-offs between flexibility and parsimony. More complex structures can better capture the true correlation pattern but require more parameters to estimate, which may lead to overfitting when sample sizes are limited.\nNo constraints on the covariance structure, meaning that each pairwise correlation is estimated seperately. As there are no constraints on the structure, the process of estimating the covariance structure is very flexible, but requires \\(\\left(n \\cdot \\left(n - 1\\right)\\right) \\cdot \\frac{1}{2}\\) parameters. This (the number of additional parameters) has the implication, that if not provided a sufficiently large data set, the structure is prone to overfitting.",
     "crumbs": [
       "Statistical Models",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Covariance Structures</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Covariance Structures</span>"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#compound-covariance",
-    "href": "Chapters/Statistical_Models/Covariance_Structures.html#compound-covariance",
-    "title": "8  Covariance Structures",
-    "section": "8.2 Compound covariance",
-    "text": "8.2 Compound covariance",
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#sec-Compound_Covariance_Structures",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#sec-Compound_Covariance_Structures",
+    "title": "3  Covariance Structures",
+    "section": "3.2 Compound symmetry covariance",
+    "text": "3.2 Compound symmetry covariance\nCompound symmetry assumes that all observations within an individual have the same variance, and all pairs of observations have the same correlation, regardless of the time or order of measurements. This structure implies that the correlation between measurements does not depend on how far apart they are in time.\nThe compound symmetry structure requires only two parameters: one for the common variance and one for the common correlation. This parsimony makes it computationally efficient and stable even with smaller sample sizes. However, the assumption of constant correlation is often unrealistic for longitudinal data, where observations closer in time tend to be more correlated than those further apart. Despite this limitation, compound symmetry is frequently used as a simple baseline structure or when the measurement occasions are not inherently ordered (e.g., measurements from different body parts).",
     "crumbs": [
       "Statistical Models",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Covariance Structures</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Covariance Structures</span>"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#toeplitz",
-    "href": "Chapters/Statistical_Models/Covariance_Structures.html#toeplitz",
-    "title": "8  Covariance Structures",
-    "section": "8.3 Toeplitz",
-    "text": "8.3 Toeplitz",
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#sec-Toeplitz_Covariance_Structures",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#sec-Toeplitz_Covariance_Structures",
+    "title": "3  Covariance Structures",
+    "section": "3.3 Toeplitz",
+    "text": "3.3 Toeplitz\nThe Toeplitz structure assumes that the correlation between observations depends only on the distance (lag) between them, not on their absolute positions. Observations that are the same distance apart in time have the same correlation, forming bands of equal correlation in the covariance matrix.\nThis structure is more flexible than compound symmetry as it allows correlations to decrease (or change) with increasing time lag, which is often more realistic for longitudinal data. For \\(n\\) time points, the Toeplitz structure requires \\(n\\) parameters (one variance and \\(n-1\\) unique correlations for each lag). While more flexible than compound symmetry, it can still be parsimonious compared to the unstructured covariance. The Toeplitz structure is particularly appropriate when measurements are equally spaced in time and the correlation pattern is expected to depend primarily on the temporal distance between observations.",
     "crumbs": [
       "Statistical Models",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Covariance Structures</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Covariance Structures</span>"
     ]
   },
   {
-    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#armap-q",
-    "href": "Chapters/Statistical_Models/Covariance_Structures.html#armap-q",
-    "title": "8  Covariance Structures",
-    "section": "8.4 ARMA(p, q)",
-    "text": "8.4 ARMA(p, q)\nChapter 16\n\n8.4.1 AR(p)\n\n\n8.4.2 MA(q)",
+    "objectID": "Chapters/Statistical_Models/Covariance_Structures.html#sec-ARMA_Covariance_Structures",
+    "href": "Chapters/Statistical_Models/Covariance_Structures.html#sec-ARMA_Covariance_Structures",
+    "title": "3  Covariance Structures",
+    "section": "3.4 ARMA(p, q)",
+    "text": "3.4 ARMA(p, q)\nThe ARMA (see Chapter 15) covariance structure combines AR and MA components (see following subsections) to model temporal dependencies. This structure is based on time series methodology (see ?sec-Time_Series) and is particularly suited for longitudinal data where observations are correlated in a way that decays with time in a specific pattern.\nThis covariance structure requires \\(p + q + 1\\) parameters, making it more parsimonious than unstructured or Toeplitz structures while still capturing complex temporal correlation patterns. The ARMA structure is appropriate when the underlying process follows autoregressive or moving average dynamics, which enables modeling both short-term and long-term dependencies efficiently.\n\n3.4.1 AR(p)\nThe AR (see Section 15.1) covariance structure is a special case of ARMA where \\(q = 0\\). It assumes that each observation is a linear combination of the previous \\(p\\) observations plus random noise. The correlation between observations decays according to the autoregressive parameters, typically showing exponential decay with increasing lag.\nThe covariance structure requires \\(p + 1\\) parameters. When \\(p = 1\\) it requires two parameters, and is particularly popular as it captures the common pattern where recent observations are more strongly correlated than distant ones. This general covariance structure is appropriate when observations are influenced primarily by their recent observations. Examples of this can be found in financial systems and biological processes.\n\n\n3.4.2 MA(q)\nThe MA (see Section 15.2) covariance structure is a special case of ARMA where \\(p = 0\\). It assumes that each observation is affected by the current random shock plus a weighted average of the previous \\(q\\) random shocks. Unlike the AR structure, the MA structure implies that correlations become exactly zero beyond lag \\(q\\).\nThe covariance structure requires \\(q + 1\\) parameters. This covariance structure is appropriate when observations are influenced by short-term random fluctuations that persist for only a limited number of time periods. This general covariance structure can be useful when modeling measurement error or when observations are affected by transient factors that do not have long-lasting effects. The distinct cutoff in correlation at lag \\(q\\) distinguishes it from AR structures, where correlations decay gradually.",
     "crumbs": [
       "Statistical Models",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Covariance Structures</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Covariance Structures</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html",
+    "href": "Chapters/Statistical_Models/Logistic_Regression.html",
+    "title": "4  Logistic Regression",
+    "section": "",
+    "text": "Shortcomings\nLogistic regression is used to model binary outcomes or cases where the response variable takes only two possible values. Consider the example where you are interested in modeling whether a patient responds to treatment or not. Intuitively, the response is discrete and bounded between 0 (no) and 1 (yes). As this is the case, linear regression (see Chapter 5) is not applicable, as it can produce values outside the \\([0, 1]\\) interval and does not respect the binary nature of the outcome.\nBased on the Bernoulli distribution (see Section A.1), which describes binary outcomes, logistic regression models the conditional probability of the response variable \\(Y\\) being 1 given covariates \\(x\\) as \\[\n\\begin{aligned}\n    \\mathbb{P}\\left(Y = 1 \\mid x\\right) &= p \\\\\n    &= \\frac{\\operatorname{exp}\\left(X \\cdot \\alpha\\right)}{1 + \\operatorname{exp}\\left(X \\cdot \\alpha\\right)} = \\frac{1}{1 + \\operatorname{exp}\\left(-X \\cdot \\alpha\\right)} \\\\\n    &= \\operatorname{log}\\left(\\frac{p}{1 - p}\\right) = X \\cdot \\alpha\n\\end{aligned}\n\\] where \\(X\\) is the fixed effects design matrix, \\(\\alpha\\) is the fixed effects, and \\(\\frac{p}{1 - p}\\) is called the odds. The logistic link function (logit) ensures that the predicted probabilities remain between 0 and 1. The log-odds \\(\\operatorname{log}\\left(\\frac{p}{1 - p}\\right)\\) is linear in the covariates, which allows for straightforward interpretation: a one-unit increase in \\(x_j\\) changes the log-odds by \\(\\alpha_j\\), or equivalently, multiplies the odds by \\(\\operatorname{exp}\\left(\\alpha_j\\right)\\).\nLogistic regression, like other statistical models, has limitations. Firstly, the assumption of a linear relationship between the covariates and the log-odds may not hold for all data. When this assumption is violated, the model may provide poor predictions and misleading inference. Secondly, logistic regression does not handle missing data very well, and preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, logistic regression is prone to overfitting, reducing the generalization of the fit. Furthermore, logistic regression assumes independence of observations - when observations are clustered or repeated measurements are taken on the same individuals, mixed-effects logistic regression should be considered instead. Additionally, the presence of separation (see Section 4.1) can lead to infinite coefficient estimates and numerical instability, requiring special handling.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Logistic_Regression.html#sec-Separation",
+    "href": "Chapters/Statistical_Models/Logistic_Regression.html#sec-Separation",
+    "title": "4  Logistic Regression",
+    "section": "4.1 Separation",
+    "text": "4.1 Separation\nWhen all outcomes within a level of a categorical variable is always 0 or always 1, this is called separation. Separation occurs when a covariate or combination of covariates perfectly predicts the binary outcome. In such cases, the maximum likelihood estimation procedure fails to converge, as the estimated coefficients approach infinity. This is because the algorithm attempts to find a coefficient that makes the predicted probability exactly 0 or 1 for those observations, which requires an infinite coefficient value.\n\n4.1.1 Complete Separation\nComplete separation occurs when there exists a linear combination of the covariates that perfectly separates the outcomes. More formally, complete separation exists if there is a vector \\(\\beta\\) such that \\(X \\cdot \\beta &gt; 0\\) for all observations where \\(Y = 1\\) and \\(X \\cdot \\beta &lt; 0\\) for all observations where \\(Y = 0\\). In this case, the likelihood function is monotone and the maximum likelihood estimates do not exist. Complete separation often happens with small sample sizes, rare outcomes, or when a level of a categorical variable share the same outcome. When complete separation is present, standard logistic regression cannot be used, and alternatives should be considered.\n\n\n4.1.2 Quasi-Complete Separation\nQuasi-complete separation occurs when the outcomes can be nearly, but not perfectly, separated by the covariates. Unlike complete separation, some observations exist where the perfect separation rule is violated, but these violations are rare. Formally, quasi-complete separation exists when there exists a \\(\\beta\\) such that \\(X \\cdot \\beta \\geq 0\\) for all observations where \\(Y = 1\\) and \\(X \\cdot \\beta \\leq 0\\) for all observations where \\(Y = 0\\), with at least one inequality being strict. While the maximum likelihood estimates technically exist in this case, they are extremely large and the standard errors are inflated, making the estimates and inference unreliable. Similar to complete separation, the likelihood function is nearly flat in certain directions, causing numerical instability in the estimation algorithm. Quasi-complete separation is more common than complete separation and can be difficult to detect, as the algorithm may appear to converge but with suspiciously large coefficient estimates and standard errors.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Regression.html",
+    "href": "Chapters/Statistical_Models/Linear_Regression.html",
+    "title": "5  Linear Regression",
+    "section": "",
+    "text": "Shortcomings\nLinear regression is used to model the relationship between response- and exploratory variable(s). Let \\(y\\) be the response variable(s) and \\(X \\cdot \\alpha\\) the system of exploratory variables with regression coefficients described by \\(\\alpha\\) also called fixed effects. \\[\ny = X \\cdot \\alpha + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, describing where, \\(\\varepsilon\\) is the zero-mean errors.\nThat does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see Section A.9) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
+    "href": "Chapters/Statistical_Models/Linear_Regression.html#shortcomings",
+    "title": "5  Linear Regression",
+    "section": "",
+    "text": "Example 5.1  \n\nDataRSAS\n\n\n\n## Packages\nlibrary(dplyr)\nlibrary(mmrm)\n\n# Data\nmmrm::bcva_data %&gt;%\n  dplyr::rename_with(toupper) %&gt;%\n  dplyr::slice_head(n = 15)\n\n\n\n\n## Packages\nlibrary(tidyverse)\nlibrary(mmrm)\n\n# Data\ndata &lt;- mmrm::bcva_data %&gt;%\n  dplyr::rename_with(toupper)\n\n# Model\nlm_fit &lt;- stats::lm(BCVA_CHG ~ VISITN + BCVA_BL, data = data)\n\n## Coefficients\nbroom::tidy(lm_fit, conf.int = TRUE, conf.level = 0.95)\n\n# Plot\ndata %&gt;%\n  ggplot2::ggplot(aes(x = VISITN, y = BCVA_CHG)) +\n  ggplot2::geom_point() +\n  ggplot2::labs(x = \"Visit Number\", y = \"Change in BCVA\") +\n  ggplot2::geom_line(\n    data = data %&gt;%\n      dplyr::mutate(predicted = predict(lm_fit)),\n    aes(x = VISITN, y = predicted),\n    color = \"blue\"\n  ) +\n  ggplot2::theme_minimal()\n\n\n\n\nPROC GLM data = data;\n    model BCVA_CHG = VISITN BCVA_BL / solution;\nrun;",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Regression.html#sec-Linear_Regression_Estimation",
+    "href": "Chapters/Statistical_Models/Linear_Regression.html#sec-Linear_Regression_Estimation",
+    "title": "5  Linear Regression",
+    "section": "5.1 Estimation",
+    "text": "5.1 Estimation\nThe estimation of the fixed effects \\(\\alpha\\) is commonly done using the method of least squares, which minimizes the sum of squared residuals (the differences between observed and predicted values).",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
+    "href": "Chapters/Statistical_Models/Linear_Mixed_Model.html",
+    "title": "6  Linear Mixed Model",
+    "section": "",
+    "text": "Differences from Linear Regression\nExpanding upon the concepts introduced in Chapter 5 and Section 3, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see Example 6.1). While linear regression assumes that all observations are independent, this assumption is often violated in practice when multiple observations come from the same subject, family, or group. Linear mixed models address this limitation by incorporating both fixed effects (see Section 2) and random effects. Thus, similar to how the fixed effects are incorporated in the linear regression, the random effects can be included as \\(Z \\cdot \\beta\\), where \\(Z\\) describes the design matrix for the random effects and \\(\\beta\\) the random effect regression coefficients. Hereby, the linear mixed model is defined as: \\[\ny = X \\cdot \\alpha + Z \\cdot \\beta + \\varepsilon.\n\\]\nUnlike linear regression where \\(\\varepsilon\\) is the only source of variability, the linear mixed model decomposes the total variability into two components: between-individual variability (captured by \\(\\beta\\)) and within-individual variability (captured by \\(\\varepsilon\\)). This decomposition is particularly important when observations within the same individual are correlated. The random effects are typically assumed to follow a Gaussian distribution (see Section A.9) with mean zero and covariance matrix \\(D\\), while the errors are assumed to follow a Gaussian distribution with mean zero and covariance matrix \\(R\\). The choice of covariance structure for both \\(D\\) and \\(R\\) can have substantial impact on the model fit and inference (see Chapter 3).\nThe primary difference between linear mixed models and linear regression lies in the handling of correlation structures. Linear regression assumes that all observations are independent, with constant variance \\(\\sigma^2\\) for the errors. This assumption is encoded in the covariance matrix of \\(y\\), which is \\(\\sigma^2 I\\) where \\(I\\) is the identity matrix. In contrast, the linear mixed model allows for a more complex covariance structure \\(V = ZDZ^\\top + R\\), where \\(ZDZ^\\top\\) captures the between-individual variability and \\(R\\) captures the within-individual variability. This flexibility enables the model to account for correlation between observations from the same individual while maintaining independence between individuals.\nAnother key difference is in the interpretation of the regression coefficients. In linear regression, the fixed effects \\(\\alpha\\) represent the change in the expected response for a one-unit increase in the covariate, averaging over all observations. In linear mixed models, the fixed effects \\(\\alpha\\) have the same interpretation at the population level, but the model additionally estimates random effects \\(\\beta\\) that quantify how much each individual deviates from this population average. This allows for individual-specific predictions that account for each subject’s unique characteristics.\nThe estimation procedure also differs between the two approaches. Linear regression typically uses ordinary least squares, which minimizes the sum of squared residuals. Linear mixed models require more complex estimation methods such as maximum likelihood (ML) or restricted maximum likelihood (REML), which account for both the fixed- and random effects simultaneously. REML is often preferred over ML because it provides less biased estimates of covariance components (see Section 6.1.2), particularly when the number of fixed effects is large relative to the sample size.\nLinear mixed models should be considered when the data includes repeated measurements, clustered observations, or hierarchical relationships. Examples include clinical studies where individuals are measured at multiple time points, multi-center clinical trials where individuals are nested within sites, or educational studies where students are nested within schools. In these cases, observations within the same group are likely to be more similar to each other than to observations from different groups, violating the independence assumption of linear regression. The inclusion of random effects is justified when there is evidence of individual-level variability that is not fully explained by the fixed effects. If all individuals respond identically to the covariates, then linear regression may be sufficient. However, if individuals exhibit heterogeneity in their baseline values, response rates, or other characteristics, then random effects are necessary to capture this variability. Failing to account for this correlation can lead to underestimated standard errors, anti-conservative confidence intervals, and inflated Type I error rates.",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Linear Mixed Model</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Mixed_Model.html#shortcomings",
+    "href": "Chapters/Statistical_Models/Linear_Mixed_Model.html#shortcomings",
+    "title": "6  Linear Mixed Model",
+    "section": "Shortcomings",
+    "text": "Shortcomings\nDespite their flexibility, linear mixed models have limitations. Firstly, like linear regression, a linear relationship between the covariates and the response is assumed, which may not hold for all data. When this assumption is violated, non-linear mixed models (see Chapter 7) should be considered. Secondly, linear mixed models require the specification of both fixed- and random effects structures as well as covariance structures (see Chapter 3), which introduces additional complexity and risk of misspecification - an incorrectly specified random effects structure can lead to biased estimates.\nMoreover, estimation of linear mixed models is computationally more demanding than linear regression, particularly for large datasets with complex random effects structures. The maximum likelihood estimation requires iterative optimization algorithms that may fail to converge or converge to local maxima rather than global maxima. Additionally, linear mixed models assume that random effects and errors are Gaussian distributed. While the model is relatively robust to moderate departures from this assumption, severe violations can affect the validity of inference, particularly for small sample sizes.\nFurthermore, the interpretation of fixed effects in linear mixed models can be more nuanced than in linear regression, as they represent population-averaged effects conditional on the random effects. This distinction becomes important when making predictions or interpreting the magnitude of covariate effects.\n\nExample 6.1  \n\nDataRSAS\n\n\n\n## Packages\nlibrary(dplyr)\nlibrary(mmrm)\n\n# Data\nmmrm::bcva_data %&gt;%\n  dplyr::rename_with(toupper) %&gt;%\n  dplyr::slice_head(n = 15)\n\n\n\n\n## Packages\nlibrary(tidyverse)\nlibrary(lme4)\nlibrary(mmrm)\nlibrary(broom.mixed)\n\n## Data\ndata &lt;- mmrm::bcva_data %&gt;%\n    dplyr::rename_with(toupper)\n\n## Model\n# * Random intercept for each subject (1 | USUBJID)\nlmm_fit &lt;- lme4::lmer(BCVA_CHG ~ VISITN + BCVA_BL + (1 | USUBJID), data = data)\n\n## Coefficients\nbroom.mixed::tidy(lmm_fit, conf.int = TRUE, conf.level = 0.95)\n\n## Plot\ndata %&gt;%\n  ggplot2::ggplot(aes(x = VISITN, y = BCVA_CHG)) +\n  ggplot2::geom_point() +\n  ggplot2::labs(x = \"Visit Number\", y = \"Change in BCVA\") +\n  ggplot2::geom_line(\n    data = data %&gt;%\n      dplyr::mutate(predicted = predict(lmm_fit)),\n    aes(x = VISITN, y = predicted),\n    color = \"blue\"\n  ) +\n  ggplot2::theme_minimal()\n\n\n\n\nPROC MIXED data = data method = REML;\n    class USUBJID;\n    model BCVA_CHG = VISITN BCVA_BL / solution;\n    random intercept / subject = USUBJID;\nrun;",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Linear Mixed Model</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Linear_Mixed_Model.html#sec-LMM_Estimation",
+    "href": "Chapters/Statistical_Models/Linear_Mixed_Model.html#sec-LMM_Estimation",
+    "title": "6  Linear Mixed Model",
+    "section": "6.1 Estimation",
+    "text": "6.1 Estimation\nThe estimation process for linear mixed models differ from linear regression, as the inclusion of random effects introduces additional parameters that need to be estimated. The estimation typically involves three main steps: estimation of fixed effects, estimation of covariance parameters, and prediction of random effects. Each step requires specific methods and considerations to ensure accurate and reliable results.\nTo ease the estimation process, it will be assumed that the random effects and errors follow a Gaussian distribution (see Section A.9), that is \\[\n\\beta \\thicksim\\operatorname{N}\\left(0, D\\right) \\quad \\text{and} \\quad \\varepsilon \\thicksim\\operatorname{N}\\left(0, R\\right).\n\\] Under this assumption, the marginal distribution of the response variable \\(y\\) is also Gaussian with mean \\(X \\cdot \\alpha\\) and covariance matrix \\(V = ZDZ^\\top + R\\). This would mean that the likelihood function can be expressed as \\[\n\\begin{aligned}\n    \\mathcal{L}(\\alpha, D, R \\mid y) = \\frac{1}{(2\\pi)^{n/2} \\sqrt{\\operatorname{det}\\left(V\\right)}} \\cdot \\operatorname{exp}\\left(-\\frac{1}{2} (y - X\\alpha)^\\top V^{-1} (y - X\\alpha)\\right)\n\\end{aligned}\n\\tag{6.1}\\] with the log-likelihood function given by \\[\n\\ell(\\alpha, D, R \\mid y) = -\\frac{n}{2} \\operatorname{log}\\left(2\\pi\\right) - \\frac{1}{2} \\left(\\operatorname{log}\\left(\\operatorname{det}\\left(V\\right)\\right) + (y - X\\alpha)^\\top V^{-1} (y - X\\alpha)\\right)\n\\tag{6.2}\\]\n\n6.1.1 Estimation of Fixed Effects\n\\[\n\\hat{\\alpha} = \\left(X^\\top V^{-1} X\\right)^{-1} \\left(X^\\top V^{-1} y\\right)\n\\]\n\n\n\n\n\n\nNote\n\n\n\n\n\n\\[\n\\begin{align*}\n    \\frac{\\partial}{\\partial \\alpha} \\ell(\\alpha, D, R \\mid y) &= \\\\\n\\end{align*}\n\\]\n\n\n\n\n\n6.1.2 Estimation of Covariance Parameters\n\n6.1.2.1 Maximum Likelihood Estimation\nTo estimate the covariance parameters, the maximum likelihood estimation (MLE) approach can be used. This involves maximizing the profile log-likelihood function \\[\n\\ell_{\\text{profile}}\\left(D, R \\mid y\\right) \\approx -\\frac{1}{2} \\operatorname{log}\\left(\\operatorname{det}\\left(V\\right)\\right) - \\frac{1}{2} (y - X\\hat{\\alpha})^\\top V^{-1} (y - X\\hat{\\alpha})\n\\] where \\(\\hat{\\alpha}\\) is the estimate of the fixed effects obtained from the previous step. However, it is important to note that MLE can lead to biased estimates of the covariance parameters, particularly when the number of fixed effects \\(p\\) is large relative to the sample size \\(n\\). This bias arises because MLE does not account for the loss of degrees of freedom due to the estimation of fixed effects.\n\\[\n\\begin{align*}\n    \\mathbb{E}\\left[\\sigma_{\\text{ML}}^2\\right] &= \\frac{1}{n} \\mathbb{E}\\left[(y - X\\hat{\\alpha})^\\top (y - X\\hat{\\alpha})\\right] \\\\\n    &= \\sigma^2 \\cdot \\left(1 - \\frac{n - p}{n}\\right) \\\\\n\\end{align*}\n\\]\n\n\n6.1.2.2 Restricted Maximum Likelihood Estimation\nAs opposed to MLE, the restricted maximum likelihood estimation (REML) approach accounts for the loss of degrees of freedom due to the estimation of fixed effects. REML achieves this by maximizing a modified likelihood function that is based on the residuals from the fixed effects model. Maximizing the REML likelihood function leads to unbiased estimates of the covariance parameters, as it effectively adjusts for the number of fixed effects \\(p\\) being estimated. The REML estimate for \\(\\sigma^2\\) can be expressed as \\[\n\\begin{align*}\n   \\mathbb{E}\\left[\\sigma_{\\text{REML}}^2\\right] &= \\frac{1}{n - p} \\mathbb{E}\\left[(y - X\\hat{\\alpha})^\\top (y - X\\hat{\\alpha})\\right] \\\\\n   &= \\sigma^2\n\\end{align*}\n\\]\n\n\n\n6.1.3 Prediction of Random Effects",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Linear Mixed Model</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Non-linear_Mixed_Model.html",
+    "href": "Chapters/Statistical_Models/Non-linear_Mixed_Model.html",
+    "title": "7  Non-linear mixed models",
+    "section": "",
+    "text": "Shortcomings",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Non-linear mixed models</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Statistical_Models/Non-linear_Mixed_Model.html#estimation",
+    "href": "Chapters/Statistical_Models/Non-linear_Mixed_Model.html#estimation",
+    "title": "7  Non-linear mixed models",
+    "section": "7.1 Estimation",
+    "text": "7.1 Estimation",
+    "crumbs": [
+      "Statistical Models",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Non-linear mixed models</span>"
     ]
   },
   {
@@ -319,166 +393,166 @@
   {
     "objectID": "Chapters/Survival_Analysis/Survival_Function.html",
     "href": "Chapters/Survival_Analysis/Survival_Function.html",
-    "title": "9  Survival function",
+    "title": "8  Survival function",
     "section": "",
-    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can utilize the concept of stochastic variables (see Chapter 2). The CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\mathbb{P}\\left(T \\leq t\\right)\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function (CIF) and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\mathbb{P}\\left(T \\leq t\\right) \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\mathrm{d}u\n\\end{aligned}\n\\tag{9.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\mathbb{P}\\left(T &gt; t\\right) = \\int_t^\\infty f_T(x) \\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\nExample 9.1 (Survival Function)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(dplyr)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Plot\n\n\n\n\n\n\n\n\n\n\nSurvival curve for lung cancer patients at different institutes.",
+    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can utilize the concept of stochastic variables (see Chapter 2). The CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\mathbb{P}\\left(T \\leq t\\right)\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function (CIF) and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\mathbb{P}\\left(T \\leq t\\right) \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\mathrm{d}u\n\\end{aligned}\n\\tag{8.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\mathbb{P}\\left(T &gt; t\\right) = \\int_t^\\infty f_T(x) \\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\nExample 8.1 (Survival Function)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(dplyr)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Plot\n\n\n\n\n\n\n\n\n\n\nSurvival curve for lung cancer patients at different institutes.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Survival function</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Survival function</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Hazard_Function.html",
     "href": "Chapters/Survival_Analysis/Hazard_Function.html",
-    "title": "10  Hazard function",
+    "title": "9  Hazard function",
     "section": "",
-    "text": "10.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). The instantaneuos risk at a time \\(t\\) is bounded between 0 and 1, where the sum over all \\(t\\) is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between \\(t\\) and \\(t+\\Delta t\\) divided by the population size at risk at time \\(t\\), divided by \\(\\Delta t\\). In the continuous case, the hazard function is given as \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\mathbb{P}\\left(t \\leq T &lt; t + \\Delta t \\mid T \\geq t\\right)}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(t\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\operatorname{ln}\\left(S(t)\\right)\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 9), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
+    "text": "9.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). The instantaneuos risk at a time \\(t\\) is bounded between 0 and 1, where the sum over all \\(t\\) is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between \\(t\\) and \\(t+\\Delta t\\) divided by the population size at risk at time \\(t\\), divided by \\(\\Delta t\\). In the continuous case, the hazard function is given as \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\mathbb{P}\\left(t \\leq T &lt; t + \\Delta t \\mid T \\geq t\\right)}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(t\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\operatorname{ln}\\left(S(t)\\right)\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 8), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Hazard function</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Hazard function</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Hazard_Function.html#Hazard_Ratio",
     "href": "Chapters/Survival_Analysis/Hazard_Function.html#Hazard_Ratio",
-    "title": "10  Hazard function",
-    "section": "10.2 Hazard ratio",
-    "text": "10.2 Hazard ratio\nThe hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.\nNon-collapsable. Not a causal estimand\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference\n\n\nRemark 10.1. The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.",
+    "title": "9  Hazard function",
+    "section": "9.2 Hazard ratio",
+    "text": "9.2 Hazard ratio\nThe hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.\nNon-collapsable. Not a causal estimand\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference\n\n\nRemark 9.1. The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Hazard function</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Hazard function</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Censoring.html",
     "href": "Chapters/Survival_Analysis/Censoring.html",
-    "title": "11  Censoring",
+    "title": "10  Censoring",
     "section": "",
-    "text": "11.1 Left censoring\nCensoring is the act of some information not being observed, possibly due to other events than the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event does not occur in the period\n\\(T &gt; t\\): has not yet occurred at time \\(t\\)",
+    "text": "10.1 Left censoring\nCensoring is the act of some information not being observed, possibly due to other events than the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event does not occur in the period\n\\(T &gt; t\\): has not yet occurred at time \\(t\\)",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Censoring</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Censoring.html#sec-Right_Censoring",
     "href": "Chapters/Survival_Analysis/Censoring.html#sec-Right_Censoring",
-    "title": "11  Censoring",
-    "section": "11.2 Right censoring",
-    "text": "11.2 Right censoring\n\\(T &lt; t\\): has occurred before time \\(t\\)\nThe most common form of censoring to occur in clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.",
+    "title": "10  Censoring",
+    "section": "10.2 Right censoring",
+    "text": "10.2 Right censoring\n\\(T &lt; t\\): has occurred before time \\(t\\)\nThe most common form of censoring to occur in clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Censoring</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Censoring.html#sec-Interval_Censoring",
     "href": "Chapters/Survival_Analysis/Censoring.html#sec-Interval_Censoring",
-    "title": "11  Censoring",
-    "section": "11.3 Interval-censoring",
-    "text": "11.3 Interval-censoring\n\\(t_1 &lt; T &lt; t_2\\):\n\nType I censoring:\nType II censoring:\nType III censoring:\n\n\n11.3.1 Non-informative censoring",
+    "title": "10  Censoring",
+    "section": "10.3 Interval-censoring",
+    "text": "10.3 Interval-censoring\n\\(t_1 &lt; T &lt; t_2\\):\n\nType I censoring:\nType II censoring:\nType III censoring:\n\n\n10.3.1 Non-informative censoring",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Censoring</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Truncation.html",
     "href": "Chapters/Survival_Analysis/Truncation.html",
-    "title": "12  Truncation",
+    "title": "11  Truncation",
     "section": "",
-    "text": "12.1 Left truncation\nContrary to censoring, the term truncation the instead refers to the fact that the event(s) of interest cannot possible occur.\nAnalytically, truncation is handled the same as if information was censored. It is therefore not neccesarry to distinguish between the two, when evaluation data. However, it is rather important when discussing the data more broadly - censoring and truncation is not the same, even though it is analytically handled in the same manner.\nAn example of left truncated data could be that a hospital was not open at the start of the analysis. In this example, we could be interested in the first case of some disease at different hospitals, to analyze the risk at these. Intuitively, the first case of some disease could then not have happened at a hospital that was not open.",
+    "text": "11.1 Left truncation\nContrary to censoring, the term truncation the instead refers to the fact that the event(s) of interest cannot possible occur.\nAnalytically, truncation is handled the same as if information was censored. It is therefore not neccesarry to distinguish between the two, when evaluation data. However, it is rather important when discussing the data more broadly - censoring and truncation is not the same, even though it is analytically handled in the same manner.\nAn example of left truncated data could be that a hospital was not open at the start of the analysis. In this example, we could be interested in the first case of some disease at different hospitals, to analyze the risk at these. Intuitively, the first case of some disease could then not have happened at a hospital that was not open.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Truncation</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Truncation</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Truncation.html#sec-Right_Truncation",
     "href": "Chapters/Survival_Analysis/Truncation.html#sec-Right_Truncation",
-    "title": "12  Truncation",
-    "section": "12.2 Right truncation",
-    "text": "12.2 Right truncation\nSimilar to the example given for left truncation. Instead of considering the the hospital had not yet open during the analysis, consider if the hospital permanently closed during the analysis. In this case, it would not be possible for the hospital to have the event of interest.",
+    "title": "11  Truncation",
+    "section": "11.2 Right truncation",
+    "text": "11.2 Right truncation\nSimilar to the example given for left truncation. Instead of considering the the hospital had not yet open during the analysis, consider if the hospital permanently closed during the analysis. In this case, it would not be possible for the hospital to have the event of interest.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Truncation</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Truncation</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html",
     "href": "Chapters/Survival_Analysis/Kaplan-Meier.html",
-    "title": "13  Kaplan-Meier Estimator",
+    "title": "12  Kaplan-Meier Estimator",
     "section": "",
-    "text": "Properties\nThe Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see Chapter 9) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see Chapter 11) without making assumptions about the underlying survival distribution.\nAn advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see Section 11.2) - individuals who have not experienced the event by the time of censoring.\nThe Kaplan-Meier estimate of the survival function at time \\(t\\) is given by: \\[\n\\begin{aligned}\n    \\hat{S}(t) &= \\prod_{t_i \\leq t} \\left(1 - \\frac{d_{t_i}}{n_{t_i}}\\right)\n\\end{aligned}\n\\tag{13.1}\\] where \\(t_i\\) represents the event times, \\(d_{t_i} &gt; 0\\) is the number of events that occurred at time \\(t_i\\), and \\(n_{t_i} \\geq 0\\) is the number of individuals at risk just prior to time \\(t_i\\).\nThe estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time \\(t_i\\), the probability of surviving that time point is estimated as \\(1 - d_{t_i}/n_{t_i}\\), which represents one minus the empirical hazard rate at that time.\nThe Kaplan-Meier estimator has several important properties, most of which are also properties of the survival curve. Firstly, \\(\\hat{S}(0) = 1\\) - all individuals are alive at the start. Secondly, \\(\\hat{S}(t)\\) is a right-continuous step function that decreases only at observed event times. This also has the implication the it is monotonically decreasing - \\(\\hat{S}(t_2) \\leq \\hat{S}(t_1)\\) for all \\(t_2 &gt; t_1\\).\nUnder appropriate conditions, \\(\\hat{S}(t)\\) converges to the true survival function \\(S(t)\\) as the sample size increases.",
+    "text": "Properties\nThe Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see Chapter 8) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see Chapter 10) without making assumptions about the underlying survival distribution.\nAn advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see Section 10.2) - individuals who have not experienced the event by the time of censoring.\nThe Kaplan-Meier estimate of the survival function at time \\(t\\) is given by: \\[\n\\begin{aligned}\n    \\hat{S}(t) &= \\prod_{t_i \\leq t} \\left(1 - \\frac{d_{t_i}}{n_{t_i}}\\right)\n\\end{aligned}\n\\tag{12.1}\\] where \\(t_i\\) represents the event times, \\(d_{t_i} &gt; 0\\) is the number of events that occurred at time \\(t_i\\), and \\(n_{t_i} \\geq 0\\) is the number of individuals at risk just prior to time \\(t_i\\).\nThe estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time \\(t_i\\), the probability of surviving that time point is estimated as \\(1 - d_{t_i}/n_{t_i}\\), which represents one minus the empirical hazard rate at that time.\nThe Kaplan-Meier estimator has several important properties, most of which are also properties of the survival curve. Firstly, \\(\\hat{S}(0) = 1\\) - all individuals are alive at the start. Secondly, \\(\\hat{S}(t)\\) is a right-continuous step function that decreases only at observed event times. This also has the implication the it is monotonically decreasing - \\(\\hat{S}(t_2) \\leq \\hat{S}(t_1)\\) for all \\(t_2 &gt; t_1\\).\nUnder appropriate conditions, \\(\\hat{S}(t)\\) converges to the true survival function \\(S(t)\\) as the sample size increases.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html#assumptions",
     "href": "Chapters/Survival_Analysis/Kaplan-Meier.html#assumptions",
-    "title": "13  Kaplan-Meier Estimator",
+    "title": "12  Kaplan-Meier Estimator",
     "section": "Assumptions",
-    "text": "Assumptions\nThe validity of the Kaplan-Meier estimator relies on several key assumptions:\n\n13.0.1 Independent Censoring\nThe most critical assumption is that censoring is independent of survival time. Formally, the censoring time \\(C\\) and the event time \\(T\\) must be independent. This means that censored individuals should have the same survival prospects as those who remain under observation. Violations of this assumption can lead to biased estimates. For example, if patients with worse prognoses are more likely to drop out of a study, the Kaplan-Meier curve will overestimate survival.\n\n\n13.0.2 Non-informative Censoring\nRelated to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time \\(t\\) should not depend on the event time \\(T\\), given the observed covariates.\n\n\n13.0.3 No Loss to Follow-up\nIdeally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.\n\nExample 13.1 (Kaplan-Meier estimator)  \n\nR\n\n\n\n# Packages\nlibrary(dplyr)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 1: event, status == 0: censored\nKM_fit &lt;- survival::survfit(survival::Surv(time, status == 1) ~ 1, data_f)\n\n## Coefficients\nsummary(KM_fit)\n\n# Plot\nsurvminer::ggsurvplot(KM_fit, conf.int = TRUE, data = data_f)",
+    "text": "Assumptions\nThe validity of the Kaplan-Meier estimator relies on several key assumptions:\n\n12.0.1 Independent Censoring\nThe most critical assumption is that censoring is independent of survival time. Formally, the censoring time \\(C\\) and the event time \\(T\\) must be independent. This means that censored individuals should have the same survival prospects as those who remain under observation. Violations of this assumption can lead to biased estimates. For example, if patients with worse prognoses are more likely to drop out of a study, the Kaplan-Meier curve will overestimate survival.\n\n\n12.0.2 Non-informative Censoring\nRelated to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time \\(t\\) should not depend on the event time \\(T\\), given the observed covariates.\n\n\n12.0.3 No Loss to Follow-up\nIdeally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.\n\nExample 12.1 (Kaplan-Meier estimator)  \n\nR\n\n\n\n# Packages\nlibrary(dplyr)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 1: event, status == 0: censored\nKM_fit &lt;- survival::survfit(survival::Surv(time, status == 1) ~ 1, data_f)\n\n## Coefficients\nsummary(KM_fit)\n\n# Plot\nsurvminer::ggsurvplot(KM_fit, conf.int = TRUE, data = data_f)",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html",
     "href": "Chapters/Survival_Analysis/Cox.html",
-    "title": "14  Cox Regression",
+    "title": "13  Cox Regression",
     "section": "",
-    "text": "14.1 Separation\nThe Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see Chapter 10), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.\nThe Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.\nThe Cox proportional hazards model is defined as: \\[\nh(t) = h_0(t) \\cdot \\operatorname{exp}\\left(\\sum_{i=1}^p \\beta_i x_i\\right)\n\\tag{14.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1, x_2, \\dots, x_p\\) are the covariates and \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 3), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
+    "text": "13.1 Separation\nThe Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see Chapter 9), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.\nThe Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.\nThe Cox proportional hazards model is defined as: \\[\nh(t) = h_0(t) \\cdot \\operatorname{exp}\\left(\\sum_{i=1}^p \\beta_i x_i\\right)\n\\tag{13.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1, x_2, \\dots, x_p\\) are the covariates and \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 4), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#separation",
     "href": "Chapters/Survival_Analysis/Cox.html#separation",
-    "title": "14  Cox Regression",
+    "title": "13  Cox Regression",
     "section": "",
     "text": "Estimation Instability\nThe maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.\n\n\nConvergence Issues\nThe iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.\n\n\nInvalid Inference\nConfidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#stratification",
     "href": "Chapters/Survival_Analysis/Cox.html#stratification",
-    "title": "14  Cox Regression",
-    "section": "14.2 Stratification",
-    "text": "14.2 Stratification\nWhen stratifying a Cox model (see Equation 14.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum (each level of the stratification variable). Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g = 1}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 1\\\\\n    h_{0, g = 2}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 2\n\\end{cases}\n\\tag{14.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 14.1 (Proportional Cox model)  \n\nRPython\n\n\n\n# Packages\nlibrary(tidyverse)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n## Coefficients\nbroom::tidy(cox_fit)\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n# Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)\n\n\n\n\n# Packages\nimport pandas as pd\nimport lifelines\n\n# Data\n\n# Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n## Coefficients\ncph.print_summary()\n\n\n# Plot\ncph.plot()",
+    "title": "13  Cox Regression",
+    "section": "13.2 Stratification",
+    "text": "13.2 Stratification\nWhen stratifying a Cox model (see Equation 13.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum (each level of the stratification variable). Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g = 1}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 1\\\\\n    h_{0, g = 2}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 2\n\\end{cases}\n\\tag{13.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 13.1 (Proportional Cox model)  \n\nRPython\n\n\n\n# Packages\nlibrary(tidyverse)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n## Coefficients\nbroom::tidy(cox_fit)\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n# Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)\n\n\n\n\n# Packages\nimport pandas as pd\nimport lifelines\n\n# Data\n\n# Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n## Coefficients\ncph.print_summary()\n\n\n# Plot\ncph.plot()",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
     "href": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
-    "title": "14  Cox Regression",
-    "section": "14.3 Mixed Effects Cox Model",
-    "text": "14.3 Mixed Effects Cox Model\nThe Cox model can be Section 3 \\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\operatorname{exp}\\left(X\\beta + Zb\\right)\\\\\n    b &\\thicksim\\operatorname{N}\\left(0, \\Sigma\\left(\\theta\\right)\\right)\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution (see Section A.9) with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\nExample 14.2 (Mixed Effects Cox model)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(tidyverse)\nlibrary(coxme)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncoxme_fit &lt;- coxme::coxme(survival::Surv(time, status == 2) ~ age + sex + (1 | inst), data_f)\n\n## Coefficients\nsummary(coxme_fit)\n\n# Plot",
+    "title": "13  Cox Regression",
+    "section": "13.3 Mixed Effects Cox Model",
+    "text": "13.3 Mixed Effects Cox Model\nThe Cox model can be Section 3 \\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\operatorname{exp}\\left(X\\beta + Zb\\right)\\\\\n    b &\\thicksim\\operatorname{N}\\left(0, \\Sigma\\left(\\theta\\right)\\right)\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution (see Section A.9) with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\nExample 13.2 (Mixed Effects Cox model)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(tidyverse)\nlibrary(coxme)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncoxme_fit &lt;- coxme::coxme(survival::Surv(time, status == 2) ~ age + sex + (1 | inst), data_f)\n\n## Coefficients\nsummary(coxme_fit)\n\n# Plot",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Competing_Risk.html",
     "href": "Chapters/Survival_Analysis/Competing_Risk.html",
-    "title": "15  Competing Risk Analysis",
+    "title": "14  Competing Risk Analysis",
     "section": "",
-    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTake for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 9.1) for a specific event, \\(F_j(t) = \\mathbb{P}\\left(T\\leq t, C = j\\right) = \\int_t^t h_j(u) \\cdot S(u)\\,\\mathrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
+    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTake for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 8.1) for a specific event, \\(F_j(t) = \\mathbb{P}\\left(T\\leq t, C = j\\right) = \\int_t^t h_j(u) \\cdot S(u)\\,\\mathrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
     ]
   },
   {
@@ -524,45 +598,45 @@
   {
     "objectID": "Chapters/Time_Series/ARMA.html",
     "href": "Chapters/Time_Series/ARMA.html",
-    "title": "16  ARMA(p, q)",
+    "title": "15  ARMA(p, q)",
     "section": "",
-    "text": "16.1 AR(p)",
+    "text": "15.1 AR(p)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#sec-MA",
     "href": "Chapters/Time_Series/ARMA.html#sec-MA",
-    "title": "16  ARMA(p, q)",
-    "section": "16.2 MA(q)",
-    "text": "16.2 MA(q)",
+    "title": "15  ARMA(p, q)",
+    "section": "15.2 MA(q)",
+    "text": "15.2 MA(q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arimap-d-q",
     "href": "Chapters/Time_Series/ARMA.html#arimap-d-q",
-    "title": "16  ARMA(p, q)",
-    "section": "16.3 ARIMA(p, D, q)",
-    "text": "16.3 ARIMA(p, D, q)",
+    "title": "15  ARMA(p, q)",
+    "section": "15.3 ARIMA(p, D, q)",
+    "text": "15.3 ARIMA(p, D, q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arfima",
     "href": "Chapters/Time_Series/ARMA.html#arfima",
-    "title": "16  ARMA(p, q)",
-    "section": "16.4 ARFIMA",
-    "text": "16.4 ARFIMA",
+    "title": "15  ARMA(p, q)",
+    "section": "15.4 ARFIMA",
+    "text": "15.4 ARFIMA",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {

@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Statistical_Models/Logistic_Regression.html" rel="next">
+<link href="../../Chapters/Statistical_Models/Covariance_Structures.html" rel="next">
 <link href="../../Chapters/Probability/Stochastic_Variables.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -146,38 +175,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -194,43 +217,43 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,13 +308,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#covariates" id="toc-covariates" class="nav-link active" data-scroll-target="#covariates">Covariates</a>
+  <li><a href="#sec-Covariates" id="toc-sec-Covariates" class="nav-link active" data-scroll-target="#sec-Covariates">Covariates</a>
   <ul class="collapse">
-  <li><a href="#discretecategorical-variables" id="toc-discretecategorical-variables" class="nav-link" data-scroll-target="#discretecategorical-variables">Discrete/categorical variables</a></li>
-  <li><a href="#continuous-variables" id="toc-continuous-variables" class="nav-link" data-scroll-target="#continuous-variables">Continuous variables</a></li>
+  <li><a href="#sec-Discrete_variables" id="toc-sec-Discrete_variables" class="nav-link" data-scroll-target="#sec-Discrete_variables">Discrete/categorical variables</a></li>
+  <li><a href="#sec-Continuous_Variables" id="toc-sec-Continuous_Variables" class="nav-link" data-scroll-target="#sec-Continuous_Variables">Continuous variables</a></li>
   </ul></li>
   <li><a href="#sec-Fixed_Effects" id="toc-sec-Fixed_Effects" class="nav-link" data-scroll-target="#sec-Fixed_Effects">Fixed Effects</a></li>
   <li><a href="#sec-Random_Effects" id="toc-sec-Random_Effects" class="nav-link" data-scroll-target="#sec-Random_Effects">Random Effects</a></li>
+  <li><a href="#sec-Repeated_Measures" id="toc-sec-Repeated_Measures" class="nav-link" data-scroll-target="#sec-Repeated_Measures">Repeated measures</a></li>
+  <li><a href="#sec-Count_Data" id="toc-sec-Count_Data" class="nav-link" data-scroll-target="#sec-Count_Data">Count data</a>
+  <ul class="collapse">
+  <li><a href="#incidence-rates" id="toc-incidence-rates" class="nav-link" data-scroll-target="#incidence-rates">Incidence rates</a></li>
+  </ul></li>
+  <li><a href="#sec-Model_Selection_Criteria" id="toc-sec-Model_Selection_Criteria" class="nav-link" data-scroll-target="#sec-Model_Selection_Criteria">Model Selection Criteria</a>
+  <ul class="collapse">
+  <li><a href="#sec-AIC" id="toc-sec-AIC" class="nav-link" data-scroll-target="#sec-AIC">Akaike Information Criterion</a></li>
+  <li><a href="#sec-BIC" id="toc-sec-BIC" class="nav-link" data-scroll-target="#sec-BIC">Bayesian Information Criterion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -317,25 +350,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="hidden">
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
+</div>
 <p>This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.</p>
-<section id="covariates" class="level2">
-<h2 class="anchored" data-anchor-id="covariates">Covariates</h2>
-<section id="discretecategorical-variables" class="level3">
-<h3 class="anchored" data-anchor-id="discretecategorical-variables">Discrete/categorical variables</h3>
+<section id="sec-Covariates" class="level2">
+<h2 class="anchored" data-anchor-id="sec-Covariates">Covariates</h2>
+<p>Covariates are the explanatory variables used to predict or explain the response variable in a statistical model. They represent the factors that may influence the outcome of interest. Covariates can be broadly classified into two main types based on their nature, described in the following subsections.</p>
+<section id="sec-Discrete_variables" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Discrete_variables">Discrete/categorical variables</h3>
+<p>Discrete/categorical covariates take on a limited set of distinct values, representing different categories or groups. Examples include age groups (<span class="math inline">\(\geq 75\)</span>, <span class="math inline">\(75&gt;x\geq 50\)</span>, <span class="math inline">\(50&gt;\)</span>), gender (male, female), or country of origin. In statistical models, categorical variables are typically encoded using indicator/dummy variables, where each level of the variable, except a reference level, gets its own binary variable taking the value 0 or 1.</p>
+<section id="sec-Stratification_variables" class="level4">
+<h4 class="anchored" data-anchor-id="sec-Stratification_variables">Stratification variables</h4>
+<p>Stratification variables are categorical covariates used to divide a population into distinct, non-overlapping subgroups (strata) based on characteristics that may influence the relationship between other covariates and the response variable. Unlike regular categorical covariates that are included as terms in a model, stratification involves fitting separate models or allowing different baseline functions within each stratum.</p>
+<p>In practice, stratification variables define groups within which the analysis is performed separately. For example, stratifying by center in a multi-center clinical trial allows each center to have its own baseline response level while estimating common treatment effects across centers. This approach provides more flexibility than simply including the stratification variable as a fixed effect, particularly when the variable has many levels or when assumptions about its relationship with the response variable are questionable.</p>
 </section>
-<section id="continuous-variables" class="level3">
-<h3 class="anchored" data-anchor-id="continuous-variables">Continuous variables</h3>
+</section>
+<section id="sec-Continuous_Variables" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Continuous_Variables">Continuous variables</h3>
+<p>Continuous covariates can take any value within a range and typically represent quantitative measurements. Examples include age, weight, or temperature. Continuous covariates are often included directly in models, though they may sometimes be transformed to better satisfy model assumptions or describe non-linear relationships with the response variable.</p>
 </section>
 </section>
 <section id="sec-Fixed_Effects" class="level2">
 <h2 class="anchored" data-anchor-id="sec-Fixed_Effects">Fixed Effects</h2>
+<p>Fixed effects describe the average relationship between covariates and the response variable - the systematic effects within a group. In the context of linear models (see <a href="Linear_Regression.html" class="quarto-xref"><span>5&nbsp; Linear Regression</span></a>), fixed effects are the coefficients that quantify how the expected value of the response variable changes with the covariates. These effects are “fixed” in the sense that they are constant across all observations in the population, though they may vary across different levels of categorical covariates.</p>
+<p>As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. In this example, the fixed effects would capture the systemic growth pattern shared by all 20 year old males in the population. This includes the average height at age 10 (fixed intercept) and the average rate of growth over the 10-year period (fixed slope). These parameters describe the general trajectory that applies to the entire group, before considering individual variations.</p>
 </section>
 <section id="sec-Random_Effects" class="level2">
 <h2 class="anchored" data-anchor-id="sec-Random_Effects">Random Effects</h2>
-<p>As opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if a subject generally has larger values (random intercept), or is a subject has a tendency to evolve/progress differently than the whole group (random slope). These random effects are the most commonly used, and can be combined if both are true.</p>
-<p>As an example, consider the height of a group of 20 year old males. For examples sake, the only difference between these males is there height when they were 10 years old. Intuitively, there should be some form of correlation between their height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one thought might be to model them individually, but with this approach information about the systemic growth would be lost. The other solution would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see <a href="Linear_Mixed_Model.html" class="quarto-xref"><span>5&nbsp; Linear Mixed Model</span></a>) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years.</p>
+<p>As opposed to the fixed effects, which describe a group effects, the random effects are able to describe individual devations, such as if an individual generally has larger values (random intercept), or has a tendency to evolve/progress differently than the whole group (random slope).</p>
+<p>Continuing with the height example described in the fixed effects section, there should be some form of correlation between an individual’s height at age 10 and then at age 20. If one were to try and model this under a linear assumption, one approach might be to model them individually, but with this approach information about the systemic growth would be lost. Another approach would be to try and model the systemic growth, but then their individual characteristics would be lost. Instead, one should use a linear mixed model (see <a href="Linear_Mixed_Model.html" class="quarto-xref"><span>6&nbsp; Linear Mixed Model</span></a>) which both derives the systemic growth (fixed effects) and their individual characterstics (random effects). Adding a random intercept would, as the name suggests, allow each male to have their own intercept. Adding a random slope, would allow each male have a larger or lower slope, when looking at how their height has increased in the 10 years - allowing some to grow faster/slower than the systemic growth, and capturing this effect.</p>
+</section>
+<section id="sec-Repeated_Measures" class="level2">
+<h2 class="anchored" data-anchor-id="sec-Repeated_Measures">Repeated measures</h2>
+<p>Repeated measures data arise when the same individuals or units are observed multiple times under different conditions or at different time points. This design is common in longitudinal studies, clinical trials with multiple follow-up visits, and experiments where each subject serves as their own control. An example of this is measuring blood pressure at baseline, week 4, and week 8 in a clinical trial. Intuitively, the observations from the same individual are typically correlated - they tend to be more similar, when compared to observations from other individuals. This correlation violates the independence assumption of other statistical methods such as linear regression (see <a href="Linear_Regression.html" class="quarto-xref"><span>5&nbsp; Linear Regression</span></a>). Ignoring this correlation can lead to incorrect standard errors, confidence intervals, and hypothesis tests. The correlation structure often depends on factors such as the time between measurements, with observations closer in time generally being more strongly correlated.</p>
+<p>Specialised statistical methods are required to properly analyse repeated measures data. Linear mixed models (see <a href="Linear_Mixed_Model.html" class="quarto-xref"><span>6&nbsp; Linear Mixed Model</span></a>) and non-linear mixed models (see <a href="Non-linear_Mixed_Model.html" class="quarto-xref"><span>7&nbsp; Non-linear mixed models</span></a>) are particularly well-suited for this purpose as they can account for both fixed effects and random effects. The choice of covariance structure (see <a href="Covariance_Structures.html" class="quarto-xref"><span>3&nbsp; Covariance Structures</span></a>) is crucial for these models, as different structures make different assumptions about how observations within an individual are correlated.</p>
+</section>
+<section id="sec-Count_Data" class="level2">
+<h2 class="anchored" data-anchor-id="sec-Count_Data">Count data</h2>
+<p>Count data represent the number of occurenses within an observation period or similarly. Unlike continuous measurements, count data consist of non-negative integers (<span class="math inline">\(0, 1, 2, \dots\)</span>) and thus cannot take fractional values. Examples include the number of hospital admissions per month, or the number of fish observed in a given lake.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-Count_Data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Count_Data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Introduction_files/figure-html/fig-Count_Data-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Count_Data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Absenteeism from school. Visualization of the distribution of count data.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Count data often exhibit characteristics that violate the assumptions of linear regression (see <a href="Linear_Regression.html" class="quarto-xref"><span>5&nbsp; Linear Regression</span></a>). The distribution of counts is typically right-skewed (E.g. <a href="#fig-Count_Data" class="quarto-xref">Figure&nbsp;<span>1</span></a>), particularly when the mean count is small, and the variance often increases with the mean. Additionally, the discrete nature of count data means that predictions from linear regression could inappropriately produce negative values. For these reasons, specialized models such as Poisson regression (see <span class="quarto-unresolved-ref">?sec-Poisson_Regression</span>) and negative binomial regression (see <span class="quarto-unresolved-ref">?sec-Negative_Binomial_Regression</span>) are used to model count data. These models ensure that predicted values are non-negative and properly account for the distributional characteristics of count outcomes.</p>
+<section id="incidence-rates" class="level3">
+<h3 class="anchored" data-anchor-id="incidence-rates">Incidence rates</h3>
+<p>While the above-mentioned models directly analyze the number of event occurences, the same statistical framework can be extended to model incidence rates, which express the frequency of events relative to the amount of exposure or time at risk. Incidence rates are particularly useful when individuals or units have different observation periods or when the goal is to compare event frequencies across groups with varying exposure times.</p>
+<p>An incidence rate is calculated as the number of events divided by the total person-time at risk, often expressed per standard time unit (e.g., events per 100 person-years). In the context of the above-mentioned models, incidence rates are incorporated using an offset term - a covariate with a coefficient fixed at 1, typically on the log scale. The offset accounts for varying exposure times, effectively shifting the model from predicting event counts to predicting event rates. For instance, in Poisson regression with an offset for <span class="math inline">\(\operatorname{log}\left(t_i\right)\)</span>, the model estimates the rate of events per unit of exposure, adjusting for the fact that some individuals (<span class="math inline">\(i\)</span>) may have been observed for longer periods than others. This approach allows for valid comparisons of event rates across different exposure periods while maintaining the computational and inferential framework of the above-mentioned models.</p>
+<section id="incidence-rate-ratio-irr" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="incidence-rate-ratio-irr">Incidence Rate Ratio (IRR)</h4>
+<p>The incidence rate ratio (IRR) is a measure of association used in the context of count data models, particularly when modeling incidence rates. The IRR quantifies the relative change in the incidence rate of an event associated with a one-unit change in a covariate, holding other variables constant. It is calculated as the exponentiated coefficient from a regression model that includes the covariate of interest. It shares some similarities with the hazard ratio (see <span class="quarto-unresolved-ref">?sec-Hazard_Ratio</span>) used in survival analysis, as both are derived from exponentiated coefficients and represent relative changes in rates. However, while the hazard ratio pertains to the instantaneous risk of an event occurring at a specific time point, the IRR pertains to the overall rate of events over a specified period. Both measures are multiplicative and can be interpreted in terms of percentage increases or decreases in risk/rate, but they apply to different types of data and models. The interpretation of the IRR is as follows:</p>
+<ul>
+<li><span class="math inline">\(\text{IRR} = 1\)</span> indicates no association (no difference in incidence rates)</li>
+<li><span class="math inline">\(\text{IRR} &gt; 1\)</span> indicates increased incidence rate in the comparison group</li>
+<li><span class="math inline">\(0 &lt; \text{IRR} &lt; 1\)</span> indicates decreased incidence rate in the comparison group</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="sec-Model_Selection_Criteria" class="level2">
+<h2 class="anchored" data-anchor-id="sec-Model_Selection_Criteria">Model Selection Criteria</h2>
+<p>When comparing statistical models for the same data, an objective criterion is needed to determine which model provides the best balance between goodness of fit and model complexity. Simply choosing the model with the lowest residual error or highest likelihood would always favor more complex models with more parameters, leading to overfitting. Model selection criteria address this by penalizing model complexity, thereby encouraging parsimonious models that generalize well to new data.</p>
+<p>The two most widely used information criteria are the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Both criteria are derived from different theoretical frameworks but share the common goal of balancing model fit with simplicity.</p>
+<section id="sec-AIC" class="level3">
+<h3 class="anchored" data-anchor-id="sec-AIC">Akaike Information Criterion</h3>
+<p>The Akaike Information Criterion is based on information theory and estimates the relative quality of statistical models. For a given dataset, AIC estimates the information lost when a particular model is used to approximate the true data-generating process. The model with the lowest AIC is preferred as it represents the best approximation with the least information loss. AIC is defined as: <span class="math display">\[
+\text{AIC} = -2\operatorname{log}\left(\mathcal{L}\right) + 2k
+\]</span> where <span class="math inline">\(\mathcal{L}\)</span> is the maximized likelihood of the model and <span class="math inline">\(k\)</span> is the number of estimated parameters. The first term measures how well the model fits the data (lower values indicate better fit), while the second term penalizes model complexity. For example, comparing two linear regression models where one includes an additional predictor variable, AIC helps determine whether the improved fit from the extra predictor justifies the added complexity.</p>
+</section>
+<section id="sec-BIC" class="level3">
+<h3 class="anchored" data-anchor-id="sec-BIC">Bayesian Information Criterion</h3>
+<p>The Bayesian Information Criterion is derived from Bayesian model selection principles. Unlike AIC, which focuses on predictive accuracy, BIC approximates the posterior probability of a model being the true model given the data. BIC tends to favor simpler models more strongly than AIC, especially as sample size increases. BIC is defined as: <span class="math display">\[
+\text{BIC} = -2\operatorname{log}\left(\mathcal{L}\right) + k\operatorname{log}\left(n\right)
+\]</span> where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(\mathcal{L}\)</span> is the maximized likelihood of the model, and <span class="math inline">\(k\)</span> is the number of estimated parameters. The penalty term <span class="math inline">\(k\operatorname{log}\left(n\right)\)</span> grows with sample size, making BIC increasingly conservative as more data becomes available.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -746,8 +853,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="pagination-link" aria-label="Logistic Regression">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="pagination-link" aria-label="Covariance Structures">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

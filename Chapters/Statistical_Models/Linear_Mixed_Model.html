@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Linear Mixed Model – MathNotes</title>
+<title>6&nbsp; Linear Mixed Model – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" rel="next">
+<link href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" rel="next">
 <link href="../../Chapters/Statistical_Models/Linear_Regression.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -210,38 +210,32 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,43 +252,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -311,7 +305,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -344,20 +338,33 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#differences-from-linear-regression" id="toc-differences-from-linear-regression" class="nav-link active" data-scroll-target="#differences-from-linear-regression">Differences from Linear Regression</a></li>
+  <li><a href="#shortcomings" id="toc-shortcomings" class="nav-link" data-scroll-target="#shortcomings">Shortcomings</a></li>
+  <li><a href="#sec-LMM_Estimation" id="toc-sec-LMM_Estimation" class="nav-link" data-scroll-target="#sec-LMM_Estimation"><span class="header-section-number">6.1</span> Estimation</a>
+  <ul class="collapse">
+  <li><a href="#sec-LMM_Estimation_Fixed_Effects" id="toc-sec-LMM_Estimation_Fixed_Effects" class="nav-link" data-scroll-target="#sec-LMM_Estimation_Fixed_Effects"><span class="header-section-number">6.1.1</span> Estimation of Fixed Effects</a></li>
+  <li><a href="#sec-LMM_Estimation_Covariance_Parameters" id="toc-sec-LMM_Estimation_Covariance_Parameters" class="nav-link" data-scroll-target="#sec-LMM_Estimation_Covariance_Parameters"><span class="header-section-number">6.1.2</span> Estimation of Covariance Parameters</a></li>
+  <li><a href="#sec-LMM_Prediction_Random_Effects" id="toc-sec-LMM_Prediction_Random_Effects" class="nav-link" data-scroll-target="#sec-LMM_Prediction_Random_Effects"><span class="header-section-number">6.1.3</span> Prediction of Random Effects</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Linear_Mixed_Model" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></h1>
+<h1 class="title"><span id="sec-Linear_Mixed_Model" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -369,29 +376,162 @@ window.Quarto = {
 </header>
 
 
-<p>Expanding upon the concepts introduced in <a href="Linear_Regression.html" class="quarto-xref"><span>Chapter 4</span></a> and <a href="Introduction.html#sec-Random_Effects" class="quarto-xref"><span>Section 3</span></a>, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see <a href="#exm-Linear_Mixed_Model_Simple" class="quarto-xref">Example&nbsp;<span>5.1</span></a>). Thus, similar to how the fixed effects are inccorporrated in the linear regression, the random effects can be included as <span class="math inline">\(Z \cdot \beta\)</span>, where <span class="math inline">\(Z\)</span> describes the design matrix for the random effects and <span class="math inline">\(\beta\)</span> the random effect regression coefficients. Hereby, the linear mixed model is defined as: <span class="math display">\[
+<div class="hidden">
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
+</div>
+<p>Expanding upon the concepts introduced in <a href="Linear_Regression.html" class="quarto-xref"><span>Chapter 5</span></a> and <a href="Introduction.html#sec-Random_Effects" class="quarto-xref"><span>Section 3</span></a>, the following will allow the linear regression to take into consideration if there are some individual variability in the data (see <a href="#exm-Linear_Mixed_Model_Simple" class="quarto-xref">Example&nbsp;<span>6.1</span></a>). While linear regression assumes that all observations are independent, this assumption is often violated in practice when multiple observations come from the same subject, family, or group. Linear mixed models address this limitation by incorporating both fixed effects (see <a href="Introduction.html#sec-Fixed_Effects" class="quarto-xref"><span>Section 2</span></a>) and random effects. Thus, similar to how the fixed effects are incorporated in the linear regression, the random effects can be included as <span class="math inline">\(Z \cdot \beta\)</span>, where <span class="math inline">\(Z\)</span> describes the design matrix for the random effects and <span class="math inline">\(\beta\)</span> the random effect regression coefficients. Hereby, the linear mixed model is defined as: <span class="math display">\[
 y = X \cdot \alpha + Z \cdot \beta + \varepsilon.
-\]</span> Similar to how the errors</p>
-<p>To justify the addtion of the random effects, the data somehow has to include some individual devation.</p>
+\]</span></p>
+<p>Unlike linear regression where <span class="math inline">\(\varepsilon\)</span> is the only source of variability, the linear mixed model decomposes the total variability into two components: between-individual variability (captured by <span class="math inline">\(\beta\)</span>) and within-individual variability (captured by <span class="math inline">\(\varepsilon\)</span>). This decomposition is particularly important when observations within the same individual are correlated. The random effects are typically assumed to follow a Gaussian distribution (see <a href="../Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable" class="quarto-xref"><span>Section A.9</span></a>) with mean zero and covariance matrix <span class="math inline">\(D\)</span>, while the errors are assumed to follow a Gaussian distribution with mean zero and covariance matrix <span class="math inline">\(R\)</span>. The choice of covariance structure for both <span class="math inline">\(D\)</span> and <span class="math inline">\(R\)</span> can have substantial impact on the model fit and inference (see <a href="Covariance_Structures.html" class="quarto-xref"><span>Chapter 3</span></a>).</p>
+<section id="differences-from-linear-regression" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="differences-from-linear-regression">Differences from Linear Regression</h2>
+<p>The primary difference between linear mixed models and linear regression lies in the handling of correlation structures. Linear regression assumes that all observations are independent, with constant variance <span class="math inline">\(\sigma^2\)</span> for the errors. This assumption is encoded in the covariance matrix of <span class="math inline">\(y\)</span>, which is <span class="math inline">\(\sigma^2 I\)</span> where <span class="math inline">\(I\)</span> is the identity matrix. In contrast, the linear mixed model allows for a more complex covariance structure <span class="math inline">\(V = ZDZ^\top + R\)</span>, where <span class="math inline">\(ZDZ^\top\)</span> captures the between-individual variability and <span class="math inline">\(R\)</span> captures the within-individual variability. This flexibility enables the model to account for correlation between observations from the same individual while maintaining independence between individuals.</p>
+<p>Another key difference is in the interpretation of the regression coefficients. In linear regression, the fixed effects <span class="math inline">\(\alpha\)</span> represent the change in the expected response for a one-unit increase in the covariate, averaging over all observations. In linear mixed models, the fixed effects <span class="math inline">\(\alpha\)</span> have the same interpretation at the population level, but the model additionally estimates random effects <span class="math inline">\(\beta\)</span> that quantify how much each individual deviates from this population average. This allows for individual-specific predictions that account for each subject’s unique characteristics.</p>
+<p>The estimation procedure also differs between the two approaches. Linear regression typically uses ordinary least squares, which minimizes the sum of squared residuals. Linear mixed models require more complex estimation methods such as maximum likelihood (ML) or restricted maximum likelihood (REML), which account for both the fixed- and random effects simultaneously. REML is often preferred over ML because it provides less biased estimates of covariance components (see <a href="#sec-LMM_Estimation_Covariance_Parameters" class="quarto-xref"><span>Section 6.1.2</span></a>), particularly when the number of fixed effects is large relative to the sample size.</p>
+<p>Linear mixed models should be considered when the data includes repeated measurements, clustered observations, or hierarchical relationships. Examples include clinical studies where individuals are measured at multiple time points, multi-center clinical trials where individuals are nested within sites, or educational studies where students are nested within schools. In these cases, observations within the same group are likely to be more similar to each other than to observations from different groups, violating the independence assumption of linear regression. The inclusion of random effects is justified when there is evidence of individual-level variability that is not fully explained by the fixed effects. If all individuals respond identically to the covariates, then linear regression may be sufficient. However, if individuals exhibit heterogeneity in their baseline values, response rates, or other characteristics, then random effects are necessary to capture this variability. Failing to account for this correlation can lead to underestimated standard errors, anti-conservative confidence intervals, and inflated Type I error rates.</p>
+</section>
+<section id="shortcomings" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="shortcomings">Shortcomings</h2>
+<p>Despite their flexibility, linear mixed models have limitations. Firstly, like linear regression, a linear relationship between the covariates and the response is assumed, which may not hold for all data. When this assumption is violated, non-linear mixed models (see <a href="Non-linear_Mixed_Model.html" class="quarto-xref"><span>Chapter 7</span></a>) should be considered. Secondly, linear mixed models require the specification of both fixed- and random effects structures as well as covariance structures (see <a href="Covariance_Structures.html" class="quarto-xref"><span>Chapter 3</span></a>), which introduces additional complexity and risk of misspecification - an incorrectly specified random effects structure can lead to biased estimates.</p>
+<p>Moreover, estimation of linear mixed models is computationally more demanding than linear regression, particularly for large datasets with complex random effects structures. The maximum likelihood estimation requires iterative optimization algorithms that may fail to converge or converge to local maxima rather than global maxima. Additionally, linear mixed models assume that random effects and errors are Gaussian distributed. While the model is relatively robust to moderate departures from this assumption, severe violations can affect the validity of inference, particularly for small sample sizes.</p>
+<p>Furthermore, the interpretation of fixed effects in linear mixed models can be more nuanced than in linear regression, as they represent population-averaged effects conditional on the random effects. This distinction becomes important when making predictions or interpreting the magnitude of covariate effects.</p>
 <div id="exm-Linear_Mixed_Model_Simple" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 6.1</strong></span> &nbsp;</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">SAS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mmrm)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom.mixed)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Data</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Model</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mmrm<span class="sc">::</span>bcva_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename_with</span>(toupper) <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mmrm)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom.mixed)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> mmrm<span class="sc">::</span>bcva_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename_with</span>(toupper)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Model</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># * Random intercept for each subject (1 | USUBJID)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>lmm_fit <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(BCVA_CHG <span class="sc">~</span> VISITN <span class="sc">+</span> BCVA_BL <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> USUBJID), <span class="at">data =</span> data)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>broom.mixed<span class="sc">::</span><span class="fu">tidy</span>(lmm_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> VISITN, <span class="at">y =</span> BCVA_CHG)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Visit Number"</span>, <span class="at">y =</span> <span class="st">"Change in BCVA"</span>) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">predicted =</span> <span class="fu">predict</span>(lmm_fit)),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> VISITN, <span class="at">y =</span> predicted),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<pre class="sas cell-code"><code>PROC MIXED data = data method = REML;
+    class USUBJID;
+    model BCVA_CHG = VISITN BCVA_BL / solution;
+    random intercept / subject = USUBJID;
+run;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-LMM_Estimation" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-LMM_Estimation"><span class="header-section-number">6.1</span> Estimation</h2>
+<p>The estimation process for linear mixed models differ from linear regression, as the inclusion of random effects introduces additional parameters that need to be estimated. The estimation typically involves three main steps: estimation of fixed effects, estimation of covariance parameters, and prediction of random effects. Each step requires specific methods and considerations to ensure accurate and reliable results.</p>
+<p>To ease the estimation process, it will be assumed that the random effects and errors follow a Gaussian distribution (see <a href="../Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable" class="quarto-xref"><span>Section A.9</span></a>), that is <span class="math display">\[
+\beta \thicksim\operatorname{N}\left(0, D\right) \quad \text{and} \quad \varepsilon \thicksim\operatorname{N}\left(0, R\right).
+\]</span> Under this assumption, the marginal distribution of the response variable <span class="math inline">\(y\)</span> is also Gaussian with mean <span class="math inline">\(X \cdot \alpha\)</span> and covariance matrix <span class="math inline">\(V = ZDZ^\top + R\)</span>. This would mean that the likelihood function can be expressed as <span id="eq-LMM_Likelihood"><span class="math display">\[
+\begin{aligned}
+    \mathcal{L}(\alpha, D, R \mid y) = \frac{1}{(2\pi)^{n/2} \sqrt{\operatorname{det}\left(V\right)}} \cdot \operatorname{exp}\left(-\frac{1}{2} (y - X\alpha)^\top V^{-1} (y - X\alpha)\right)
+\end{aligned}
+\tag{6.1}\]</span></span> with the log-likelihood function given by <span id="eq-LMM_Log-Likelihood"><span class="math display">\[
+\ell(\alpha, D, R \mid y) = -\frac{n}{2} \operatorname{log}\left(2\pi\right) - \frac{1}{2} \left(\operatorname{log}\left(\operatorname{det}\left(V\right)\right) + (y - X\alpha)^\top V^{-1} (y - X\alpha)\right)
+\tag{6.2}\]</span></span></p>
+<section id="sec-LMM_Estimation_Fixed_Effects" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="sec-LMM_Estimation_Fixed_Effects"><span class="header-section-number">6.1.1</span> Estimation of Fixed Effects</h3>
+<p><span class="math display">\[
+\hat{\alpha} = \left(X^\top V^{-1} X\right)^{-1} \left(X^\top V^{-1} y\right)
+\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{align*}
+    \frac{\partial}{\partial \alpha} \ell(\alpha, D, R \mid y) &amp;= \\
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-LMM_Estimation_Covariance_Parameters" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="sec-LMM_Estimation_Covariance_Parameters"><span class="header-section-number">6.1.2</span> Estimation of Covariance Parameters</h3>
+<section id="sec-LMM_Estimation_Covariance_Parameters_MLE" class="level4" data-number="6.1.2.1">
+<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="sec-LMM_Estimation_Covariance_Parameters_MLE"><span class="header-section-number">6.1.2.1</span> Maximum Likelihood Estimation</h4>
+<p>To estimate the covariance parameters, the maximum likelihood estimation (MLE) approach can be used. This involves maximizing the profile log-likelihood function <span class="math display">\[
+\ell_{\text{profile}}\left(D, R \mid y\right) \approx -\frac{1}{2} \operatorname{log}\left(\operatorname{det}\left(V\right)\right) - \frac{1}{2} (y - X\hat{\alpha})^\top V^{-1} (y - X\hat{\alpha})
+\]</span> where <span class="math inline">\(\hat{\alpha}\)</span> is the estimate of the fixed effects obtained from the previous step. However, it is important to note that MLE can lead to biased estimates of the covariance parameters, particularly when the number of fixed effects <span class="math inline">\(p\)</span> is large relative to the sample size <span class="math inline">\(n\)</span>. This bias arises because MLE does not account for the loss of degrees of freedom due to the estimation of fixed effects.</p>
+<p><span class="math display">\[
+\begin{align*}
+    \mathbb{E}\left[\sigma_{\text{ML}}^2\right] &amp;= \frac{1}{n} \mathbb{E}\left[(y - X\hat{\alpha})^\top (y - X\hat{\alpha})\right] \\
+    &amp;= \sigma^2 \cdot \left(1 - \frac{n - p}{n}\right) \\
+\end{align*}
+\]</span></p>
+</section>
+<section id="sec-LMM_Estimation_Covariance_Parameters_REML" class="level4" data-number="6.1.2.2">
+<h4 data-number="6.1.2.2" class="anchored" data-anchor-id="sec-LMM_Estimation_Covariance_Parameters_REML"><span class="header-section-number">6.1.2.2</span> Restricted Maximum Likelihood Estimation</h4>
+<p>As opposed to MLE, the restricted maximum likelihood estimation (REML) approach accounts for the loss of degrees of freedom due to the estimation of fixed effects. REML achieves this by maximizing a modified likelihood function that is based on the residuals from the fixed effects model. Maximizing the REML likelihood function leads to unbiased estimates of the covariance parameters, as it effectively adjusts for the number of fixed effects <span class="math inline">\(p\)</span> being estimated. The REML estimate for <span class="math inline">\(\sigma^2\)</span> can be expressed as <span class="math display">\[
+\begin{align*}
+   \mathbb{E}\left[\sigma_{\text{REML}}^2\right] &amp;= \frac{1}{n - p} \mathbb{E}\left[(y - X\hat{\alpha})^\top (y - X\hat{\alpha})\right] \\
+   &amp;= \sigma^2
+\end{align*}
+\]</span></p>
+</section>
+</section>
+<section id="sec-LMM_Prediction_Random_Effects" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="sec-LMM_Prediction_Random_Effects"><span class="header-section-number">6.1.3</span> Prediction of Random Effects</h3>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -794,15 +934,15 @@ y = X \cdot \alpha + Z \cdot \beta + \varepsilon.
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="pagination-link" aria-label="Linear Regression">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="pagination-link" aria-label="Mixed Models for Repeated Measures">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="pagination-link" aria-label="Non-linear mixed models">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Logistic Regression – MathNotes</title>
+<title>4&nbsp; Logistic Regression – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../Chapters/Statistical_Models/Linear_Regression.html" rel="next">
-<link href="../../Chapters/Statistical_Models/Introduction.html" rel="prev">
+<link href="../../Chapters/Statistical_Models/Covariance_Structures.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Logistic_Regression.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Logistic_Regression.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,38 +175,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Logistic_Regression.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Mixed_Model_for_Repeated_Measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Mixed Models for Repeated Measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Mixed Model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Statistical_Models/Non-linear_Mixed_Model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Non-linear mixed models</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span></a>
   </div>
 </li>
       </ul>
@@ -194,43 +217,43 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Survival_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Survival function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Hazard_Function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hazard function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Censoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Censoring</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,10 +308,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#separation" id="toc-separation" class="nav-link active" data-scroll-target="#separation"><span class="header-section-number">3.1</span> Separation</a>
+  <li><a href="#shortcomings" id="toc-shortcomings" class="nav-link active" data-scroll-target="#shortcomings">Shortcomings</a></li>
+  <li><a href="#sec-Separation" id="toc-sec-Separation" class="nav-link" data-scroll-target="#sec-Separation"><span class="header-section-number">4.1</span> Separation</a>
   <ul class="collapse">
-  <li><a href="#complete-separation" id="toc-complete-separation" class="nav-link" data-scroll-target="#complete-separation"><span class="header-section-number">3.1.1</span> Complete Separation</a></li>
-  <li><a href="#quasi-complete-separation" id="toc-quasi-complete-separation" class="nav-link" data-scroll-target="#quasi-complete-separation"><span class="header-section-number">3.1.2</span> Quasi-Complete Separation</a></li>
+  <li><a href="#sec-Complete_Separation" id="toc-sec-Complete_Separation" class="nav-link" data-scroll-target="#sec-Complete_Separation"><span class="header-section-number">4.1.1</span> Complete Separation</a></li>
+  <li><a href="#sec-Quasi-Complete_Separation" id="toc-sec-Quasi-Complete_Separation" class="nav-link" data-scroll-target="#sec-Quasi-Complete_Separation"><span class="header-section-number">4.1.2</span> Quasi-Complete Separation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -296,9 +320,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Logistic_Regression.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Introduction.html">Statistical Models</a></li><li class="breadcrumb-item"><a href="../../Chapters/Statistical_Models/Logistic_Regression.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Logistic_Regression" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
+<h1 class="title"><span id="sec-Logistic_Regression" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
 </div>
 
 
@@ -315,14 +339,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="separation" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="separation"><span class="header-section-number">3.1</span> Separation</h2>
-<p>When all outcomes with a level of a covariate is always 0 or always 1, this is called separation.</p>
-<section id="complete-separation" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="complete-separation"><span class="header-section-number">3.1.1</span> Complete Separation</h3>
+<div class="hidden">
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
+</div>
+<p>Logistic regression is used to model binary outcomes or cases where the response variable takes only two possible values. Consider the example where you are interested in modeling whether a patient responds to treatment or not. Intuitively, the response is discrete and bounded between 0 (no) and 1 (yes). As this is the case, linear regression (see <a href="Linear_Regression.html" class="quarto-xref"><span>Chapter 5</span></a>) is not applicable, as it can produce values outside the <span class="math inline">\([0, 1]\)</span> interval and does not respect the binary nature of the outcome.</p>
+<p>Based on the Bernoulli distribution (see <a href="../Probability/APP-Stochastic_Variables.html#sec-Bernoulli_Stochastic_Variable" class="quarto-xref"><span>Section A.1</span></a>), which describes binary outcomes, logistic regression models the conditional probability of the response variable <span class="math inline">\(Y\)</span> being 1 given covariates <span class="math inline">\(x\)</span> as <span class="math display">\[
+\begin{aligned}
+    \mathbb{P}\left(Y = 1 \mid x\right) &amp;= p \\
+    &amp;= \frac{\operatorname{exp}\left(X \cdot \alpha\right)}{1 + \operatorname{exp}\left(X \cdot \alpha\right)} = \frac{1}{1 + \operatorname{exp}\left(-X \cdot \alpha\right)} \\
+    &amp;= \operatorname{log}\left(\frac{p}{1 - p}\right) = X \cdot \alpha
+\end{aligned}
+\]</span> where <span class="math inline">\(X\)</span> is the fixed effects design matrix, <span class="math inline">\(\alpha\)</span> is the fixed effects, and <span class="math inline">\(\frac{p}{1 - p}\)</span> is called the odds. The logistic link function (logit) ensures that the predicted probabilities remain between 0 and 1. The log-odds <span class="math inline">\(\operatorname{log}\left(\frac{p}{1 - p}\right)\)</span> is linear in the covariates, which allows for straightforward interpretation: a one-unit increase in <span class="math inline">\(x_j\)</span> changes the log-odds by <span class="math inline">\(\alpha_j\)</span>, or equivalently, multiplies the odds by <span class="math inline">\(\operatorname{exp}\left(\alpha_j\right)\)</span>.</p>
+<section id="shortcomings" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="shortcomings">Shortcomings</h2>
+<p>Logistic regression, like other statistical models, has limitations. Firstly, the assumption of a linear relationship between the covariates and the log-odds may not hold for all data. When this assumption is violated, the model may provide poor predictions and misleading inference. Secondly, logistic regression does not handle missing data very well, and preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, logistic regression is prone to overfitting, reducing the generalization of the fit. Furthermore, logistic regression assumes independence of observations - when observations are clustered or repeated measurements are taken on the same individuals, mixed-effects logistic regression should be considered instead. Additionally, the presence of separation (see <a href="#sec-Separation" class="quarto-xref"><span>Section 4.1</span></a>) can lead to infinite coefficient estimates and numerical instability, requiring special handling.</p>
 </section>
-<section id="quasi-complete-separation" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="quasi-complete-separation"><span class="header-section-number">3.1.2</span> Quasi-Complete Separation</h3>
+<section id="sec-Separation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-Separation"><span class="header-section-number">4.1</span> Separation</h2>
+<p>When all outcomes within a level of a categorical variable is always 0 or always 1, this is called separation. Separation occurs when a covariate or combination of covariates perfectly predicts the binary outcome. In such cases, the maximum likelihood estimation procedure fails to converge, as the estimated coefficients approach infinity. This is because the algorithm attempts to find a coefficient that makes the predicted probability exactly 0 or 1 for those observations, which requires an infinite coefficient value.</p>
+<section id="sec-Complete_Separation" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="sec-Complete_Separation"><span class="header-section-number">4.1.1</span> Complete Separation</h3>
+<p>Complete separation occurs when there exists a linear combination of the covariates that perfectly separates the outcomes. More formally, complete separation exists if there is a vector <span class="math inline">\(\beta\)</span> such that <span class="math inline">\(X \cdot \beta &gt; 0\)</span> for all observations where <span class="math inline">\(Y = 1\)</span> and <span class="math inline">\(X \cdot \beta &lt; 0\)</span> for all observations where <span class="math inline">\(Y = 0\)</span>. In this case, the likelihood function is monotone and the maximum likelihood estimates do not exist. Complete separation often happens with small sample sizes, rare outcomes, or when a level of a categorical variable share the same outcome. When complete separation is present, standard logistic regression cannot be used, and alternatives should be considered.</p>
+</section>
+<section id="sec-Quasi-Complete_Separation" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-Quasi-Complete_Separation"><span class="header-section-number">4.1.2</span> Quasi-Complete Separation</h3>
+<p>Quasi-complete separation occurs when the outcomes can be nearly, but not perfectly, separated by the covariates. Unlike complete separation, some observations exist where the perfect separation rule is violated, but these violations are rare. Formally, quasi-complete separation exists when there exists a <span class="math inline">\(\beta\)</span> such that <span class="math inline">\(X \cdot \beta \geq 0\)</span> for all observations where <span class="math inline">\(Y = 1\)</span> and <span class="math inline">\(X \cdot \beta \leq 0\)</span> for all observations where <span class="math inline">\(Y = 0\)</span>, with at least one inequality being strict. While the maximum likelihood estimates technically exist in this case, they are extremely large and the standard errors are inflated, making the estimates and inference unreliable. Similar to complete separation, the likelihood function is nearly flat in certain directions, causing numerical instability in the estimation algorithm. Quasi-complete separation is more common than complete separation and can be difficult to detect, as the algorithm may appear to converge but with suspiciously large coefficient estimates and standard errors.</p>
 
 
 </section>
@@ -731,13 +778,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Statistical_Models/Introduction.html" class="pagination-link" aria-label="Statistical Models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Models</span>
+      <a href="../../Chapters/Statistical_Models/Covariance_Structures.html" class="pagination-link" aria-label="Covariance Structures">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance Structures</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../Chapters/Statistical_Models/Linear_Regression.html" class="pagination-link" aria-label="Linear Regression">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
