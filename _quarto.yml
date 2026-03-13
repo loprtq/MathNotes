@@ -41,10 +41,11 @@ book:
       chapters:
         - Chapters/Time_Series/ARMA.qmd
 
+    - references.qmd
+
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
 
-reference-section-title: "References"
 bibliography:
   - Bibliography/articles.bib
   - Bibliography/books.bib
