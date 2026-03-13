@@ -31,8 +31,14 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages(c("rmarkdown", "knitr", "reticulate"))
+          install.packages(c("quarto", "rmarkdown", "knitr", "reticulate"))
         shell: Rscript {0}
+
+      - name: Extract R dependencies from .qmd files
+        run: Rscript package_dependencies.R
+
+      - name: Install detected R dependencies
+        run: Rscript -e 'pak::pkg_install(scan("quarto-packages.txt", character()))'
 
       - name: Install R Dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
