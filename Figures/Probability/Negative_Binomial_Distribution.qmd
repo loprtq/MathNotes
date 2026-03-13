@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Negative binomial distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 20)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dnbinom, args = list(size = 5, prob = 0.5), geom = "col",
+    aes(fill = "r=5, p=0.5"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::stat_function(
+    fun = dnbinom, args = list(size = 10, prob = 0.5), geom = "col",
+    aes(fill = "r=10, p=0.5"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::stat_function(
+    fun = dnbinom, args = list(size = 5, prob = 0.3), geom = "col",
+    aes(fill = "r=5, p=0.3"), alpha = 0.7, n = 21
+  ) +
+  ggplot2::labs(fill = "Parameters") +
+  ggplot2::ylab("Probability") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

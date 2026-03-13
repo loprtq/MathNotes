@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Hypergeometric distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 1)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dhyper, args = list(m = 5, n = 10, k = 3),
+    aes(color = "m=5, n=10, k=3"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dhyper, args = list(m = 3, n = 7, k = 2),
+    aes(color = "m=3, n=7, k=2"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dhyper, args = list(m = 2, n = 5, k = 1),
+    aes(color = "m=2, n=5, k=1"),  linewidth = 1
+  ) +
+  ggplot2::labs(color = "Parameters") +
+  ggplot2::ylab("Density") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

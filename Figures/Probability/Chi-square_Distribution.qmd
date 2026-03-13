@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Chi-square distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 20)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dchisq, args = list(df = 2),
+    aes(color = "df=2"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dchisq, args = list(df = 5),
+    aes(color = "df=5"),  linewidth = 1
+  ) +
+  ggplot2::stat_function(
+    fun = dchisq, args = list(df = 10),
+    aes(color = "df=10"),  linewidth = 1
+  ) +
+  ggplot2::labs(color = "Parameters") +
+  ggplot2::ylab("Density") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

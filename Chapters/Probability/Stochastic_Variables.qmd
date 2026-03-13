@@ -1,48 +1,45 @@
-::: {.hidden}
-$$
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
-\newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
-\newcommand{\Cov}[1]{\operatorname{Cov}\left[#1\right]}
-\newcommand{\Cor}[1]{\operatorname{Cor}\left[#1\right]}
-$$
-:::
+{{< include /preamble/commands.qmd >}}
 
 # Stochastic Variables {#sec-Stochastic_Variables}
-Stochastistic variables are functions $X: \Omega \to \mathcal{E}$, where $\mathcal{E}$ is typically a countable space for discrete stochastic variables and $\mathbb{R}$ for continuous stochastic variables.
+Stochastistic variables are measureable functions $X: \Omega \to \mathcal{E}$, where $\Omega$ is the sample space and $\mathcal{E}$ is typically a countable space for discrete stochastic variables and $\mathbb{R}$ for continuous stochastic variables. The distribution of a stochastic variable describes the probabilities of the different outcomes of the stochastic variable. For example, if we roll a six-sided die, the stochastic variable $X$ could represent the number that comes up, and its distribution would assign a probability of $1/6$ to each of the outcomes $1, 2, 3, 4, 5,$ and $6$.
 
-## Probability mass function (PMF) {#sec-PMF}
-The probability mass function describes the probability of a discrete stochastic variable $X$ being equal to $x$. Think back to the example of a six sided die, where the probability of each side is $1/6$, then the PMF would be constant.
+
+## Probability mass function {#sec-PMF}
+The probability mass function (PMF) describes the probability of a discrete stochastic variable $X$ being equal to $x \in \Omega$. The PMF is only defined for discrete stochastic variables. Think back to the example of a six-sided die, where the probability of each side is $1/6$, then the PMF would be constant, as each outcome $x$ is equally likely - the stochastic variable $X$ is uniformly distributed. The PMF is defined as
 $$
 p_X(x) = \Pr{X = x}
 $$
-where $\sum_{x} p_X\left(x\right) = 1$.
+where $\sum_{x \in \Omega} p_X\left(x\right) = 1$ - the sum of all probabilities is 1.
 
-## Cumulative distribution function (CDF) {#sec-CDF}
-The cumulative distribution function describes the probability of a stochastic variable being less than or equal to $x$ - the probability that some $x$ is larger than the stochastic variable $X$:
+
+## Cumulative distribution function {#sec-CDF}
+The cumulative distribution function (CDF) describes the probability of a stochastic variable being less than or equal to $x$ - the probability that some $x$ is larger than the stochastic variable $X$. Due to the this, the CDF is monotone increasing and right-continuous, as probabilities are non-negative. The CDF is defined as
 $$
 F_X(x) = \Pr{X \leq x}.
 $$
-The phrasing of the CDF might sound familiar if you have previously worked with p-values (see @sec-p_values).
+The phrasing of the CDF might sound familiar if you have previously worked with p-values (see @sec-p-values). Similarly, if you have heard of quantiles or median, these are all related to the CDF. Quantiles are the values of $x$ where $F_X(x) = q$, where $q$ is the quantile. For example, the 0.25 (25%) quantile is the value of $x$ where $F_X(x) = 0.25$. The median is a special case of the quantiles, where $q = 0.5$. The median of a stochastic variable is the value of $x$ where there is a 50% chance that the stochastic variable is less than or equal to $x$ - it is the value that splits the distribution in half.
 
-The median of a stochastic variable is the $x_m$ where $F_X\left(x_m\right) = 0.5$.
 
-monotone decreasing and right-continuous.
-
-## Probability density function (PDF) {#sec-PDF}
-The probability density function is an extension to the PMF for continuous stochastic variables.
+## Probability density function {#sec-PDF}
+The probability density function (PDF) is the continuous analogue of the PMF. The PDF describes the probability density of a continuous stochastic variable $X$ at a value $x \in \Omega$. The PDF is only defined for continuous stochastic variables. For example, if we have a continuous stochastic variable $X$ that is uniformly distributed between 0 and 1, then the PDF would be constant at $f_X(x) = 1$ for $0 \leq x \leq 1$, and $f_X(x) = 0$ otherwise. This also showcases the fact that the PDF is not a probability itself, but rather a probability density. The PDF is defined as
 $$
 f_X(x) = \frac{\partial}{\partial x} F_X(x)
 $$
-where $\int_0^\infty f_x(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1.
+where $F_X$ is the CDF and $\int_0^\infty f_x(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1, meaning that the total probability is 1.
+
+$$
+F_X(x) = \int_{-\infty}^x f_X(t)\,\mathrm{d}t
+$$
+
 
 ## Expected Value {#sec-Expected_Value}
 The expected value of a stochastic variable, is often referred to as the mean of the stochastic variable. This is easier to see for discrete stochastic variables in the following.
 $$
 \begin{aligned}
     \E{X} &= \begin{cases}
-        \sum_{k = 1}^\infty x_k \cdot p_X\left(x_k\right) & X\textrm{ is a discrete stochastic variable}\\
-        \int_{-\infty}^\infty x \cdot f_X\left(x\right) & X\textrm{ is a continous stochastic variable}\end{cases}
+        \sum_{k = 1}^\infty x_k \cdot p_X\left(x_k\right) & X\text{ is a discrete stochastic variable} \\
+        \int_{-\infty}^\infty x \cdot f_X\left(x\right)\,\mathrm{d}x & X\text{ is a continuous stochastic variable}
+    \end{cases}
 \end{aligned}
 $$ {#eq-Expected_Value}
 
@@ -51,9 +48,13 @@ For a series of stochastic variables $X_1, X_2,\dots, X_n$, the sum of the expec
 If the two stochastic variables $X$ and $Y$ are independent, then $\E{X \cdot Y} = \E{X} \cdot \E{Y}$.
 
 ### Conditional Expected Value {#sec-Cond_Expected_Value}
+The conditional expected value of a stochastic variable $Y$ given another stochastic variable $X$ is the expected value of $Y$ given that $X$ takes on a specific value. The conditional expected value is defined as
 $$
 \begin{aligned}
-    \E{X} &= \begin{cases}1\\2\end{cases}
+    \E{X \mid Y = y} &= \begin{cases}
+        \sum_{x} x \cdot \Pr{X = x \mid Y = y} & X\text{ is a discrete stochastic variable} \\
+        \int_{-\infty}^\infty x \cdot f_{X\mid Y}\left(x \mid Y = y\right) \, \mathrm{d}x & X\text{ is a continuous stochastic variable}
+    \end{cases}
 \end{aligned}
 $$
 
@@ -61,28 +62,31 @@ $$
 \E{X} = \E{\E{Y\mid X}}
 $$
 
+
 ## Variance {#sec-Variance}
+The variance of a stochastic variable measures how spread out the values are around the expected value. It quantifies the variability/dispersion of a stochastic variable - a high variance indicates that the values tend to be far from the mean, while a low variance indicates that the values are clustered close to the mean. Variance is always non-negative and is measured in the square of the units of the stochastic variable. The variance of a stochastic variable $X$ is defined as
 $$
 \begin{aligned}
     \Var{X} &= \E{\left(X - \E{X}\right)^2}\\
     &= \E{X^2} - \left(\E{X}\right)^2
 \end{aligned}
 $$
-where $\Var{X} \geq 0$.
 
 $\Var{a \cdot X + b} = a^2 \cdot \Var{X}$, because $\Var{b} = 0$.
 
-The standard deviation of the stochastic variable is $\sqrt{\Var{X}}$. The standard deviation can be thought of as what the 
+The standard deviation (SD) of the stochastic variable is $\sqrt{\Var{X}}$. The standard deviation can be thought of as what the "average" deviation from the mean would be if the units were the same as the stochastic variable, instead of being in the square of the units. For example, if we have a stochastic variable that measures height in centimeters, then the variance would be in square centimeters, while the standard deviation would be in centimeters.
 
-### Covariance {#sec-Covariance}
+
+## Covariance {#sec-Covariance}
+The covariance between two stochastic variables $X$ and $Y$ measures how much the two stochastic variables vary together. A positive covariance indicates that the two stochastic variables tend to increase or decrease together, while a negative covariance indicates that one stochastic variable tends to increase when the other decreases (and the opposite). A covariance of zero indicates that there is no linear relationship between the two stochastic variables. The covariance between two stochastic variables $X$ and $Y$ is defined as
 $$
 \begin{aligned}
-    \Cov{X, Y} &= \E{X \cdot Y} - \E{X}\E{Y}\\
+    \Cov{X, Y} &= \E{X \cdot Y} - \E{X} \cdot \E{Y}\\
     &= \E{\left(X - \E{X}\right)\left(Y - \E{Y}\right)}
 \end{aligned}
 $$ {#eq-Covariance}
 
-If the two stochastic variables $X$ and $Y$ are independent, then their covariance is 0. However, the converse is not true - even though the covariance between two stochastic variables is 0, then they are not independent.
+If the two stochastic variables $X$ and $Y$ are independent their covariance is 0. However, the converse is not true - if the covariance between two stochastic variables is 0, then they are not necessarily independent.
 
 The covariance between a stochastic variable and itself is equivalent to the stochastic variable's variance - $\Cov{X,X} = \Var{X}$.
 
@@ -90,8 +94,10 @@ $\Cov{a \cdot X + b, c \cdot Y + d} = a \cdot c \cdot \Cov{X, Y}$.
 
 $\Var{X + Y} = \Var{X} + \Var{Y} + 2 \cdot \Cov{X, Y}$.
 
-### Correlation {#sec-Correlation}
+
+## Correlation {#sec-Correlation}
+The correlation between two stochastic variables $X$ and $Y$ is a standardized measure of the linear relationship between the two stochastic variables. It is defined as the covariance between the two stochastic variables divided by the product of their standard deviations. The correlation is always between -1 and 1, where a correlation of 1 indicates a perfect positive linear relationship, a correlation of -1 indicates a perfect negative linear relationship, and a correlation of 0 indicates no linear relationship. The correlation between two stochastic variables $X$ and $Y$ is defined as
 $$
 \Cor{X, Y} = \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}}
-$$ {eq-Correlation}
-Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. However, even if two stochastic variables are uncorrelated (their correlation is 0), they are not neccesarily independent.
+$$ {#eq-Correlation}
+Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. Similarly, even if two stochastic variables are uncorrelated (their correlation is 0), they are not necessarily independent.

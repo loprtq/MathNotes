@@ -1,0 +1,28 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Geometric distribution.
+# Packages
+library(ggplot2)
+
+# Plot
+ggplot2::ggplot(data.frame(x = c(0, 15)), aes(x)) +
+  ggplot2::stat_function(
+    fun = dgeom, args = list(prob = 0.2), geom = "col",
+    aes(fill = "p=0.2"), alpha = 0.7, n = 16
+  ) +
+  ggplot2::stat_function(
+    fun = dgeom, args = list(prob = 0.5), geom = "col",
+    aes(fill = "p=0.5"), alpha = 0.7, n = 16
+  ) +
+  ggplot2::stat_function(
+    fun = dgeom, args = list(prob = 0.8), geom = "col",
+    aes(fill = "p=0.8"), alpha = 0.7, n = 16
+  ) +
+  ggplot2::labs(fill = "Parameters") +
+  ggplot2::ylab("Probability") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

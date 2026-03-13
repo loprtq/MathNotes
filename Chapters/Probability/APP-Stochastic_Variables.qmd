@@ -1,30 +1,15 @@
-::: {.hidden}
-$$
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
-\newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
-\renewcommand{\exp}[1]{\operatorname{exp}\left(#1\right)}
-
-\newcommand{\Ber}[1]{\operatorname{B}\left(#1\right)}
-\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
-\newcommand{\Ud}[1]{\operatorname{U}\left(#1\right)}
-\newcommand{\Gamd}[1]{\operatorname{Gamma}\left(#1\right)}
-\newcommand{\Geom}[1]{\operatorname{Geom}\left(#1\right)}
-\newcommand{\Betad}[1]{\operatorname{Beta}\left(#1\right)}
-\newcommand{\Ed}[1]{\operatorname{Exp}\left(#1\right)}
-\newcommand{\Pd}[1]{\operatorname{Po}\left(#1\right)}
-\newcommand{\Bin}[1]{\operatorname{Bin}\left(#1\right)}
-\newcommand{\NegBin}[1]{\operatorname{NegBin}\left(#1\right)}
-$$
-:::
+{{< include /preamble/commands.qmd >}}
 
 # Common Stochastic Variables
-## Bernoulli
+## Bernoulli {#sec-Bernoulli_Stochastic_Variable}
 A bernoulli stochastic variable $X\sim\Ber{n, p}$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\Pr{X = 1} = p$ and the opposite, $\Pr{X = 0} = 1 - p$.
 
 ### Distribution {.unnumbered}
 $$
-\begin{cases}p &\textrm{if } x = 1\\ 1 - p &\textrm{if } x = 0\end{cases}
+\begin{cases}
+    p &\textrm{if } x = 1 \\
+    1 - p &\textrm{if } x = 0
+\end{cases}
 $$
 
 ### Expected Value {.unnumbered}
@@ -34,18 +19,17 @@ $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = p \cdot (1-p)
+\Var{X} = p \cdot (1 - p)
 $$
 
 
-
-## Bionomial
-A bionomial stochastic variable is a bernoulli stochastic variable repeated $n$ times.
+## Binomial {#sec-Binomial_Stochastic_Variable}
+A binomial stochastic variable is a Bernoulli stochastic variable repeated $n$ times.
 
 ### Distribution {.unnumbered}
 The PMF (see @sec-PMF) is given as
 $$
-\binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}
+\binom{n}{k}\cdot p^k \cdot \left(1 - p\right)^{n - k}
 $$
 where $k$ is the number of $1$'s out of the possible $n$ experiments.
 
@@ -56,21 +40,82 @@ $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = n \cdot p \cdot (1-p)
+\Var{X} = n \cdot p \cdot (1 - p)
 $$
 
 
-## Negative Binomial
+## Geometric {#sec-Geometric_Stochastic_Variable}
+The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability $p$. It is the discrete analogue of the exponential distribution and shares the memoryless property.
+
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Geometric_Distribution.qmd >}}
+
 ### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{1}{p}
+$$
+
 ### Variance {.unnumbered}
+$$
+\Var{X} = \frac{1 - p}{p^2}
+$$
 
 
-## Poisson
-$X \sim \Pd{\lambda}$
-$\lambda > 0$
+## Negative Binomial {#sec-Negative_Binomial_Stochastic_Variable}
+Consider an experiment of independent Bernoulli (see @sec-Bernoulli_Stochastic_Variable) trials, each with probability $p$. If we are interested in when we have $r$ successes consider the Negative Binomial distribution
+$$
+X \sim \NegBin{r, p}
+$$
 
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Negative_Binomial_Distribution.qmd >}}
+
+PMF
+$$
+p_X(k) = \binom{k - 1}{r - 1}p^r\left(1 - p\right)^{k - r}\quad
+k = r, r+1, \dots
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{r}{p}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = r \frac{\left(1 - p\right)}{p^2}
+$$
+
+
+## Hypergeometric {#sec-Hypergeometric_Stochastic_Variable}
+The hypergeometric distribution models the number of successes in a sample drawn without replacement from a finite population containing a fixed number of successes. It is used in scenarios such as quality control or card games where the order of selection matters and the population is not infinite.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Hypergeometric_Distribution.qmd >}}
+
+$$
+\frac{\binom{m}{y} \binom{N - m}{n - y}}{\binom{N}{n}}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = n \cdot \frac{m}{N}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = n \cdot \frac{m}{N} \cdot \left(1 - \frac{m}{N}\right) \cdot \frac{N - n}{N - 1}
+$$
+
+
+## Poisson {#sec-Poisson_Stochastic_Variable}
+The Poisson distribution models the number of events occurring in a fixed interval of time or space, given that events occur independently at a constant average rate $\lambda > 0$. It is often used for count data such as the number of arrivals per hour or defects per unit.
+
+$X \sim \Pd{\lambda}$, $\lambda > 0$, observations are independent, and $\log{\lambda}$ is a linear function of $x$.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Poisson_Distribution.qmd >}}
+
 The PMF (see @sec-PMF) is given as
 $$
 p_X(x) = \frac{\lambda^x}{x!}\exp{-\lambda}
@@ -87,34 +132,64 @@ $$
 $$
 
 
-## Poisson
-$X \sim \Pd{\lambda}$
-$\lambda > 0$
+## Exponential {#sec-Exponential_Stochastic_Variable}
+The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate $\lambda > 0$. It has the memoryless property: the probability of waiting an additional time $t$ does not depend on how long one has already waited.
 
 ### Distribution {.unnumbered}
-The PMF (see @sec-PMF) is given as
+{{< include /Figures/Probability/Exponential_Distribution.qmd >}}
+
 $$
-p_X(x) = \frac{\lambda^x}{x!}\exp{-\lambda}
+f_X(x) = \begin{cases}
+    \lambda \cdot \exp{-\lambda \cdot x} & x > 0 \\
+    0 & x \leq 0
+\end{cases}
 $$
 
 ### Expected Value {.unnumbered}
 $$
-\E{X} = \lambda
+\E{X} = \frac{1}{\lambda}
 $$
 
 ### Variance {.unnumbered}
 $$
-\Var{X} = \lambda
+\Var{X} = \frac{1}{\lambda^2}
+$$
+
+
+## Gamma {#sec-Gamma_Stochastic_Variable}
+The gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the $\alpha$-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. $X \sim \Gamd{\alpha, \beta}$, where $\alpha > 0$ is the shape parameter and $\beta > 0$ is the rate parameter.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Gamma_Distribution.qmd >}}
+
+$X \sim \Gamd{\alpha, \beta}$
+$$
+f_X(x) = \begin{cases}
+    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\exp{-\beta \cdot x} & x > 0\\
+    0 & x \leq 0
+\end{cases}
+$$
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{\alpha}{\beta}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{\alpha}{\beta^2}
 $$
 
 
 ## Gaussian {#sec-Gaussian_Stochastic_Variable}
-$X \sim \Nd{\mu, \sigma^2}$. The standard Gaussian distribution is given as $X \sim \Nd{0, 1}$.
+The Gaussian distribution is the most widely used continuous distribution, characterized by its symmetric bell-shaped curve. It arises naturally in many settings due to the central limit theorem, which states that sums of independent random variables tend toward a Gaussian distribution. $X \sim \Nd{\mu, \sigma^2}$, with the standard Gaussian given as $X \sim \Nd{0, 1}$.
 
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Gaussian_Distribution.qmd >}}
+
 The PDF (see @sec-PDF) is given as
 $$
-f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma}\exp{- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2}
+f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma} \cdot \exp{- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2}
 $$
 
 ### Expected Value {.unnumbered}
@@ -128,8 +203,25 @@ $$
 $$
 
 
-## Uniform
-$X \sim \Ud{a, b}$
+## Beta {#sec-Beta_Stochastic_Variable}
+The beta distribution is a continuous distribution defined on the interval $[0, 1]$, making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters $\alpha$ and $\beta$ that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.
+
+### Distribution {.unnumbered}
+{{< include /Figures/Probability/Beta_Distribution.qmd >}}
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \frac{\alpha}{\alpha + \beta}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
+$$
+
+
+## Uniform {#sec-Uniform_Stochastic_Variable}
+The uniform distribution assigns equal probability to all values within a bounded interval $[a, b]$. It is the simplest continuous distribution and is commonly used as a non-informative prior or for generating random samples via inverse transform sampling. $X \sim \Ud{a, b}$.
 
 ### Distribution {.unnumbered}
 $$
@@ -157,72 +249,16 @@ $$
 \Var{X} = \frac{1}{12}\left(b - a\right)^2
 $$
 
-## Exponential
+
+## Chi-square {#sec-Chi-square_Stochastic_Variable}
+The chi-square distribution is a special case of the gamma distribution and arises as the distribution of the sum of squares of $k$ independent standard Gaussian random variables. It is widely used in hypothesis testing (e.g., goodness-of-fit tests) and in the construction of confidence intervals for variance. $X \sim \Gamd{\frac{k}{2}, \frac{1}{2}}$, $k \in \N$.
+
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Chi-square_Distribution.qmd >}}
+
 $$
 f_X(x) = \begin{cases}
-    \lambda \cdot \exp{-\lambda \cdot x} & x > 0\\
-    0 & x \leq 0
-\end{cases}
-$$
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{1}{\lambda}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{1}{\lambda^2}
-$$
-
-
-## Geometric
-### Distribution {.unnumbered}
-### Expected Value {.unnumbered}
-### Variance {.unnumbered}
-
-## Gamma
-### Distribution {.unnumbered}
-$X \sim \Gamd{\alpha, \beta}$
-$$
-f_X(x) = \begin{cases}
-    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\exp{-\beta \cdot x} & x > 0\\
-    0 & x \leq 0
-\end{cases}
-$$
-
-### Expected Value {.unnumbered}
-$$
-\E{X} = \frac{\alpha}{\beta}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X} = \frac{\alpha}{\beta^2}
-$$
-
-## Beta
-### Distribution {.unnumbered}
-### Expected Value {.unnumbered}
-$$
-\E{X}
-$$
-
-### Variance {.unnumbered}
-$$
-\Var{X}
-$$
-
-
-## Chi-square
-$X \sim \Gamd{\frac{k}{2}, \frac{1}{2}}$
-$k\in\mathbb{N}$
-
-### Distribution {.unnumbered}
-$$
-f_X(x) = \begin{cases}
-    \frac{x^{\frac{k}{2} - 1}\exp{- \frac{x}{2}}}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} & x > 0\\
+    \frac{x^{\frac{k}{2} - 1}\exp{-\frac{x}{2}}}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} & x > 0 \\
     0 & x \leq 0
 \end{cases}
 $$
@@ -235,4 +271,36 @@ $$
 ### Variance {.unnumbered}
 $$
 \Var{X} = 2 \cdot k
+$$
+
+
+## F {#sec-F_Stochastic_Variable}
+### Distribution {.unnumbered}
+### Expected Value {.unnumbered}
+### Variance {.unnumbered}
+
+
+## T {#sec-T_Stochastic_Variable}
+### Distribution {.unnumbered}
+$$
+\frac{\Gamma\left(\frac{d + 1}{2}\right)}{\sqrt{\pi d} \cdot \Gamma\left(\frac{d}{2}\right)} \cdot \left(1 + \frac{x^2}{d}\right)^{-\frac{d + 1}{2}}
+$$
+$d > 0$ is the degrees of freedom.
+
+### Expected Value {.unnumbered}
+$$
+\E{X} = \begin{cases}
+    0 & d > 1\\
+    \textrm{undefined} & d \leq 1
+\end{cases}
+$$
+
+### Variance {.unnumbered}
+$$
+\Var{X} = \begin{cases}
+    \frac{d}{d - 2} & d > 2 \\
+    \infty & 1 < d \leq 2 \\
+    \textrm{undefined} & d \leq 1
+\end{cases}
+$$
 $$
