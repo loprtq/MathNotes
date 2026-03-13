@@ -10,30 +10,14 @@ book:
   sidebar:
     title: "MathNotes"
     search: true
+  repo-url: https://github.com/loprtq/MathNotes
   
   chapters:
     - index.qmd
 
-    - part: Chapters/Calculus/Introduction.qmd
-      chapters:
-        - Chapters/Calculus/Differential.qmd
-        - Chapters/Calculus/Differential_Equations.qmd
-        - Chapters/Calculus/Integration.qmd
-        
-    - part: Chapters/Linear_Algebra/Introduction.qmd
-      chapters:
-        - Chapters/Linear_Algebra/Matrix.qmd
-
     - part: Chapters/Probability/Introduction.qmd
       chapters:
         - Chapters/Probability/Stochastic_Variables.qmd
-
-    - part: "Data Science"
-      chapters:
-        - Chapters/Data_Science/Statistical_Power.qmd
-        - Chapters/Data_Science/Missing_Data.qmd
-        - Chapters/Data_Science/Causality.qmd
-        - Chapters/Data_Science/Bootstrap.qmd
 
     - part: Chapters/Statistical_Models/Introduction.qmd
       chapters:
@@ -57,15 +41,12 @@ book:
     - part: Chapters/Time_Series/Introduction.qmd
       chapters:
         - Chapters/Time_Series/ARMA.qmd
-        
-    - part: Chapters/Spatial_Statistics/Introduction.qmd
-      chapters:
-        - Chapters/Spatial_Statistics/Summary_Statistics.qmd
+
+    - references.qmd
 
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
 
-reference-section-title: "References"
 bibliography:
   - Bibliography/articles.bib
   - Bibliography/books.bib

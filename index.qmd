@@ -1,1 +1,45 @@
 # Introduction {#sec-Introduction}
+This repository contains a collection of notes on various mathematical topics. The notes are organized into mathematical areas with chapters covering a specific topics within the area.
+
+
+## How To Contribute {#sec-How_To_Contribute}
+If you have any suggestions or have found any errors, and do not have the time to fix it yourself, please create an issue on the [GitHub repository](https://github.com/loprtq/MathNotes). We will be happy to review your suggestions and make the necessary changes to improve the content. However, if you have the time and would like to contribute by fixing any errors or adding new content, please feel free to submit a pull request.
+
+For more information about quarto, please refer to the [Quarto documentation](https://quarto.org/docs/authoring/). This provides comprehensive guidelines on how to create and manage content using Quarto, which is the framework used for this repository. By following the guidelines in the Quarto documentation, you can ensure that your contributions are consistent with the limitation in quarto.
+
+
+## Book Structure {#sec-Book_Structure}
+A certain folder structure is used to organize the notes. Each folder corresponds to a specific mathematical area, and within each folder, there are chapters that cover specific topics within that area. A small example of the repository is given below.
+``` bash
+├ Bibliography/
+├── articles.bib
+├── books.bib
+├ Chapters/
+├── Survival_Analysis/
+│   ├── Introduction.qmd
+│   ├── Hazard_Function.qmd
+│   ├── Cox.qmd
+├ Code/
+├── Survival_Analysis/
+├ Examples/
+├── Survival_Analysis/
+├ Figures/
+├── Survival_Analysis/
+├ Tables/
+├── Survival_Analysis/
+├ _quarto.yml
+├ README.md
+├ references.bib
+```
+
+
+## Examples, Figures, Tables, and Code Snippets {#sec-Examples_Figures_Tables_and_Code_Snippets}
+If a chapter requires examples, figures, tables, or code snippets, they should be included in their respective folders. For instance, if a chapter in the "Survival_Analysis" folder requires examples, they should be placed in a the folder `Examples/Survival_Analysis`. This way, all related materials are organized together, making it easier to maintain and update, without touching other files.
+
+
+## References {#sec-References}
+When contributing to the notes, please ensure that you include proper citations for any information that is sourced from external materials. This includes books, articles, websites, and any other sources of information. Proper citations not only give credit to the original authors but also allow readers to verify the information and explore further on the topic. When adding references, please use the `references.bib` file to maintain a consistent format for all citations. This will help ensure that the notes are well-organized and that readers can easily find the sources of information.
+
+
+## Formatting {#sec-Formatting}
+When contributing to the notes, please ensure that the formatting is consistent with the existing content. This includes using the same style for headings, and text formatting. Consistent formatting helps maintain a professional and cohesive appearance throughout the notes, making it easier for readers to navigate and understand the content. If you are unsure about the formatting style used in the existing notes, please refer to the existing chapters as a guide or reach out to the maintainers for clarification.
