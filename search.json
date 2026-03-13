@@ -278,7 +278,7 @@
     "href": "Chapters/Statistical_Models/Covariance_Structures.html#armap-q",
     "title": "8  Covariance Structures",
     "section": "8.4 ARMA(p, q)",
-    "text": "8.4 ARMA(p, q)\nChapter 15\n\n8.4.1 AR(p)\n\n\n8.4.2 MA(q)",
+    "text": "8.4 ARMA(p, q)\nChapter 16\n\n8.4.1 AR(p)\n\n\n8.4.2 MA(q)",
     "crumbs": [
       "Statistical Models",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Covariance Structures</span>"
@@ -289,7 +289,7 @@
     "href": "Chapters/Survival_Analysis/Introduction.html",
     "title": "Survival Analysis",
     "section": "",
-    "text": "The expression “survival analysis” can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term “time to event analysis”, where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.\n\n\n\nSurvival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.\n\n\n\n\n\n\n\n\n\nInstitution code\nSurvival time in days\nCensoring status\nAge in years\nSex\n\n\n\n\n3\n306\n2\n74\nMale\n\n\n3\n455\n2\n68\nMale\n\n\n3\n1010\n1\n56\nMale\n\n\n5\n210\n2\n57\nMale\n\n\n1\n883\n2\n60\nMale\n\n\n12\n1022\n1\n74\nMale\n\n\n7\n310\n2\n68\nFemale\n\n\n11\n361\n2\n71\nFemale\n\n\n1\n218\n2\n53\nMale\n\n\n7\n166\n2\n61\nMale",
+    "text": "The expression “survival analysis” can be rather misleading, as even though these analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term “time to event analysis”, where the interest might not be death, but something else.\nSay that you want an idea of the likelihood of getting a disease. You are also interested in whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis, as you would be able to get a general idea of the likelihood of attaining the disease over time, for each group. Naturally, as with many other statistical analysis, the sample size has to be sufficient to be able to show the true likelihood.\n\n\n\nSurvival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.\n\n\n\n\n\n\n\n\n\nInstitution code\nSurvival time in days\nCensoring status\nAge in years\nSex\n\n\n\n\n3\n306\n2\n74\nMale\n\n\n3\n455\n2\n68\nMale\n\n\n3\n1010\n1\n56\nMale\n\n\n5\n210\n2\n57\nMale\n\n\n1\n883\n2\n60\nMale\n\n\n12\n1022\n1\n74\nMale\n\n\n7\n310\n2\n68\nFemale\n\n\n11\n361\n2\n71\nFemale\n\n\n1\n218\n2\n53\nMale\n\n\n7\n166\n2\n61\nMale",
     "crumbs": [
       "Survival Analysis"
     ]
@@ -299,7 +299,7 @@
     "href": "Chapters/Survival_Analysis/Survival_Function.html",
     "title": "9  Survival function",
     "section": "",
-    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\]\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can use the concept of stochastic variables. More precisely, the CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\Pr{T \\leq t}\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\Pr{T \\leq t} \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\textrm{d}u\n\\end{aligned}\n\\tag{9.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\Pr{T &gt; t} = \\int_t^\\infty f_T(x)\\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\n## Packages\nlibrary(survival)\n\n## Data\n\n\n## Plot",
+    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\newcommand{\\ln}[1]{\\operatorname{ln}\\left(#1\\right)}\n\\newcommand{\\Nd}[1]{\\operatorname{N}\\left(#1\\right)}\n\\]\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can utilize the concept of stochastic variables (see Chapter 2). The CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\Pr{T \\leq t}\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function (CIF) and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\Pr{T \\leq t} \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\mathrm{d}u\n\\end{aligned}\n\\tag{9.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\Pr{T &gt; t} = \\int_t^\\infty f_T(x) \\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\nExample 9.1 (Survival Function)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(dplyr)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Plot\n\n\n\n\n\n\n\n\n\n\nSurvival curve for lung cancer patients at different institutes.",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Survival function</span>"
@@ -310,18 +310,18 @@
     "href": "Chapters/Survival_Analysis/Hazard_Function.html",
     "title": "10  Hazard function",
     "section": "",
-    "text": "10.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\Pr{t \\leq T &lt; t + \\Delta t \\mid T \\geq t}}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(p\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\ln{S(t)}\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 9), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
+    "text": "10.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). The instantaneuos risk at a time \\(t\\) is bounded between 0 and 1, where the sum over all \\(t\\) is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between \\(t\\) and \\(t+\\Delta t\\) divided by the population size at risk at time \\(t\\), divided by \\(\\Delta t\\). In the continuous case, the hazard function is given as \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\Pr{t \\leq T &lt; t + \\Delta t \\mid T \\geq t}}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(t\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\ln{S(t)}\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 9), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Hazard function</span>"
     ]
   },
   {
-    "objectID": "Chapters/Survival_Analysis/Hazard_Function.html#HazardRatio",
-    "href": "Chapters/Survival_Analysis/Hazard_Function.html#HazardRatio",
+    "objectID": "Chapters/Survival_Analysis/Hazard_Function.html#Hazard_Ratio",
+    "href": "Chapters/Survival_Analysis/Hazard_Function.html#Hazard_Ratio",
     "title": "10  Hazard function",
-    "section": "10.2 Hazard ratio (HR)",
-    "text": "10.2 Hazard ratio (HR)\nThe hazard ratio is often utilized when there is a desire to compare the hazard in one group to the hazard in another.\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference\n\n\nRemark 10.1. The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.\n\n\n## Packages\nlibrary(survival)\nlibrary(ggplot2)\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 1) ~ 1, data, ties = \"breslow\")\n\n\n## Forest plot",
+    "section": "10.2 Hazard ratio",
+    "text": "10.2 Hazard ratio\nThe hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to the hazard in another.\nNon-collapsable. Not a causal estimand\n\n\\(\\textrm{HR} &lt; 1\\): increased survival probability, compared to reference\n\\(\\textrm{HR} = 1\\): No difference in survival probability, compared to reference\n\\(\\textrm{HR} &gt; 1\\): decreased survival probability, compared to reference\n\n\nRemark 10.1. The confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale.",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Hazard function</span>"
@@ -332,76 +332,131 @@
     "href": "Chapters/Survival_Analysis/Censoring.html",
     "title": "11  Censoring",
     "section": "",
-    "text": "Censoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event - Left-Censored \\(T &gt; t\\): has not yet occurred at time \\(t\\)\n\nRight censoring \\(T &lt; t\\): has occurred before time \\(t\\)\n\nThe most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.\n\nInterval-censoring \\(t_1 &lt; T &lt; t_2\\):\nType I censoring:\nType II censoring:\nType III censoring:\n\n\n11.0.1 Non-informative censoring",
+    "text": "11.1 Left censoring\nCensoring is the act of some information not being observed, possibly due to other events than the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.\nAn event time \\(T\\) is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event does not occur in the period\n\\(T &gt; t\\): has not yet occurred at time \\(t\\)",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
     ]
   },
   {
-    "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html",
-    "href": "Chapters/Survival_Analysis/Kaplan-Meier.html",
-    "title": "12  Kaplan-meier",
-    "section": "",
-    "text": "## Packages\nlibrary(survival)\n\n## Data\ndata\n\n## Model\n# * status == 1: event, status == 0: censored\nKM_fit &lt;- survival::survfit(survival::Surv(time, status == 1) ~ 1, data)",
+    "objectID": "Chapters/Survival_Analysis/Censoring.html#sec-Right_Censoring",
+    "href": "Chapters/Survival_Analysis/Censoring.html#sec-Right_Censoring",
+    "title": "11  Censoring",
+    "section": "11.2 Right censoring",
+    "text": "11.2 Right censoring\n\\(T &lt; t\\): has occurred before time \\(t\\)\nThe most common form of censoring to occur in clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Kaplan-meier</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Censoring.html#sec-Interval_Censoring",
+    "href": "Chapters/Survival_Analysis/Censoring.html#sec-Interval_Censoring",
+    "title": "11  Censoring",
+    "section": "11.3 Interval-censoring",
+    "text": "11.3 Interval-censoring\n\\(t_1 &lt; T &lt; t_2\\):\n\nType I censoring:\nType II censoring:\nType III censoring:\n\n\n11.3.1 Non-informative censoring",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Censoring</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Truncation.html",
+    "href": "Chapters/Survival_Analysis/Truncation.html",
+    "title": "12  Truncation",
+    "section": "",
+    "text": "12.1 Left truncation\nContrary to censoring, the term truncation the instead refers to the fact that the event(s) of interest cannot possible occur.\nAnalytically, truncation is handled the same as if information was censored. It is therefore not neccesarry to distinguish between the two, when evaluation data. However, it is rather important when discussing the data more broadly - censoring and truncation is not the same, even though it is analytically handled in the same manner.\nAn example of left truncated data could be that a hospital was not open at the start of the analysis. In this example, we could be interested in the first case of some disease at different hospitals, to analyze the risk at these. Intuitively, the first case of some disease could then not have happened at a hospital that was not open.",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Truncation</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Truncation.html#sec-Right_Truncation",
+    "href": "Chapters/Survival_Analysis/Truncation.html#sec-Right_Truncation",
+    "title": "12  Truncation",
+    "section": "12.2 Right truncation",
+    "text": "12.2 Right truncation\nSimilar to the example given for left truncation. Instead of considering the the hospital had not yet open during the analysis, consider if the hospital permanently closed during the analysis. In this case, it would not be possible for the hospital to have the event of interest.",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Truncation</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html",
+    "href": "Chapters/Survival_Analysis/Kaplan-Meier.html",
+    "title": "13  Kaplan-Meier Estimator",
+    "section": "",
+    "text": "Properties\nThe Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see Chapter 9) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see Chapter 11) without making assumptions about the underlying survival distribution.\nAn advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see Section 11.2) - individuals who have not experienced the event by the time of censoring.\nThe Kaplan-Meier estimate of the survival function at time \\(t\\) is given by: \\[\n\\begin{aligned}\n    \\hat{S}(t) &= \\prod_{t_i \\leq t} \\left(1 - \\frac{d_{t_i}}{n_{t_i}}\\right)\n\\end{aligned}\n\\tag{13.1}\\] where \\(t_i\\) represents the event times, \\(d_{t_i} &gt; 0\\) is the number of events that occurred at time \\(t_i\\), and \\(n_{t_i} \\geq 0\\) is the number of individuals at risk just prior to time \\(t_i\\).\nThe estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time \\(t_i\\), the probability of surviving that time point is estimated as \\(1 - d_{t_i}/n_{t_i}\\), which represents one minus the empirical hazard rate at that time.\nThe Kaplan-Meier estimator has several important properties, most of which are also properties of the survival curve. Firstly, \\(\\hat{S}(0) = 1\\) - all individuals are alive at the start. Secondly, \\(\\hat{S}(t)\\) is a right-continuous step function that decreases only at observed event times. This also has the implication the it is monotonically decreasing - \\(\\hat{S}(t_2) \\leq \\hat{S}(t_1)\\) for all \\(t_2 &gt; t_1\\).\nUnder appropriate conditions, \\(\\hat{S}(t)\\) converges to the true survival function \\(S(t)\\) as the sample size increases.",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Survival_Analysis/Kaplan-Meier.html#assumptions",
+    "href": "Chapters/Survival_Analysis/Kaplan-Meier.html#assumptions",
+    "title": "13  Kaplan-Meier Estimator",
+    "section": "Assumptions",
+    "text": "Assumptions\nThe validity of the Kaplan-Meier estimator relies on several key assumptions:\n\n13.0.1 Independent Censoring\nThe most critical assumption is that censoring is independent of survival time. Formally, the censoring time \\(C\\) and the event time \\(T\\) must be independent. This means that censored individuals should have the same survival prospects as those who remain under observation. Violations of this assumption can lead to biased estimates. For example, if patients with worse prognoses are more likely to drop out of a study, the Kaplan-Meier curve will overestimate survival.\n\n\n13.0.2 Non-informative Censoring\nRelated to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time \\(t\\) should not depend on the event time \\(T\\), given the observed covariates.\n\n\n13.0.3 No Loss to Follow-up\nIdeally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.\n\nExample 13.1 (Kaplan-Meier estimator)  \n\nR\n\n\n\n# Packages\nlibrary(dplyr)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 1: event, status == 0: censored\nKM_fit &lt;- survival::survfit(survival::Surv(time, status == 1) ~ 1, data_f)\n\n## Coefficients\nsummary(KM_fit)\n\n# Plot\nsurvminer::ggsurvplot(KM_fit, conf.int = TRUE, data = data_f)",
+    "crumbs": [
+      "Survival Analysis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Kaplan-Meier Estimator</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html",
     "href": "Chapters/Survival_Analysis/Cox.html",
-    "title": "13  Cox Regression",
+    "title": "14  Cox Regression",
     "section": "",
-    "text": "13.1 Separation\n\\[\nh(t) = h_0(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right)\n\\tag{13.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1,x_2,\\dots,x_p\\) are the covariates and \\(\\beta_1,\\beta_2,\\dots,\\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 3), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
+    "text": "14.1 Separation\nThe Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see Chapter 10), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.\nThe Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.\nThe Cox proportional hazards model is defined as: \\[\nh(t) = h_0(t) \\cdot \\exp{\\sum_{i=1}^p \\beta_i x_i}\n\\tag{14.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1, x_2, \\dots, x_p\\) are the covariates and \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 3), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#separation",
     "href": "Chapters/Survival_Analysis/Cox.html#separation",
-    "title": "13  Cox Regression",
+    "title": "14  Cox Regression",
     "section": "",
-    "text": "Estimation Instability: The maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.\nConvergence Issues: The iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.\nInvalid Inference: Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.",
+    "text": "Estimation Instability\nThe maximum likelihood estimation becomes unstable because there is no information about the hazard for the separated covariate level. The model may produce extremely large coefficient estimates with correspondingly large standard errors, making the results unreliable.\n\n\nConvergence Issues\nThe iterative estimation algorithm (typically Newton-Raphson) may fail to converge or take an excessive number of iterations.\n\n\nInvalid Inference\nConfidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#stratification",
     "href": "Chapters/Survival_Analysis/Cox.html#stratification",
-    "title": "13  Cox Regression",
-    "section": "13.2 Stratification",
-    "text": "13.2 Stratification\nWhen stratifying a Cox model (See Equation 13.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum. Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g=1}(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right) & \\textrm{if } g=1\\\\\n    h_{0, g=2}(t) \\cdot \\exp\\left(\\sum_{i=1}^p \\beta_i x_i\\right) & \\textrm{if } g=2\n\\end{cases}\n\\tag{13.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1,\\beta_2,\\dots,\\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 13.1 (Proportional Cox model)  \n\nRPython\n\n\n\n## Packages\nlibrary(dplyr)\n\n## Data\n# Get data\ndata(cancer, package = \"survival\")\n\n# Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n## Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n# Coefficients\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n## Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data)\n\n\n\n\n## Packages\nimport pandas as pd\nimport lifelines\n\n## Data\n\n## Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n# Coefficients\ncph.print_summary()\n\n\n## Plot\ncph.plot()",
+    "title": "14  Cox Regression",
+    "section": "14.2 Stratification",
+    "text": "14.2 Stratification\nWhen stratifying a Cox model (see Equation 14.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum (each level of the stratification variable). Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g = 1}(t) \\cdot \\exp{\\sum_{i = 1}^p \\beta_i x_i} & \\textrm{if } g = 1\\\\\n    h_{0, g = 2}(t) \\cdot \\exp{\\sum_{i = 1}^p \\beta_i x_i} & \\textrm{if } g = 2\n\\end{cases}\n\\tag{14.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 14.1 (Proportional Cox model)  \n\nRPython\n\n\n\n# Packages\nlibrary(tidyverse)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n## Coefficients\nbroom::tidy(cox_fit)\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n# Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)\n\n\n\n\n# Packages\nimport pandas as pd\nimport lifelines\n\n# Data\n\n# Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n## Coefficients\ncph.print_summary()\n\n\n# Plot\ncph.plot()",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
     "href": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
-    "title": "13  Cox Regression",
-    "section": "13.3 Mixed Effects Cox Model",
-    "text": "13.3 Mixed Effects Cox Model\n\\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\exp\\left(X\\beta + Zb\\right)\\\\\n    b &\\sim \\operatorname{N}\\left(0, \\Sigma\\left(\\theta\\right)\\right)\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\n## Packages\nlibrary(survival)\nlibrary(coxme)",
+    "title": "14  Cox Regression",
+    "section": "14.3 Mixed Effects Cox Model",
+    "text": "14.3 Mixed Effects Cox Model\nThe Cox model can be Section 3 \\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\exp{X\\beta + Zb}\\\\\n    b &\\sim \\Nd{0, \\Sigma\\left(\\theta\\right)}\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution (see Section A.6) with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\nExample 14.2 (Mixed Effects Cox model)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(tidyverse)\nlibrary(coxme)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncoxme_fit &lt;- coxme::coxme(survival::Surv(time, status == 2) ~ age + sex + (1 | inst), data_f)\n\n## Coefficients\nsummary(coxme_fit)\n\n# Plot",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Cox Regression</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
     ]
   },
   {
     "objectID": "Chapters/Survival_Analysis/Competing_Risk.html",
     "href": "Chapters/Survival_Analysis/Competing_Risk.html",
-    "title": "14  Competing Risk Analysis",
+    "title": "15  Competing Risk Analysis",
     "section": "",
-    "text": "Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 9.1) for a specific event, \\(F_j(t) = \\operatorname{P}(T\\leq t, C = j) = \\int_t^t h_j(u) \\cdot S(u)\\,\\textrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
+    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\newcommand{\\ln}[1]{\\operatorname{ln}\\left(#1\\right)}\n\\newcommand{\\Nd}[1]{\\operatorname{N}\\left(#1\\right)}\n\\]\n\nTake for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 9.1) for a specific event, \\(F_j(t) = \\Pr{T\\leq t, C = j} = \\int_t^t h_j(u) \\cdot S(u)\\,\\mathrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
     "crumbs": [
       "Survival Analysis",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
     ]
   },
   {
@@ -447,45 +502,45 @@
   {
     "objectID": "Chapters/Time_Series/ARMA.html",
     "href": "Chapters/Time_Series/ARMA.html",
-    "title": "15  ARMA(p, q)",
+    "title": "16  ARMA(p, q)",
     "section": "",
-    "text": "15.1 AR(p)",
+    "text": "16.1 AR(p)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#sec-MA",
     "href": "Chapters/Time_Series/ARMA.html#sec-MA",
-    "title": "15  ARMA(p, q)",
-    "section": "15.2 MA(q)",
-    "text": "15.2 MA(q)",
+    "title": "16  ARMA(p, q)",
+    "section": "16.2 MA(q)",
+    "text": "16.2 MA(q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arimap-d-q",
     "href": "Chapters/Time_Series/ARMA.html#arimap-d-q",
-    "title": "15  ARMA(p, q)",
-    "section": "15.3 ARIMA(p, D, q)",
-    "text": "15.3 ARIMA(p, D, q)",
+    "title": "16  ARMA(p, q)",
+    "section": "16.3 ARIMA(p, D, q)",
+    "text": "16.3 ARIMA(p, D, q)",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {
     "objectID": "Chapters/Time_Series/ARMA.html#arfima",
     "href": "Chapters/Time_Series/ARMA.html#arfima",
-    "title": "15  ARMA(p, q)",
-    "section": "15.4 ARFIMA",
-    "text": "15.4 ARFIMA",
+    "title": "16  ARMA(p, q)",
+    "section": "16.4 ARFIMA",
+    "text": "16.4 ARFIMA",
     "crumbs": [
       "Time Series Analysis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ARMA(p, q)</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>ARMA(p, q)</span>"
     ]
   },
   {

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Kaplan-meier – MathNotes</title>
+<title>13&nbsp; Kaplan-Meier Estimator – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../Chapters/Survival_Analysis/Cox.html" rel="next">
-<link href="../../Chapters/Survival_Analysis/Censoring.html" rel="prev">
+<link href="../../Chapters/Survival_Analysis/Truncation.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -119,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -246,20 +275,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Chapters/Survival_Analysis/Truncation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Cox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Survival_Analysis/Competing_Risk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Competing Risk Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -276,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Chapters/Time_Series/ARMA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span></a>
   </div>
 </li>
       </ul>
@@ -309,20 +344,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#properties" id="toc-properties" class="nav-link active" data-scroll-target="#properties">Properties</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#independent-censoring" id="toc-independent-censoring" class="nav-link" data-scroll-target="#independent-censoring"><span class="header-section-number">13.0.1</span> Independent Censoring</a></li>
+  <li><a href="#non-informative-censoring" id="toc-non-informative-censoring" class="nav-link" data-scroll-target="#non-informative-censoring"><span class="header-section-number">13.0.2</span> Non-informative Censoring</a></li>
+  <li><a href="#no-loss-to-follow-up" id="toc-no-loss-to-follow-up" class="nav-link" data-scroll-target="#no-loss-to-follow-up"><span class="header-section-number">13.0.3</span> No Loss to Follow-up</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Introduction.html">Survival Analysis</a></li><li class="breadcrumb-item"><a href="../../Chapters/Survival_Analysis/Kaplan-Meier.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="KaplanMeier" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Kaplan-meier</span></span></h1>
+<h1 class="title"><span id="sec-Kaplan-Meier" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Kaplan-Meier Estimator</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -334,19 +381,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="hidden">
+<p><span class="math display">\[
+\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
+\]</span></p>
+</div>
+<p>The Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see <a href="Survival_Function.html" class="quarto-xref"><span>Chapter 9</span></a>) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see <a href="Censoring.html" class="quarto-xref"><span>Chapter 11</span></a>) without making assumptions about the underlying survival distribution.</p>
+<p>An advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see <a href="Censoring.html#sec-Right_Censoring" class="quarto-xref"><span>Section 11.2</span></a>) - individuals who have not experienced the event by the time of censoring.</p>
+<p>The Kaplan-Meier estimate of the survival function at time <span class="math inline">\(t\)</span> is given by: <span id="eq-Kaplan-Meier"><span class="math display">\[
+\begin{aligned}
+    \hat{S}(t) &amp;= \prod_{t_i \leq t} \left(1 - \frac{d_{t_i}}{n_{t_i}}\right)
+\end{aligned}
+\tag{13.1}\]</span></span> where <span class="math inline">\(t_i\)</span> represents the event times, <span class="math inline">\(d_{t_i} &gt; 0\)</span> is the number of events that occurred at time <span class="math inline">\(t_i\)</span>, and <span class="math inline">\(n_{t_i} \geq 0\)</span> is the number of individuals at risk just prior to time <span class="math inline">\(t_i\)</span>.</p>
+<p>The estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time <span class="math inline">\(t_i\)</span>, the probability of surviving that time point is estimated as <span class="math inline">\(1 - d_{t_i}/n_{t_i}\)</span>, which represents one minus the empirical hazard rate at that time.</p>
+<section id="properties" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="properties">Properties</h2>
+<p>The Kaplan-Meier estimator has several important properties, most of which are also properties of the survival curve. Firstly, <span class="math inline">\(\hat{S}(0) = 1\)</span> - all individuals are alive at the start. Secondly, <span class="math inline">\(\hat{S}(t)\)</span> is a right-continuous step function that decreases only at observed event times. This also has the implication the it is monotonically decreasing - <span class="math inline">\(\hat{S}(t_2) \leq \hat{S}(t_1)\)</span> for all <span class="math inline">\(t_2 &gt; t_1\)</span>.</p>
+<p>Under appropriate conditions, <span class="math inline">\(\hat{S}(t)\)</span> converges to the true survival function <span class="math inline">\(S(t)\)</span> as the sample size increases.</p>
+</section>
+<section id="assumptions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions">Assumptions</h2>
+<p>The validity of the Kaplan-Meier estimator relies on several key assumptions:</p>
+<section id="independent-censoring" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="independent-censoring"><span class="header-section-number">13.0.1</span> Independent Censoring</h3>
+<p>The most critical assumption is that censoring is independent of survival time. Formally, the censoring time <span class="math inline">\(C\)</span> and the event time <span class="math inline">\(T\)</span> must be independent. This means that censored individuals should have the same survival prospects as those who remain under observation. Violations of this assumption can lead to biased estimates. For example, if patients with worse prognoses are more likely to drop out of a study, the Kaplan-Meier curve will overestimate survival.</p>
+</section>
+<section id="non-informative-censoring" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="non-informative-censoring"><span class="header-section-number">13.0.2</span> Non-informative Censoring</h3>
+<p>Related to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time <span class="math inline">\(t\)</span> should not depend on the event time <span class="math inline">\(T\)</span>, given the observed covariates.</p>
+</section>
+<section id="no-loss-to-follow-up" class="level3" data-number="13.0.3">
+<h3 data-number="13.0.3" class="anchored" data-anchor-id="no-loss-to-follow-up"><span class="header-section-number">13.0.3</span> No Loss to Follow-up</h3>
+<p>Ideally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.</p>
+<div id="exm-Kaplan_Meier" class="theorem example">
+<p><span class="theorem-title"><strong>Example 13.1 (Kaplan-Meier estimator)</strong></span> &nbsp;</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Model</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># * status == 1: event, status == 0: censored</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>KM_fit <span class="ot">&lt;-</span> survival<span class="sc">::</span><span class="fu">survfit</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(time, status <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="dv">1</span>, data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survminer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Get data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cancer, <span class="at">package =</span> <span class="st">"survival"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Transform and select data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data_f <span class="ot">&lt;-</span> lung <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate_at</span>(<span class="at">.vars =</span> <span class="fu">c</span>(<span class="st">"inst"</span>, <span class="st">"status"</span>, <span class="st">"sex"</span>), <span class="at">.funs =</span> as.factor)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Model</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># * status == 1: event, status == 0: censored</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>KM_fit <span class="ot">&lt;-</span> survival<span class="sc">::</span><span class="fu">survfit</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(time, status <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">~</span> <span class="dv">1</span>, data_f)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(KM_fit)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggsurvplot</span>(KM_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> data_f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -749,15 +857,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../Chapters/Survival_Analysis/Censoring.html" class="pagination-link" aria-label="Censoring">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Censoring</span></span>
+      <a href="../../Chapters/Survival_Analysis/Truncation.html" class="pagination-link" aria-label="Truncation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Truncation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../Chapters/Survival_Analysis/Cox.html" class="pagination-link" aria-label="Cox Regression">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Cox Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Cox Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
