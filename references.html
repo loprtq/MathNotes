@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jonas Benjamin Rose Aldous">
-<meta name="dcterms.date" content="2026-03-13">
 
-<title>MathNotes</title>
+<title>References – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,42 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -67,7 +49,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Chapters/Probability/Introduction.html" rel="next">
+<link href="./Chapters/Probability/APP-Stochastic_Variables.html" rel="next">
+<link href="./Chapters/Time_Series/ARMA.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -284,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -310,47 +293,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#sec-Introduction" id="toc-sec-Introduction" class="nav-link active" data-scroll-target="#sec-Introduction"><span class="header-section-number">1</span> Introduction</a>
-  <ul class="collapse">
-  <li><a href="#sec-How_To_Contribute" id="toc-sec-How_To_Contribute" class="nav-link" data-scroll-target="#sec-How_To_Contribute"><span class="header-section-number">1.1</span> How To Contribute</a></li>
-  <li><a href="#sec-Book_Structure" id="toc-sec-Book_Structure" class="nav-link" data-scroll-target="#sec-Book_Structure"><span class="header-section-number">1.2</span> Book Structure</a></li>
-  <li><a href="#sec-Examples_Figures_Tables_and_Code_Snippets" id="toc-sec-Examples_Figures_Tables_and_Code_Snippets" class="nav-link" data-scroll-target="#sec-Examples_Figures_Tables_and_Code_Snippets"><span class="header-section-number">1.3</span> Examples, Figures, Tables, and Code Snippets</a></li>
-  <li><a href="#sec-References" id="toc-sec-References" class="nav-link" data-scroll-target="#sec-References"><span class="header-section-number">1.4</span> References</a></li>
-  <li><a href="#sec-Formatting" id="toc-sec-Formatting" class="nav-link" data-scroll-target="#sec-Formatting"><span class="header-section-number">1.5</span> Formatting</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MathNotes</h1>
+<h1 class="title">References</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jonas Benjamin Rose Aldous </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 13, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -360,52 +318,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="sec-Introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>This repository contains a collection of notes on various mathematical topics. The notes are organized into mathematical areas with chapters covering a specific topics within the area.</p>
-<section id="sec-How_To_Contribute" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sec-How_To_Contribute"><span class="header-section-number">1.1</span> How To Contribute</h2>
-<p>If you have any suggestions or have found any errors, and do not have the time to fix it yourself, please create an issue on the <a href="https://github.com/loprtq/MathNotes">GitHub repository</a>. We will be happy to review your suggestions and make the necessary changes to improve the content. However, if you have the time and would like to contribute by fixing any errors or adding new content, please feel free to submit a pull request.</p>
-<p>For more information about quarto, please refer to the <a href="https://quarto.org/docs/authoring/">Quarto documentation</a>. This provides comprehensive guidelines on how to create and manage content using Quarto, which is the framework used for this repository. By following the guidelines in the Quarto documentation, you can ensure that your contributions are consistent with the limitation in quarto.</p>
-</section>
-<section id="sec-Book_Structure" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sec-Book_Structure"><span class="header-section-number">1.2</span> Book Structure</h2>
-<p>A certain folder structure is used to organize the notes. Each folder corresponds to a specific mathematical area, and within each folder, there are chapters that cover specific topics within that area. A small example of the repository is given below.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Bibliography/</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> articles.bib</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> books.bib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Chapters/</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Survival_Analysis/</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── Introduction.qmd</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── Hazard_Function.qmd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── Cox.qmd</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Code/</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Survival_Analysis/</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Examples/</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Survival_Analysis/</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Figures/</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Survival_Analysis/</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> Tables/</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Survival_Analysis/</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> _quarto.yml</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> README.md</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ex">├</span> references.bib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="sec-Examples_Figures_Tables_and_Code_Snippets" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sec-Examples_Figures_Tables_and_Code_Snippets"><span class="header-section-number">1.3</span> Examples, Figures, Tables, and Code Snippets</h2>
-<p>If a chapter requires examples, figures, tables, or code snippets, they should be included in their respective folders. For instance, if a chapter in the “Survival_Analysis” folder requires examples, they should be placed in a the folder <code>Examples/Survival_Analysis</code>. This way, all related materials are organized together, making it easier to maintain and update, without touching other files.</p>
-</section>
-<section id="sec-References" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="sec-References"><span class="header-section-number">1.4</span> References</h2>
-<p>When contributing to the notes, please ensure that you include proper citations for any information that is sourced from external materials. This includes books, articles, websites, and any other sources of information. Proper citations not only give credit to the original authors but also allow readers to verify the information and explore further on the topic. When adding references, please use the <code>references.bib</code> file to maintain a consistent format for all citations. This will help ensure that the notes are well-organized and that readers can easily find the sources of information.</p>
-</section>
-<section id="sec-Formatting" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="sec-Formatting"><span class="header-section-number">1.5</span> Formatting</h2>
-<p>When contributing to the notes, please ensure that the formatting is consistent with the existing content. This includes using the same style for headings, and text formatting. Consistent formatting helps maintain a professional and cohesive appearance throughout the notes, making it easier for readers to navigate and understand the content. If you are unsure about the formatting style used in the existing notes, please refer to the existing chapters as a guide or reach out to the maintainers for clarification.</p>
+<div id="refs" role="list" style="display: none">
+
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -808,12 +725,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
+      <a href="./Chapters/Time_Series/ARMA.html" class="pagination-link" aria-label="ARMA(p, q)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">ARMA(p, q)</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Chapters/Probability/Introduction.html" class="pagination-link" aria-label="Probability Theory">
-        <span class="nav-page-text">Probability Theory</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Chapters/Probability/APP-Stochastic_Variables.html" class="pagination-link" aria-label="Common Stochastic Variables">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Common Stochastic Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

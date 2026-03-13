@@ -4,7 +4,57 @@
     "href": "index.html",
     "title": "MathNotes",
     "section": "",
-    "text": "1 Introduction",
+    "text": "1 Introduction\nThis repository contains a collection of notes on various mathematical topics. The notes are organized into mathematical areas with chapters covering a specific topics within the area.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-How_To_Contribute",
+    "href": "index.html#sec-How_To_Contribute",
+    "title": "MathNotes",
+    "section": "1.1 How To Contribute",
+    "text": "1.1 How To Contribute\nIf you have any suggestions or have found any errors, and do not have the time to fix it yourself, please create an issue on the GitHub repository. We will be happy to review your suggestions and make the necessary changes to improve the content. However, if you have the time and would like to contribute by fixing any errors or adding new content, please feel free to submit a pull request.\nFor more information about quarto, please refer to the Quarto documentation. This provides comprehensive guidelines on how to create and manage content using Quarto, which is the framework used for this repository. By following the guidelines in the Quarto documentation, you can ensure that your contributions are consistent with the limitation in quarto.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-Book_Structure",
+    "href": "index.html#sec-Book_Structure",
+    "title": "MathNotes",
+    "section": "1.2 Book Structure",
+    "text": "1.2 Book Structure\nA certain folder structure is used to organize the notes. Each folder corresponds to a specific mathematical area, and within each folder, there are chapters that cover specific topics within that area. A small example of the repository is given below.\n├ Bibliography/\n├── articles.bib\n├── books.bib\n├ Chapters/\n├── Survival_Analysis/\n│   ├── Introduction.qmd\n│   ├── Hazard_Function.qmd\n│   ├── Cox.qmd\n├ Code/\n├── Survival_Analysis/\n├ Examples/\n├── Survival_Analysis/\n├ Figures/\n├── Survival_Analysis/\n├ Tables/\n├── Survival_Analysis/\n├ _quarto.yml\n├ README.md\n├ references.bib",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-Examples_Figures_Tables_and_Code_Snippets",
+    "href": "index.html#sec-Examples_Figures_Tables_and_Code_Snippets",
+    "title": "MathNotes",
+    "section": "1.3 Examples, Figures, Tables, and Code Snippets",
+    "text": "1.3 Examples, Figures, Tables, and Code Snippets\nIf a chapter requires examples, figures, tables, or code snippets, they should be included in their respective folders. For instance, if a chapter in the “Survival_Analysis” folder requires examples, they should be placed in a the folder Examples/Survival_Analysis. This way, all related materials are organized together, making it easier to maintain and update, without touching other files.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-References",
+    "href": "index.html#sec-References",
+    "title": "MathNotes",
+    "section": "1.4 References",
+    "text": "1.4 References\nWhen contributing to the notes, please ensure that you include proper citations for any information that is sourced from external materials. This includes books, articles, websites, and any other sources of information. Proper citations not only give credit to the original authors but also allow readers to verify the information and explore further on the topic. When adding references, please use the references.bib file to maintain a consistent format for all citations. This will help ensure that the notes are well-organized and that readers can easily find the sources of information.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-Formatting",
+    "href": "index.html#sec-Formatting",
+    "title": "MathNotes",
+    "section": "1.5 Formatting",
+    "text": "1.5 Formatting\nWhen contributing to the notes, please ensure that the formatting is consistent with the existing content. This includes using the same style for headings, and text formatting. Consistent formatting helps maintain a professional and cohesive appearance throughout the notes, making it easier for readers to navigate and understand the content. If you are unsure about the formatting style used in the existing notes, please refer to the existing chapters as a guide or reach out to the maintainers for clarification.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
