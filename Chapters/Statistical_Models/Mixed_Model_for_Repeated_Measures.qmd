@@ -1,4 +1,4 @@
-# Mixed Models for Repeated Measures {#sec-MMRM}
+# Mixed Models for Repeated Measures {#sec-Mixed_Model_for_Repeated_Measures}
 
 
 When working with a treatment policy strategy, the MMRM might not be the best choice. The MMRM assumes that the missing data follows the MAR assumption. However, if a non-negligible amount of that missing data is caused by ICEs, then this violates the model's assumptions.
