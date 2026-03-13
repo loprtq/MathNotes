@@ -86,7 +86,7 @@ $$
 \end{aligned}
 $$ {#eq-Covariance}
 
-If the two stochastic variables $X$ and $Y$ are independent, then their covariance is 0. However, the converse is not true - if the covariance between two stochastic variables is 0, then they are not necessarily independent.
+If the two stochastic variables $X$ and $Y$ are independent their covariance is 0. However, the converse is not true - if the covariance between two stochastic variables is 0, then they are not necessarily independent.
 
 The covariance between a stochastic variable and itself is equivalent to the stochastic variable's variance - $\Cov{X,X} = \Var{X}$.
 
