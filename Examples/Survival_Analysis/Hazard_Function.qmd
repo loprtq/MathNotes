@@ -1,15 +1,10 @@
-:::{#exm-Survival_Function}
-## Survival Function
-
-:::{.panel-tabset}
-## R
 ```{r}
 #| eval: false
 #| echo: true
 #| warning: false
 # Packages
 library(survival)
-library(dplyr)
+library(ggplot2)
 
 # Data
 ## Get data
@@ -21,8 +16,9 @@ data_f <- lung %>%
     dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
     dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
 
-# Plot
+# Model
+# * status == 1: event, status == 0: censored
+cox_fit <- survival::coxph(survival::Surv(time, status == 1) ~ 1, data_f, ties = "breslow")
 
+# Forest plot
 ```
-:::
-:::

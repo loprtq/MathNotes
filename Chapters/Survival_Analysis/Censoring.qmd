@@ -1,14 +1,20 @@
+{{< include /preamble/commands.qmd >}}
+
 # Censoring {#sec-Censoring}
-Censoring is the act of some information not being observed, possibly due to other events that the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.
+Censoring is the act of some information not being observed, possibly due to other events than the one(s) of interest occuring. For example, subjects could choose to discontinue treatment permanently, or join/get observed in a clinical trial later than what was first planned.
 
-An event time $T$ is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event
-- **Left-Censored** $T > t$**:** has not yet occurred at time $t$
+An event time $T$ is said to be censored if it is not known exactly, but it is known to some extent. You could have that an event does not occur in the period 
 
-- **Right censoring** $T < t$**:** has occurred before time $t$
+## Left censoring {#sec-Left_Censoring}
+$T > t$: has not yet occurred at time $t$
 
-The most common form of censoring to occur in real clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.
+## Right censoring {#sec-Right_Censoring}
+$T < t$: has occurred before time $t$
 
-- **Interval-censoring** $t_1 < T < t_2$**:**
+The most common form of censoring to occur in clinical trials. One example of right censoring is at the end of a clinical trial, where after the last planned follow-up visit, the subjects are administratively censored, meaning that nothing will observed for them from this time forth.
+
+## Interval-censoring {#sec-Interval_Censoring}
+$t_1 < T < t_2$:
 
 - **Type I censoring:**
 

@@ -1,0 +1,10 @@
+# Truncation {#sec-Truncation}
+Contrary to censoring, the term truncation the instead refers to the fact that the event(s) of interest cannot possible occur. 
+
+Analytically, truncation is handled the same as if information was censored. It is therefore not neccesarry to distinguish between the two, when evaluation data. However, it is rather important when discussing the data more broadly - censoring and truncation is not the same, even though it is analytically handled in the same manner.
+
+## Left truncation {#sec-Left_Truncation}
+An example of left truncated data could be that a hospital was not open at the start of the analysis. In this example, we could be interested in the first case of some disease at different hospitals, to analyze the risk at these. Intuitively, the first case of some disease could then not have happened at a hospital that was not open.
+
+## Right truncation {#sec-Right_Truncation}
+Similar to the example given for left truncation. Instead of considering the the hospital had not yet open during the analysis, consider if the hospital permanently closed during the analysis. In this case, it would not be possible for the hospital to have the event of interest.

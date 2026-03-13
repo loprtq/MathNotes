@@ -1,5 +1,5 @@
-:::{#exm-Survival_Function}
-## Survival Function
+:::{#exm-Kaplan_Meier}
+## Kaplan-Meier estimator
 
 :::{.panel-tabset}
 ## R
@@ -8,8 +8,9 @@
 #| echo: true
 #| warning: false
 # Packages
-library(survival)
 library(dplyr)
+library(survival)
+library(survminer)
 
 # Data
 ## Get data
@@ -21,8 +22,15 @@ data_f <- lung %>%
     dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
     dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
 
-# Plot
+# Model
+# * status == 1: event, status == 0: censored
+KM_fit <- survival::survfit(survival::Surv(time, status == 1) ~ 1, data_f)
 
+## Coefficients
+summary(KM_fit)
+
+# Plot
+survminer::ggsurvplot(KM_fit, conf.int = TRUE, data = data_f)
 ```
 :::
 :::

@@ -1,4 +1,6 @@
-# Survival Analysis {#SurvivalAnalysis}
-The expression "survival analysis" can be rather misleading, as these sorts of analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else. Say that you want an idea of the likelihood of getting a disease and want to compare whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis.
+# Survival Analysis {#sec-Survival_Analysis}
+The expression "survival analysis" can be rather misleading, as even though these analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else.
+
+Say that you want an idea of the likelihood of getting a disease. You are also interested in whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis, as you would be able to get a general idea of the likelihood of attaining the disease over time, for each group. Naturally, as with many other statistical analysis, the sample size has to be sufficient to be able to show the true likelihood.
 
 {{< include /Tables/Survival_Analysis/Survival_Data.qmd >}}
