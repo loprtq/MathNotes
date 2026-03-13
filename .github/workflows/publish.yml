@@ -31,17 +31,30 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages(c("quarto", "pak", "rmarkdown", "knitr", "reticulate"))
+          install.packages(c("quarto", "pak", "rmarkdown", "knitr", "reticulate", "devtools"))
         shell: Rscript {0}
 
       - name: Extract R dependencies from .qmd files
         run: Rscript package_dependencies.R
 
-      - name: Install detected R dependencies
-        run: Rscript -e 'pak::pkg_install(scan("quarto-packages.txt", character()))'
-
-      - name: Install R Dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install detected R dependencies (with fallback)
+        run: |
+          # Read extracted packages
+          pkgs <- scan("quarto-packages.txt", character(), quiet = TRUE)
+          
+          if (length(pkgs) > 0) {
+            message("Installing ", length(pkgs), " packages...")
+            # Try pak first (faster), fallback to install.packages if it fails
+            tryCatch({
+              pak::pkg_install(pkgs, upgrade = FALSE)
+            }, error = function(e) {
+              message("pak installation failed, falling back to install.packages...")
+              install.packages(pkgs, repos = getOption("repos"))
+            })
+          } else {
+            message("No additional packages to install")
+          }
+        shell: Rscript {0}
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
