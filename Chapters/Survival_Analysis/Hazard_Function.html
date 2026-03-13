@@ -150,7 +150,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability Theory</span></a>
+ <span class="menu-text">Probability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -342,16 +342,18 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p><span class="math display">\[
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
-\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
-\]</span></p>
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
 </div>
 <p>The hazard function <span class="math inline">\(h\)</span> describes the instantaneous risk of an event at a time <span class="math inline">\(t\)</span>. The instantaneuos risk at a time <span class="math inline">\(t\)</span> is bounded between 0 and 1, where the sum over all <span class="math inline">\(t\)</span> is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between <span class="math inline">\(t\)</span> and <span class="math inline">\(t+\Delta t\)</span> divided by the population size at risk at time <span class="math inline">\(t\)</span>, divided by <span class="math inline">\(\Delta t\)</span>. In the continuous case, the hazard function is given as <span class="math display">\[
 \begin{aligned}
     h(t) &amp;= \lambda(t)
-    \\&amp;= \lim_{\Delta t \to 0}\frac{\Pr{t \leq T &lt; t + \Delta t \mid T \geq t}}{\Delta t}
+    \\&amp;= \lim_{\Delta t \to 0}\frac{\mathbb{P}\left(t \leq T &lt; t + \Delta t \mid T \geq t\right)}{\Delta t}
 \end{aligned}
 \]</span></p>
 <section id="cumulative-hazard-function" class="level2" data-number="10.1">
@@ -359,7 +361,7 @@ window.Quarto = {
 <p>The cumulative hazard function <span class="math inline">\(H\)</span> describes the cumulative hazard up until a time <span class="math inline">\(t\)</span>. <span class="math display">\[
 \begin{aligned}
     H(t) &amp;= \int_0^t h(u)\,\textrm{d}u\\
-    &amp;= \ln{S(t)}
+    &amp;= \operatorname{ln}\left(S(t)\right)
 \end{aligned}
 \]</span> As opposed to the survival function (see <a href="Survival_Function.html" class="quarto-xref"><span>Chapter 9</span></a>), the cumulative hazard function is monotonically increasing, i.e.&nbsp;<span class="math inline">\(H(t_2) \leq H(t_1)\)</span> for all <span class="math inline">\(t_1 \geq t_2\)</span>.</p>
 </section>

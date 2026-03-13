@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Probability Theory – MathNotes</title>
+<title>Probability – MathNotes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability Theory</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Chapters/Probability/Introduction.html">Probability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Probability Theory</span></a>
+ <span class="menu-text">Probability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -327,7 +327,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-Probability" class="quarto-section-identifier">Probability Theory</span></h1>
+<h1 class="title"><span id="sec-Probability" class="quarto-section-identifier">Probability</span></h1>
 </div>
 
 
@@ -345,38 +345,57 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p><span class="math display">\[
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\]</span></p>
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
 </div>
 <p>Probability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.</p>
 <section id="sec-Sample_Space" class="level2">
 <h2 class="anchored" data-anchor-id="sec-Sample_Space">Sample Space</h2>
-<p>The sample space of an experiment, e.g.&nbsp;rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be <span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, and each event <span class="math inline">\(E\subseteq\Omega\)</span>. The probability that an event <span class="math inline">\(E\)</span> occurs is denoted <span class="math inline">\(\Pr{E}\)</span>, where <span class="math inline">\(0 \leq \Pr{E} \leq \Pr{\Omega} = 1\)</span>.</p>
+<p>The sample space of an experiment, e.g.&nbsp;rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be <span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>, and each event <span class="math inline">\(E\subseteq\Omega\)</span>. The probability that an event <span class="math inline">\(E\)</span> occurs is denoted <span class="math inline">\(\mathbb{P}\left(E\right)\)</span>, where <span class="math inline">\(0 \leq \mathbb{P}\left(E\right) \leq \mathbb{P}\left(\Omega\right) = 1\)</span>.</p>
 </section>
 <section id="sec-Probability_Function" class="level2">
 <h2 class="anchored" data-anchor-id="sec-Probability_Function">Probability Function</h2>
-<p>Probability is assigned to events as a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\(0\)</span> indicates impossibility and <span class="math inline">\(1\)</span> indicates certainty - <span class="math inline">\(\mathbb{P}: \mathcal{A} \to [0, 1]\)</span> for <span class="math inline">\(E \subseteq \mathcal{A}\)</span>. For example, the probability of rolling a <span class="math inline">\(4\)</span> on a fair six-sided die is <span class="math inline">\(1/6\)</span>. Some basic rules of probability include: the probability of the entire sample space <span class="math inline">\(\Omega\)</span> is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.</p>
+<p>Probability is assigned to events as a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\(0\)</span> indicates impossibility and <span class="math inline">\(1\)</span> indicates certainty - <span class="math inline">\(\mathbb{P}: \mathcal{A} \to [0, 1]\)</span> for <span class="math inline">\(E \subseteq \mathcal{A}\)</span>. For example, the probability of rolling a <span class="math inline">\(4\)</span> (E = <span class="math inline">\(\{4\}\)</span>) on a fair six-sided die is <span class="math inline">\(1/6\)</span>. Some basic rules of probability include: the probability of the entire sample space <span class="math inline">\(\Omega\)</span> is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.</p>
+<div id="tip-Probability_Arithmetics" class="callout callout-style-default callout-tip callout-titled" title="Probability Arithmetics">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;1: Probability Arithmetics
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
 \begin{aligned}
-    \Pr{E^\mathrm{C}} &amp;= 1 - \Pr{E}\\
-    \Pr{E_1 \setminus E_2} &amp;= \Pr{E_1} - \Pr{E_1 \cap E_2}\\
-    \Pr{E_1 \cup E_2} &amp;= \Pr{E_1} + \Pr{E_2} - \Pr{E_1 \cap E_2}
+    \mathbb{P}\left(E^\mathrm{C}\right) &amp;= 1 - \mathbb{P}\left(E\right) \\
+    \mathbb{P}\left(E_1 \setminus E_2\right) &amp;= \mathbb{P}\left(E_1\right) - \mathbb{P}\left(E_1 \cap E_2\right) \\
+    \mathbb{P}\left(E_1 \cup E_2\right) &amp;= \mathbb{P}\left(E_1\right) + \mathbb{P}\left(E_2\right) - \mathbb{P}\left(E_1 \cap E_2\right)
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[
-\Pr{E \cap E^\mathrm{C}} = 0
+\mathbb{P}\left(E \cap E^\mathrm{C}\right) = 0
 \]</span></p>
+</div>
+</div>
+</div>
 <section id="conditional-probability" class="level3">
 <h3 class="anchored" data-anchor-id="conditional-probability">Conditional Probability</h3>
 <p><span class="math display">\[
-\Pr{E_1 \mid E_2} = \frac{\Pr{E_1 \cap E_2}}{\Pr{E_2}}
+\mathbb{P}\left(E_1 \mid E_2\right) = \frac{\mathbb{P}\left(E_1 \cap E_2\right)}{\mathbb{P}\left(E_2\right)}
 \]</span></p>
-<p>Two events are said to be independent if <span class="math inline">\(\Pr{E_1 \cap E_2} = \Pr{E_1}\Pr{E_2}\)</span> meaning that if <span class="math inline">\(\Pr{E_2} &gt; 0\)</span>, then <span class="math inline">\(\Pr{E_1 \mid E_2} = \Pr{E_1}\)</span>.</p>
+<p>Two events are said to be independent if <span class="math inline">\(\mathbb{P}\left(E_1 \cap E_2\right) = \mathbb{P}\left(E_1\right)\mathbb{P}\left(E_2\right)\)</span> meaning that if <span class="math inline">\(\mathbb{P}\left(E_2\right) &gt; 0\)</span>, then <span class="math inline">\(\mathbb{P}\left(E_1 \mid E_2\right) = \mathbb{P}\left(E_1\right)\)</span>.</p>
 <section id="sec-Bayes_Formula" class="level4">
 <h4 class="anchored" data-anchor-id="sec-Bayes_Formula">Bayes Formula</h4>
 <p><span class="math display">\[
-\Pr{E_2 \mid E_1} = \frac{\Pr{E_1 \mid E_2}\Pr{E_1}}{\Pr{E_2}},\quad \Pr{E_2} \neq 0
+\mathbb{P}\left(E_2 \mid E_1\right) = \frac{\mathbb{P}\left(E_1 \mid E_2\right)\mathbb{P}\left(E_1\right)}{\mathbb{P}\left(E_2\right)},\quad \mathbb{P}\left(E_2\right) \neq 0
 \]</span></p>
 
 

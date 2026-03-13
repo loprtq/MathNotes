@@ -150,7 +150,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability Theory</span></a>
+ <span class="menu-text">Probability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -335,14 +335,16 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p><span class="math display">\[
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
-\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
-\]</span></p>
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
 </div>
 <p>Take for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: <span class="math inline">\(h_j(t)\)</span>, where the overall hazard rate, with <span class="math inline">\(k\)</span> different events, would then be described as: <span class="math inline">\(h(t) = \sum_{j=1}^k h_j(t)\)</span>.</p>
-<p>The CIF (See <a href="Survival_Function.html#eq-CIF" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>) for a specific event, <span class="math inline">\(F_j(t) = \Pr{T\leq t, C = j} = \int_t^t h_j(u) \cdot S(u)\,\mathrm{d}u\)</span>, describes. Similar to the overall hazard ratio, the overall CIF can be described by <span class="math inline">\(F(t) = \sum_{j=1}^k F_j(t)\)</span>.</p>
+<p>The CIF (See <a href="Survival_Function.html#eq-CIF" class="quarto-xref">Equation&nbsp;<span>9.1</span></a>) for a specific event, <span class="math inline">\(F_j(t) = \mathbb{P}\left(T\leq t, C = j\right) = \int_t^t h_j(u) \cdot S(u)\,\mathrm{d}u\)</span>, describes. Similar to the overall hazard ratio, the overall CIF can be described by <span class="math inline">\(F(t) = \sum_{j=1}^k F_j(t)\)</span>.</p>
 
 
 

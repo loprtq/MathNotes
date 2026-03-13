@@ -149,7 +149,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability Theory</span></a>
+ <span class="menu-text">Probability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -313,77 +313,89 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#bernoulli" id="toc-bernoulli" class="nav-link active" data-scroll-target="#bernoulli"><span class="header-section-number">A.1</span> Bernoulli</a>
+  <li><a href="#sec-Bernoulli_Stochastic_Variable" id="toc-sec-Bernoulli_Stochastic_Variable" class="nav-link active" data-scroll-target="#sec-Bernoulli_Stochastic_Variable"><span class="header-section-number">A.1</span> Bernoulli</a>
   <ul class="collapse">
   <li><a href="#distribution" id="toc-distribution" class="nav-link" data-scroll-target="#distribution">Distribution</a></li>
   <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value">Expected Value</a></li>
   <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a></li>
   </ul></li>
-  <li><a href="#bionomial" id="toc-bionomial" class="nav-link" data-scroll-target="#bionomial"><span class="header-section-number">A.2</span> Bionomial</a>
+  <li><a href="#sec-Binomial_Stochastic_Variable" id="toc-sec-Binomial_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Binomial_Stochastic_Variable"><span class="header-section-number">A.2</span> Binomial</a>
   <ul class="collapse">
   <li><a href="#distribution-1" id="toc-distribution-1" class="nav-link" data-scroll-target="#distribution-1">Distribution</a></li>
   <li><a href="#expected-value-1" id="toc-expected-value-1" class="nav-link" data-scroll-target="#expected-value-1">Expected Value</a></li>
   <li><a href="#variance-1" id="toc-variance-1" class="nav-link" data-scroll-target="#variance-1">Variance</a></li>
   </ul></li>
-  <li><a href="#negative-binomial" id="toc-negative-binomial" class="nav-link" data-scroll-target="#negative-binomial"><span class="header-section-number">A.3</span> Negative Binomial</a>
+  <li><a href="#sec-Geometric_Stochastic_Variable" id="toc-sec-Geometric_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Geometric_Stochastic_Variable"><span class="header-section-number">A.3</span> Geometric</a>
   <ul class="collapse">
   <li><a href="#distribution-2" id="toc-distribution-2" class="nav-link" data-scroll-target="#distribution-2">Distribution</a></li>
   <li><a href="#expected-value-2" id="toc-expected-value-2" class="nav-link" data-scroll-target="#expected-value-2">Expected Value</a></li>
   <li><a href="#variance-2" id="toc-variance-2" class="nav-link" data-scroll-target="#variance-2">Variance</a></li>
   </ul></li>
-  <li><a href="#poisson" id="toc-poisson" class="nav-link" data-scroll-target="#poisson"><span class="header-section-number">A.4</span> Poisson</a>
+  <li><a href="#sec-Negative_Binomial_Stochastic_Variable" id="toc-sec-Negative_Binomial_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Negative_Binomial_Stochastic_Variable"><span class="header-section-number">A.4</span> Negative Binomial</a>
   <ul class="collapse">
   <li><a href="#distribution-3" id="toc-distribution-3" class="nav-link" data-scroll-target="#distribution-3">Distribution</a></li>
   <li><a href="#expected-value-3" id="toc-expected-value-3" class="nav-link" data-scroll-target="#expected-value-3">Expected Value</a></li>
   <li><a href="#variance-3" id="toc-variance-3" class="nav-link" data-scroll-target="#variance-3">Variance</a></li>
   </ul></li>
-  <li><a href="#poisson-1" id="toc-poisson-1" class="nav-link" data-scroll-target="#poisson-1"><span class="header-section-number">A.5</span> Poisson</a>
+  <li><a href="#sec-Hypergeometric_Stochastic_Variable" id="toc-sec-Hypergeometric_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Hypergeometric_Stochastic_Variable"><span class="header-section-number">A.5</span> Hypergeometric</a>
   <ul class="collapse">
   <li><a href="#distribution-4" id="toc-distribution-4" class="nav-link" data-scroll-target="#distribution-4">Distribution</a></li>
   <li><a href="#expected-value-4" id="toc-expected-value-4" class="nav-link" data-scroll-target="#expected-value-4">Expected Value</a></li>
   <li><a href="#variance-4" id="toc-variance-4" class="nav-link" data-scroll-target="#variance-4">Variance</a></li>
   </ul></li>
-  <li><a href="#sec-Gaussian_Stochastic_Variable" id="toc-sec-Gaussian_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Gaussian_Stochastic_Variable"><span class="header-section-number">A.6</span> Gaussian</a>
+  <li><a href="#sec-Poisson_Stochastic_Variable" id="toc-sec-Poisson_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Poisson_Stochastic_Variable"><span class="header-section-number">A.6</span> Poisson</a>
   <ul class="collapse">
   <li><a href="#distribution-5" id="toc-distribution-5" class="nav-link" data-scroll-target="#distribution-5">Distribution</a></li>
   <li><a href="#expected-value-5" id="toc-expected-value-5" class="nav-link" data-scroll-target="#expected-value-5">Expected Value</a></li>
   <li><a href="#variance-5" id="toc-variance-5" class="nav-link" data-scroll-target="#variance-5">Variance</a></li>
   </ul></li>
-  <li><a href="#uniform" id="toc-uniform" class="nav-link" data-scroll-target="#uniform"><span class="header-section-number">A.7</span> Uniform</a>
+  <li><a href="#sec-Exponential_Stochastic_Variable" id="toc-sec-Exponential_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Exponential_Stochastic_Variable"><span class="header-section-number">A.7</span> Exponential</a>
   <ul class="collapse">
   <li><a href="#distribution-6" id="toc-distribution-6" class="nav-link" data-scroll-target="#distribution-6">Distribution</a></li>
   <li><a href="#expected-value-6" id="toc-expected-value-6" class="nav-link" data-scroll-target="#expected-value-6">Expected Value</a></li>
   <li><a href="#variance-6" id="toc-variance-6" class="nav-link" data-scroll-target="#variance-6">Variance</a></li>
   </ul></li>
-  <li><a href="#exponential" id="toc-exponential" class="nav-link" data-scroll-target="#exponential"><span class="header-section-number">A.8</span> Exponential</a>
+  <li><a href="#sec-Gamma_Stochastic_Variable" id="toc-sec-Gamma_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Gamma_Stochastic_Variable"><span class="header-section-number">A.8</span> Gamma</a>
   <ul class="collapse">
   <li><a href="#distribution-7" id="toc-distribution-7" class="nav-link" data-scroll-target="#distribution-7">Distribution</a></li>
   <li><a href="#expected-value-7" id="toc-expected-value-7" class="nav-link" data-scroll-target="#expected-value-7">Expected Value</a></li>
   <li><a href="#variance-7" id="toc-variance-7" class="nav-link" data-scroll-target="#variance-7">Variance</a></li>
   </ul></li>
-  <li><a href="#geometric" id="toc-geometric" class="nav-link" data-scroll-target="#geometric"><span class="header-section-number">A.9</span> Geometric</a>
+  <li><a href="#sec-Gaussian_Stochastic_Variable" id="toc-sec-Gaussian_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Gaussian_Stochastic_Variable"><span class="header-section-number">A.9</span> Gaussian</a>
   <ul class="collapse">
   <li><a href="#distribution-8" id="toc-distribution-8" class="nav-link" data-scroll-target="#distribution-8">Distribution</a></li>
   <li><a href="#expected-value-8" id="toc-expected-value-8" class="nav-link" data-scroll-target="#expected-value-8">Expected Value</a></li>
   <li><a href="#variance-8" id="toc-variance-8" class="nav-link" data-scroll-target="#variance-8">Variance</a></li>
   </ul></li>
-  <li><a href="#gamma" id="toc-gamma" class="nav-link" data-scroll-target="#gamma"><span class="header-section-number">A.10</span> Gamma</a>
+  <li><a href="#sec-Beta_Stochastic_Variable" id="toc-sec-Beta_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Beta_Stochastic_Variable"><span class="header-section-number">A.10</span> Beta</a>
   <ul class="collapse">
   <li><a href="#distribution-9" id="toc-distribution-9" class="nav-link" data-scroll-target="#distribution-9">Distribution</a></li>
   <li><a href="#expected-value-9" id="toc-expected-value-9" class="nav-link" data-scroll-target="#expected-value-9">Expected Value</a></li>
   <li><a href="#variance-9" id="toc-variance-9" class="nav-link" data-scroll-target="#variance-9">Variance</a></li>
   </ul></li>
-  <li><a href="#beta" id="toc-beta" class="nav-link" data-scroll-target="#beta"><span class="header-section-number">A.11</span> Beta</a>
+  <li><a href="#sec-Uniform_Stochastic_Variable" id="toc-sec-Uniform_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Uniform_Stochastic_Variable"><span class="header-section-number">A.11</span> Uniform</a>
   <ul class="collapse">
   <li><a href="#distribution-10" id="toc-distribution-10" class="nav-link" data-scroll-target="#distribution-10">Distribution</a></li>
   <li><a href="#expected-value-10" id="toc-expected-value-10" class="nav-link" data-scroll-target="#expected-value-10">Expected Value</a></li>
   <li><a href="#variance-10" id="toc-variance-10" class="nav-link" data-scroll-target="#variance-10">Variance</a></li>
   </ul></li>
-  <li><a href="#chi-square" id="toc-chi-square" class="nav-link" data-scroll-target="#chi-square"><span class="header-section-number">A.12</span> Chi-square</a>
+  <li><a href="#sec-Chi-square_Stochastic_Variable" id="toc-sec-Chi-square_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-Chi-square_Stochastic_Variable"><span class="header-section-number">A.12</span> Chi-square</a>
   <ul class="collapse">
   <li><a href="#distribution-11" id="toc-distribution-11" class="nav-link" data-scroll-target="#distribution-11">Distribution</a></li>
   <li><a href="#expected-value-11" id="toc-expected-value-11" class="nav-link" data-scroll-target="#expected-value-11">Expected Value</a></li>
   <li><a href="#variance-11" id="toc-variance-11" class="nav-link" data-scroll-target="#variance-11">Variance</a></li>
+  </ul></li>
+  <li><a href="#sec-F_Stochastic_Variable" id="toc-sec-F_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-F_Stochastic_Variable"><span class="header-section-number">A.13</span> F</a>
+  <ul class="collapse">
+  <li><a href="#distribution-12" id="toc-distribution-12" class="nav-link" data-scroll-target="#distribution-12">Distribution</a></li>
+  <li><a href="#expected-value-12" id="toc-expected-value-12" class="nav-link" data-scroll-target="#expected-value-12">Expected Value</a></li>
+  <li><a href="#variance-12" id="toc-variance-12" class="nav-link" data-scroll-target="#variance-12">Variance</a></li>
+  </ul></li>
+  <li><a href="#sec-T_Stochastic_Variable" id="toc-sec-T_Stochastic_Variable" class="nav-link" data-scroll-target="#sec-T_Stochastic_Variable"><span class="header-section-number">A.14</span> T</a>
+  <ul class="collapse">
+  <li><a href="#distribution-13" id="toc-distribution-13" class="nav-link" data-scroll-target="#distribution-13">Distribution</a></li>
+  <li><a href="#expected-value-13" id="toc-expected-value-13" class="nav-link" data-scroll-target="#expected-value-13">Expected Value</a></li>
+  <li><a href="#variance-13" id="toc-variance-13" class="nav-link" data-scroll-target="#variance-13">Variance</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -411,16 +423,24 @@ window.Quarto = {
 
 
 <div class="hidden">
-$$
-<p>$$</p>
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
 </div>
-<section id="bernoulli" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="bernoulli"><span class="header-section-number">A.1</span> Bernoulli</h2>
-<p>A bernoulli stochastic variable <span class="math inline">\(X\sim\operatorname{B}\left(n, p\right)\)</span> has the sample space <span class="math inline">\(\Omega = \{0, 1\}\)</span> with the probabilities <span class="math inline">\(\mathbb{P}\left(X = 1\right) = p\)</span> and the opposite, <span class="math inline">\(\mathbb{P}\left(X = 0\right) = 1 - p\)</span>.</p>
+<section id="sec-Bernoulli_Stochastic_Variable" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-Bernoulli_Stochastic_Variable"><span class="header-section-number">A.1</span> Bernoulli</h2>
+<p>A bernoulli stochastic variable <span class="math inline">\(X\thicksim\operatorname{B}\left(n, p\right)\)</span> has the sample space <span class="math inline">\(\Omega = \{0, 1\}\)</span> with the probabilities <span class="math inline">\(\mathbb{P}\left(X = 1\right) = p\)</span> and the opposite, <span class="math inline">\(\mathbb{P}\left(X = 0\right) = 1 - p\)</span>.</p>
 <section id="distribution" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution">Distribution</h3>
 <p><span class="math display">\[
-\begin{cases}p &amp;\textrm{if } x = 1\\ 1 - p &amp;\textrm{if } x = 0\end{cases}
+\begin{cases}
+    p &amp;\textrm{if } x = 1 \\
+    1 - p &amp;\textrm{if } x = 0
+\end{cases}
 \]</span></p>
 </section>
 <section id="expected-value" class="level3 unnumbered">
@@ -432,17 +452,17 @@ $$
 <section id="variance" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance">Variance</h3>
 <p><span class="math display">\[
-\operatorname{Var}\left[X\right] = p \cdot (1-p)
+\operatorname{Var}\left[X\right] = p \cdot (1 - p)
 \]</span></p>
 </section>
 </section>
-<section id="bionomial" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="bionomial"><span class="header-section-number">A.2</span> Bionomial</h2>
-<p>A bionomial stochastic variable is a bernoulli stochastic variable repeated <span class="math inline">\(n\)</span> times.</p>
+<section id="sec-Binomial_Stochastic_Variable" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-Binomial_Stochastic_Variable"><span class="header-section-number">A.2</span> Binomial</h2>
+<p>A binomial stochastic variable is a Bernoulli stochastic variable repeated <span class="math inline">\(n\)</span> times.</p>
 <section id="distribution-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-1">Distribution</h3>
 <p>The PMF (see <a href="Stochastic_Variables.html#sec-PMF" class="quarto-xref"><span>Section 2.1</span></a>) is given as <span class="math display">\[
-\binom{n}{k}\cdot p^k \cdot \left(1-p\right)^{n-k}
+\binom{n}{k}\cdot p^k \cdot \left(1 - p\right)^{n - k}
 \]</span> where <span class="math inline">\(k\)</span> is the number of <span class="math inline">\(1\)</span>’s out of the possible <span class="math inline">\(n\)</span> experiments.</p>
 </section>
 <section id="expected-value-1" class="level3 unnumbered">
@@ -454,93 +474,275 @@ $$
 <section id="variance-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-1">Variance</h3>
 <p><span class="math display">\[
-\operatorname{Var}\left[X\right] = n \cdot p \cdot (1-p)
+\operatorname{Var}\left[X\right] = n \cdot p \cdot (1 - p)
 \]</span></p>
 </section>
 </section>
-<section id="negative-binomial" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="negative-binomial"><span class="header-section-number">A.3</span> Negative Binomial</h2>
+<section id="sec-Geometric_Stochastic_Variable" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-Geometric_Stochastic_Variable"><span class="header-section-number">A.3</span> Geometric</h2>
+<p>The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability <span class="math inline">\(p\)</span>. It is the discrete analogue of the exponential distribution and shares the memoryless property.</p>
 <section id="distribution-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-2">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Geometric distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="expected-value-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="expected-value-2">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \frac{1}{p}
+\]</span></p>
 </section>
 <section id="variance-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-2">Variance</h3>
+<p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \frac{1 - p}{p^2}
+\]</span></p>
 </section>
 </section>
-<section id="poisson" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="poisson"><span class="header-section-number">A.4</span> Poisson</h2>
-<p><span class="math inline">\(X \sim \operatorname{Po}\left(\lambda\right)\)</span> <span class="math inline">\(\lambda &gt; 0\)</span></p>
+<section id="sec-Negative_Binomial_Stochastic_Variable" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="sec-Negative_Binomial_Stochastic_Variable"><span class="header-section-number">A.4</span> Negative Binomial</h2>
+<p>Consider an experiment of independent Bernoulli (see <a href="#sec-Bernoulli_Stochastic_Variable" class="quarto-xref"><span>Section A.1</span></a>) trials, each with probability <span class="math inline">\(p\)</span>. If we are interested in when we have <span class="math inline">\(r\)</span> successes consider the Negative Binomial distribution <span class="math display">\[
+X \thicksim\operatorname{NegBin}\left(r, p\right)
+\]</span></p>
 <section id="distribution-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-3">Distribution</h3>
-<p>The PMF (see <a href="Stochastic_Variables.html#sec-PMF" class="quarto-xref"><span>Section 2.1</span></a>) is given as <span class="math display">\[
-p_X(x) = \frac{\lambda^x}{x!}\operatorname{exp}\left(-\lambda\right)
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Negative binomial distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>PMF <span class="math display">\[
+p_X(k) = \binom{k - 1}{r - 1}p^r\left(1 - p\right)^{k - r}\quad
+k = r, r+1, \dots
 \]</span></p>
 </section>
 <section id="expected-value-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="expected-value-3">Expected Value</h3>
 <p><span class="math display">\[
-\mathbb{E}\left[X\right] = \lambda
+\mathbb{E}\left[X\right] = \frac{r}{p}
 \]</span></p>
 </section>
 <section id="variance-3" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-3">Variance</h3>
 <p><span class="math display">\[
-\operatorname{Var}\left[X\right] = \lambda
+\operatorname{Var}\left[X\right] = r \frac{\left(1 - p\right)}{p^2}
 \]</span></p>
 </section>
 </section>
-<section id="poisson-1" class="level2" data-number="A.5">
-<h2 data-number="A.5" class="anchored" data-anchor-id="poisson-1"><span class="header-section-number">A.5</span> Poisson</h2>
-<p><span class="math inline">\(X \sim \operatorname{Po}\left(\lambda\right)\)</span> <span class="math inline">\(\lambda &gt; 0\)</span></p>
+<section id="sec-Hypergeometric_Stochastic_Variable" class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="sec-Hypergeometric_Stochastic_Variable"><span class="header-section-number">A.5</span> Hypergeometric</h2>
+<p>The hypergeometric distribution models the number of successes in a sample drawn without replacement from a finite population containing a fixed number of successes. It is used in scenarios such as quality control or card games where the order of selection matters and the population is not infinite.</p>
 <section id="distribution-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-4">Distribution</h3>
-<p>The PMF (see <a href="Stochastic_Variables.html#sec-PMF" class="quarto-xref"><span>Section 2.1</span></a>) is given as <span class="math display">\[
-p_X(x) = \frac{\lambda^x}{x!}\operatorname{exp}\left(-\lambda\right)
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Hypergeometric distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\frac{\binom{m}{y} \binom{N - m}{n - y}}{\binom{N}{n}}
 \]</span></p>
 </section>
 <section id="expected-value-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="expected-value-4">Expected Value</h3>
 <p><span class="math display">\[
-\mathbb{E}\left[X\right] = \lambda
+\mathbb{E}\left[X\right] = n \cdot \frac{m}{N}
 \]</span></p>
 </section>
 <section id="variance-4" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-4">Variance</h3>
 <p><span class="math display">\[
-\operatorname{Var}\left[X\right] = \lambda
+\operatorname{Var}\left[X\right] = n \cdot \frac{m}{N} \cdot \left(1 - \frac{m}{N}\right) \cdot \frac{N - n}{N - 1}
 \]</span></p>
 </section>
 </section>
-<section id="sec-Gaussian_Stochastic_Variable" class="level2" data-number="A.6">
-<h2 data-number="A.6" class="anchored" data-anchor-id="sec-Gaussian_Stochastic_Variable"><span class="header-section-number">A.6</span> Gaussian</h2>
-<p><span class="math inline">\(X \sim \operatorname{N}\left(\mu, \sigma^2\right)\)</span>. The standard Gaussian distribution is given as <span class="math inline">\(X \sim \operatorname{N}\left(0, 1\right)\)</span>.</p>
+<section id="sec-Poisson_Stochastic_Variable" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="sec-Poisson_Stochastic_Variable"><span class="header-section-number">A.6</span> Poisson</h2>
+<p>The Poisson distribution models the number of events occurring in a fixed interval of time or space, given that events occur independently at a constant average rate <span class="math inline">\(\lambda &gt; 0\)</span>. It is often used for count data such as the number of arrivals per hour or defects per unit.</p>
+<p><span class="math inline">\(X \thicksim\operatorname{Po}\left(\lambda\right)\)</span>, <span class="math inline">\(\lambda &gt; 0\)</span>, observations are independent, and <span class="math inline">\(\operatorname{log}\left(\lambda\right)\)</span> is a linear function of <span class="math inline">\(x\)</span>.</p>
 <section id="distribution-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-5">Distribution</h3>
-<p>The PDF (see <a href="Stochastic_Variables.html#sec-PDF" class="quarto-xref"><span>Section 2.3</span></a>) is given as <span class="math display">\[
-f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma}\operatorname{exp}\left(- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2\right)
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Poisson distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The PMF (see <a href="Stochastic_Variables.html#sec-PMF" class="quarto-xref"><span>Section 2.1</span></a>) is given as <span class="math display">\[
+p_X(x) = \frac{\lambda^x}{x!}\operatorname{exp}\left(-\lambda\right)
 \]</span></p>
 </section>
 <section id="expected-value-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="expected-value-5">Expected Value</h3>
 <p><span class="math display">\[
-\mathbb{E}\left[X\right] = \mu
+\mathbb{E}\left[X\right] = \lambda
 \]</span></p>
 </section>
 <section id="variance-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-5">Variance</h3>
 <p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \lambda
+\]</span></p>
+</section>
+</section>
+<section id="sec-Exponential_Stochastic_Variable" class="level2" data-number="A.7">
+<h2 data-number="A.7" class="anchored" data-anchor-id="sec-Exponential_Stochastic_Variable"><span class="header-section-number">A.7</span> Exponential</h2>
+<p>The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate <span class="math inline">\(\lambda &gt; 0\)</span>. It has the memoryless property: the probability of waiting an additional time <span class="math inline">\(t\)</span> does not depend on how long one has already waited.</p>
+<section id="distribution-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-6">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Exponential distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+f_X(x) = \begin{cases}
+    \lambda \cdot \operatorname{exp}\left(-\lambda \cdot x\right) &amp; x &gt; 0 \\
+    0 &amp; x \leq 0
+\end{cases}
+\]</span></p>
+</section>
+<section id="expected-value-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-6">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \frac{1}{\lambda}
+\]</span></p>
+</section>
+<section id="variance-6" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-6">Variance</h3>
+<p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \frac{1}{\lambda^2}
+\]</span></p>
+</section>
+</section>
+<section id="sec-Gamma_Stochastic_Variable" class="level2" data-number="A.8">
+<h2 data-number="A.8" class="anchored" data-anchor-id="sec-Gamma_Stochastic_Variable"><span class="header-section-number">A.8</span> Gamma</h2>
+<p>The gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the <span class="math inline">\(\alpha\)</span>-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. <span class="math inline">\(X \thicksim\operatorname{Gamma}\left(\alpha, \beta\right)\)</span>, where <span class="math inline">\(\alpha &gt; 0\)</span> is the shape parameter and <span class="math inline">\(\beta &gt; 0\)</span> is the rate parameter.</p>
+<section id="distribution-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-7">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Gamma distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(X \thicksim\operatorname{Gamma}\left(\alpha, \beta\right)\)</span> <span class="math display">\[
+f_X(x) = \begin{cases}
+    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\operatorname{exp}\left(-\beta \cdot x\right) &amp; x &gt; 0\\
+    0 &amp; x \leq 0
+\end{cases}
+\]</span></p>
+</section>
+<section id="expected-value-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-7">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \frac{\alpha}{\beta}
+\]</span></p>
+</section>
+<section id="variance-7" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-7">Variance</h3>
+<p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \frac{\alpha}{\beta^2}
+\]</span></p>
+</section>
+</section>
+<section id="sec-Gaussian_Stochastic_Variable" class="level2" data-number="A.9">
+<h2 data-number="A.9" class="anchored" data-anchor-id="sec-Gaussian_Stochastic_Variable"><span class="header-section-number">A.9</span> Gaussian</h2>
+<p>The Gaussian distribution is the most widely used continuous distribution, characterized by its symmetric bell-shaped curve. It arises naturally in many settings due to the central limit theorem, which states that sums of independent random variables tend toward a Gaussian distribution. <span class="math inline">\(X \thicksim\operatorname{N}\left(\mu, \sigma^2\right)\)</span>, with the standard Gaussian given as <span class="math inline">\(X \thicksim\operatorname{N}\left(0, 1\right)\)</span>.</p>
+<section id="distribution-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-8">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Gaussian distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The PDF (see <a href="Stochastic_Variables.html#sec-PDF" class="quarto-xref"><span>Section 2.3</span></a>) is given as <span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot \sigma} \cdot \operatorname{exp}\left(- \frac{1}{2 \cdot \sigma^2}\left(x - \mu\right)^2\right)
+\]</span></p>
+</section>
+<section id="expected-value-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-8">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \mu
+\]</span></p>
+</section>
+<section id="variance-8" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-8">Variance</h3>
+<p><span class="math display">\[
 \operatorname{Var}\left[X\right] = \sigma^2
 \]</span></p>
 </section>
 </section>
-<section id="uniform" class="level2" data-number="A.7">
-<h2 data-number="A.7" class="anchored" data-anchor-id="uniform"><span class="header-section-number">A.7</span> Uniform</h2>
-<p><span class="math inline">\(X \sim \operatorname{U}\left(a, b\right)\)</span></p>
-<section id="distribution-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="distribution-6">Distribution</h3>
+<section id="sec-Beta_Stochastic_Variable" class="level2" data-number="A.10">
+<h2 data-number="A.10" class="anchored" data-anchor-id="sec-Beta_Stochastic_Variable"><span class="header-section-number">A.10</span> Beta</h2>
+<p>The beta distribution is a continuous distribution defined on the interval <span class="math inline">\([0, 1]\)</span>, making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.</p>
+<section id="distribution-9" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-9">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Beta distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="expected-value-9" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-9">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \frac{\alpha}{\alpha + \beta}
+\]</span></p>
+</section>
+<section id="variance-9" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-9">Variance</h3>
+<p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
+\]</span></p>
+</section>
+</section>
+<section id="sec-Uniform_Stochastic_Variable" class="level2" data-number="A.11">
+<h2 data-number="A.11" class="anchored" data-anchor-id="sec-Uniform_Stochastic_Variable"><span class="header-section-number">A.11</span> Uniform</h2>
+<p>The uniform distribution assigns equal probability to all values within a bounded interval <span class="math inline">\([a, b]\)</span>. It is the simplest continuous distribution and is commonly used as a non-informative prior or for generating random samples via inverse transform sampling. <span class="math inline">\(X \thicksim\operatorname{U}\left(a, b\right)\)</span>.</p>
+<section id="distribution-10" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-10">Distribution</h3>
 <p><span class="math display">\[
 f_X(x) = \begin{cases}
     \frac{1}{b - a} &amp; x \in [a, b]\\
@@ -554,105 +756,37 @@ F_X(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 </section>
-<section id="expected-value-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="expected-value-6">Expected Value</h3>
-<p><span class="math display">\[
-\mathbb{E}\left[X\right] = \frac{1}{2}\left(a + b\right)
-\]</span></p>
-</section>
-<section id="variance-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variance-6">Variance</h3>
-<p><span class="math display">\[
-\operatorname{Var}\left[X\right] = \frac{1}{12}\left(b - a\right)^2
-\]</span></p>
-</section>
-</section>
-<section id="exponential" class="level2" data-number="A.8">
-<h2 data-number="A.8" class="anchored" data-anchor-id="exponential"><span class="header-section-number">A.8</span> Exponential</h2>
-<section id="distribution-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="distribution-7">Distribution</h3>
-<p><span class="math display">\[
-f_X(x) = \begin{cases}
-    \lambda \cdot \operatorname{exp}\left(-\lambda \cdot x\right) &amp; x &gt; 0\\
-    0 &amp; x \leq 0
-\end{cases}
-\]</span></p>
-</section>
-<section id="expected-value-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="expected-value-7">Expected Value</h3>
-<p><span class="math display">\[
-\mathbb{E}\left[X\right] = \frac{1}{\lambda}
-\]</span></p>
-</section>
-<section id="variance-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variance-7">Variance</h3>
-<p><span class="math display">\[
-\operatorname{Var}\left[X\right] = \frac{1}{\lambda^2}
-\]</span></p>
-</section>
-</section>
-<section id="geometric" class="level2" data-number="A.9">
-<h2 data-number="A.9" class="anchored" data-anchor-id="geometric"><span class="header-section-number">A.9</span> Geometric</h2>
-<section id="distribution-8" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="distribution-8">Distribution</h3>
-</section>
-<section id="expected-value-8" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="expected-value-8">Expected Value</h3>
-</section>
-<section id="variance-8" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variance-8">Variance</h3>
-</section>
-</section>
-<section id="gamma" class="level2" data-number="A.10">
-<h2 data-number="A.10" class="anchored" data-anchor-id="gamma"><span class="header-section-number">A.10</span> Gamma</h2>
-<section id="distribution-9" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="distribution-9">Distribution</h3>
-<p><span class="math inline">\(X \sim \operatorname{Gamma}\left(\alpha, \beta\right)\)</span> <span class="math display">\[
-f_X(x) = \begin{cases}
-    \frac{\beta^\alpha}{\varGamma(\alpha)} x^{\alpha - 1}\operatorname{exp}\left(-\beta \cdot x\right) &amp; x &gt; 0\\
-    0 &amp; x \leq 0
-\end{cases}
-\]</span></p>
-</section>
-<section id="expected-value-9" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="expected-value-9">Expected Value</h3>
-<p><span class="math display">\[
-\mathbb{E}\left[X\right] = \frac{\alpha}{\beta}
-\]</span></p>
-</section>
-<section id="variance-9" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variance-9">Variance</h3>
-<p><span class="math display">\[
-\operatorname{Var}\left[X\right] = \frac{\alpha}{\beta^2}
-\]</span></p>
-</section>
-</section>
-<section id="beta" class="level2" data-number="A.11">
-<h2 data-number="A.11" class="anchored" data-anchor-id="beta"><span class="header-section-number">A.11</span> Beta</h2>
-<section id="distribution-10" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="distribution-10">Distribution</h3>
-</section>
 <section id="expected-value-10" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="expected-value-10">Expected Value</h3>
 <p><span class="math display">\[
-\mathbb{E}\left[X\right]
+\mathbb{E}\left[X\right] = \frac{1}{2}\left(a + b\right)
 \]</span></p>
 </section>
 <section id="variance-10" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="variance-10">Variance</h3>
 <p><span class="math display">\[
-\operatorname{Var}\left[X\right]
+\operatorname{Var}\left[X\right] = \frac{1}{12}\left(b - a\right)^2
 \]</span></p>
 </section>
 </section>
-<section id="chi-square" class="level2" data-number="A.12">
-<h2 data-number="A.12" class="anchored" data-anchor-id="chi-square"><span class="header-section-number">A.12</span> Chi-square</h2>
-<p><span class="math inline">\(X \sim \operatorname{Gamma}\left(\frac{k}{2}, \frac{1}{2}\right)\)</span> <span class="math inline">\(k\in\mathbb{N}\)</span></p>
+<section id="sec-Chi-square_Stochastic_Variable" class="level2" data-number="A.12">
+<h2 data-number="A.12" class="anchored" data-anchor-id="sec-Chi-square_Stochastic_Variable"><span class="header-section-number">A.12</span> Chi-square</h2>
+<p>The chi-square distribution is a special case of the gamma distribution and arises as the distribution of the sum of squares of <span class="math inline">\(k\)</span> independent standard Gaussian random variables. It is widely used in hypothesis testing (e.g., goodness-of-fit tests) and in the construction of confidence intervals for variance. <span class="math inline">\(X \thicksim\operatorname{Gamma}\left(\frac{k}{2}, \frac{1}{2}\right)\)</span>, <span class="math inline">\(k \in \mathbb{N}\)</span>.</p>
 <section id="distribution-11" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="distribution-11">Distribution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="APP-Stochastic_Variables_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Chi-square distribution.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p><span class="math display">\[
 f_X(x) = \begin{cases}
-    \frac{x^{\frac{k}{2} - 1}\operatorname{exp}\left(- \frac{x}{2}\right)}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} &amp; x &gt; 0\\
+    \frac{x^{\frac{k}{2} - 1}\operatorname{exp}\left(-\frac{x}{2}\right)}{2^{\frac{k}{2} \cdot \varGamma\left(\frac{k}{2}\right)}} &amp; x &gt; 0 \\
     0 &amp; x \leq 0
 \end{cases}
 \]</span></p>
@@ -668,6 +802,46 @@ f_X(x) = \begin{cases}
 <p><span class="math display">\[
 \operatorname{Var}\left[X\right] = 2 \cdot k
 \]</span></p>
+</section>
+</section>
+<section id="sec-F_Stochastic_Variable" class="level2" data-number="A.13">
+<h2 data-number="A.13" class="anchored" data-anchor-id="sec-F_Stochastic_Variable"><span class="header-section-number">A.13</span> F</h2>
+<section id="distribution-12" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-12">Distribution</h3>
+</section>
+<section id="expected-value-12" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-12">Expected Value</h3>
+</section>
+<section id="variance-12" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-12">Variance</h3>
+</section>
+</section>
+<section id="sec-T_Stochastic_Variable" class="level2" data-number="A.14">
+<h2 data-number="A.14" class="anchored" data-anchor-id="sec-T_Stochastic_Variable"><span class="header-section-number">A.14</span> T</h2>
+<section id="distribution-13" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribution-13">Distribution</h3>
+<p><span class="math display">\[
+\frac{\Gamma\left(\frac{d + 1}{2}\right)}{\sqrt{\pi d} \cdot \Gamma\left(\frac{d}{2}\right)} \cdot \left(1 + \frac{x^2}{d}\right)^{-\frac{d + 1}{2}}
+\]</span> <span class="math inline">\(d &gt; 0\)</span> is the degrees of freedom.</p>
+</section>
+<section id="expected-value-13" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expected-value-13">Expected Value</h3>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \begin{cases}
+    0 &amp; d &gt; 1\\
+    \textrm{undefined} &amp; d \leq 1
+\end{cases}
+\]</span></p>
+</section>
+<section id="variance-13" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="variance-13">Variance</h3>
+<p><span class="math display">\[
+\operatorname{Var}\left[X\right] = \begin{cases}
+    \frac{d}{d - 2} &amp; d &gt; 2 \\
+    \infty &amp; 1 &lt; d \leq 2 \\
+    \textrm{undefined} &amp; d \leq 1
+\end{cases}
+\]</span> $$</p>
 
 
 </section>

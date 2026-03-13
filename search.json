@@ -62,21 +62,21 @@
   {
     "objectID": "Chapters/Probability/Introduction.html",
     "href": "Chapters/Probability/Introduction.html",
-    "title": "Probability Theory",
+    "title": "Probability",
     "section": "",
-    "text": "Sample Space\nProbability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.\nThe sample space of an experiment, e.g. rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be \\(\\Omega = \\{1,2,3,4,5,6\\}\\), and each event \\(E\\subseteq\\Omega\\). The probability that an event \\(E\\) occurs is denoted \\(\\Pr{E}\\), where \\(0 \\leq \\Pr{E} \\leq \\Pr{\\Omega} = 1\\).",
+    "text": "Sample Space\nProbability theory is the study of uncertainty and random events. It provides a framework for predicting the likelihood of different outcomes in a given situation. The foundation of probability theory begins with the concept of an experiment, which is any process that leads to an uncertain result—such as flipping a coin, rolling a die, or drawing a card. The sample space is the set of all possible outcomes of the experiment, and an event is any subset of this sample space.\nThe sample space of an experiment, e.g. rolling a die once, is the set of all of the possible outcomes. In the example of rolling a six-sided die once, the sample space would be \\(\\Omega = \\{1,2,3,4,5,6\\}\\), and each event \\(E\\subseteq\\Omega\\). The probability that an event \\(E\\) occurs is denoted \\(\\mathbb{P}\\left(E\\right)\\), where \\(0 \\leq \\mathbb{P}\\left(E\\right) \\leq \\mathbb{P}\\left(\\Omega\\right) = 1\\).",
     "crumbs": [
-      "Probability Theory"
+      "Probability"
     ]
   },
   {
     "objectID": "Chapters/Probability/Introduction.html#sec-Probability_Function",
     "href": "Chapters/Probability/Introduction.html#sec-Probability_Function",
-    "title": "Probability Theory",
+    "title": "Probability",
     "section": "Probability Function",
-    "text": "Probability Function\nProbability is assigned to events as a number between \\(0\\) and \\(1\\), where \\(0\\) indicates impossibility and \\(1\\) indicates certainty - \\(\\mathbb{P}: \\mathcal{A} \\to [0, 1]\\) for \\(E \\subseteq \\mathcal{A}\\). For example, the probability of rolling a \\(4\\) on a fair six-sided die is \\(1/6\\). Some basic rules of probability include: the probability of the entire sample space \\(\\Omega\\) is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.\n\\[\n\\begin{aligned}\n    \\Pr{E^\\mathrm{C}} &= 1 - \\Pr{E}\\\\\n    \\Pr{E_1 \\setminus E_2} &= \\Pr{E_1} - \\Pr{E_1 \\cap E_2}\\\\\n    \\Pr{E_1 \\cup E_2} &= \\Pr{E_1} + \\Pr{E_2} - \\Pr{E_1 \\cap E_2}\n\\end{aligned}\n\\]\n\\[\n\\Pr{E \\cap E^\\mathrm{C}} = 0\n\\]\n\nConditional Probability\n\\[\n\\Pr{E_1 \\mid E_2} = \\frac{\\Pr{E_1 \\cap E_2}}{\\Pr{E_2}}\n\\]\nTwo events are said to be independent if \\(\\Pr{E_1 \\cap E_2} = \\Pr{E_1}\\Pr{E_2}\\) meaning that if \\(\\Pr{E_2} &gt; 0\\), then \\(\\Pr{E_1 \\mid E_2} = \\Pr{E_1}\\).\n\nBayes Formula\n\\[\n\\Pr{E_2 \\mid E_1} = \\frac{\\Pr{E_1 \\mid E_2}\\Pr{E_1}}{\\Pr{E_2}},\\quad \\Pr{E_2} \\neq 0\n\\]",
+    "text": "Probability Function\nProbability is assigned to events as a number between \\(0\\) and \\(1\\), where \\(0\\) indicates impossibility and \\(1\\) indicates certainty - \\(\\mathbb{P}: \\mathcal{A} \\to [0, 1]\\) for \\(E \\subseteq \\mathcal{A}\\). For example, the probability of rolling a \\(4\\) (E = \\(\\{4\\}\\)) on a fair six-sided die is \\(1/6\\). Some basic rules of probability include: the probability of the entire sample space \\(\\Omega\\) is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities. More of such concepts will be presented in the following.\n\n\n\n\n\n\nTip 1: Probability Arithmetics\n\n\n\n\n\n\\[\n\\begin{aligned}\n    \\mathbb{P}\\left(E^\\mathrm{C}\\right) &= 1 - \\mathbb{P}\\left(E\\right) \\\\\n    \\mathbb{P}\\left(E_1 \\setminus E_2\\right) &= \\mathbb{P}\\left(E_1\\right) - \\mathbb{P}\\left(E_1 \\cap E_2\\right) \\\\\n    \\mathbb{P}\\left(E_1 \\cup E_2\\right) &= \\mathbb{P}\\left(E_1\\right) + \\mathbb{P}\\left(E_2\\right) - \\mathbb{P}\\left(E_1 \\cap E_2\\right)\n\\end{aligned}\n\\]\n\\[\n\\mathbb{P}\\left(E \\cap E^\\mathrm{C}\\right) = 0\n\\]\n\n\n\n\nConditional Probability\n\\[\n\\mathbb{P}\\left(E_1 \\mid E_2\\right) = \\frac{\\mathbb{P}\\left(E_1 \\cap E_2\\right)}{\\mathbb{P}\\left(E_2\\right)}\n\\]\nTwo events are said to be independent if \\(\\mathbb{P}\\left(E_1 \\cap E_2\\right) = \\mathbb{P}\\left(E_1\\right)\\mathbb{P}\\left(E_2\\right)\\) meaning that if \\(\\mathbb{P}\\left(E_2\\right) &gt; 0\\), then \\(\\mathbb{P}\\left(E_1 \\mid E_2\\right) = \\mathbb{P}\\left(E_1\\right)\\).\n\nBayes Formula\n\\[\n\\mathbb{P}\\left(E_2 \\mid E_1\\right) = \\frac{\\mathbb{P}\\left(E_1 \\mid E_2\\right)\\mathbb{P}\\left(E_1\\right)}{\\mathbb{P}\\left(E_2\\right)},\\quad \\mathbb{P}\\left(E_2\\right) \\neq 0\n\\]",
     "crumbs": [
-      "Probability Theory"
+      "Probability"
     ]
   },
   {
@@ -84,9 +84,9 @@
     "href": "Chapters/Probability/Stochastic_Variables.html",
     "title": "2  Stochastic Variables",
     "section": "",
-    "text": "2.1 Probability mass function (PMF)\nStochastistic variables are functions \\(X: \\Omega \\to \\mathcal{E}\\), where \\(\\mathcal{E}\\) is typically a countable space for discrete stochastic variables and \\(\\mathbb{R}\\) for continuous stochastic variables.\nThe probability mass function describes the probability of a discrete stochastic variable \\(X\\) being equal to \\(x\\). Think back to the example of a six sided die, where the probability of each side is \\(1/6\\), then the PMF would be constant. \\[\np_X(x) = \\Pr{X = x}\n\\] where \\(\\sum_{x} p_X\\left(x\\right) = 1\\).",
+    "text": "2.1 Probability mass function\nStochastistic variables are measureable functions \\(X: \\Omega \\to \\mathcal{E}\\), where \\(\\Omega\\) is the sample space and \\(\\mathcal{E}\\) is typically a countable space for discrete stochastic variables and \\(\\mathbb{R}\\) for continuous stochastic variables. The distribution of a stochastic variable describes the probabilities of the different outcomes of the stochastic variable. For example, if we roll a six-sided die, the stochastic variable \\(X\\) could represent the number that comes up, and its distribution would assign a probability of \\(1/6\\) to each of the outcomes \\(1, 2, 3, 4, 5,\\) and \\(6\\).\nThe probability mass function (PMF) describes the probability of a discrete stochastic variable \\(X\\) being equal to \\(x \\in \\Omega\\). The PMF is only defined for discrete stochastic variables. Think back to the example of a six-sided die, where the probability of each side is \\(1/6\\), then the PMF would be constant, as each outcome \\(x\\) is equally likely - the stochastic variable \\(X\\) is uniformly distributed. The PMF is defined as \\[\np_X(x) = \\mathbb{P}\\left(X = x\\right)\n\\] where \\(\\sum_{x \\in \\Omega} p_X\\left(x\\right) = 1\\) - the sum of all probabilities is 1.",
     "crumbs": [
-      "Probability Theory",
+      "Probability",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
@@ -94,10 +94,10 @@
     "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-CDF",
     "href": "Chapters/Probability/Stochastic_Variables.html#sec-CDF",
     "title": "2  Stochastic Variables",
-    "section": "2.2 Cumulative distribution function (CDF)",
-    "text": "2.2 Cumulative distribution function (CDF)\nThe cumulative distribution function describes the probability of a stochastic variable being less than or equal to \\(x\\) - the probability that some \\(x\\) is larger than the stochastic variable \\(X\\): \\[\nF_X(x) = \\Pr{X \\leq x}.\n\\] The phrasing of the CDF might sound familiar if you have previously worked with p-values (see ?sec-p_values).\nThe median of a stochastic variable is the \\(x_m\\) where \\(F_X\\left(x_m\\right) = 0.5\\).\nmonotone decreasing and right-continuous.",
+    "section": "2.2 Cumulative distribution function",
+    "text": "2.2 Cumulative distribution function\nThe cumulative distribution function (CDF) describes the probability of a stochastic variable being less than or equal to \\(x\\) - the probability that some \\(x\\) is larger than the stochastic variable \\(X\\). Due to the this, the CDF is monotone increasing and right-continuous, as probabilities are non-negative. The CDF is defined as \\[\nF_X(x) = \\mathbb{P}\\left(X \\leq x\\right).\n\\] The phrasing of the CDF might sound familiar if you have previously worked with p-values (see ?sec-p-values). Similarly, if you have heard of quantiles or median, these are all related to the CDF. Quantiles are the values of \\(x\\) where \\(F_X(x) = q\\), where \\(q\\) is the quantile. For example, the 0.25 (25%) quantile is the value of \\(x\\) where \\(F_X(x) = 0.25\\). The median is a special case of the quantiles, where \\(q = 0.5\\). The median of a stochastic variable is the value of \\(x\\) where there is a 50% chance that the stochastic variable is less than or equal to \\(x\\) - it is the value that splits the distribution in half.",
     "crumbs": [
-      "Probability Theory",
+      "Probability",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
@@ -105,10 +105,10 @@
     "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-PDF",
     "href": "Chapters/Probability/Stochastic_Variables.html#sec-PDF",
     "title": "2  Stochastic Variables",
-    "section": "2.3 Probability density function (PDF)",
-    "text": "2.3 Probability density function (PDF)\nThe probability density function is an extension to the PMF for continuous stochastic variables. \\[\nf_X(x) = \\frac{\\partial}{\\partial x} F_X(x)\n\\] where \\(\\int_0^\\infty f_x(x)\\,\\mathrm{d}x = 1\\) - the area under the curve is exactly 1.",
+    "section": "2.3 Probability density function",
+    "text": "2.3 Probability density function\nThe probability density function (PDF) is the continuous analogue of the PMF. The PDF describes the probability density of a continuous stochastic variable \\(X\\) at a value \\(x \\in \\Omega\\). The PDF is only defined for continuous stochastic variables. For example, if we have a continuous stochastic variable \\(X\\) that is uniformly distributed between 0 and 1, then the PDF would be constant at \\(f_X(x) = 1\\) for \\(0 \\leq x \\leq 1\\), and \\(f_X(x) = 0\\) otherwise. This also showcases the fact that the PDF is not a probability itself, but rather a probability density. The PDF is defined as \\[\nf_X(x) = \\frac{\\partial}{\\partial x} F_X(x)\n\\] where \\(F_X\\) is the CDF and \\(\\int_0^\\infty f_x(x)\\,\\mathrm{d}x = 1\\) - the area under the curve is exactly 1, meaning that the total probability is 1.\n\\[\nF_X(x) = \\int_{-\\infty}^x f_X(t)\\,\\mathrm{d}t\n\\]",
     "crumbs": [
-      "Probability Theory",
+      "Probability",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
@@ -117,9 +117,9 @@
     "href": "Chapters/Probability/Stochastic_Variables.html#sec-Expected_Value",
     "title": "2  Stochastic Variables",
     "section": "2.4 Expected Value",
-    "text": "2.4 Expected Value\nThe expected value of a stochastic variable, is often referred to as the mean of the stochastic variable. This is easier to see for discrete stochastic variables in the following. \\[\n\\begin{aligned}\n    \\E{X} &= \\begin{cases}\n        \\sum_{k = 1}^\\infty x_k \\cdot p_X\\left(x_k\\right) & X\\textrm{ is a discrete stochastic variable}\\\\\n        \\int_{-\\infty}^\\infty x \\cdot f_X\\left(x\\right) & X\\textrm{ is a continous stochastic variable}\\end{cases}\n\\end{aligned}\n\\tag{2.1}\\]\nFor a series of stochastic variables \\(X_1, X_2,\\dots, X_n\\), the sum of the expected values is the same as the expected value of the sum of stochastic variables - \\(\\sum_{i=1}^n\\E{X_i} = \\E{\\sum_{i=1}^n X_i}\\).\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent, then \\(\\E{X \\cdot Y} = \\E{X} \\cdot \\E{Y}\\).\n\n2.4.1 Conditional Expected Value\n\\[\n\\begin{aligned}\n    \\E{X} &= \\begin{cases}1\\\\2\\end{cases}\n\\end{aligned}\n\\]\n\\[\n\\E{X} = \\E{\\E{Y\\mid X}}\n\\]",
+    "text": "2.4 Expected Value\nThe expected value of a stochastic variable, is often referred to as the mean of the stochastic variable. This is easier to see for discrete stochastic variables in the following. \\[\n\\begin{aligned}\n    \\mathbb{E}\\left[X\\right] &= \\begin{cases}\n        \\sum_{k = 1}^\\infty x_k \\cdot p_X\\left(x_k\\right) & X\\text{ is a discrete stochastic variable} \\\\\n        \\int_{-\\infty}^\\infty x \\cdot f_X\\left(x\\right)\\,\\mathrm{d}x & X\\text{ is a continuous stochastic variable}\n    \\end{cases}\n\\end{aligned}\n\\tag{2.1}\\]\nFor a series of stochastic variables \\(X_1, X_2,\\dots, X_n\\), the sum of the expected values is the same as the expected value of the sum of stochastic variables - \\(\\sum_{i=1}^n\\mathbb{E}\\left[X_i\\right] = \\mathbb{E}\\left[\\sum_{i=1}^n X_i\\right]\\).\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent, then \\(\\mathbb{E}\\left[X \\cdot Y\\right] = \\mathbb{E}\\left[X\\right] \\cdot \\mathbb{E}\\left[Y\\right]\\).\n\n2.4.1 Conditional Expected Value\nThe conditional expected value of a stochastic variable \\(Y\\) given another stochastic variable \\(X\\) is the expected value of \\(Y\\) given that \\(X\\) takes on a specific value. The conditional expected value is defined as \\[\n\\begin{aligned}\n    \\mathbb{E}\\left[X \\mid Y = y\\right] &= \\begin{cases}\n        \\sum_{x} x \\cdot \\mathbb{P}\\left(X = x \\mid Y = y\\right) & X\\text{ is a discrete stochastic variable} \\\\\n        \\int_{-\\infty}^\\infty x \\cdot f_{X\\mid Y}\\left(x \\mid Y = y\\right) \\, \\mathrm{d}x & X\\text{ is a continuous stochastic variable}\n    \\end{cases}\n\\end{aligned}\n\\]\n\\[\n\\mathbb{E}\\left[X\\right] = \\mathbb{E}\\left[\\mathbb{E}\\left[Y\\mid X\\right]\\right]\n\\]",
     "crumbs": [
-      "Probability Theory",
+      "Probability",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
@@ -128,9 +128,31 @@
     "href": "Chapters/Probability/Stochastic_Variables.html#sec-Variance",
     "title": "2  Stochastic Variables",
     "section": "2.5 Variance",
-    "text": "2.5 Variance\n\\[\n\\begin{aligned}\n    \\Var{X} &= \\E{\\left(X - \\E{X}\\right)^2}\\\\\n    &= \\E{X^2} - \\left(\\E{X}\\right)^2\n\\end{aligned}\n\\] where \\(\\Var{X} \\geq 0\\).\n\\(\\Var{a \\cdot X + b} = a^2 \\cdot \\Var{X}\\), because \\(\\Var{b} = 0\\).\nThe standard deviation of the stochastic variable is \\(\\sqrt{\\Var{X}}\\). The standard deviation can be thought of as what the\n\n2.5.1 Covariance\n\\[\n\\begin{aligned}\n    \\Cov{X, Y} &= \\E{X \\cdot Y} - \\E{X}\\E{Y}\\\\\n    &= \\E{\\left(X - \\E{X}\\right)\\left(Y - \\E{Y}\\right)}\n\\end{aligned}\n\\tag{2.2}\\]\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent, then their covariance is 0. However, the converse is not true - even though the covariance between two stochastic variables is 0, then they are not independent.\nThe covariance between a stochastic variable and itself is equivalent to the stochastic variable’s variance - \\(\\Cov{X,X} = \\Var{X}\\).\n\\(\\Cov{a \\cdot X + b, c \\cdot Y + d} = a \\cdot c \\cdot \\Cov{X, Y}\\).\n\\(\\Var{X + Y} = \\Var{X} + \\Var{Y} + 2 \\cdot \\Cov{X, Y}\\).\n\n\n2.5.2 Correlation\n\\[\n\\Cor{X, Y} = \\frac{\\Cov{X, Y}}{\\sqrt{\\Var{X} \\Var{Y}}}\n\\] {eq-Correlation} Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. However, even if two stochastic variables are uncorrelated (their correlation is 0), they are not neccesarily independent.",
+    "text": "2.5 Variance\nThe variance of a stochastic variable measures how spread out the values are around the expected value. It quantifies the variability/dispersion of a stochastic variable - a high variance indicates that the values tend to be far from the mean, while a low variance indicates that the values are clustered close to the mean. Variance is always non-negative and is measured in the square of the units of the stochastic variable. The variance of a stochastic variable \\(X\\) is defined as \\[\n\\begin{aligned}\n    \\operatorname{Var}\\left[X\\right] &= \\mathbb{E}\\left[\\left(X - \\mathbb{E}\\left[X\\right]\\right)^2\\right]\\\\\n    &= \\mathbb{E}\\left[X^2\\right] - \\left(\\mathbb{E}\\left[X\\right]\\right)^2\n\\end{aligned}\n\\]\n\\(\\operatorname{Var}\\left[a \\cdot X + b\\right] = a^2 \\cdot \\operatorname{Var}\\left[X\\right]\\), because \\(\\operatorname{Var}\\left[b\\right] = 0\\).\nThe standard deviation (SD) of the stochastic variable is \\(\\sqrt{\\operatorname{Var}\\left[X\\right]}\\). The standard deviation can be thought of as what the “average” deviation from the mean would be if the units were the same as the stochastic variable, instead of being in the square of the units. For example, if we have a stochastic variable that measures height in centimeters, then the variance would be in square centimeters, while the standard deviation would be in centimeters.",
     "crumbs": [
-      "Probability Theory",
+      "Probability",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-Covariance",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-Covariance",
+    "title": "2  Stochastic Variables",
+    "section": "2.6 Covariance",
+    "text": "2.6 Covariance\nThe covariance between two stochastic variables \\(X\\) and \\(Y\\) measures how much the two stochastic variables vary together. A positive covariance indicates that the two stochastic variables tend to increase or decrease together, while a negative covariance indicates that one stochastic variable tends to increase when the other decreases (and the opposite). A covariance of zero indicates that there is no linear relationship between the two stochastic variables. The covariance between two stochastic variables \\(X\\) and \\(Y\\) is defined as \\[\n\\begin{aligned}\n    \\operatorname{Cov}\\left[X, Y\\right] &= \\mathbb{E}\\left[X \\cdot Y\\right] - \\mathbb{E}\\left[X\\right] \\cdot \\mathbb{E}\\left[Y\\right]\\\\\n    &= \\mathbb{E}\\left[\\left(X - \\mathbb{E}\\left[X\\right]\\right)\\left(Y - \\mathbb{E}\\left[Y\\right]\\right)\\right]\n\\end{aligned}\n\\tag{2.2}\\]\nIf the two stochastic variables \\(X\\) and \\(Y\\) are independent their covariance is 0. However, the converse is not true - if the covariance between two stochastic variables is 0, then they are not necessarily independent.\nThe covariance between a stochastic variable and itself is equivalent to the stochastic variable’s variance - \\(\\operatorname{Cov}\\left[X,X\\right] = \\operatorname{Var}\\left[X\\right]\\).\n\\(\\operatorname{Cov}\\left[a \\cdot X + b, c \\cdot Y + d\\right] = a \\cdot c \\cdot \\operatorname{Cov}\\left[X, Y\\right]\\).\n\\(\\operatorname{Var}\\left[X + Y\\right] = \\operatorname{Var}\\left[X\\right] + \\operatorname{Var}\\left[Y\\right] + 2 \\cdot \\operatorname{Cov}\\left[X, Y\\right]\\).",
+    "crumbs": [
+      "Probability",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/Stochastic_Variables.html#sec-Correlation",
+    "href": "Chapters/Probability/Stochastic_Variables.html#sec-Correlation",
+    "title": "2  Stochastic Variables",
+    "section": "2.7 Correlation",
+    "text": "2.7 Correlation\nThe correlation between two stochastic variables \\(X\\) and \\(Y\\) is a standardized measure of the linear relationship between the two stochastic variables. It is defined as the covariance between the two stochastic variables divided by the product of their standard deviations. The correlation is always between -1 and 1, where a correlation of 1 indicates a perfect positive linear relationship, a correlation of -1 indicates a perfect negative linear relationship, and a correlation of 0 indicates no linear relationship. The correlation between two stochastic variables \\(X\\) and \\(Y\\) is defined as \\[\n\\operatorname{Cor}\\left[X, Y\\right] = \\frac{\\operatorname{Cov}\\left[X, Y\\right]}{\\sqrt{\\operatorname{Var}\\left[X\\right] \\operatorname{Var}\\left[Y\\right]}}\n\\tag{2.3}\\] Similiar to how the covariance is 0 for independent variables, this is also the case for the correlation. Similarly, even if two stochastic variables are uncorrelated (their correlation is 0), they are not necessarily independent.",
+    "crumbs": [
+      "Probability",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Stochastic Variables</span>"
     ]
   },
@@ -201,7 +223,7 @@
     "href": "Chapters/Statistical_Models/Linear_Regression.html",
     "title": "4  Linear Regression",
     "section": "",
-    "text": "Shortcomings\nLinear regression is used to model the relationship between response- and exploratory variable(s). Let \\(y\\) be the response variable(s) and \\(X \\cdot \\alpha\\) the system of exploratory variables with regression coefficients described by \\(\\alpha\\) also called fixed effects. \\[\ny = X \\cdot \\alpha + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, describing where, \\(\\varepsilon\\) is the zero-mean errors.\nThat does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see Section A.6) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.",
+    "text": "Shortcomings\nLinear regression is used to model the relationship between response- and exploratory variable(s). Let \\(y\\) be the response variable(s) and \\(X \\cdot \\alpha\\) the system of exploratory variables with regression coefficients described by \\(\\alpha\\) also called fixed effects. \\[\ny = X \\cdot \\alpha + \\varepsilon\n\\] where \\(X\\) is the fixed effects design matrix, describing where, \\(\\varepsilon\\) is the zero-mean errors.\nThat does not mean that the linear regression does not have its shortcomings. Firstly, the assumption of a linear relationship between the response- and exploratory variable(s). This might not be correct for some data. Even if the data assumes a linear relationship, if outliers of the response variable have a dispropotionate influence on the fixed effects, then these fixed effects might be misleading. Secondly, similar to other statistical models, the linear regression does not handle missing data very well, and some preprocessing techniques might have to be applied to ensure reliable results. Moreover, when including too many exploratory variables with respect to the data size, the linear regression is prone to overfitting, reducing the generalisation of the fit. The addition of more exploratory variables are also only additive, meaning that it is not able to handle more complex relationships between the response- and exploratory variable(s). Furthermore, the errors in the linear regression are assumed to be Gaussian (see Section A.9) with constant variance. Devations from this can affect the confidence intervals, and thus some hypotheses that depend on this assumption.",
     "crumbs": [
       "Statistical Models",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Linear Regression</span>"
@@ -299,7 +321,7 @@
     "href": "Chapters/Survival_Analysis/Survival_Function.html",
     "title": "9  Survival function",
     "section": "",
-    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\newcommand{\\ln}[1]{\\operatorname{ln}\\left(#1\\right)}\n\\newcommand{\\Nd}[1]{\\operatorname{N}\\left(#1\\right)}\n\\]\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can utilize the concept of stochastic variables (see Chapter 2). The CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\Pr{T \\leq t}\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function (CIF) and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\Pr{T \\leq t} \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\mathrm{d}u\n\\end{aligned}\n\\tag{9.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\Pr{T &gt; t} = \\int_t^\\infty f_T(x) \\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\nExample 9.1 (Survival Function)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(dplyr)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Plot\n\n\n\n\n\n\n\n\n\n\nSurvival curve for lung cancer patients at different institutes.",
+    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTo describe how probable it is for a person to survive until some time \\(t\\), we can utilize the concept of stochastic variables (see Chapter 2). The CDF (see Section 2.2) can be used to describe the probability that an event occurs prior to time \\(t\\) - \\(\\mathbb{P}\\left(T \\leq t\\right)\\). The CDF of the stochastic variable \\(T\\) is often referred to as the cumulative incidence function (CIF) and can be expressed as \\[\n\\begin{aligned}\n    F_T(t) &= \\mathbb{P}\\left(T \\leq t\\right) \\\\\n    &= \\int_0^t h(u) \\cdot S(u) \\,\\mathrm{d}u\n\\end{aligned}\n\\tag{9.1}\\] where \\(S\\) is the survival function and \\(h\\) is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time \\(t\\). Thus, the survival function can be defined as \\[\n\\begin{aligned}\n    S(t) &= 1 - F_T(t) \\\\\n    &= \\mathbb{P}\\left(T &gt; t\\right) = \\int_t^\\infty f_T(x) \\,\\mathrm{d}x\n\\end{aligned}\n\\] where \\(F_T\\) is the CIF and \\(f_T\\) the pdf of \\(T\\). One of the proporties of the survival function is that it is monotonically decreasing, i.e. \\(S(t_2) \\leq S(t_1)\\) for all \\(t_1 \\geq t_2\\).\n\nExample 9.1 (Survival Function)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(dplyr)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Plot\n\n\n\n\n\n\n\n\n\n\nSurvival curve for lung cancer patients at different institutes.",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Survival function</span>"
@@ -310,7 +332,7 @@
     "href": "Chapters/Survival_Analysis/Hazard_Function.html",
     "title": "10  Hazard function",
     "section": "",
-    "text": "10.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). The instantaneuos risk at a time \\(t\\) is bounded between 0 and 1, where the sum over all \\(t\\) is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between \\(t\\) and \\(t+\\Delta t\\) divided by the population size at risk at time \\(t\\), divided by \\(\\Delta t\\). In the continuous case, the hazard function is given as \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\Pr{t \\leq T &lt; t + \\Delta t \\mid T \\geq t}}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(t\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\ln{S(t)}\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 9), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
+    "text": "10.1 Cumulative hazard function\nThe hazard function \\(h\\) describes the instantaneous risk of an event at a time \\(t\\). The instantaneuos risk at a time \\(t\\) is bounded between 0 and 1, where the sum over all \\(t\\) is 1. Mathematically, in the discrete case, this instantaneous risk equals the number of events between \\(t\\) and \\(t+\\Delta t\\) divided by the population size at risk at time \\(t\\), divided by \\(\\Delta t\\). In the continuous case, the hazard function is given as \\[\n\\begin{aligned}\n    h(t) &= \\lambda(t)\n    \\\\&= \\lim_{\\Delta t \\to 0}\\frac{\\mathbb{P}\\left(t \\leq T &lt; t + \\Delta t \\mid T \\geq t\\right)}{\\Delta t}\n\\end{aligned}\n\\]\nThe cumulative hazard function \\(H\\) describes the cumulative hazard up until a time \\(t\\). \\[\n\\begin{aligned}\n    H(t) &= \\int_0^t h(u)\\,\\textrm{d}u\\\\\n    &= \\operatorname{ln}\\left(S(t)\\right)\n\\end{aligned}\n\\] As opposed to the survival function (see Chapter 9), the cumulative hazard function is monotonically increasing, i.e. \\(H(t_2) \\leq H(t_1)\\) for all \\(t_1 \\geq t_2\\).",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Hazard function</span>"
@@ -409,7 +431,7 @@
     "href": "Chapters/Survival_Analysis/Cox.html",
     "title": "14  Cox Regression",
     "section": "",
-    "text": "14.1 Separation\nThe Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see Chapter 10), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.\nThe Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.\nThe Cox proportional hazards model is defined as: \\[\nh(t) = h_0(t) \\cdot \\exp{\\sum_{i=1}^p \\beta_i x_i}\n\\tag{14.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1, x_2, \\dots, x_p\\) are the covariates and \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 3), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
+    "text": "14.1 Separation\nThe Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see Chapter 10), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.\nThe Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.\nThe Cox proportional hazards model is defined as: \\[\nh(t) = h_0(t) \\cdot \\operatorname{exp}\\left(\\sum_{i=1}^p \\beta_i x_i\\right)\n\\tag{14.1}\\] where \\(h_0\\) is the baseline hazard function, \\(x_1, x_2, \\dots, x_p\\) are the covariates and \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\) the associated effect sizes of the covariates.\nThe Cox model assumes that continuous covariates have a linear relationship with \\(h\\).\nSimilar to logistic regression (see Chapter 3), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
@@ -431,7 +453,7 @@
     "href": "Chapters/Survival_Analysis/Cox.html#stratification",
     "title": "14  Cox Regression",
     "section": "14.2 Stratification",
-    "text": "14.2 Stratification\nWhen stratifying a Cox model (see Equation 14.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum (each level of the stratification variable). Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g = 1}(t) \\cdot \\exp{\\sum_{i = 1}^p \\beta_i x_i} & \\textrm{if } g = 1\\\\\n    h_{0, g = 2}(t) \\cdot \\exp{\\sum_{i = 1}^p \\beta_i x_i} & \\textrm{if } g = 2\n\\end{cases}\n\\tag{14.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 14.1 (Proportional Cox model)  \n\nRPython\n\n\n\n# Packages\nlibrary(tidyverse)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n## Coefficients\nbroom::tidy(cox_fit)\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n# Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)\n\n\n\n\n# Packages\nimport pandas as pd\nimport lifelines\n\n# Data\n\n# Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n## Coefficients\ncph.print_summary()\n\n\n# Plot\ncph.plot()",
+    "text": "14.2 Stratification\nWhen stratifying a Cox model (see Equation 14.1), it allows the model to fix different baseline hazard functions \\(h_0\\) for each stratum (each level of the stratification variable). Thus, if there are two stratum, \\(g=1\\) and \\(g=2\\), the Cox model is given as \\[\nh(t) = \\begin{cases}\n    h_{0, g = 1}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 1\\\\\n    h_{0, g = 2}(t) \\cdot \\operatorname{exp}\\left(\\sum_{i = 1}^p \\beta_i x_i\\right) & \\textrm{if } g = 2\n\\end{cases}\n\\tag{14.2}\\] meaning that the two stratum share the same effect sizes \\(\\beta_1, \\beta_2, \\dots, \\beta_p\\). On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.\n\nExample 14.1 (Proportional Cox model)  \n\nRPython\n\n\n\n# Packages\nlibrary(tidyverse)\nlibrary(survival)\nlibrary(survminer)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncox_fit &lt;- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = \"breslow\")\n\n## Coefficients\nbroom::tidy(cox_fit)\nsurvival::cox.zph(cox_fit) # Test if covariate HR changes over time\n\n# Plot\nplot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)\nsurvminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)\n\n\n\n\n# Packages\nimport pandas as pd\nimport lifelines\n\n# Data\n\n# Model\n# * status == 1: event, status == 0: censored\ncph = CoxPHFitter()\ncph.fit(data, duration_col = 'time', event_col = 'status')\n\n## Coefficients\ncph.print_summary()\n\n\n# Plot\ncph.plot()",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
@@ -442,7 +464,7 @@
     "href": "Chapters/Survival_Analysis/Cox.html#mixed-effects-cox-model",
     "title": "14  Cox Regression",
     "section": "14.3 Mixed Effects Cox Model",
-    "text": "14.3 Mixed Effects Cox Model\nThe Cox model can be Section 3 \\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\exp{X\\beta + Zb}\\\\\n    b &\\sim \\Nd{0, \\Sigma\\left(\\theta\\right)}\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution (see Section A.6) with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\nExample 14.2 (Mixed Effects Cox model)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(tidyverse)\nlibrary(coxme)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncoxme_fit &lt;- coxme::coxme(survival::Surv(time, status == 2) ~ age + sex + (1 | inst), data_f)\n\n## Coefficients\nsummary(coxme_fit)\n\n# Plot",
+    "text": "14.3 Mixed Effects Cox Model\nThe Cox model can be Section 3 \\[\n\\begin{aligned}\n    h(t) &= h_0(t) \\cdot \\operatorname{exp}\\left(X\\beta + Zb\\right)\\\\\n    b &\\thicksim\\operatorname{N}\\left(0, \\Sigma\\left(\\theta\\right)\\right)\n\\end{aligned}\n\\] where \\(\\operatorname{N}\\) is a Gaussian distribution (see Section A.9) with mean \\(0\\) and covariance \\(\\Sigma(\\theta)\\).\n\nExample 14.2 (Mixed Effects Cox model)  \n\nR\n\n\n\n# Packages\nlibrary(survival)\nlibrary(tidyverse)\nlibrary(coxme)\n\n# Data\n## Get data\ndata(cancer, package = \"survival\")\n\n## Transform and select data\ndata_f &lt;- lung %&gt;%\n    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %&gt;%\n    dplyr::mutate(sex = if_else(sex == 1, \"Male\", \"Female\")) %&gt;%\n    dplyr::mutate_at(.vars = c(\"inst\", \"status\", \"sex\"), .funs = as.factor)\n\n# Model\n# * status == 2: event, status == 1: censored\ncoxme_fit &lt;- coxme::coxme(survival::Surv(time, status == 2) ~ age + sex + (1 | inst), data_f)\n\n## Coefficients\nsummary(coxme_fit)\n\n# Plot",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Cox Regression</span>"
@@ -453,7 +475,7 @@
     "href": "Chapters/Survival_Analysis/Competing_Risk.html",
     "title": "15  Competing Risk Analysis",
     "section": "",
-    "text": "\\[\n\\newcommand{\\Pr}[1]{\\mathbb{P}\\left(#1\\right)}\n\\newcommand{\\ln}[1]{\\operatorname{ln}\\left(#1\\right)}\n\\newcommand{\\Nd}[1]{\\operatorname{N}\\left(#1\\right)}\n\\]\n\nTake for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 9.1) for a specific event, \\(F_j(t) = \\Pr{T\\leq t, C = j} = \\int_t^t h_j(u) \\cdot S(u)\\,\\mathrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
+    "text": "$$ % Basic sets/Variables \n% Probability and statistics\n%\n% Linear algebra\n% Math functions\n% Distributions\n% Update symbols $$\n\nTake for example the analysis where we are interested in observing whether a subject dies of a specific disease during the trial, then a competing risk is if the death is caused by another (specified) disease. The hazard rate for a specific type of event is noted by: \\(h_j(t)\\), where the overall hazard rate, with \\(k\\) different events, would then be described as: \\(h(t) = \\sum_{j=1}^k h_j(t)\\).\nThe CIF (See Equation 9.1) for a specific event, \\(F_j(t) = \\mathbb{P}\\left(T\\leq t, C = j\\right) = \\int_t^t h_j(u) \\cdot S(u)\\,\\mathrm{d}u\\), describes. Similar to the overall hazard ratio, the overall CIF can be described by \\(F(t) = \\sum_{j=1}^k F_j(t)\\).",
     "crumbs": [
       "Survival Analysis",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Competing Risk Analysis</span>"
@@ -548,62 +570,95 @@
     "href": "Chapters/Probability/APP-Stochastic_Variables.html",
     "title": "Appendix A — Common Stochastic Variables",
     "section": "",
-    "text": "A.1 Bernoulli\nA bernoulli stochastic variable \\(X\\sim\\operatorname{B}\\left(n, p\\right)\\) has the sample space \\(\\Omega = \\{0, 1\\}\\) with the probabilities \\(\\mathbb{P}\\left(X = 1\\right) = p\\) and the opposite, \\(\\mathbb{P}\\left(X = 0\\right) = 1 - p\\).",
+    "text": "A.1 Bernoulli\nA bernoulli stochastic variable \\(X\\thicksim\\operatorname{B}\\left(n, p\\right)\\) has the sample space \\(\\Omega = \\{0, 1\\}\\) with the probabilities \\(\\mathbb{P}\\left(X = 1\\right) = p\\) and the opposite, \\(\\mathbb{P}\\left(X = 0\\right) = 1 - p\\).",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#bernoulli",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#bernoulli",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Bernoulli_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Bernoulli_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
     "section": "",
-    "text": "Distribution\n\\[\n\\begin{cases}p &\\textrm{if } x = 1\\\\ 1 - p &\\textrm{if } x = 0\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = p \\cdot (1-p)\n\\]",
+    "text": "Distribution\n\\[\n\\begin{cases}\n    p &\\textrm{if } x = 1 \\\\\n    1 - p &\\textrm{if } x = 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = p \\cdot (1 - p)\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#bionomial",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#bionomial",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Binomial_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Binomial_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.2 Bionomial",
-    "text": "A.2 Bionomial\nA bionomial stochastic variable is a bernoulli stochastic variable repeated \\(n\\) times.\n\nDistribution\nThe PMF (see Section 2.1) is given as \\[\n\\binom{n}{k}\\cdot p^k \\cdot \\left(1-p\\right)^{n-k}\n\\] where \\(k\\) is the number of \\(1\\)’s out of the possible \\(n\\) experiments.\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = n \\cdot p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = n \\cdot p \\cdot (1-p)\n\\]",
+    "section": "A.2 Binomial",
+    "text": "A.2 Binomial\nA binomial stochastic variable is a Bernoulli stochastic variable repeated \\(n\\) times.\n\nDistribution\nThe PMF (see Section 2.1) is given as \\[\n\\binom{n}{k}\\cdot p^k \\cdot \\left(1 - p\\right)^{n - k}\n\\] where \\(k\\) is the number of \\(1\\)’s out of the possible \\(n\\) experiments.\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = n \\cdot p\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = n \\cdot p \\cdot (1 - p)\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#negative-binomial",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#negative-binomial",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Geometric_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Geometric_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.3 Negative Binomial",
-    "text": "A.3 Negative Binomial\n\nDistribution\n\n\nExpected Value\n\n\nVariance",
+    "section": "A.3 Geometric",
+    "text": "A.3 Geometric\nThe geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability \\(p\\). It is the discrete analogue of the exponential distribution and shares the memoryless property.\n\nDistribution\n\n\n\n\n\nGeometric distribution.\n\n\n\n\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{p}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1 - p}{p^2}\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#poisson",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#poisson",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Negative_Binomial_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Negative_Binomial_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.4 Poisson",
-    "text": "A.4 Poisson\n\\(X \\sim \\operatorname{Po}\\left(\\lambda\\right)\\) \\(\\lambda &gt; 0\\)\n\nDistribution\nThe PMF (see Section 2.1) is given as \\[\np_X(x) = \\frac{\\lambda^x}{x!}\\operatorname{exp}\\left(-\\lambda\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\lambda\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\lambda\n\\]",
+    "section": "A.4 Negative Binomial",
+    "text": "A.4 Negative Binomial\nConsider an experiment of independent Bernoulli (see Section A.1) trials, each with probability \\(p\\). If we are interested in when we have \\(r\\) successes consider the Negative Binomial distribution \\[\nX \\thicksim\\operatorname{NegBin}\\left(r, p\\right)\n\\]\n\nDistribution\n\n\n\n\n\nNegative binomial distribution.\n\n\n\n\nPMF \\[\np_X(k) = \\binom{k - 1}{r - 1}p^r\\left(1 - p\\right)^{k - r}\\quad\nk = r, r+1, \\dots\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{r}{p}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = r \\frac{\\left(1 - p\\right)}{p^2}\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#poisson-1",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#poisson-1",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Hypergeometric_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Hypergeometric_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.5 Poisson",
-    "text": "A.5 Poisson\n\\(X \\sim \\operatorname{Po}\\left(\\lambda\\right)\\) \\(\\lambda &gt; 0\\)\n\nDistribution\nThe PMF (see Section 2.1) is given as \\[\np_X(x) = \\frac{\\lambda^x}{x!}\\operatorname{exp}\\left(-\\lambda\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\lambda\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\lambda\n\\]",
+    "section": "A.5 Hypergeometric",
+    "text": "A.5 Hypergeometric\nThe hypergeometric distribution models the number of successes in a sample drawn without replacement from a finite population containing a fixed number of successes. It is used in scenarios such as quality control or card games where the order of selection matters and the population is not infinite.\n\nDistribution\n\n\n\n\n\nHypergeometric distribution.\n\n\n\n\n\\[\n\\frac{\\binom{m}{y} \\binom{N - m}{n - y}}{\\binom{N}{n}}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = n \\cdot \\frac{m}{N}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = n \\cdot \\frac{m}{N} \\cdot \\left(1 - \\frac{m}{N}\\right) \\cdot \\frac{N - n}{N - 1}\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Poisson_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Poisson_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.6 Poisson",
+    "text": "A.6 Poisson\nThe Poisson distribution models the number of events occurring in a fixed interval of time or space, given that events occur independently at a constant average rate \\(\\lambda &gt; 0\\). It is often used for count data such as the number of arrivals per hour or defects per unit.\n\\(X \\thicksim\\operatorname{Po}\\left(\\lambda\\right)\\), \\(\\lambda &gt; 0\\), observations are independent, and \\(\\operatorname{log}\\left(\\lambda\\right)\\) is a linear function of \\(x\\).\n\nDistribution\n\n\n\n\n\nPoisson distribution.\n\n\n\n\nThe PMF (see Section 2.1) is given as \\[\np_X(x) = \\frac{\\lambda^x}{x!}\\operatorname{exp}\\left(-\\lambda\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\lambda\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\lambda\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Exponential_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Exponential_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.7 Exponential",
+    "text": "A.7 Exponential\nThe exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate \\(\\lambda &gt; 0\\). It has the memoryless property: the probability of waiting an additional time \\(t\\) does not depend on how long one has already waited.\n\nDistribution\n\n\n\n\n\nExponential distribution.\n\n\n\n\n\\[\nf_X(x) = \\begin{cases}\n    \\lambda \\cdot \\operatorname{exp}\\left(-\\lambda \\cdot x\\right) & x &gt; 0 \\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{\\lambda}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{\\lambda^2}\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gamma_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gamma_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.8 Gamma",
+    "text": "A.8 Gamma\nThe gamma distribution is a flexible two-parameter family of continuous distributions that generalizes the exponential distribution. It models the waiting time until the \\(\\alpha\\)-th event in a Poisson process, and includes the chi-square and exponential distributions as special cases. \\(X \\thicksim\\operatorname{Gamma}\\left(\\alpha, \\beta\\right)\\), where \\(\\alpha &gt; 0\\) is the shape parameter and \\(\\beta &gt; 0\\) is the rate parameter.\n\nDistribution\n\n\n\n\n\nGamma distribution.\n\n\n\n\n\\(X \\thicksim\\operatorname{Gamma}\\left(\\alpha, \\beta\\right)\\) \\[\nf_X(x) = \\begin{cases}\n    \\frac{\\beta^\\alpha}{\\varGamma(\\alpha)} x^{\\alpha - 1}\\operatorname{exp}\\left(-\\beta \\cdot x\\right) & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{\\alpha}{\\beta}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{\\alpha}{\\beta^2}\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
@@ -613,74 +668,63 @@
     "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable",
     "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.6 Gaussian",
-    "text": "A.6 Gaussian\n\\(X \\sim \\operatorname{N}\\left(\\mu, \\sigma^2\\right)\\). The standard Gaussian distribution is given as \\(X \\sim \\operatorname{N}\\left(0, 1\\right)\\).\n\nDistribution\nThe PDF (see Section 2.3) is given as \\[\nf_X(x) = \\frac{1}{\\sqrt{2 \\cdot \\pi} \\cdot \\sigma}\\operatorname{exp}\\left(- \\frac{1}{2 \\cdot \\sigma^2}\\left(x - \\mu\\right)^2\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\mu\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\sigma^2\n\\]",
+    "section": "A.9 Gaussian",
+    "text": "A.9 Gaussian\nThe Gaussian distribution is the most widely used continuous distribution, characterized by its symmetric bell-shaped curve. It arises naturally in many settings due to the central limit theorem, which states that sums of independent random variables tend toward a Gaussian distribution. \\(X \\thicksim\\operatorname{N}\\left(\\mu, \\sigma^2\\right)\\), with the standard Gaussian given as \\(X \\thicksim\\operatorname{N}\\left(0, 1\\right)\\).\n\nDistribution\n\n\n\n\n\nGaussian distribution.\n\n\n\n\nThe PDF (see Section 2.3) is given as \\[\nf_X(x) = \\frac{1}{\\sqrt{2 \\cdot \\pi} \\cdot \\sigma} \\cdot \\operatorname{exp}\\left(- \\frac{1}{2 \\cdot \\sigma^2}\\left(x - \\mu\\right)^2\\right)\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\mu\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\sigma^2\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#uniform",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#uniform",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Beta_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Beta_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.7 Uniform",
-    "text": "A.7 Uniform\n\\(X \\sim \\operatorname{U}\\left(a, b\\right)\\)\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{1}{b - a} & x \\in [a, b]\\\\\n    0 & x \\notin [a,b]\n\\end{cases}\n\\] \\[\nF_X(x) = \\begin{cases}\n    0 & x &lt; a\\\\\n    \\frac{x - a}{b - a} & a \\leq x \\leq b\\\\\n    1 & x &gt; b\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{2}\\left(a + b\\right)\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{12}\\left(b - a\\right)^2\n\\]",
+    "section": "A.10 Beta",
+    "text": "A.10 Beta\nThe beta distribution is a continuous distribution defined on the interval \\([0, 1]\\), making it well-suited for modeling probabilities or proportions. It is parameterized by two positive shape parameters \\(\\alpha\\) and \\(\\beta\\) that control the shape of the distribution, ranging from uniform to strongly skewed or U-shaped.\n\nDistribution\n\n\n\n\n\nBeta distribution.\n\n\n\n\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{\\alpha}{\\alpha + \\beta}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{\\alpha \\beta}{(\\alpha + \\beta)^2 (\\alpha + \\beta + 1)}\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#exponential",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#exponential",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Uniform_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Uniform_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.8 Exponential",
-    "text": "A.8 Exponential\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\lambda \\cdot \\operatorname{exp}\\left(-\\lambda \\cdot x\\right) & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{\\lambda}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{\\lambda^2}\n\\]",
+    "section": "A.11 Uniform",
+    "text": "A.11 Uniform\nThe uniform distribution assigns equal probability to all values within a bounded interval \\([a, b]\\). It is the simplest continuous distribution and is commonly used as a non-informative prior or for generating random samples via inverse transform sampling. \\(X \\thicksim\\operatorname{U}\\left(a, b\\right)\\).\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{1}{b - a} & x \\in [a, b]\\\\\n    0 & x \\notin [a,b]\n\\end{cases}\n\\] \\[\nF_X(x) = \\begin{cases}\n    0 & x &lt; a\\\\\n    \\frac{x - a}{b - a} & a \\leq x \\leq b\\\\\n    1 & x &gt; b\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{1}{2}\\left(a + b\\right)\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{1}{12}\\left(b - a\\right)^2\n\\]",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
     ]
   },
   {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#geometric",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#geometric",
-    "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.9 Geometric",
-    "text": "A.9 Geometric\n\nDistribution\n\n\nExpected Value\n\n\nVariance",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#gamma",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#gamma",
-    "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.10 Gamma",
-    "text": "A.10 Gamma\n\nDistribution\n\\(X \\sim \\operatorname{Gamma}\\left(\\alpha, \\beta\\right)\\) \\[\nf_X(x) = \\begin{cases}\n    \\frac{\\beta^\\alpha}{\\varGamma(\\alpha)} x^{\\alpha - 1}\\operatorname{exp}\\left(-\\beta \\cdot x\\right) & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\frac{\\alpha}{\\beta}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\frac{\\alpha}{\\beta^2}\n\\]",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#beta",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#beta",
-    "title": "Appendix A — Common Stochastic Variables",
-    "section": "A.11 Beta",
-    "text": "A.11 Beta\n\nDistribution\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right]\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right]\n\\]",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
-    ]
-  },
-  {
-    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#chi-square",
-    "href": "Chapters/Probability/APP-Stochastic_Variables.html#chi-square",
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Chi-square_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-Chi-square_Stochastic_Variable",
     "title": "Appendix A — Common Stochastic Variables",
     "section": "A.12 Chi-square",
-    "text": "A.12 Chi-square\n\\(X \\sim \\operatorname{Gamma}\\left(\\frac{k}{2}, \\frac{1}{2}\\right)\\) \\(k\\in\\mathbb{N}\\)\n\nDistribution\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{x^{\\frac{k}{2} - 1}\\operatorname{exp}\\left(- \\frac{x}{2}\\right)}{2^{\\frac{k}{2} \\cdot \\varGamma\\left(\\frac{k}{2}\\right)}} & x &gt; 0\\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = k\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = 2 \\cdot k\n\\]",
+    "text": "A.12 Chi-square\nThe chi-square distribution is a special case of the gamma distribution and arises as the distribution of the sum of squares of \\(k\\) independent standard Gaussian random variables. It is widely used in hypothesis testing (e.g., goodness-of-fit tests) and in the construction of confidence intervals for variance. \\(X \\thicksim\\operatorname{Gamma}\\left(\\frac{k}{2}, \\frac{1}{2}\\right)\\), \\(k \\in \\mathbb{N}\\).\n\nDistribution\n\n\n\n\n\nChi-square distribution.\n\n\n\n\n\\[\nf_X(x) = \\begin{cases}\n    \\frac{x^{\\frac{k}{2} - 1}\\operatorname{exp}\\left(-\\frac{x}{2}\\right)}{2^{\\frac{k}{2} \\cdot \\varGamma\\left(\\frac{k}{2}\\right)}} & x &gt; 0 \\\\\n    0 & x \\leq 0\n\\end{cases}\n\\]\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = k\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = 2 \\cdot k\n\\]",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-F_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-F_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.13 F",
+    "text": "A.13 F\n\nDistribution\n\n\nExpected Value\n\n\nVariance",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"
+    ]
+  },
+  {
+    "objectID": "Chapters/Probability/APP-Stochastic_Variables.html#sec-T_Stochastic_Variable",
+    "href": "Chapters/Probability/APP-Stochastic_Variables.html#sec-T_Stochastic_Variable",
+    "title": "Appendix A — Common Stochastic Variables",
+    "section": "A.14 T",
+    "text": "A.14 T\n\nDistribution\n\\[\n\\frac{\\Gamma\\left(\\frac{d + 1}{2}\\right)}{\\sqrt{\\pi d} \\cdot \\Gamma\\left(\\frac{d}{2}\\right)} \\cdot \\left(1 + \\frac{x^2}{d}\\right)^{-\\frac{d + 1}{2}}\n\\] \\(d &gt; 0\\) is the degrees of freedom.\n\n\nExpected Value\n\\[\n\\mathbb{E}\\left[X\\right] = \\begin{cases}\n    0 & d &gt; 1\\\\\n    \\textrm{undefined} & d \\leq 1\n\\end{cases}\n\\]\n\n\nVariance\n\\[\n\\operatorname{Var}\\left[X\\right] = \\begin{cases}\n    \\frac{d}{d - 2} & d &gt; 2 \\\\\n    \\infty & 1 &lt; d \\leq 2 \\\\\n    \\textrm{undefined} & d \\leq 1\n\\end{cases}\n\\] $$",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common Stochastic Variables</span>"

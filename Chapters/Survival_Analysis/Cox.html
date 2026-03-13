@@ -185,7 +185,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../Chapters/Probability/Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probability Theory</span></a>
+ <span class="menu-text">Probability</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -383,16 +383,18 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p><span class="math display">\[
-\newcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
-\newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
-\newcommand{\Nd}[1]{\operatorname{N}\left(#1\right)}
-\]</span></p>
+<p>$$ % Basic sets/Variables </p>
+% Probability and statistics
+%
+% Linear algebra
+% Math functions
+% Distributions
+<p>% Update symbols $$</p>
 </div>
 <p>The Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see <a href="Hazard_Function.html" class="quarto-xref"><span>Chapter 10</span></a>), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.</p>
 <p>The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.</p>
 <p>The Cox proportional hazards model is defined as: <span id="eq-Cox"><span class="math display">\[
-h(t) = h_0(t) \cdot \exp{\sum_{i=1}^p \beta_i x_i}
+h(t) = h_0(t) \cdot \operatorname{exp}\left(\sum_{i=1}^p \beta_i x_i\right)
 \tag{14.1}\]</span></span> where <span class="math inline">\(h_0\)</span> is the baseline hazard function, <span class="math inline">\(x_1, x_2, \dots, x_p\)</span> are the covariates and <span class="math inline">\(\beta_1, \beta_2, \dots, \beta_p\)</span> the associated effect sizes of the covariates.</p>
 <p>The Cox model assumes that continuous covariates have a linear relationship with <span class="math inline">\(h\)</span>.</p>
 <section id="separation" class="level2" data-number="14.1">
@@ -415,8 +417,8 @@ h(t) = h_0(t) \cdot \exp{\sum_{i=1}^p \beta_i x_i}
 <h2 data-number="14.2" class="anchored" data-anchor-id="stratification"><span class="header-section-number">14.2</span> Stratification</h2>
 <p>When stratifying a Cox model (see <a href="#eq-Cox" class="quarto-xref">Equation&nbsp;<span>14.1</span></a>), it allows the model to fix different baseline hazard functions <span class="math inline">\(h_0\)</span> for each stratum (each level of the stratification variable). Thus, if there are two stratum, <span class="math inline">\(g=1\)</span> and <span class="math inline">\(g=2\)</span>, the Cox model is given as <span id="eq-Cox-stratification"><span class="math display">\[
 h(t) = \begin{cases}
-    h_{0, g = 1}(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i} &amp; \textrm{if } g = 1\\
-    h_{0, g = 2}(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i} &amp; \textrm{if } g = 2
+    h_{0, g = 1}(t) \cdot \operatorname{exp}\left(\sum_{i = 1}^p \beta_i x_i\right) &amp; \textrm{if } g = 1\\
+    h_{0, g = 2}(t) \cdot \operatorname{exp}\left(\sum_{i = 1}^p \beta_i x_i\right) &amp; \textrm{if } g = 2
 \end{cases}
 \tag{14.2}\]</span></span> meaning that the two stratum share the same effect sizes <span class="math inline">\(\beta_1, \beta_2, \dots, \beta_p\)</span>. On the contrary, if you were to not stratify the model, and instead fit two seperate models, one for each stratum in the provided example, then this would not neccesarrily be the case.</p>
 <div id="exm-Cox" class="theorem example">
@@ -483,10 +485,10 @@ h(t) = \begin{cases}
 <h2 data-number="14.3" class="anchored" data-anchor-id="mixed-effects-cox-model"><span class="header-section-number">14.3</span> Mixed Effects Cox Model</h2>
 <p>The Cox model can be <a href="../Statistical_Models/Introduction.html#sec-Random_Effects" class="quarto-xref"><span>Section 3</span></a> <span class="math display">\[
 \begin{aligned}
-    h(t) &amp;= h_0(t) \cdot \exp{X\beta + Zb}\\
-    b &amp;\sim \Nd{0, \Sigma\left(\theta\right)}
+    h(t) &amp;= h_0(t) \cdot \operatorname{exp}\left(X\beta + Zb\right)\\
+    b &amp;\thicksim\operatorname{N}\left(0, \Sigma\left(\theta\right)\right)
 \end{aligned}
-\]</span> where <span class="math inline">\(\operatorname{N}\)</span> is a Gaussian distribution (see <a href="../Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable" class="quarto-xref"><span>Section A.6</span></a>) with mean <span class="math inline">\(0\)</span> and covariance <span class="math inline">\(\Sigma(\theta)\)</span>.</p>
+\]</span> where <span class="math inline">\(\operatorname{N}\)</span> is a Gaussian distribution (see <a href="../Probability/APP-Stochastic_Variables.html#sec-Gaussian_Stochastic_Variable" class="quarto-xref"><span>Section A.9</span></a>) with mean <span class="math inline">\(0\)</span> and covariance <span class="math inline">\(\Sigma(\theta)\)</span>.</p>
 <div id="exm-Coxme" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.2 (Mixed Effects Cox model)</strong></span> &nbsp;</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
