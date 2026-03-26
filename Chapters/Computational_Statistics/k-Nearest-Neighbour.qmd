@@ -1,0 +1,4 @@
+# $k$-Nearest Neighbour {#sec-kNN}
+The $k$-nearest neighbour (kNN) algorithm is a non-parametric method most often used for classification, but can also be applied to regression tasks. It operates on the principle that similar data points are likely to have similar outcomes. In classification, kNN assigns a class to a new data point based on the majority class among its $k$ nearest neighbours in the feature space. In regression, it predicts a value based on the average of the values of its $k$ nearest neighbours. 
+
+This method puts a strong emphasis on the local structure of the data, making it a powerful tool for certain types of problems. Furthermore, it can be computationally expensive for large data sets, as it requires calculating the distance to all other data points. Besides this, the choice of $k$ and how to measure the distance between data points can affect both the results and performance of the method.
