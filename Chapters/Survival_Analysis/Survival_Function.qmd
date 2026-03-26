@@ -18,4 +18,3 @@ $$
 where $F_T$ is the CIF and $f_T$ the pdf of $T$. One of the proporties of the survival function is that it is monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
 
 {{< include /Examples/Survival_Analysis/Survival_Function.qmd >}}
-{{< include /Figures/Survival_Analysis/Survival_Curve.qmd >}}
