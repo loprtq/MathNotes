@@ -41,7 +41,7 @@ meaning that the two stratum share the same effect sizes $\beta_1, \beta_2, \dot
 
 
 ## Mixed Effects Cox Model
-The Cox model can be @sec-Random_Effects
+Similar to how the linear regression model can be extended to a linear mixed model (see @sec-Linear_Mixed_Model), the Cox model can also be extended to include random effects (see @sec-Random_Effects) in the hazard function. The mixed effects Cox model is defined as
 $$
 \begin{aligned}
     h(t) &= h_0(t) \cdot \exp{X\beta + Zb}\\
