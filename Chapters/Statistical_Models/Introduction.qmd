@@ -4,6 +4,14 @@
 This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.
 
 
+## Prediction {#sec-Prediction}
+One of the main goals of statistical modeling is to make predictions about the response variable based on the covariates. Prediction can be used for various purposes, such as forecasting future outcomes (e.g. electricity or stock prices), estimating missing values, or evaluating the performance of a model. The process of prediction involves using the fitted model to generate predicted values for new observations or for the same observations used in model fitting. The accuracy of predictions can be assessed using various metrics, such as mean squared error (MSE), mean absolute error (MAE), or R-squared. Additionally, prediction intervals can be constructed to provide a range of plausible values for the response variable, accounting for uncertainty in the model estimates and the inherent variability in the data. The ability to make accurate predictions is a key aspect of the utility of statistical models in both research and applied settings.
+
+
+## Inference {#sec-Inference}
+Inference in statistical modeling involves drawing conclusions about the population parameters based on the observed data - utilising the fitted model to understand the underlying relationships between variables. This includes estimating the parameters, testing hypotheses, and constructing confidence intervals. Inference allows researchers to make probabilistic statements about the relationships between variables and the effects of interventions, providing a basis for decision-making and scientific understanding.
+
+
 ## Covariates {#sec-Covariates}
 Covariates are the explanatory variables used to predict or explain the response variable in a statistical model. They represent the factors that may influence the outcome of interest. Covariates can be broadly classified into two main types based on their nature, described in the following subsections.
 
