@@ -2,7 +2,7 @@
 :::{.panel-tabset}
 ## Data
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 #| warning: false
 # Packages
@@ -16,7 +16,7 @@ MASS::quine |>
 
 ## R
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 #| warning: false
 # Packages

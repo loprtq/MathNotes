@@ -2,7 +2,7 @@
 :::{.panel-tabset}
 ## Data
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 #| warning: false
 # Packages
@@ -10,13 +10,13 @@ library(dplyr)
 library(MASS)
 
 # Data
-MASS::quine %>%
+MASS::quine |>
   dplyr::rename_with(toupper)
 ```
 
 ## R
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 #| warning: false
 # Packages
@@ -24,7 +24,7 @@ library(tidyverse)
 library(MASS)
 
 # Data
-data <- MASS::quine %>%
+data <- MASS::quine |>
   dplyr::rename_with(toupper)
 
 # Model
