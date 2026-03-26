@@ -37,11 +37,11 @@ book:
 
     - part: Chapters/Statistical_Models/Introduction.qmd
       chapters:
-        - Chapters/Statistical_Models/Covariance_Structures.qmd
         - Chapters/Statistical_Models/Logistic_Regression.qmd
         - Chapters/Statistical_Models/Linear_Regression.qmd
         - Chapters/Statistical_Models/Linear_Mixed_Model.qmd
-        - Chapters/Statistical_Models/Non-linear_Mixed_Model.qmd
+        - Chapters/Statistical_Models/Poisson_Regression.qmd
+        - Chapters/Statistical_Models/Negative_Binomial_Regression.qmd
 
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:
@@ -62,6 +62,7 @@ book:
 
   appendices: 
     - Chapters/Probability/APP-Stochastic_Variables.qmd
+    - Chapters/Statistical_Models/APP-Covariance_Structures.qmd
 
 reference-section-title: "References"
 bibliography:
