@@ -1,7 +1,9 @@
-# Survival Analysis {#sec-Survival_Analysis}
-The expression "survival analysis" can be rather misleading, as even though these analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else.
+{{< include /preamble/commands.qmd >}}
 
-Say that you want an idea of the likelihood of getting a disease. You are also interested in whether smokers have a higher chance than non-smokers. This would be a perfect example for such an analysis, as you would be able to get a general idea of the likelihood of attaining the disease over time, for each group. Naturally, as with many other statistical analysis, the sample size has to be sufficient to be able to show the true likelihood.
+# Survival Analysis {#sec-Survival_Analysis}
+The expression "survival analysis" can be rather misleading, as even though these analyses do stem from the thinking of death and survival, the concept can be expanded much further into the more general term "time to event analysis", where the interest might not be death, but something else. However, for most of the following chapters adressing survival analysis, the focus will be on the original concept of survival, and thus, the terms survival and death will be used. However, it is important to keep in mind that the concepts and methods described in these chapters can be applied to a wide range of time to event analyses.
+
+Say that you want are interested in whether smokers have a higher chance than non-smokers of getting lung cancer. This would be a perfect example a time to event analysis, as you would be able to get a general idea of the likelihood of getting lung cancer over time, for each group (smokers vs. non-smokers). Additionally, if you have data on other covariates, you will also be able to adjust these in some of the methods described.
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -11,3 +13,55 @@ Say that you want an idea of the likelihood of getting a disease. You are also i
 {{< include /Figures/Survival_Analysis/Survival_Curve.qmd >}}
 :::
 ::::
+
+
+## Survival function {#sec-Survival_Function}
+To describe how probable it is for a person to survive until some time $t$, we can utilize the concept of stochastic variables (see @sec-Stochastic_Variables). The CDF (see @sec-CDF) can be used to describe the probability that an event occurs prior to time $t$ - $\Pr{T \leq t}$. The CDF of the stochastic variable $T$ is often referred to as the cumulative incidence function (CIF) and can be expressed as
+$$
+\begin{aligned}
+    F_T(t) &= \Pr{T \leq t} \\
+    &= \int_0^t h(u) \cdot S(u) \,\mathrm{d}u
+\end{aligned}
+$$ {#eq-CIF}
+where $S$ is the survival function and $h$ is the hazard function. However, in survival analysis the opposite is of interest - that a person has survived past time $t$. Thus, the survival function can be defined as
+$$
+\begin{aligned}
+    S(t) &= 1 - F_T(t) \\
+    &= \Pr{T > t} = \int_t^\infty f_T(x) \,\mathrm{d}x
+\end{aligned}
+$$
+where $F_T$ is the CIF and $f_T$ the pdf of $T$. One of the proporties of the survival function is that it is monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
+
+{{< include /Examples/Survival_Analysis/Survival_Function.qmd >}}
+
+
+## Hazard function {#sec-Hazard_Function}
+The hazard function $h$ describes the instantaneous risk of an event at a time $t$. The instantaneous risk at a time $t$ is bounded from below by 0. Mathematically, in the discrete case, this instantaneous risk equals the number of events between $t$ and $t + \Delta t$ divided by the population size at risk at time $t$, divided by $\Delta t$. In the continuous case, the hazard function is given as
+$$
+\begin{aligned}
+    h(t) &= \lambda(t)
+    \\&= \lim_{\Delta t \to 0}\frac{\Pr{t \leq T < t + \Delta t \mid T \geq t}}{\Delta t}
+\end{aligned}
+$$
+where $T$ is the stochastic variable (see @sec-Stochastic_Variables) describing the time to event.
+
+### Cumulative hazard function
+The cumulative hazard function $H$ describes the cumulative hazard up until a time $t$.
+$$
+\begin{aligned}
+    H(t) &= \int_0^t h(u)\,\textrm{d}u\\
+    &= \ln{S(t)}
+\end{aligned}
+$$
+As opposed to the survival function (see @sec-Survival_Function), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \leq H(t_1)$ for all $t_1 \geq t_2$.
+
+### Hazard ratio {#Hazard_Ratio}
+The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to another, as it provides a relative measure of risk. The HR is, as the name suggests, defined as the ratio of the hazard in one group to the hazard in another group - $\frac{h_1(t)}{h_2(t)}$ where $h_1(t)$ and $h_2(t)$ are the hazard functions for the two groups. The interpretation of the HR can be confusing, but in general, the following applies:
+
+- $\textrm{HR} < 1$: increased survival probability, compared to reference
+- $\textrm{HR} = 1$: No difference in survival probability, compared to reference
+- $\textrm{HR} > 1$: decreased survival probability, compared to reference
+
+::: {#rem-HR}
+It is important to note that the HR is non-collapsible, meaning it is not a causal estimand and can be influenced by the distribution of covariates in the population. Additionally, the confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale. This means that when interpreting HRs, it is crucial to consider the scale on which they are being analyzed and reported.
+:::
