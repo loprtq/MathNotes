@@ -1,0 +1,36 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| fig-cap: Binomial distribution.
+# Packages
+library(ggplot2)
+library(dplyr)
+
+# Plot
+n <- 10
+p_values <- c(0.2, 0.5, 0.8)
+
+binomial_df <- do.call(
+  dplyr::bind_rows,
+  lapply(p_values, function(p) {
+    data.frame(
+      x = 0:n,
+      prob = dbinom(0:n, size = n, prob = p),
+      p = paste0("p=", p, ", n=", n)
+    )
+  })
+)
+
+ggplot2::ggplot(binomial_df, ggplot2::aes(x = x, y = prob, fill = p)) +
+  ggplot2::geom_col(
+    position = ggplot2::position_dodge(width = 0.85),
+    width = 0.8,
+    alpha = 0.8
+  ) +
+  ggplot2::labs(fill = "Parameters") +
+  ggplot2::ylab("Probability") +
+  ggplot2::xlab("x") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(legend.position = "bottom")
+```

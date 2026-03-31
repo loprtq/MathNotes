@@ -1,6 +1,9 @@
 {{< include /preamble/commands.qmd >}}
 
 # Continuous Stochastic Variables
+As described in @sec-Stochastic_Variables, continuous stochastic variables are measureable functions $X: \Omega \to  \mathcal{E}$, where $\Omega$ is the sample space. The distribution of a continuous stochastic variable describes the probabilities of the different outcomes of the stochastic variable.
+
+
 ## Exponential {#sec-Exponential_Stochastic_Variable}
 The exponential distribution models the time between events in a Poisson process, i.e., the waiting time until the next independent event occurs at a constant rate $\lambda > 0$. It has the memoryless property: the probability of waiting an additional time $t$ does not depend on how long one has already waited.
 

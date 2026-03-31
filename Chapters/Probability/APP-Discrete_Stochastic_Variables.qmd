@@ -1,10 +1,14 @@
 {{< include /preamble/commands.qmd >}}
 
 # Discrete Stochastic Variables
+As described in @sec-Stochastic_Variables, discrete stochastic variables are measureable functions $X: \Omega \to  \mathcal{E}$, where $\Omega$ is the sample space. The distribution of a discrete stochastic variable describes the probabilities of the different outcomes of the stochastic variable.
+
 ## Bernoulli {#sec-Bernoulli_Stochastic_Variable}
 A bernoulli stochastic variable $X\sim\Ber{n, p}$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\Pr{X = 1} = p$ and the opposite, $\Pr{X = 0} = 1 - p$.
 
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Bernoulli_Distribution.qmd >}}
+
 $$
 \begin{cases}
     p &\textrm{if } x = 1 \\
@@ -27,6 +31,8 @@ $$
 A binomial stochastic variable is a Bernoulli stochastic variable repeated $n$ times.
 
 ### Distribution {.unnumbered}
+{{< include /Figures/Probability/Binomial_Distribution.qmd >}}
+
 The PMF (see @sec-PMF) is given as
 $$
 \binom{n}{k}\cdot p^k \cdot \left(1 - p\right)^{n - k}
@@ -34,18 +40,20 @@ $$
 where $k$ is the number of $1$'s out of the possible $n$ experiments.
 
 ### Expected Value {.unnumbered}
+As the binomial distribution is a sum of $n$ independent Bernoulli distributions, the expected value is the sum of the expected values of the Bernoulli distributions, which gives
 $$
 \E{X} = n \cdot p
 $$
 
 ### Variance {.unnumbered}
+As the binomial distribution is a sum of $n$ independent Bernoulli distributions, the variance is the sum of the variances of the Bernoulli distributions, which gives
 $$
 \Var{X} = n \cdot p \cdot (1 - p)
 $$
 
 
 ## Geometric {#sec-Geometric_Stochastic_Variable}
-The geometric distribution models the number of independent Bernoulli trials needed to obtain the first success, where each trial succeeds with probability $p$. It is the discrete analogue of the exponential distribution and shares the memoryless property.
+The geometric distribution models the number of independent Bernoulli experiments needed to obtain the first success, where each experiment succeeds with probability $p$. It is the discrete analogue of the exponential distribution (see @sec-Exponential_Stochastic_Variable) and shares the memoryless property.
 
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Geometric_Distribution.qmd >}}
