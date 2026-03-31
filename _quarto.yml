@@ -63,7 +63,8 @@ book:
         - Chapters/Spatial_Statistics/Summary_Statistics.qmd
 
   appendices: 
-    - Chapters/Probability/APP-Stochastic_Variables.qmd
+    - Chapters/Probability/APP-Discrete_Stochastic_Variables.qmd
+    - Chapters/Probability/APP-Continuous_Stochastic_Variables.qmd
 
 reference-section-title: "References"
 bibliography:
