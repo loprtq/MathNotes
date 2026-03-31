@@ -1,0 +1,34 @@
+{{< include /preamble/commands.qmd >}}
+
+# Generalized Linear Models {#sec-Generalized_Linear_Models}
+Generalized linear models (GLMs) extend the linear regression (see @sec-Linear_Regression) to accommodate response variables whose conditional distribution belongs to the exponential family. Rather than assuming a Gaussian response with an identity link, GLMs allow for a flexible choice of distribution and link function, unifying models such as logistic regression (see @sec-Logistic_Regression), Poisson regression (see @sec-Poisson_Regression), and negative binomial regression (see @sec-Negative_Binomial_Regression) under a single framework.
+
+A GLM consists of three components: the random component, the systematic component, and the link function. The random component specifies that the conditional distribution of the response variable $Y \mid x$ belongs to the exponential family. The systematic component is a linear predictor $\eta = X \cdot \alpha$, where $X$ is the design matrix and $\alpha$ is the vector of fixed effects. These two components are connected by the **link function**, a monotone differentiable function $g$ that relates the mean $\mu = \E{Y \mid x}$ to the linear predictor,
+$$
+g(\mu) = \eta = X \cdot \alpha,
+$$
+so that its inverse $\mu = g^{-1}(\eta)$ maps the linear predictor back to the mean of the response.
+
+
+## Shortcomings {.unnumbered}
+Despite the added flexibility over linear regression, GLMs carry a number of limitations. The response distribution must belong to the exponential family, which excludes many real-world distributions. Furthermore, the relationship between the covariates and the mean response must be linear on the scale of the link function - non-linear relationships require additional modelling effort, such as polynomial terms or splines. GLMs also assume that observations are independent, so clustered or repeated measurements (see @sec-Repeated_Measures) require an extension such as generalized linear mixed models (GLMMs). As with linear regression, GLMs can overfit when the number of covariates is large relative to the sample size, and they do not handle missing data without preprocessing. Finally, the maximum likelihood estimation via IRLS can fail to converge or produce unreliable estimates under separation (see @sec-Separation), sparse data, or severe collinearity among covariates.
+
+
+## The Exponential Family {#sec-Exponential_Family}
+The exponential family is a broad class of distributions that can be written in the form
+$$
+f(y \mid \theta, \phi) = \exp{\frac{y\theta - b(\theta)}{a(\phi)} + c(y, \phi)},
+$$
+where $\theta$ is the canonical parameter, $\phi$ is the dispersion parameter, and $b$, $a$, $c$ are known functions. The mean and variance of $Y$ are determined by $b(\theta)$:
+$$
+\E{Y} = b'(\theta) \quad \Var{Y} = a(\phi) b''(\theta).
+$$
+
+
+## Link Functions {#sec-Link_Functions}
+The link function $g$ determines how the mean $\mu$ is related to the linear predictor $\eta$. The canonical link is the link function for which $\theta = \eta$, i.e. the canonical parameter equals the linear predictor directly. Using the canonical link often leads to simpler score equations and guarantees a concave log-likelihood, but it is not required - any valid link function that keeps $\mu$ in the appropriate range may be used.
+
+The identity link $g(\mu) = \mu$ is used in linear regression (see @sec-Linear_Regression), where the mean itself is modelled as a linear function of the covariates. The logit link $g(\mu) = \log{\frac{\mu}{1 - \mu}}$ constrains the mean to $(0, 1)$ and is used in logistic regression (see @sec-Logistic_Regression). The log link $g(\mu) = \log{\mu}$ constrains the mean to be positive and is the canonical link for the Poisson (see @sec-Poisson_Regression) and negative binomial distributions (see @sec-Negative_Binomial_Regression).
+
+
+## Estimation {#sec-GLM_Estimation}
