@@ -1,0 +1,12 @@
+{{< include /preamble/commands.qmd >}}
+
+# Statistical Tests {#sec-Statistical_Tests}
+Statistical tests are a fundamental tool in data science for making inferences about populations based on sample data. They allow us to assess whether observed patterns or differences in our data are likely to be due to random chance or if they reflect true underlying effects. For a high-level introduction to the concepts of statistical hypotheses, errors, and p-values, please refer to @sec-Statistical_Hypotheses.
+
+
+# t-test {#sec-t-test}
+# F-test {#sec-F-test}
+# Z-test {#sec-Z-test}
+# Chi-squared test {#sec-Chi_squared_test}
+# Likelihood Ratio Test {#sec-Likelihood_Ratio_Test}
+# ANOVA {#sec-ANOVA}

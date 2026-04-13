@@ -1,5 +1,7 @@
+{{< include /preamble/commands.qmd >}}
+
 # Statistical Hypotheses {#sec-Statistical_Hypotheses}
-Statistical hypothesis testing is fundamentally about making decisions under uncertainty. When conducting a statistical test, one is trying to answer a question like "Is this drug effective?", "Is there a difference between these two groups?" or "Is this model (more) appropriate for the data?". However, we can never be 100% certain of our conclusion based on sample data. This uncertainty means we can make errors, and understanding these errors is crucial for interpreting statistical results.
+Statistical hypothesis testing is fundamentally about making decisions under uncertainty. When conducting a statistical test, one is trying to answer a question like "Is this drug effective?", "Is there a difference between these two groups?" or "Is this model (more) appropriate for the data?". In hypothesis testing, these questions are translated into formal statements called hypotheses; the null hypothesis ($\mathcal{H}_0$) represents the default or status quo assumption, while the alternative hypothesis ($\mathcal{H}_a$) represents the effect or difference we are trying to detect. Regardless of how these hypothesis are formulated we can never be 100% certain of our conclusion based on sample data. This uncertainty means we can make errors, and understanding these errors is crucial for interpreting statistical results.
 
 |                                | Null hypothesis is true | Null hypothesis is false |
 |:-------------------------------|:-----------------------:|:------------------------:|
@@ -8,11 +10,11 @@ Statistical hypothesis testing is fundamentally about making decisions under unc
 
 
 ## Type I Error {#sec-Type_I_Error}
-Rejecting $\mathcal{H}_0$ when it is actually true
+Rejecting $\mathcal{H}_0$ when it is actually true. An example of a Type I error would be concluding that a new drug is effective when it actually has no effect. The probability of making a Type I error is denoted by $\alpha$, which is also known as the significance level of the test. Common choices for $\alpha$ are 0.05, 0.01, and 0.10, which correspond to a 5%, 1%, and 10% chance of incorrectly rejecting the null hypothesis, respectively. The cause of a Type I error can be due to random sampling variability, measurement error, or other sources of noise in the data. It is important to control the Type I error rate when designing experiments and interpreting results, as a high Type I error rate can lead to misleading conclusions.
 
 
 ## Type II Error {#sec-Type_II_Error}
-Failing to reject $\mathcal{H}_0$ when $\mathcal{H}_a$ is true
+Failing to reject $\mathcal{H}_0$ when $\mathcal{H}_a$ is true. An example of a Type II error would be concluding that a new drug is not effective when it actually has a beneficial effect. The cause of a Type II error can be due to insufficient sample size, low effect size, or high variability in the data. It is important to consider the potential for Type II errors when designing experiments and interpreting results, as a high Type II error rate can lead to missed opportunities for discovering true effects.
 
 
 ## Type III Error {#sec-Type_III_Error}
@@ -28,7 +30,7 @@ To provide a more intuitive understanding, consider the following scenarios: $\t
 
 
 ## p-values {#sec-p-values}
-A p-value is the probability of observing data as extreme as (or more extreme than) what we actually observed, assuming the null hypothesis $\mathcal{H}_0$ is true. It is a measure of how compatible our data is with the null hypothesis. The smaller the p-value, the stronger the evidence against $\mathcal{H}_0$. Formally, the p-value can be expressed as:
+A p-value is the probability of observing data as extreme as (or more extreme than) what we actually observed, assuming the null hypothesis $\mathcal{H}_0$ is true - it is a measure of how compatible our observed data is with the null hypothesis. The smaller the p-value, the stronger the evidence against $\mathcal{H}_0$. Formally, the p-value can be expressed as:
 $$
 \text{p-value} = \Pr{\text{Data as or more extreme} \mid \mathcal{H}_0 \text{ is true}}
 $$
@@ -37,4 +39,4 @@ The p-value is directly related to our Type I error rate $\alpha$. When we set a
 - If the p-value is less than $\alpha$, we reject $\mathcal{H}_0$ (declare significance)
 - If the p-value is greater than or equal to $\alpha$, we fail to reject $\mathcal{H}_0$
 
-When we set $\alpha = 0.05$, we are willing to incorrectly reject a null hypothesis 5% of the time. The p-value tells us how extreme our particular result is under $\mathcal{H}_0$.
+When we set $\alpha = 0.05$, we are willing to incorrectly reject a null hypothesis 5% of the time. This means that if we were to repeat the same experiment many times, we would expect to incorrectly reject the null hypothesis in 5% of those experiments, even if the null hypothesis is actually true. It is important to note that the choice of $\alpha$ should be based on the context of the research and the consequences of making a Type I error. In some cases, a more stringent threshold (e.g., $\alpha = 0.01$) may be appropriate, while in others, a less stringent threshold (e.g., $\alpha = 0.10$) may be acceptable.
