@@ -1,9 +1,15 @@
+{{< include /preamble/commands.qmd >}}
+
 # Linear Regression {#sec-Linear_Regression}
-Linear regression is used to model the relationship between response- and exploratory variable(s). Let $y$ be the response variable(s) and $X \cdot \alpha$ the system of exploratory variables with regression coefficients described by $\alpha$ also called fixed effects.
+Linear regression is used to model the relationship between response- and exploratory variable(s). Linear regression is widely used, as it is simple to understand and interpret, and can be used for both prediction and inference. The linear regression model assumes that the relationship between the response- and exploratory variable(s) is linear, which means that the change in the response variable is proportional to the change in the exploratory variable(s).
+
+Let $y$ be the response variable(s) and $X \cdot \alpha$ the system of exploratory variables with regression coefficients described by $\alpha$ also called fixed effects. As the name suggests, the relationship between the response- and exploratory variable(s) is assumed to be linear, which can be expressed as:
 $$
 y = X \cdot \alpha + \varepsilon
 $$
-where $X$ is the fixed effects design matrix, describing where, $\varepsilon$ is the zero-mean errors.
+where $X$ is the fixed effects design matrix, and $\varepsilon$ is the zero-mean error(s).
+
+In the case of the simple linear regression, there is only one exploratory variable $x$, and the model can be expressed as: $y = \alpha_0 + \alpha_1 x + \varepsilon$, where $\alpha_0$ is the intercept at $x = 0$ and $\alpha_1$ is the slope of the line (how much $y$ changes for a one-unit change in $x$). The errors are assumed to be independent and identically distributed (i.i.d.) with a normal distribution.
 
 
 ## Shortcomings {.unnumbered}
