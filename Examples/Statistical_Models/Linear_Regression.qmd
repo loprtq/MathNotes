@@ -1,4 +1,4 @@
-:::{#exm-Linear_Regression_Simple}
+:::{#exm-Linear_Regression}
 :::{.panel-tabset}
 ## Data
 ```{r}
