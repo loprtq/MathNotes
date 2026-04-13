@@ -1,3 +1,5 @@
+{{< include /preamble/commands.qmd >}}
+
 # Poisson Regression {#sec-Poisson_Regression}
 Poisson regression is used to model count data, where the response variable represents the number of occurrences of an event. Consider the example where you are interested in modeling the number of births per year. Intuitively, the number of births are discrete ($\in\mathbb{N}$) and non-negative ($\geq 0$). As this is the case, linear regression (see @sec-Linear_Regression) is not applicable, as it can produce negative and continuous values. 
 

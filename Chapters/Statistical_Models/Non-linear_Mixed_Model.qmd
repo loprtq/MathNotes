@@ -1,3 +1,5 @@
+{{< include /preamble/commands.qmd >}}
+
 ### Non-linear mixed models {#sec-Non-linear_Mixed_Model}
 
 
