@@ -1,0 +1,6 @@
+# Random Walk {#sec-Random_Walk}
+A random walk is a simple time series model where the current value is equal to the previous value plus a random error term:
+$$
+X_t = X_{t - 1} + \epsilon_t
+$$
+where $\epsilon_t$ is white noise. A random walk is a non-stationary process with a stochastic trend, meaning that it can wander away from its initial value over time. Random walks are often used to model stock prices and other financial time series, as they capture the idea that future price changes are unpredictable and depend on past price changes.
