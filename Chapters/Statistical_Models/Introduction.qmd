@@ -1,7 +1,7 @@
 {{< include /preamble/commands.qmd >}}
 
 # Statistical Models {#sec-Statistical_Models}
-This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters.
+This part will dive deeper into some of the models used in statistics, which do not naturally fit into one of the other chapters. Additionally, it will cover some of the more general concepts related to statistical modeling.
 
 
 ## Prediction {#sec-Prediction}
@@ -62,12 +62,12 @@ Count data represent the number of occurenses within an observation period or si
 
 Count data often exhibit characteristics that violate the assumptions of linear regression (see @sec-Linear_Regression). The distribution of counts is typically right-skewed (E.g. @fig-Count_Data), particularly when the mean count is small, and the variance often increases with the mean. Additionally, the discrete nature of count data means that predictions from linear regression could inappropriately produce negative values. For these reasons, specialized models such as Poisson regression (see @sec-Poisson_Regression) and negative binomial regression (see @sec-Negative_Binomial_Regression) are used to model count data. These models ensure that predicted values are non-negative and properly account for the distributional characteristics of count outcomes.
 
-### Incidence Rates
+### Incidence Rates {#sec-Incidence_Rates}
 While the above-mentioned models directly analyze the number of event occurences, the same statistical framework can be extended to model incidence rates, which express the frequency of events relative to the amount of exposure or time at risk. Incidence rates are particularly useful when individuals or units have different observation periods or when the goal is to compare event frequencies across groups with varying exposure times.
 
 An incidence rate is calculated as the number of events divided by the total person-time at risk, often expressed per standard time unit (e.g., events per 100 person-years). In the context of the above-mentioned models, incidence rates are incorporated using an offset term - a covariate with a coefficient fixed at 1, typically on the log scale. The offset accounts for varying exposure times, effectively shifting the model from predicting event counts to predicting event rates. For instance, in Poisson regression with an offset for $\log{t_i}$, the model estimates the rate of events per unit of exposure, adjusting for the fact that some individuals ($i$) may have been observed for longer periods than others. This approach allows for valid comparisons of event rates across different exposure periods while maintaining the computational and inferential framework of the above-mentioned models.
 
-#### Incidence Rate Ratio (IRR) {.unnumbered}
+#### Incidence Rate Ratio {.unnumbered}
 The incidence rate ratio (IRR) is a measure of association used in the context of count data models, particularly when modeling incidence rates. The IRR quantifies the relative change in the incidence rate of an event associated with a one-unit change in a covariate, holding other variables constant. It is calculated as the exponentiated coefficient from a regression model that includes the covariate of interest. It shares some similarities with the hazard ratio (see @sec-Hazard_Ratio) used in survival analysis, as both are derived from exponentiated coefficients and represent relative changes in rates. However, while the hazard ratio pertains to the instantaneous risk of an event occurring at a specific time point, the IRR pertains to the overall rate of events over a specified period. Both measures are multiplicative and can be interpreted in terms of percentage increases or decreases in risk/rate, but they apply to different types of data and models. The interpretation of the IRR is as follows:
 
 - $\text{IRR} = 1$ indicates no association (no difference in incidence rates)
@@ -81,14 +81,14 @@ When comparing statistical models for the same data, an objective criterion is n
 The two most widely used information criteria are the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Both criteria are derived from different theoretical frameworks but share the common goal of balancing model fit with simplicity.
 
 ### Akaike Information Criterion {#sec-AIC}
-The Akaike Information Criterion is based on information theory and estimates the relative quality of statistical models. For a given dataset, AIC estimates the information lost when a particular model is used to approximate the true data-generating process. The model with the lowest AIC is preferred as it represents the best approximation with the least information loss. AIC is defined as:
+The AIC is based on information theory and estimates the relative quality of statistical models. For a given dataset, AIC estimates the information lost when a particular model is used to approximate the true data-generating process. The model with the lowest AIC is preferred as it represents the best approximation with the least information loss. AIC is defined as:
 $$
 \text{AIC} = -2\log{\mathcal{L}} + 2k
 $$
 where $\mathcal{L}$ is the maximized likelihood of the model and $k$ is the number of estimated parameters. The first term measures how well the model fits the data (lower values indicate better fit), while the second term penalizes model complexity. For example, comparing two linear regression models where one includes an additional predictor variable, AIC helps determine whether the improved fit from the extra predictor justifies the added complexity.
 
 ### Bayesian Information Criterion {#sec-BIC}
-The Bayesian Information Criterion is derived from Bayesian model selection principles. Unlike AIC, which focuses on predictive accuracy, BIC approximates the posterior probability of a model being the true model given the data. BIC tends to favor simpler models more strongly than AIC, especially as sample size increases. BIC is defined as:
+The BIC is derived from Bayesian model selection principles. Unlike AIC, which focuses on predictive accuracy, BIC approximates the posterior probability of a model being the true model given the data. BIC tends to favor simpler models more strongly than AIC, especially as sample size increases. BIC is defined as:
 $$
 \text{BIC} = -2\log{\mathcal{L}} + k\log{n}
 $$

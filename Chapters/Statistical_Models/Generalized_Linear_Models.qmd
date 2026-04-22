@@ -3,7 +3,7 @@
 # Generalized Linear Models {#sec-Generalized_Linear_Models}
 Generalized linear models (GLMs) extend the linear regression (see @sec-Linear_Regression) to accommodate response variables whose conditional distribution belongs to the exponential family. Rather than assuming a Gaussian response with an identity link, GLMs allow for a flexible choice of distribution and link function, unifying models such as logistic regression (see @sec-Logistic_Regression), Poisson regression (see @sec-Poisson_Regression), and negative binomial regression (see @sec-Negative_Binomial_Regression) under a single framework.
 
-A GLM consists of three components: the random component, the systematic component, and the link function. The random component specifies that the conditional distribution of the response variable $Y \mid x$ belongs to the exponential family. The systematic component is a linear predictor $\eta = X \cdot \alpha$, where $X$ is the design matrix and $\alpha$ is the vector of fixed effects. These two components are connected by the **link function**, a monotone differentiable function $g$ that relates the mean $\mu = \E{Y \mid x}$ to the linear predictor,
+A GLM consists of three components: the random component, the systematic component, and the link function. The random component specifies that the conditional distribution of the response variable $Y \mid x$ belongs to the exponential family. The systematic component is a linear predictor $\eta = X \cdot \alpha$, where $X$ is the design matrix and $\alpha$ is the vector of fixed effects. These two components are connected by the link function, a monotone differentiable function $g$ that relates the mean $\mu = \E{Y \mid x}$ to the linear predictor,
 $$
 g(\mu) = \eta = X \cdot \alpha,
 $$
@@ -17,7 +17,7 @@ Despite the added flexibility over linear regression, GLMs carry a number of lim
 ## The Exponential Family {#sec-Exponential_Family}
 The exponential family is a broad class of distributions that can be written in the form
 $$
-f(y \mid \theta, \phi) = \exp{\frac{y\theta - b(\theta)}{a(\phi)} + c(y, \phi)},
+f(y \mid \theta, \phi) = \exp{\frac{y \cdot \theta - b(\theta)}{a(\phi)} + c(y, \phi)},
 $$
 where $\theta$ is the canonical parameter, $\phi$ is the dispersion parameter, and $b$, $a$, $c$ are known functions. The mean and variance of $Y$ are determined by $b(\theta)$:
 $$
