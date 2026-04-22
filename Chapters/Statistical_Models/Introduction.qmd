@@ -31,6 +31,12 @@ Continuous covariates can take any value within a range and typically represent 
 Confounding covariates are variables that are related to both the response variable and one or more of the covariates. They can introduce bias in the estimation of the effect of the covariateson the response variable if not properly accounted for. Identifying and adjusting for confounding covariates is crucial for obtaining valid inferences in statistical models.
 
 
+## Interaction Terms {#sec-Interaction_Terms}
+Interaction terms are used when the effect of one covariate on the response variable depends on the level of another covariate. In other words, the association is not additive - the combined effect of two covariates is different from the sum of their separate effects. As an example, in a linear regression model (see @sec-Linear_Regression) with treatment and age, an interaction term between treatment and age allows the treatment effect to vary with age rather than assuming a constant treatment effect across all ages.
+
+Adding interaction terms increases model complexity and can reduce interpretability, hence they should ideally be pre-specified or strongly justified by domain knowledge. When interaction terms are included, interpretation should focus on conditional effects (effect of one covariate at specific values or levels of the other) rather than on main effects alone.
+
+
 ## Fixed Effects {#sec-Fixed_Effects}
 Fixed effects describe the average relationship between covariates and the response variable - the systematic effects within a group. In the context of linear models (see @sec-Linear_Regression), fixed effects are the coefficients that quantify how the expected value of the response variable changes with the covariates. These effects are "fixed" in the sense that they are constant across all observations in the population, though they may vary across different levels of categorical covariates.
 
