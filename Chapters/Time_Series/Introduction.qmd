@@ -1,7 +1,9 @@
 {{< include /preamble/commands.qmd >}}
 
 # Time Series Analysis {#sec-Time_Series}
-Time series analysis expands some of the concepts of @sec-Stochastic_Variables to observations indexed by time. A time series is a sequence of observations from a stochatic process $\{X_t\}_{t \in T}$ where $T$ is an set representing time points. These observations are typically ordered chronologically and often exhibit temporal dependence - observations at nearby time points tend to be related. This violates the often assumed independence of observations, requiring another approach. The key challenge when working with time series data is to indetify patterns (trend and seasonality), understanding the covariance/correlation structure across time, and then using this information (and historical data) to forecast. Examples of where time series data and models are used is in the utility markets, such as energy, where  specialised models are used to forecast prices, such that traders can buy and sell for profit.
+Time series analysis expands some of the concepts of @sec-Stochastic_Variables to observations indexed by time. A time series is a sequence of observations from a stochatic process $\{X_t\}_{t \in T}$ - a sequence of stochastic variables - where $T$ is an set representing time points. These observations are typically ordered chronologically and often exhibit temporal dependence - observations at nearby time points tend to be related. This violates the often assumed independence of observations for many statistical methods, requiring another approach.
+
+The key challenge when working with time series data is to indetify patterns (trend and seasonality), understanding the covariance/correlation structure across time, and then using this information to understand the stochastic process or forecast. Examples of where time series data and models are used is in utility markets, such as energy, where specialised models are used to forecast prices, enabling traders to buy and sell for profit.
 
 {{< include /Figures/Time_Series/Time_series.qmd >}}
 
@@ -18,8 +20,8 @@ where $\mu = \E{X_t}$ is the mean of the process. Note that $\gamma(0) = \Var{X_
 The autocorrelation function (ACF) is the normalized version of the autocovariance function:
 $$
 \rho(h) = \frac{\gamma(h)}{\gamma(0)} = \frac{\Cov{X_t, X_{t + h}}}{\Var{X_t}}
-$$ {#eq-ACF}
-The ACF always satisfies $\rho(0) = 1$ and $|\rho(h)| \leq 1$ for all $h$. The ACF is crucial for identifying patterns in time series data and is commonly used in model diagnostics for @sec-ARMA models.
+$$ {#eq-Autocorrelation_Function}
+The ACF always satisfies $\rho(0) = 1$ and $\abs{\rho(h)} \leq 1$ for all $h$. The ACF is crucial for identifying patterns in time series data and is commonly used in model diagnostics for @sec-ARMA models.
 
 :::: {.columns}
 ::: {.column width = "50%"}
@@ -31,14 +33,14 @@ The ACF always satisfies $\rho(0) = 1$ and $|\rho(h)| \leq 1$ for all $h$. The A
 ::::
 
 ### Partial Autocorrelation Function {#sec-Partial_Autocorrelation_Function}
-The partial autocorrelation function (PACF) measures the correlation between $X_t$ and $X_{t + h}$ after removing the linear dependence on the intermediate observations $X_{t + 1}, \ldots, X_{t + h - 1}$. The PACF is particularly useful for identifying the order of autoregressive processes (see @sec-AR).
+The partial autocorrelation function (PACF) measures the correlation between $X_t$ and $X_{t + h}$ after removing the linear dependence on the intermediate observations $X_{t + 1}, \dots, X_{t + h - 1}$. The PACF is particularly useful for identifying the order of autoregressive processes (see @sec-AR).
 
 
 ## Stationarity {#sec-Stationarity}
-A time series is said to be stationary if its statistical properties do not change over time. Stationarity is a crucial assumption for many time series models and forecasting techniques.
+A time series is said to be stationary if its statistical properties do not change over time. Stationarity is a crucial assumption for many time series models and forecasting techniques, as otherwise the model's predictions may be unreliable due to the changing nature of the data. However, even non-stationary time series can be transformed into stationary ones using techniques such as differences or log-transformation.
 
 ### Weak Stationarity {#sec-Weak_Stationarity}
-A time series $\{X_t\}$ is weakly stationary (or covariance stationary) if:
+A time series $\{X_t\}$ is weakly stationary if:
 
 1. The mean is constant: $\E{X_t} = \mu$ for all $t$
 2. The variance is constant: $\Var{X_t} = \sigma^2$ for all $t$
@@ -47,9 +49,7 @@ A time series $\{X_t\}$ is weakly stationary (or covariance stationary) if:
 This means that the correlation structure is time-invariant, depending only on the distance between observations, not their absolute position in time.
 
 ### Strong Stationarity {#sec-Strong_Stationarity}
-A time series is strongly stationary if the joint distribution of $(X_{t_1}, X_{t_2}, \ldots, X_{t_k})$ is the same as $(X_{t_1+h}, X_{t_2+h}, \ldots, X_{t_k+h})$ for all $t_1, \ldots, t_k$ and $h$. Strong stationarity implies weak stationarity under finite second moments.
-
-Many time series in practice are non-stationary and require transformations (such as differencing) to achieve stationarity before modeling.
+A time series is strongly stationary if the joint distribution of $(X_{t_1}, X_{t_2}, \dots, X_{t_k})$ is the same as $(X_{t_1 + h}, X_{t_2 + h}, \dots, X_{t_k + h})$ for all $t_1, \dots, t_k$ and $h$. Strong stationarity implies weak stationarity under finite second moments.
 
 
 ## Decomposed Time Series {#sec-Decomposed_Time_Series}
@@ -58,7 +58,6 @@ $$
 X_t = X_t^{\text{trend}} + X_t^{\text{seasonal}} + \epsilon_t
 $$
 where $X_t^{\text{trend}}$ is the trend component, $X_t^{\text{seasonal}}$ is the seasonal component with period $d$ (i.e., $X_t^{\text{seasonal}} = X_{t + d}^{\text{seasonal}}$), and $\epsilon_t$ is the irregular component. In a multiplicative decomposition, the component are multiplied together, instead of added together. This allows for more complex interactions between the components, such as a seasonal pattern that increases in magnitude as the trend increases.
-
 
 ### Trend {#sec-Trend}
 A trend is a long-term change in the mean level of a time series. Trends can be deterministic or stochastic - either predictable or random. Identifying and removing trends is often necessary before applying stationary time series models.

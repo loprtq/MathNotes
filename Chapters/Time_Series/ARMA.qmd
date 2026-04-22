@@ -1,5 +1,45 @@
-# ARMA(p, q) {#sec-ARMA}
+{{< include /preamble/commands.qmd >}}
+
+# Time Series Models {#sec-Time_Series_Models}
+This chapter is based on [@Time_Series_Analysis_2008], which provide a comprehensive introduction to time series analysis and modeling.
+
 ## AR(p) {#sec-AR}
+An autoregressive model of order $p$, denoted $\AR{p}$, expresses the current value of a time series as a linear combination of its previous $p$ values plus a random error term. AR models are useful when a series shows persistence, meaning past observations contain information about future observations. The AR(p) model is defined as:
+$$
+X_t = \sum_{i = 1}^{p} \phi_i X_{t - i} + \epsilon_t
+$$
+
+In this equation, $\phi_1, \dots, \phi_p$ are autoregressive coefficients and $\epsilon_t$ is white noise.
+
+### Stationarity {#sec-Stationarity_AR}
+Stationarity of an $\AR{p}$ process depends on the parameters $\phi_1, \dots, \phi_p$. The process is stationary if the roots of the characteristic polynomial lie outside the unit circle in the complex plane.
+
+### Estimation {#sec-Estimation_AR}
+AR models are commonly estimated using ordinary least squares (OLS) or Yule-Walker equations.
+
+
 ## MA(q) {#sec-MA}
-## ARIMA(p, D, q)
-## ARFIMA
+The moving average model of order $q$, denoted $\MA{q}$, expresses the current value of a time series as a linear combination of the current and previous $q$ error terms. MA models are useful when short-term shocks (random disturbances) have temporary effects that decay after a few periods - e.g. a sudden change in stock prices due to news. The MA(q) model is defined as:
+$$
+X_t = \sum_{i = 1}^{q} \theta_i \epsilon_{t - i} + \epsilon_t
+$$
+
+In this equation, $\theta_1, \dots, \theta_q$ are moving average coefficients and $\epsilon_t$ is white noise.
+
+### Stationarity {#sec-Stationarity_MA}
+An $\MA{q}$ process is always stationary because it is a finite linear combination of white noise terms.
+
+### Identification {#sec-Identification_MA}
+The autocorrelation function (ACF) of an $\MA{q}$ process cuts off after lag $q$, meaning that $\rho(h) = 0$ for all $h > q$. This property is commonly used to identify the order of an MA process.
+
+
+## ARMA(p, q) {#sec-ARMA}
+The autoregressive moving average (ARMA) model of order $(p, q)$ combines the $\AR{p}$ and $\MA{q}$ models.
+
+
+## ARIMA(p, d, q) {#sec-ARIMA}
+The integrated autoregressive moving average (ARIMA) model of order $(p, d, q)$. A time series is said to follow this model, if the $d$th difference time series is a stationary $\ARMA{p, q}$ model.
+
+
+## ARFIMA {#sec-ARFIMA}
+The autoregressive fractionally integrated moving average (ARFIMA) model extends the ARIMA model by allowing the differencing parameter $d$ to take fractional values. This model is useful for capturing long-memory behavior in time series data.
