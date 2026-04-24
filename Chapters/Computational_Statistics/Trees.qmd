@@ -1,5 +1,53 @@
-# Trees
+# Trees {#sec-Trees}
+Decision trees are fundamental models in machine learning that recursively partition the feature space to make predictions. While simple and interpretable, single trees are prone to overfitting, especially with large or complex data. This chapter explores key techniques for improving tree-based models: pruning addresses overfitting in individual trees by removing unnecessary nodes, bagging reduces variance through bootstrap aggregating, and random forest extends bagging by adding randomness to improve predictive performance and stability.
 
-## Pruning
-## Bagging
-## Random Forest
+## Nodes {.unnumbered}
+A decision tree consists of nodes that represent decisions based on feature values. Internal nodes correspond to tests on features, while terminal nodes (leaves) represent predicted outcomes. The tree is built by recursively splitting the data based on feature values that maximize some criterion (e.g., Gini impurity for classification or mean squared error for regression). However, fully grown trees can capture noise in the training data, leading to poor generalization on new data.
+
+
+## Pruning {#sec-Pruning}
+Pruning is a technique for reducing tree complexity by removing branches that provide little predictive power. A fully grown tree can perfectly memorize the training data, leading to poor generalization on new data. By trimming back nodes with minimal impact on performance, pruning creates simpler, more interpretable models that often perform better on test data.
+
+Cost-complexity pruning selects a subtree $T \subseteq T_0$ by minimizing:
+$$
+R_\alpha(T) = R(T) + \alpha \abs{T},
+$$
+where $R(T)$ is empirical error (or deviance), $\abs{T}$ is the number of terminal nodes, and $\alpha \ge 0$ controls the complexity penalty.
+
+### Weakest Link Pruning {#sec-Weakest_Link_Pruning}
+One common pruning method is weakest link pruning, which iteratively removes the least important branches based on a cost-complexity measure. This process continues until a stopping criterion is met, such as a minimum number of nodes or a threshold for improvement in performance. The resulting pruned tree is less likely to overfit and can provide better predictions on unseen data.
+
+At each step, weakest link pruning removes the internal node $t$ that gives the smallest increase in penalized risk. The effective complexity parameter for branch $T_t$ is:
+$$
+\alpha(t) = \frac{R(t) - R(T_t)}{\abs{T_t} - 1},
+$$
+
+and the branch with minimum $\alpha(t)$ is pruned first.
+
+
+## Bagging {#sec-Bagging}
+Bagging combines multiple models trained on different bootstrap (see @sec-Bootstrap) samples of the same data set. By averaging predictions across these models, bagging reduces variance and improves stability without significantly increasing bias. Each model is trained independently, and the final prediction is typically made by averaging (for regression) or majority voting (for classification). The steps for bagging decision trees are as follows:
+
+1. Generate $B$ bootstrap samples (with replacement) from the original data set.
+2. Train a decision tree on each bootstrap sample, independently.
+3. Aggregate the predictions from all trees to make a final prediction.
+
+For regression, if $\hat{f}^{(b)}(x)$ is the $b$th tree prediction, the bagged predictor is:
+$$
+\hat{f}_{\text{bag}}(x) = \frac{1}{B} \sum_{b = 1}^{B} \hat f^{(b)}(x).
+$$
+
+If each base learner has variance $\sigma^2$ and pairwise correlation $\rho$, then approximately:
+$$
+\Var{\hat f_{\text{bag}}} \approx \rho \sigma^2 + \frac{1 - \rho}{B}\sigma^2,
+$$
+
+which shows why larger $B$ and lower correlation improve stability.
+
+
+### Random Forest {#sec-Random_Forest}
+Random Forest extends bagging by introducing additional randomness during tree construction—each split considers only a random subset of features. This extra randomness promotes greater diversity among trees, further reducing correlation between members and typically yielding superior performance compared to bagging alone. Random Forests are robust, scalable, and effective across a wide range of regression and classification problems.
+
+
+## Boosting {#sec-Boosting}
+Boosting is a technique that builds a strong predictive model by sequentially combining weak learners, typically decision trees. Each new tree focuses on correcting the errors made by the previous trees, giving more weight to misclassified observations. This iterative process continues until a specified number of trees is reached or performance improvement plateaus. Boosting can significantly enhance predictive accuracy but may require careful tuning to avoid overfitting.
