@@ -26,3 +26,23 @@ Complete separation occurs when there exists a linear combination of the covaria
 
 ### Quasi-Complete Separation {#sec-Quasi-Complete_Separation}
 Quasi-complete separation occurs when the outcomes can be nearly, but not perfectly, separated by the covariates. Unlike complete separation, some observations exist where the perfect separation rule is violated, but these violations are rare. Formally, quasi-complete separation exists when there exists a $\beta$ such that $X \cdot \beta \geq 0$ for all observations where $Y = 1$ and $X \cdot \beta \leq 0$ for all observations where $Y = 0$, with at least one inequality being strict. While the maximum likelihood estimates technically exist in this case, they are extremely large and the standard errors are inflated, making the estimates and inference unreliable. Similar to complete separation, the likelihood function is nearly flat in certain directions, causing numerical instability in the estimation algorithm. Quasi-complete separation is more common than complete separation and can be difficult to detect, as the algorithm may appear to converge but with suspiciously large coefficient estimates and standard errors.
+
+
+## Odds Ratio {#sec-Odds_Ratio}
+The odds ratio (OR) is often utilized when there is a desire to compare the odds of an outcome in one group to the odds in another. The odds of an event with probability $p$ is $\frac{p}{1 - p}$, and the OR is the ratio of odds between two groups:
+$$
+\text{OR} = \frac{\frac{p_1}{1 - p_1}}{\frac{p_0}{1 - p_0}}
+$$
+In logistic regression, the OR for covariate $x_j$ is obtained by exponentiating its coefficient: $\text{OR}_j = \exp{\alpha_j}$.
+
+Non-collapsible. Not a causal estimand.
+
+- $\text{OR} < 1$: decreased odds of the outcome, compared to reference
+
+- $\text{OR} = 1$: No difference in odds, compared to reference
+
+- $\text{OR} > 1$: increased odds of the outcome, compared to reference
+
+::: {#rem-OR}
+The confidence intervals for ORs are only symmetrical on the log-scale, and not the usually presented exp-scale.
+:::
