@@ -3,18 +3,16 @@
 # Cox Regression {#sec-Cox}
 The Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see @sec-Hazard_Function), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.
 
-The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.
-
-The Cox proportional hazards model is defined as:
+The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.The Cox proportional hazards model is defined as:
 $$
-h(t) = h_0(t) \cdot \exp{\sum_{i=1}^p \beta_i x_i}
+h(t) = h_0(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i}
 $$ {#eq-Cox}
 where $h_0$ is the baseline hazard function, $x_1, x_2, \dots, x_p$ are the covariates and $\beta_1, \beta_2, \dots, \beta_p$ the associated effect sizes of the covariates.
 
 The Cox model assumes that continuous covariates have a linear relationship with $h$.
 
 
-## Separation
+## Separation {#sec-Separation_Cox_Model}
 Similar to logistic regression (see @sec-Logistic_Regression), the Cox model can experience separation. However, as opposed to logistic regression, separation in the Cox model only occurs when all observations within a level of a covariate are censored. This can have some of the following implications:
 
 ### Estimation Instability {.unnumbered}
@@ -27,7 +25,7 @@ The iterative estimation algorithm (typically Newton-Raphson) may fail to conver
 Confidence intervals, p-values, and hypothesis tests become meaningless for the separated covariate.
 
 
-## Stratification
+## Stratification {#sec-Stratification_Cox_Model}
 When stratifying a Cox model (see @eq-Cox), it allows the model to fix different baseline hazard functions $h_0$ for each stratum (each level of the stratification variable). Thus, if there are two stratum, $g=1$ and $g=2$, the Cox model is given as
 $$
 h(t) = \begin{cases}
@@ -40,7 +38,7 @@ meaning that the two stratum share the same effect sizes $\beta_1, \beta_2, \dot
 {{< include /Examples/Survival_Analysis/Cox.qmd >}}
 
 
-## Mixed Effects Cox Model
+## Mixed Effects Cox Model {#sec-Mixed_Effects_Cox_Model}
 Similar to how the linear regression model can be extended to a linear mixed model (see @sec-Linear_Mixed_Model), the Cox model can also be extended to include random effects (see @sec-Random_Effects) in the hazard function. The mixed effects Cox model is defined as
 $$
 \begin{aligned}

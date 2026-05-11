@@ -1,7 +1,7 @@
 {{< include /preamble/commands.qmd >}}
 
 # Kaplan-Meier Estimator {#sec-Kaplan-Meier}
-The Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see @sec-Survival_Function) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see @sec-Censoring) without making assumptions about the underlying survival distribution.
+The Kaplan-Meier estimator is a non-parametric statistic used to estimate the survival function (see @sec-Survival_Function) from time-to-event data. It has become one of the most widely used methods in survival analysis due to its ability to handle censored data (see @sec-Censoring_and_Truncation) without making assumptions about the underlying survival distribution.
 
 An advantage of the Kaplan-Meier estimator is that it can incorporate right-censored observations (see @sec-Right_Censoring) - individuals who have not experienced the event by the time of censoring.
 
@@ -32,7 +32,7 @@ The most critical assumption is that censoring is independent of survival time. 
 Related to independent censoring, the censoring mechanism should be non-informative about the event of interest. The probability of being censored at time $t$ should not depend on the event time $T$, given the observed covariates.
 
 ### No Loss to Follow-up
-Ideally, all individuals should be followed until they experience the event or reach the end of the study period. While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.
+Ideally, all individuals should be followed until they experience the event or reach the end of the study period (no right-censoring or right-truncation). While the Kaplan-Meier method can handle censoring, excessive loss to follow-up can reduce precision and potentially introduce bias.
 
 {{< include /Examples/Survival_Analysis/Kaplan-Meier.qmd >}}
 
