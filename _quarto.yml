@@ -30,10 +30,9 @@ book:
 
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:
-        - Chapters/Survival_Analysis/Censoring.qmd
-        - Chapters/Survival_Analysis/Truncation.qmd
         - Chapters/Survival_Analysis/Kaplan-Meier.qmd
         - Chapters/Survival_Analysis/Cox.qmd
+        - Chapters/Survival_Analysis/Win_Ratio.qmd
 
     - part: Chapters/Time_Series/Introduction.qmd
       chapters:

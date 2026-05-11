@@ -14,6 +14,47 @@ Say that you want are interested in whether smokers have a higher chance than no
 :::
 ::::
 
+In survival analysis, complete observation of every event time is rarely achievable. Two distinct mechanisms (censoring and truncation) describe different ways in which event times can be incompletely observed, and it is important to distinguish between them. Although the two mechanisms are often handled similarly in the estimation process, the distinction matters for interpretation. Misclassifying truncation as censoring (or vice versa) can lead to biased estimates and/or wrong interpretations of the results.
+
+
+## Censoring {#sec-Censoring}
+Censoring occurs when the event time $T$ is not observed exactly, but partial information is available - it is known to lie on one side of, or within, some interval. Truncation, by contrast, occurs when subjects are excluded from the study entirely because their event time falls outside an observable window; such subjects are not merely incompletely observed but are absent from the data altogether.
+
+An event time $T$ is censored if it is not observed exactly but is known to satisfy some inequality.
+
+### Right censoring {#sec-Right_Censoring}
+Right censoring occurs when the event has not yet happened by the end of the observation period, so only a lower bound on $T$ is known: $T > C$, where $C$ is the censoring time. The subject's event time exceeds $C$, placing it to the *right* on the time axis.
+
+Right censoring is the most common form in clinical trials. A typical example is **administrative censoring**: at the end of a trial, subjects who have not yet experienced the event of interest are censored at the date of the last planned follow-up visit. Their true event time is unknown, but it is known to be at least as large as $C$.
+
+### Left censoring {#sec-Left_Censoring}
+Left censoring occurs when the event has already happened before the subject was first observed, so only an upper bound on $T$ is known: $T < t$, where $t$ is the time of first observation. The event time lies to the *left* of $t$ on the time axis.
+
+An example is a study of age at first drug use, where some participants report having used drugs before their initial interview. Their exact age at first use is unknown, but it is known to be less than their age at interview.
+
+### Interval censoring {#sec-Interval_Censoring}
+Interval censoring occurs when the event is known to have occurred within a time window but the exact time is unknown: $t_1 < T < t_2$. This arises naturally when subjects are assessed only at scheduled clinic visits. For instance, in a study of tumour progression, a lesion may be absent at one visit and present at the next, so the progression time is known only to lie somewhere in the interval $(t_1, t_2)$ between the two visits.
+
+- Type I censoring: All subjects share a common, pre-specified censoring time. The study ends at a fixed calendar date, and every subject still event-free is censored at that point.
+- Type II censoring: The study continues until a pre-specified number of events have occurred, after which all remaining subjects are censored. The censoring time is therefore random from the subjects' perspective.
+- Type III censoring (random censoring): Subjects are censored at individually varying random times due to, for example, voluntary withdrawal from the trial or loss to follow-up.
+
+### Non-informative censoring
+Censoring is non-informative (also called independent censoring) if the censoring mechanism carries no information about the future event risk - formally, $T \perp C \mid \text{covariates}$. Most standard survival methods (e.g., Kaplan–Meier, Cox regression) require this assumption. If subjects who are censored tend to have a systematically higher or lower risk than those who remain under observation, the censoring is informative and standard methods can yield biased estimates.
+
+## Truncation {#sec-Truncation}
+Truncation occurs when a subject is excluded from the study entirely because their event time falls outside the window of observability. Unlike censoring, truncated subjects contribute no data - they are simply not present in the data set.
+
+### Left truncation {#sec-Left_Truncation}
+Left truncation (also called delayed entry) occurs when a subject is only included in the study if their event time exceeds some entry time $t_{\text{entry}}$: $T > t_{\text{entry}}$. Subjects who experienced the event before $t_{\text{entry}}$ are never observed.
+
+A common example is a hospital-based cohort studying time to a rare disease. A hospital that opened mid-study cannot have recorded any cases before its opening date - subjects who would have been seen there but had their event prior to the opening are entirely absent from the data set. Failing to account for this creates a bias known as *immortal time bias*, since only subjects who survived until the hospital opened are included.
+
+### Right truncation {#sec-Right_Truncation}
+Right truncation occurs when only subjects who have already experienced the event by some time $t_{\text{exit}}$ are included: $T < t_{\text{exit}}$. Subjects whose event time exceeds $t_{\text{exit}}$ are not observed at all.
+
+Using the same hospital example: if the hospital permanently closed during the study period, it would be impossible for the hospital to record any events after closure. Any subject whose event would have occurred after the hospital closed is entirely absent from the data set.
+
 
 ## Survival function {#sec-Survival_Function}
 To describe how probable it is for a person to survive until some time $t$, we can utilize the concept of stochastic variables (see @sec-Stochastic_Variables). The CDF (see @sec-CDF) can be used to describe the probability that an event occurs prior to time $t$ - $\Pr{T \leq t}$. The CDF of the stochastic variable $T$ is often referred to as the cumulative incidence function (CIF) and can be expressed as
@@ -55,7 +96,7 @@ $$
 $$
 As opposed to the survival function (see @sec-Survival_Function), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \leq H(t_1)$ for all $t_1 \geq t_2$.
 
-### Hazard ratio {#Hazard_Ratio}
+### Hazard ratio {#sec-Hazard_Ratio}
 The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to another, as it provides a relative measure of risk. The HR is, as the name suggests, defined as the ratio of the hazard in one group to the hazard in another group - $\frac{h_1(t)}{h_2(t)}$ where $h_1(t)$ and $h_2(t)$ are the hazard functions for the two groups. The interpretation of the HR can be confusing, but in general, the following applies:
 
 - $\textrm{HR} < 1$: increased survival probability, compared to reference

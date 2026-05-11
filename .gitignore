@@ -3,3 +3,4 @@
 /docs/
 
 /.luarc.json
+**/*.quarto_ipynb

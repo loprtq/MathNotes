@@ -1,0 +1,51 @@
+{{< include /preamble/commands.qmd >}}
+
+# Win Ratio {#sec-Win_Ratio}
+The win ratio (WR) is a method for comparing treatment groups on a hierarchically ordered composite endpoint. In clinical trials, some outcomes are more meaningful than others - for instance, death is more severe than a non-fatal hospitalisation in a clinical trial. The win ratio incorporates this priority directly into the analysis.
+
+For each possible pair of subjects $(i, j)$ where subject $i$ belongs to the treatment group and subject $j$ to the control group, the pair is evaluated sequentially through the endpoint hierarchy:
+
+1. Compare on the most important endpoint (e.g. all-cause death). If one subject fares better, that subject "wins" and the pair is resolved.
+2. If the pair is unresolved (a tie or both censored on the first endpoint), move to the next endpoint in the hierarchy (e.g., non-fatal hospitalisation).
+3. Continue through the hierarchy until the pair is resolved or exhausted.
+
+A pair is classified as a win for treatment, a loss for treatment, or a tie. The win ratio is then defined as
+$$
+\text{WR} = \frac{\text{number of wins}}{\text{number of losses}}
+$$
+
+- $\text{WR} > 1$: treatment group has more wins than losses - favorable outcome
+- $\text{WR} = 1$: no difference between groups
+- $\text{WR} < 1$: control group has more wins - unfavorable outcome for treatment
+
+
+## Increased Power {.unnumbered}
+A key motivation for the win ratio is its potential to increase statistical power compared to analyzing a single primary endpoint or a conventional composite. By using all outcomes in the hierarchy rather than only the first event, more information from each subject is utilized, which can reduce the required sample size to detect a clinically meaningful effect.
+
+When the treatment effect is present across multiple components of the hierarchy, the win ratio aggregates these effects, resulting in a more powerful test than one based on any single component alone. This is particularly relevant in cardiovascular and heart failure trials, where hierarchical composites combining mortality, hospitalization, and symptom burden are common.
+
+
+## Shortcomings {.unnumbered}
+Despite its appeal, the win ratio has several important limitations:
+
+### Sensitivity to Censoring {.unnumbered}
+The win ratio is sensitive to censoring. When the follow-up time differs between subjects or when censoring is heavy, many pairs cannot be resolved on time-to-event endpoints - both subjects are censored, yielding a tie regardless of the true underlying process. This can lead to a large proportion of unresolved ties, reducing the effective information used and attenuating the estimated effect. Methods such as the restricted mean survival time-based win ratio or inverse probability of censoring weighting (IPCW) have been proposed to address this, but they add complexity.
+
+### Dependence on Follow-up Time {.unnumbered}
+Unlike the hazard ratio, which under proportional hazards is constant over time, the win ratio can depend on the length of follow-up. A longer follow-up tends to resolve more pairs and may change the estimated WR, making direct comparisons across studies with different follow-up durations difficult.
+
+### Sensitivity to Endpoint Hierarchy {.unnumbered}
+The choice and ordering of endpoints in the hierarchy directly affects the win ratio estimate. Different hierarchies can yield different conclusions from the same data. There is currently no consensus on how to choose the hierarchy objectively, and the choice is typically driven by clinical judgment, which introduces subjectivity.
+
+### Ties and Unresolved Pairs {.unnumbered}
+When components of the hierarchy are measured on a coarse scale (e.g., binary outcomes), a large number of pairs may remain tied after exhausting the hierarchy. Unresolved pairs do not contribute to the win ratio, reducing power. This is less of an issue when the hierarchy includes continuous or time-to-event endpoints.
+
+### Dependence on Variability {.unnumbered}
+Because the win-ratio is based on pairwise comparisons, it is also sensitive to differences in variability between groups. A treatment that increases spread - benefiting some patients greatly while harming others - can yield WR $> 1$ even when the median or mean outcome is unchanged. Conversely, a treatment that reduces variability (more consistent outcomes) may show a win ratio close to 1 despite a clinically meaningful improvement in predictability. This means WR $> 1$ does not necessarily imply that the treatment is uniformly better; it may reflect a favourable shift in the outcome distribution that is partly driven by scale differences rather than a consistent treatment benefit.
+
+### Interpretation {.unnumbered}
+The win ratio is less familiar than the hazard ratio or odds ratio to many clinicians and regulators, which can complicate communication of results. The win ratio is also non-collapsible - the marginal win ratio for a composite endpoint does not necessarily equal the component-specific win ratios - and it is not a causal estimand in the same sense as other effect measures.
+
+::: {#rem-WR}
+The confidence intervals for the win ratio are only symmetrical on the log-scale, analogous to the hazard ratio (see @sec-Hazard_Ratio).
+:::
