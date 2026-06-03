@@ -1,0 +1,97 @@
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-k-Nearest-Neighbour
+#| layout-ncol: 2
+#| fig-cap:
+#|   - New observation shown with all training points.
+#|   - Nearest k points highlighted for the new observation.
+
+library(tidyverse)
+
+# Variables
+k <- 7
+
+# Data
+data <- iris |>
+    dplyr::select(Petal.Width, Sepal.Width, Species)
+
+new_point <- tibble(Petal.Width = 0.75, Sepal.Width = 3)
+
+# Compute Euclidean distance from each observation to the new point
+data_knn <- data |>
+    dplyr::mutate(
+        distance = sqrt(
+            (Petal.Width - new_point$Petal.Width)^2 +
+            (Sepal.Width - new_point$Sepal.Width)^2
+        ),
+        neighbor_rank = rank(distance, ties.method = "first"),
+        is_neighbor = neighbor_rank <= k
+    )
+
+nearest_points <- data_knn |>
+    dplyr::arrange(distance) |>
+    dplyr::slice_head(n = k)
+
+plot_all_points <- ggplot(data_knn, aes(x = Petal.Width, y = Sepal.Width)) +
+    geom_point(aes(color = Species), alpha = 0.75, size = 2.8) +
+    geom_point(
+        data = new_point,
+        aes(x = Petal.Width, y = Sepal.Width),
+        color = "black",
+        fill = "gold",
+        shape = 23,
+        size = 4,
+        stroke = 1.2
+    ) +
+    labs(
+        title = "",
+        x = "Petal Width",
+        y = "Sepal Width",
+        color = "Species"
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(legend.position = "bottom")
+
+plot_nearest_k <- ggplot(data_knn, aes(x = Petal.Width, y = Sepal.Width)) +
+    geom_point(color = "grey80", size = 2.2) +
+    geom_segment(
+        data = nearest_points,
+        aes(
+            x = new_point$Petal.Width,
+            y = new_point$Sepal.Width,
+            xend = Petal.Width,
+            yend = Sepal.Width
+        ),
+        color = "grey50",
+        linewidth = 0.5,
+        linetype = "dashed"
+    ) +
+    geom_point(
+        data = nearest_points,
+        aes(color = Species),
+        size = 3.4
+    ) +
+    geom_point(
+        data = new_point,
+        aes(x = Petal.Width, y = Sepal.Width),
+        color = "black",
+        fill = "gold",
+        shape = 23,
+        size = 4,
+        stroke = 1.2
+    ) +
+    labs(
+        title = "",
+        x = "Petal Width",
+        y = "Sepal Width",
+        color = "Species"
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(legend.position = "bottom")
+
+plot_all_points
+plot_nearest_k
+```

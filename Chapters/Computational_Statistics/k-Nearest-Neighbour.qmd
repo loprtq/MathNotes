@@ -1,4 +1,48 @@
+{{< include /preamble/commands.qmd >}}
+
 # $k$-Nearest Neighbour {#sec-kNN}
-The $k$-nearest neighbour (kNN) algorithm is a non-parametric method most often used for classification, but can also be applied to regression tasks. It operates on the principle that similar data points are likely to have similar outcomes. In classification, kNN assigns a class to a new data point based on the majority class among its $k$ nearest neighbours in the feature space. In regression, it predicts a value based on the average of the values of its $k$ nearest neighbours. 
+The $k$-nearest neighbour (kNN) algorithm is a non-parametric method most often used for classification, but can also be applied to regression tasks. It operates on the principle that similar data points are likely to have similar outcomes. In classification, kNN assigns a class to a new data point based on the majority class among its $k$ nearest neighbours, hence the name. In regression, it predicts a value based on the average of the values of its $k$ nearest neighbours.
 
 This method puts a strong emphasis on the local structure of the data, making it a powerful tool for certain types of problems. Furthermore, it can be computationally expensive for large data sets, as it requires calculating the distance to all other data points. Besides this, the choice of $k$ and how to measure the distance between data points can affect both the results and performance of the method.
+
+
+## Choosing $k$ {#sec-kNN_Choosing_k}
+The choice of $k$ in the kNN algorithm is also critical for the model's performance. A small value of $k$ (e.g., $k = 1$) can lead to a model that is sensitive to noise/outliers in the data, typically resulting in overfitting. On the other hand, a large value of $k$ can smooth out the decision boundary too much, leading to underfitting and poor performance on test data. A common approach to selecting $k$ is to use cross-validation, where the data is split into training and validation sets, and the performance of the model is evaluated for different values of $k$. The value of $k$ that yields the best performance on the validation set is typically chosen for the final model. However
+
+::: {.callout-tip}
+It is recommended to choose an odd value for $k$ in classification tasks to avoid ties in voting.
+:::
+
+
+## Distance Metrics {#sec-kNN_Distance_Metrics}
+Intuitively, how the kNN algorithm identifies the nearest neighbours depends on the distance metric used to measure similarity between data points. Defining an apropriate distance metric is crucial for the performance of kNN, as it directly influences which data points are considered neighbours.
+
+### Euclidean Distance {.unnumbered}
+The euclidean distance is the most commonly used distance metric in kNN, especially for continuous data, measuring the straight-line distance between two points in a multi-dimensional space. For example, assume that we are interested in the distance between $x = (1, 4)$ and $y = (4, 9)$ in an 2-dimensional space, the euclidean distance is $\frac{1}{2} \cdot ((1 - 4)^2 + (4 - 9)^2) = 5$. More generally, for two points $x$ and $y$ in an $n$-dimensional space, the euclidean distance is calculated as:
+$$
+d(x, y) = \sqrt{\sum_{i = 1}^{n} \left(x_i - y_i\right)^2}
+$$
+
+### Manhattan Distance {.unnumbered}
+The manhattan distance measures the distance between two points using the absolute differences between their coordinates. Assume again that we are interested in the distance between $x = (1, 4)$ and $y = (4, 9)$ in an 2-dimensional space, the manhattan distance is $\abs{1 - 4} + \abs{4 - 9} = 7$. More generally, for two points $x$ and $y$ in an $n$-dimensional space, the manhattan distance is calculated as:
+$$
+d(x, y) = \sum_{i = 1}^{n} \abs{x_i - y_i}
+$$
+
+### Minkowski Distance {.unnumbered}
+The minkowski distance is a generalisation of both the euclidean and manhattan distances, parameterised by a value $p$. Assume again that we are interested in the distance between $x = (1, 4)$ and $y = (4, 9)$ in an 2-dimensional space, the minkowski distance with $p = 3$ is $\sqrt[3]{\abs{1 - 4}^3 + \abs{4 - 9}^3} \approx 5.8$. More generally, for two points $x$ and $y$ in an $n$-dimensional space, the minkowski distance is calculated as:
+$$
+d(x, y) = \left(\sum_{i = 1}^{n} \abs{x_i - y_i}^p \right)^{\frac{1}{p}}
+$$
+
+By adjusting $p$, the minkowski distance can be tailored to different types of data, providing flexibility in how similarity is measured in kNN.
+
+::: {.callout-note}
+When $p = 1$ the minkowski distance is equivalent to the manhattan distance, and when $p = 2$, it is equivalent to the euclidean distance.
+:::
+
+### Hamming Distance {.unnumbered}
+The hamming distance is used for categorical data and measures the number of positions at which the corresponding elements are different. For example, if we have two categorical data points $x = (A, B, C)$ and $y = (A, D, C)$, the hamming distance is 1, since only the second element differs. More generally, for two points $x$ and $y$ in an $n$-dimensional space, the hamming distance is calculated as:
+$$
+d(x, y) = \sum_{i = 1}^{n} \mathbf{1}(x_i \ne y_i)
+$$
