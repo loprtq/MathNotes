@@ -18,7 +18,7 @@ A certain folder structure is used to organize the notes. Each folder correspond
 ├── Survival_Analysis/
 │   ├── Introduction.qmd
 │   ├── Hazard_Function.qmd
-│   ├── Cox.qmd
+│   └── Cox.qmd
 ├ Code/
 ├── Survival_Analysis/
 ├ Examples/
@@ -29,7 +29,7 @@ A certain folder structure is used to organize the notes. Each folder correspond
 ├── Survival_Analysis/
 ├ _quarto.yml
 ├ README.md
-├ references.bib
+└ references.bib
 ```
 
 
