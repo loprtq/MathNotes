@@ -1,0 +1,8 @@
+:::{#exm-Coin_Toss}
+## Coin Toss
+I want to determine the probability of getting a certain number of heads when tossing a coin five times. Each coin toss can result in either heads ($H$) or tails ($T$), each outcome is equally likely, and the tosses are independent of each other. The sample space for this experiment consists of all possible combinations of heads and tails in five tosses, which can be represented as:
+$$
+\Omega = \{TTTTT, TTTTH, \dots, HHHHH\}.
+$$
+This sample space contains $2^5 = 32$ possible outcomes, as each of the five tosses can independently result in either heads or tails. We define a stochastic variable $X$ that counts the number of heads obtained in the five tosses. The possible values of $X$ are $0, 1, 2, 3, 4, 5$, corresponding to the number of heads observed in the outcomes. For instance, if we get the outcome $HTTTH$, then $X$ would be equal to 2, since there are two heads in that outcome.
+:::
