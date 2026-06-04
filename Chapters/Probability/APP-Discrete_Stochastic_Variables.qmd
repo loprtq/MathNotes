@@ -4,7 +4,7 @@
 As described in @sec-Stochastic_Variables, discrete stochastic variables are measureable functions $X: \Omega \to  \mathcal{E}$, where $\Omega$ is the sample space. The distribution of a discrete stochastic variable describes the probabilities of the different outcomes of the stochastic variable.
 
 ## Bernoulli {#sec-Bernoulli_Stochastic_Variable}
-A bernoulli stochastic variable $X\sim\Ber{n, p}$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\Pr{X = 1} = p$ and the opposite, $\Pr{X = 0} = 1 - p$.
+A bernoulli stochastic variable $X \sim \Ber{n, p}$ has the sample space $\Omega = \{0, 1\}$ with the probabilities $\Pr{X = 1} = p$ and the opposite, $\Pr{X = 0} = 1 - p$.
 
 ### Distribution {.unnumbered}
 {{< include /Figures/Probability/Bernoulli_Distribution.qmd >}}
