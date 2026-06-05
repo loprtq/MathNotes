@@ -1,0 +1,13 @@
+# Combinatorics {#sec-Combinatorics}
+Combinatiorics is the branch of mathematics that studies the counting, arrangement, and combination of objects. It provides tools and techniques for solving problems related to counting and arranging objects in various ways. Combinatorics is fundamental in probability theory, as it helps us determine the number of possible outcomes in a given situation, which is essential for calculating probabilities. Recall @exm-coin-toss, where we calculated the probability of getting a certain number of heads in a series of coin tosses. In this example we used combinators to calculate the number of ways we can arrange the heads and tails in the series of tosses, which is essential for calculating the probability of getting a certain number of heads. This principle can be extended to more complex scenarios, such as calculating the probability of drawing a certain hand in a card game or the probability of a specific outcome in a dice roll.
+
+
+## Permutations {#sec-Permutations}
+### Permutations with Repetition
+
+
+## Combinations
+### Combinations with Repetition
+
+
+## Multiplication Principle
