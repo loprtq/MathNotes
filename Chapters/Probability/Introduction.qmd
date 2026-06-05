@@ -22,7 +22,6 @@ $$
     \Pr{E \cap E^\mathrm{C}} &= 0
 \end{aligned}
 $$
-
 :::
 
 ### Conditional Probability
