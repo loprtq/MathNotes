@@ -7,6 +7,23 @@ h2 {
 /* Math options */
 
 /* Table options */
-caption, .table-caption {
-  text-align: left;
+caption, .table-caption, .quarto-table caption {
+  text-align: justify !important;
+  caption-side: bottom;
+}
+
+/* Figure options */
+figcaption, .figure-caption, .quarto-figure figcaption {
+  text-align: justify !important;
+}
+
+/* Responsive columns: stack when screen is narrow */
+@media (max-width: 1200px) {
+  .columns {
+    flex-wrap: wrap !important;
+  }
+  .columns > .column {
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
 }

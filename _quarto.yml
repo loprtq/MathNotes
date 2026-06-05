@@ -52,6 +52,19 @@ format:
     theme: cosmo
     toc: true
     css: styles.css
+    tbl-cap-location: bottom
+    include-after-body:
+      text: |
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("figcaption.quarto-float-caption").forEach(function (el) {
+            el.innerHTML = el.innerHTML.replace(
+              /(Table|Figure)\&nbsp;(\d+):/,
+              "<strong>$1\&nbsp;$2:</strong>"
+            );
+          });
+        });
+        </script>
     page-layout: full
     grid:
       body-width: 1200px
