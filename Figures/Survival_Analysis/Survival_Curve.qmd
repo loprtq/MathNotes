@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Survival_Curve
 #| fig-cap: Survival curve for patients with advanced lung cancer at different institutes.
 # Packages
 library(dplyr)

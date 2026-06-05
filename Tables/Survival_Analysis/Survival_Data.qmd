@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: tbl-Survival_Data
 #| tbl-cap: Survival data for lung cancer patients at different institutes. Those with status 1 are censored and those with status 2 are dead.
 # Library
 library(dplyr)
@@ -22,9 +23,9 @@ data_f <- lung %>%
 data_c <- data_f
 names(data_c) <- c(
     "Institution code",
-    "Survival time in days",
+    "Survival time (days)",
     "Censoring status",
-    "Age in years",
+    "Age (years)",
     "Sex"
 )
 
