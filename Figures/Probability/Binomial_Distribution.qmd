@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Binomial_Distribution
 #| fig-cap: Binomial distribution.
 # Packages
 library(ggplot2)

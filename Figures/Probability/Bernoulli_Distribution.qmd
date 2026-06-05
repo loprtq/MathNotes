@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Bernoulli_Distribution
 #| fig-cap: Bernoulli distribution.
 # Packages
 library(ggplot2)

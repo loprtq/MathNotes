@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Gaussian_Distribution
 #| fig-cap: Gaussian distribution.
 # Packages
 library(ggplot2)

@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Beta_Distribution
 #| fig-cap: Beta distribution.
 # Packages
 library(ggplot2)

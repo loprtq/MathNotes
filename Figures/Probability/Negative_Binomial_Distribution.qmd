@@ -2,6 +2,7 @@
 #| eval: true
 #| echo: false
 #| warning: false
+#| label: fig-Negative_Binomial_Distribution
 #| fig-cap: Negative binomial distribution.
 # Packages
 library(ggplot2)
