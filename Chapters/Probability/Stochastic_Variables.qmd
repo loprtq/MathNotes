@@ -19,7 +19,7 @@ The cumulative distribution function (CDF) describes the probability of a stocha
 $$
 F_X(x) = \Pr{X \leq x}.
 $$
-The phrasing of the CDF might sound familiar if you have previously worked with p-values (see @sec-p-values). Similarly, if you have heard of quantiles or median, these are all related to the CDF. Quantiles are the values of $x$ where $F_X(x) = q$, where $q$ is the quantile. For example, the 0.25 (25%) quantile is the value of $x$ where $F_X(x) = 0.25$. The median is a special case of the quantiles, where $q = 0.5$. The median of a stochastic variable is the value of $x$ where there is a 50% chance that the stochastic variable is less than or equal to $x$ - it is the value that splits the distribution in half.
+The phrasing of the CDF might sound familiar if you have previously worked with p-values (see @sec-p-values). Similarly, if you have heard of quantiles or median, these are all related to the CDF. Quantiles are the values of $x$ where $F_X(x) = q$, where $q$ is the quantile. For example, the 0.25 (25%) quantile is the value of $x$ where $F_X(x) = 0.25$. The median is a special case of the quantiles, where $q = 0.5$ (50%). The median of a stochastic variable is the value of $x$ where there is a 50% chance that the stochastic variable is less than or equal to $x$ - it is the value that splits the distribution in half.
 
 
 ## Probability Density Function {#sec-PDF}
@@ -27,7 +27,7 @@ The probability density function (PDF) is the continuous analogue of the PMF. Th
 $$
 f_X(x) = \frac{\partial}{\partial x} F_X(x)
 $$
-where $F_X$ is the CDF and $\int_0^\infty f_x(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1, meaning that the total probability is 1.
+where $F_X$ is the CDF and $\int_0^\infty f_X(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1, meaning that the total probability is 1.
 
 $$
 F_X(x) = \int_{-\infty}^x f_X(t)\,\mathrm{d}t
@@ -50,18 +50,18 @@ For a series of stochastic variables $X_1, X_2,\dots, X_n$, the sum of the expec
 If the two stochastic variables $X$ and $Y$ are independent, then $\E{X \cdot Y} = \E{X} \cdot \E{Y}$.
 
 ### Conditional Expected Value {#sec-Cond_Expected_Value}
-The conditional expected value of a stochastic variable $Y$ given another stochastic variable $X$ is the expected value of $Y$ given that $X$ takes on a specific value. The conditional expected value is defined as
+The conditional expected value of a stochastic variable $X$ given another stochastic variable $Y$ is the expected value of $X$ given that $Y$ takes on a specific value ($y$). The conditional expected value is defined as
 $$
 \begin{aligned}
     \E{X \mid Y = y} &= \begin{cases}
-        \sum_{x} x \cdot \Pr{X = x \mid Y = y} & X\text{ is a discrete stochastic variable} \\
-        \int_{-\infty}^\infty x \cdot f_{X\mid Y}\left(x \mid Y = y\right) \, \mathrm{d}x & X\text{ is a continuous stochastic variable}
+        \sum_{x} x \cdot \Pr{X = x \mid Y = y} & X \text{ is a discrete stochastic variable} \\
+        \int_{-\infty}^\infty x \cdot f_{X \mid Y}\left(x \mid Y = y\right) \, \mathrm{d}x & X \text{ is a continuous stochastic variable}
     \end{cases}
 \end{aligned}
 $$
 
 $$
-\E{X} = \E{\E{Y\mid X}}
+\E{X} = \E{\E{X \mid Y}}
 $$
 
 
@@ -74,9 +74,18 @@ $$
 \end{aligned}
 $$
 
-$\Var{a \cdot X + b} = a^2 \cdot \Var{X}$, because $\Var{b} = 0$.
+::: {.callout-tip collapse = true title = "Variance Properties" #tip-Variance_Properties}
+For the stochastic variables $X$ and $Y$, and constants $a$ and $b$, the following properties hold
+$$
+\begin{aligned}
+    \Var{a} &= 0 \\
+    \Var{a \cdot X + b} &= a^2 \cdot \Var{X}\\
+    \Var{X} &= \E{\Var{X \mid Y}} + \Var{\E{X \mid Y}}
+\end{aligned}
+$$
+:::
 
-The standard deviation (SD) of the stochastic variable is $\sqrt{\Var{X}}$. The standard deviation can be thought of as what the "average" deviation from the mean would be if the units were the same as the stochastic variable, instead of being in the square of the units. For example, if we have a stochastic variable that measures height in centimeters, then the variance would be in square centimeters, while the standard deviation would be in centimeters.
+The standard deviation (SD) of the stochastic variable is $\sigma = \sqrt{\Var{X}}$. The standard deviation can be thought of as what the "average" deviation from the mean would be if the units were the same as the stochastic variable, instead of being in the square of the units. For example, if we have a stochastic variable that measures height in centimeters, then the variance would be in square centimeters, while the standard deviation would be in centimeters.
 
 
 ## Covariance {#sec-Covariance}
@@ -88,14 +97,15 @@ $$
 \end{aligned}
 $$ {#eq-Covariance}
 
-::: {.callout-tip collapse = true title = "Covariance Arithmetics" #tip-Covariance_Arithmetics}
+::: {.callout-tip collapse = true title = "Covariance Properties" #tip-Covariance_Properties}
 $$
 \begin{aligned}
-    \Cov{X, X} = \Var{X} \\
-    \Cov{X, Y} = \Cov{Y, X} \\
-    \Var{X + Y} = \Var{X} + \Var{Y} + 2 \cdot \Cov{X, Y} \\
-    \Var{a \cdot X + b \cdot Y} = a^2 \cdot \Var{X} + b^2 \cdot \Var{Y} + 2 \cdot a \cdot b \cdot \Cov{X, Y} \\
-    \Cov{a \cdot X + b, c \cdot Y + d} = a \cdot c \cdot \Cov{X, Y} \\
+    \Cov{X, X} &= \Var{X} \\
+    \Cov{X, Y} &= \Cov{Y, X} \\
+    \Var{X + Y} &= \Var{X} + \Var{Y} + 2 \cdot \Cov{X, Y} \\
+    \Var{a \cdot X + b \cdot Y} &= a^2 \cdot \Var{X} + b^2 \cdot \Var{Y} + 2 \cdot a \cdot b \cdot \Cov{X, Y} \\
+    \Cov{a \cdot X + b, c \cdot Y + d} &= a \cdot c \cdot \Cov{X, Y} \\
+
 \end{aligned}
 $$
 :::
