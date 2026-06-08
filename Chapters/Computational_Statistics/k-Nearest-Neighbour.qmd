@@ -7,10 +7,10 @@ This method puts a strong emphasis on the local structure of the data, making it
 
 
 ## Choosing $k$ {#sec-kNN_Choosing_k}
-The choice of $k$ in the kNN algorithm is also critical for the model's performance. A small value of $k$ (e.g., $k = 1$) can lead to a model that is sensitive to noise/outliers in the data, typically resulting in overfitting. On the other hand, a large value of $k$ can smooth out the decision boundary too much, leading to underfitting and poor performance on test data. A common approach to selecting $k$ is to use cross-validation, where the data is split into training and validation sets, and the performance of the model is evaluated for different values of $k$. The value of $k$ that yields the best performance on the validation set is typically chosen for the final model. However
+The choice of $k$ in the kNN algorithm is also critical for the model's performance. A small value of $k$ (e.g., $k = 1$) can lead to a model that is sensitive to noise/outliers in the data, typically resulting in overfitting. On the other hand, a large value of $k$ can smooth out the decision boundary too much, leading to underfitting and poor performance on test data. A common approach to selecting $k$ is to use cross-validation, where the data is split into training and validation sets, and the performance of the model is evaluated for different values of $k$. The value of $k$ that yields the best performance on the validation set is typically chosen for the final model.
 
 ::: {.callout-tip}
-It is recommended to choose an odd value for $k$ in classification tasks to avoid ties in voting.
+It is recommended to choose an odd value for $k$ in classification tasks to avoid ties in voting - when working with classification problems it is a majority vote that determines the class of a new observation.
 :::
 
 
@@ -32,7 +32,7 @@ $$
 ### Minkowski Distance {.unnumbered}
 The minkowski distance is a generalisation of both the euclidean and manhattan distances, parameterised by a value $p$. Assume again that we are interested in the distance between $x = (1, 4)$ and $y = (4, 9)$ in an 2-dimensional space, the minkowski distance with $p = 3$ is $\sqrt[3]{\abs{1 - 4}^3 + \abs{4 - 9}^3} \approx 5.8$. More generally, for two points $x$ and $y$ in an $n$-dimensional space, the minkowski distance is calculated as:
 $$
-d(x, y) = \left(\sum_{i = 1}^{n} \abs{x_i - y_i}^p \right)^{\frac{1}{p}}
+d(x, y) = \left(\sum_{i = 1}^{n} \abs{x_i - y_i}^p\right)^{\frac{1}{p}}
 $$
 
 By adjusting $p$, the minkowski distance can be tailored to different types of data, providing flexibility in how similarity is measured in kNN.
