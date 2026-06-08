@@ -11,7 +11,7 @@ These methods are particularly valuable when the theoretical distribution of a s
 
 
 ## Computational Modeling {#sec-Computational_Modeling}
-Beyond resampling, computational statistics encompasses sophisticated modeling techniques that learn data patterns. Machine learning (see @sec-Machine_Learning) represents a major branch of this area, focusing on techniques that can improve their performance through experience. These methods range from relatively simple approaches like decision trees to complex ensemble methods and support vector machines.
+Beyond resampling, computational statistics encompasses sophisticated modeling techniques that learn data patterns. Machine learning represents a major branch of this area, focusing on techniques that can improve their performance through experience. These methods range from relatively simple approaches like decision trees (see @sec-Trees) to complex ensemble methods and support vector machines.
 
 Neural networks (see @sec-Neural_Networks) take this further, using interconnected layers of computational units inspired by neurons to model highly complex relationships. A simple neural network might take input features like temperature and humidity to predict whether it will rain, learning the complex interactions between these variables through an iterative training process.
 
