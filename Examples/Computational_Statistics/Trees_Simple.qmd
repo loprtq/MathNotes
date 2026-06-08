@@ -1,0 +1,8 @@
+:::{#exm-Trees_Simple}
+# Predicting House Prices with a Simple Decision Tree
+Consider predicting house prices based solely on living area. If the only information we have is whether the living area within the house is above or below 150 m², a simple decision tree can be constructed to make predictions. The tree would have a single split at the root node based on the living area feature. If the living area is greater than 150 m², the tree would predict a higher price (e.g., 2.4 million DKK); otherwise, it would predict a lower price (e.g., 1.4 million DKK). This simple structure allows for easy interpretation and provides a clear decision rule based on the living area, as illustrated in @fig-Trees_Simple.
+
+{{< include /Figures/Computational_Statistics/Trees_Simple.qmd >}}
+
+Naturally, this is a highly simplified model that ignores other important features such as location, number of bedrooms, and age. However, it serves as a clear example of how decision trees can be used for regression tasks, where the goal is to predict a continuous outcome (house price) based on a single feature (living area).
+:::

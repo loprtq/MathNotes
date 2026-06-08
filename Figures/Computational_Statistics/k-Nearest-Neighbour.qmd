@@ -8,8 +8,10 @@
 #| fig-cap:
 #|   - New observation shown with all training points.
 #|   - Nearest k points highlighted for the new observation.
-
-library(tidyverse)
+# Packages
+library(ggplot2)
+library(dplyr)
+library(tibble)
 
 # Variables
 k <- 7
@@ -18,7 +20,7 @@ k <- 7
 data <- iris |>
     dplyr::select(Petal.Width, Sepal.Width, Species)
 
-new_point <- tibble(Petal.Width = 0.75, Sepal.Width = 3)
+new_point <- tibble::tibble(Petal.Width = 0.75, Sepal.Width = 3)
 
 # Compute Euclidean distance from each observation to the new point
 data_knn <- data |>
@@ -35,31 +37,31 @@ nearest_points <- data_knn |>
     dplyr::arrange(distance) |>
     dplyr::slice_head(n = k)
 
-plot_all_points <- ggplot(data_knn, aes(x = Petal.Width, y = Sepal.Width)) +
-    geom_point(aes(color = Species), alpha = 0.75, size = 2.8) +
-    geom_point(
+plot_all_points <- ggplot2::ggplot(data_knn, ggplot2::aes(x = Petal.Width, y = Sepal.Width)) +
+    ggplot2::geom_point(ggplot2::aes(color = Species), alpha = 0.75, size = 2.8) +
+    ggplot2::geom_point(
         data = new_point,
-        aes(x = Petal.Width, y = Sepal.Width),
+        ggplot2::aes(x = Petal.Width, y = Sepal.Width),
         color = "black",
         fill = "gold",
         shape = 23,
         size = 4,
         stroke = 1.2
     ) +
-    labs(
+    ggplot2::labs(
         title = "",
         x = "Petal Width",
         y = "Sepal Width",
         color = "Species"
     ) +
-    theme_minimal(base_size = 12) +
-    theme(legend.position = "bottom")
+    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme(legend.position = "bottom")
 
-plot_nearest_k <- ggplot(data_knn, aes(x = Petal.Width, y = Sepal.Width)) +
-    geom_point(color = "grey80", size = 2.2) +
-    geom_segment(
+plot_nearest_k <- ggplot2::ggplot(data_knn, ggplot2::aes(x = Petal.Width, y = Sepal.Width)) +
+    ggplot2::geom_point(color = "grey80", size = 2.2) +
+    ggplot2::geom_segment(
         data = nearest_points,
-        aes(
+        ggplot2::aes(
             x = new_point$Petal.Width,
             y = new_point$Sepal.Width,
             xend = Petal.Width,
@@ -69,28 +71,28 @@ plot_nearest_k <- ggplot(data_knn, aes(x = Petal.Width, y = Sepal.Width)) +
         linewidth = 0.5,
         linetype = "dashed"
     ) +
-    geom_point(
+    ggplot2::geom_point(
         data = nearest_points,
-        aes(color = Species),
+        ggplot2::aes(color = Species),
         size = 3.4
     ) +
-    geom_point(
+    ggplot2::geom_point(
         data = new_point,
-        aes(x = Petal.Width, y = Sepal.Width),
+        ggplot2::aes(x = Petal.Width, y = Sepal.Width),
         color = "black",
         fill = "gold",
         shape = 23,
         size = 4,
         stroke = 1.2
     ) +
-    labs(
+    ggplot2::labs(
         title = "",
         x = "Petal Width",
         y = "Sepal Width",
         color = "Species"
     ) +
-    theme_minimal(base_size = 12) +
-    theme(legend.position = "bottom")
+    ggplot2::theme_minimal(base_size = 12) +
+    ggplot2::theme(legend.position = "bottom")
 
 plot_all_points
 plot_nearest_k

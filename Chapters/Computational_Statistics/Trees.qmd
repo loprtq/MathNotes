@@ -1,5 +1,11 @@
+{{< include /preamble/commands.qmd >}}
+
 # Trees {#sec-Trees}
-Decision trees are fundamental models in machine learning that recursively partition the feature space to make predictions. While simple and interpretable, single trees are prone to overfitting, especially with large or complex data. This chapter explores key techniques for improving tree-based models: pruning addresses overfitting in individual trees by removing unnecessary nodes, bagging reduces variance through bootstrap aggregating, and random forest extends bagging by adding randomness to improve predictive performance and stability.
+Decision trees are fundamental models in machine learning that recursively partition the feature space to make predictions. While simple and interpretable, single trees are prone to overfitting, especially with large or complex data. A decision tree is a flowchart-like structure where each internal node represents a test on a feature, each branch represents the outcome of the test, and each leaf node represents a predicted value or class label. However, fully grown trees can capture noise in the training data, leading to poor generalization on new data. A simple example of a decision tree for predicting house prices based solely on living area is shown in @exm-Trees_Simple. A more complex tree that also considers the number of bathrooms is illustrated in @exm-Trees_Expanded.
+
+{{< include /Examples/Computational_Statistics/Trees_Simple.qmd >}}
+{{< include /Examples/Computational_Statistics/Trees_Expanded.qmd >}}
+
 
 ## Nodes {.unnumbered}
 A decision tree consists of nodes that represent decisions based on feature values. Internal nodes correspond to tests on features, while terminal nodes (leaves) represent predicted outcomes. The tree is built by recursively splitting the data based on feature values that maximize some criterion (e.g., Gini impurity for classification or mean squared error for regression). However, fully grown trees can capture noise in the training data, leading to poor generalization on new data.
@@ -8,7 +14,7 @@ A decision tree consists of nodes that represent decisions based on feature valu
 ## Pruning {#sec-Pruning}
 Pruning is a technique for reducing tree complexity by removing branches that provide little predictive power. A fully grown tree can perfectly memorize the training data, leading to poor generalization on new data. By trimming back nodes with minimal impact on performance, pruning creates simpler, more interpretable models that often perform better on test data.
 
-Cost-complexity pruning selects a subtree $T \subseteq T_0$ by minimizing:
+Cost-complexity pruning selects a subtree $T \subseteq T_0$ by minimising:
 $$
 R_\alpha(T) = R(T) + \alpha \abs{T},
 $$
@@ -21,7 +27,6 @@ At each step, weakest link pruning removes the internal node $t$ that gives the 
 $$
 \alpha(t) = \frac{R(t) - R(T_t)}{\abs{T_t} - 1},
 $$
-
 and the branch with minimum $\alpha(t)$ is pruned first.
 
 

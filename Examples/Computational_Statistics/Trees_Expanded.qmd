@@ -1,0 +1,6 @@
+:::{#exm-Trees_Expanded}
+# Predicting House Prices with a Decision Tree
+Contuining the example from @exm-Trees_Simple, we can expand the decision tree to include an additional feature: the number of bathrooms. After splitting on living area, we can further split the "Large house" node based on whether the house has 1, 2, or 3 bathrooms. This results in a more complex tree with three terminal nodes under the "Large house" node, each representing a different predicted price based on the number of bathrooms. The expanded tree is illustrated in @fig-Trees_Expanded.
+
+{{< include /Figures/Computational_Statistics/Trees_Expanded.qmd >}}
+:::

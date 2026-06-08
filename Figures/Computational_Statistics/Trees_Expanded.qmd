@@ -1,0 +1,98 @@
+```{dot}
+//| label: fig-Trees_Expanded
+//| fig-cap: An expanded decision tree for predicting house prices. The root node splits on living area, and the "Large house" node further splits based on the number of bathrooms.
+//| fig-height: 4
+digraph DecisionTree {
+  rankdir = TB
+  nodesep = 0.8
+  ranksep = 1.0
+  bgcolor = "transparent"
+  node [fontname = "Helvetica", fontsize = 12, penwidth = 1.8]
+  edge [penwidth = 1.4, fontname = "Helvetica", fontsize = 10]
+
+  // Root node (decision)
+  Root [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>Living Area</B></TD></TR>
+      <TR><TD>&gt; 150 m²?</TD></TR>
+    </TABLE>>
+    shape = diamond
+    width = 2.2
+    height = 1.4
+    style = "filled,rounded"
+    fillcolor = "#DCEEFB"
+    color = "#2B7BB9"
+  ]
+
+  // Left leaf (small house)
+  Left [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>1.4M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Small house</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  // Second decision node (bathrooms)
+  Bathrooms [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>Bathrooms</B></TD></TR>
+      <TR><TD>How many?</TD></TR>
+    </TABLE>>
+    shape = diamond
+    width = 2.0
+    height = 1.3
+    style = "filled,rounded"
+    fillcolor = "#DCEEFB"
+    color = "#2B7BB9"
+  ]
+
+  // Bathroom leaf nodes
+  Bath1 [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>2.0M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">1 bathroom</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  Bath2 [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>2.8M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">2 bathrooms</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  Bath3 [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>3.5M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">3 bathrooms</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  // Edges
+  Root -> Left      [label = <<FONT COLOR="#C0392B">No</FONT>>, color = "#C0392B"]
+  Root -> Bathrooms [label = <<FONT COLOR="#27AE60">Yes</FONT>>, color = "#27AE60"]
+  Bathrooms -> Bath1 [label = <<FONT COLOR="#555555"> 1 </FONT>>, color = "#555555", labeldistance = 2.0, minlen = 2]
+  Bathrooms -> Bath2 [label = <<FONT COLOR="#555555"> 2 </FONT>>, color = "#555555", labeldistance = 2.0, minlen = 2]
+  Bathrooms -> Bath3 [label = <<FONT COLOR="#555555"> 3 </FONT>>, color = "#555555", labeldistance = 2.0, minlen = 2]
+}
+```

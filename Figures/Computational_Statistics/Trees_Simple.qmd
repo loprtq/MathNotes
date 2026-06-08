@@ -1,0 +1,56 @@
+```{dot}
+//| label: fig-Trees_Simple
+//| fig-cap: A simple decision tree for predicting house prices. The root node splits on living area, and the terminal nodes represent predicted prices.
+//| fig-height: 3
+digraph DecisionTree {
+  rankdir = TB
+  nodesep = 1.2
+  ranksep = 1.0
+  bgcolor = "transparent"
+  node [fontname = "Helvetica", fontsize = 12, penwidth = 1.8]
+  edge [penwidth = 1.4, fontname = "Helvetica", fontsize = 10]
+
+  // Root node (decision)
+  Root [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>Living Area</B></TD></TR>
+      <TR><TD>&gt; 150 m²?</TD></TR>
+    </TABLE>>
+    shape = diamond
+    width = 2.2
+    height = 1.4
+    style = "filled,rounded"
+    fillcolor = "#DCEEFB"
+    color = "#2B7BB9"
+  ]
+
+  // Leaf nodes (predictions)
+  Left [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>1.4M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Small house</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  Right [
+    label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+      <TR><TD><B>2.4M DKK</B></TD></TR>
+      <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Large house</FONT></TD></TR>
+    </TABLE>>
+    shape = box
+    style = "filled,rounded"
+    fillcolor = "#E3F2E1"
+    color = "#3A8A3A"
+    width = 1.6
+  ]
+
+  // Edges with styled labels
+  Root -> Left  [label = <<FONT COLOR="#C0392B">No</FONT>>, color = "#C0392B"]
+  Root -> Right [label = <<FONT COLOR="#27AE60">Yes</FONT>>, color = "#27AE60"]
+}
+```
