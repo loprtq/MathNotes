@@ -1,11 +1,47 @@
-```{r}
-#| eval: true
-#| echo: false
-#| warning: false
-#| label: fig-Neural_Network_Simple
-#| fig-cap: Neural network
-# Packages
+```{dot}
+//| label: fig-Neural_Network_Simple
+//| fig-cap: Neural network architecture with one hidden layer. The input layer (blue) receives the data, the hidden layer (orange) transforms the data through learned behaviour, and the output layer (green) produces predictions.
+digraph NeuralNetwork {
+  rankdir = LR
+  splines = line
+  nodesep = 0.6
+  ranksep = 1.2
+  node [shape = circle, fixedsize = true, width = 0.5, style = filled, fillcolor = white, penwidth = 2]
+  edge [arrowhead = normal, color = gray40]
 
-# Plot
+  // Input layer (blue)
+  node [color="#3366AA"]
+  I1 [label = <x<sub>1</sub>>]
+  I2 [label = <x<sub>2</sub>>]
+  I3 [label = <x<sub>3</sub>>]
 
+  // Hidden layer 1 (orange)
+  node [color="#DD7700"]
+  H1 [label = ""]
+  H2 [label = ""]
+  H3 [label = ""]
+  H4 [label = ""]
+
+  // Output layer (green)
+  node [color="#267226"]
+  O1 [label = <y<sub>1</sub>>]
+  O2 [label = <y<sub>2</sub>>]
+  O3 [label = <y<sub>3</sub>>]
+
+  // Force vertical alignment
+  {rank = same; I1; I2; I3}
+  {rank = same; H1; H2; H3; H4}
+  {rank = same; O1; O2; O3}
+
+  // Input to Hidden 1
+  I1 -> {H1 H2 H3 H4}
+  I2 -> {H1 H2 H3 H4}
+  I3 -> {H1 H2 H3 H4}
+
+  // Hidden 1 to Output
+  H1 -> {O1 O2 O3}
+  H2 -> {O1 O2 O3}
+  H3 -> {O1 O2 O3}
+  H4 -> {O1 O2 O3}
+}
 ```

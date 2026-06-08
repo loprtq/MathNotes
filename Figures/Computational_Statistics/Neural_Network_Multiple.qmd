@@ -1,0 +1,73 @@
+```{dot}
+//| label: fig-Neural_Network_Multiple
+//| fig-cap: Neural network architecture with multiple hidden layers (three of which are shown). The input layer (blue) receives the data, the hidden layers (orange) transform the data through learned behaviour, and the output layer (green) produces predictions.
+digraph NeuralNetwork {
+  rankdir = LR
+  splines = line
+  nodesep = 0.6
+  ranksep = 1.2
+  node [shape = circle, fixedsize = true, width = 0.5, style = filled, fillcolor = white, penwidth = 2]
+  edge [arrowhead = normal, color = gray40]
+
+  // Input layer (blue)
+  node [color = "#3366AA"]
+  I1 [label = <x<sub>1</sub>>]
+  I2 [label = <x<sub>2</sub>>]
+  I3 [label = <x<sub>3</sub>>]
+
+  // Hidden layer 1 (orange)
+  node [color = "#DD7700"]
+  H1 [label = ""]
+  H2 [label = ""]
+  H3 [label = ""]
+  H4 [label = ""]
+
+  // Hidden layer 2 (orange)
+  J1 [label = ""]
+  J2 [label = ""]
+  J3 [label = ""]
+  J4 [label = ""]
+
+  // Hidden layer 3 (orange)
+  K1 [label = ""]
+  K2 [label = ""]
+  K3 [label = ""]
+  K4 [label = ""]
+
+  // Output layer (green)
+  node [color = "#267226"]
+  O1 [label = <y<sub>1</sub>>]
+  O2 [label = <y<sub>2</sub>>]
+  O3 [label = <y<sub>3</sub>>]
+
+  // Force vertical alignment
+  {rank = same; I1; I2; I3}
+  {rank = same; H1; H2; H3; H4}
+  {rank = same; J1; J2; J3; J4}
+  {rank = same; K1; K2; K3; K4}
+  {rank = same; O1; O2; O3}
+
+  // Input to Hidden 1
+  I1 -> {H1 H2 H3 H4}
+  I2 -> {H1 H2 H3 H4}
+  I3 -> {H1 H2 H3 H4}
+
+  // Hidden 1 to Hidden 2
+  H1 -> {J1 J2 J3 J4}
+  H2 -> {J1 J2 J3 J4}
+  H3 -> {J1 J2 J3 J4}
+  H4 -> {J1 J2 J3 J4}
+
+  // Hidden 2 to Hidden 3
+  J1 -> {K1 K2 K3 K4}
+  J2 -> {K1 K2 K3 K4}
+  J3 -> {K1 K2 K3 K4}
+  J4 -> {K1 K2 K3 K4}
+
+  // Hidden 3 to Output
+  K1 -> {O1 O2 O3}
+  K2 -> {O1 O2 O3}
+  K3 -> {O1 O2 O3}
+  K4 -> {O1 O2 O3}
+}
+```
