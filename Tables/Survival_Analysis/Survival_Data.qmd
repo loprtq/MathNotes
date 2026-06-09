@@ -10,13 +10,9 @@ library(survival)
 library(knitr)
 
 # Data
-## Get data
-data(cancer, package = "survival")
-
-## Transform and select data
-data_f <- lung %>%
-    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
-    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+data_f <- survival::lung |>
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) |>
+    dplyr::mutate(sex = dplyr::if_else(sex == 1, "Male", "Female")) |>
     dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
 
 ## Add labels as column names

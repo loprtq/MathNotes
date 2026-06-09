@@ -1,11 +1,13 @@
 :::{#exm-Cox}
 ## Proportional Cox model
+Consider the data set presented in @tbl-Survival_Data. We want to investigate the effect of `sex` and `age` on the survival time of lung cancer patients. A common approach is to use the Cox proportional hazards model.
+
 
 :::{.panel-tabset}
 ## R
 ```{r}
-#| eval: false
-#| echo: true
+#| eval: true
+#| echo: false
 #| warning: false
 # Packages
 library(tidyverse)
@@ -13,50 +15,53 @@ library(survival)
 library(survminer)
 
 # Data
-## Get data
-data(cancer, package = "survival")
-
-## Transform and select data
-data_f <- lung %>%
-    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) %>%
-    dplyr::mutate(sex = if_else(sex == 1, "Male", "Female")) %>%
+data_f <- survival::lung |>
+    dplyr::select(-c(ph.ecog, ph.karno, pat.karno, meal.cal, wt.loss)) |>
+    dplyr::mutate(sex = dplyr::if_else(sex == 1, "Male", "Female")) |>
     dplyr::mutate_at(.vars = c("inst", "status", "sex"), .funs = as.factor)
 
 # Model
 # * status == 2: event, status == 1: censored
 cox_fit <- survival::coxph(survival::Surv(time, status == 2) ~ age + sex, data_f, ties = "breslow")
 
-## Coefficients
-broom::tidy(cox_fit)
+## Model assumptions
 survival::cox.zph(cox_fit) # Test if covariate HR changes over time
 
-# Plot
-plot(survival::cox.zph(cox_fit)) # See much it would change over time (when y is constant, it would not change)
-survminer::ggsurvplot(survival::survfit(cox_fit), conf.int = TRUE, data = data_f)
+## Coefficients
+broom::tidy(cox_fit)
 ```
 
 ## Python
 ```{python}
 #| eval: false
-#| echo: true
+#| echo: false
 #| warning: false
 # Packages
 import pandas as pd
 import lifelines
+import statsmodels.api as sm
 
 # Data
+# Fetch survival::lung from the Rdatasets repository (no R needed)
+lung = sm.datasets.get_rdataset("lung", "survival").data
+
+data = (
+    lung
+    .loc[:, ["time", "status", "age", "sex"]]
+    .assign(
+        status=lambda d: (d["status"] == 2).astype(int),
+        sex=lambda d: d["sex"].map({1: "Male", 2: "Female"}),
+    )
+    .dropna()
+)
 
 # Model
 # * status == 1: event, status == 0: censored
 cph = CoxPHFitter()
-cph.fit(data, duration_col = 'time', event_col = 'status')
+cph.fit(data, duration_col = 'time', event_col = 'status', formula = 'age + sex')
 
 ## Coefficients
 cph.print_summary()
-
-
-# Plot
-cph.plot()
 ```
 :::
 :::
