@@ -42,7 +42,6 @@ import lifelines
 import statsmodels.api as sm
 
 # Data
-# Fetch survival::lung from the Rdatasets repository (no R needed)
 lung = sm.datasets.get_rdataset("lung", "survival").data
 
 data = (
