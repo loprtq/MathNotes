@@ -25,7 +25,7 @@ An event time $T$ is censored if it is not observed exactly but is known to sati
 ### Right censoring {#sec-Right_Censoring}
 Right censoring occurs when the event has not yet happened by the end of the observation period, so only a lower bound on $T$ is known: $T > C$, where $C$ is the censoring time. The subject's event time exceeds $C$, placing it to the *right* on the time axis.
 
-Right censoring is the most common form in clinical trials. A typical example is **administrative censoring**: at the end of a trial, subjects who have not yet experienced the event of interest are censored at the date of the last planned follow-up visit. Their true event time is unknown, but it is known to be at least as large as $C$.
+Right censoring is the most common form in clinical trials. A typical example is administrative censoring: at the end of a trial, subjects who have not yet experienced the event of interest are censored at the date of the last planned follow-up visit. Their true event time is unknown, but it is known to be at least as large as $C$.
 
 ### Left censoring {#sec-Left_Censoring}
 Left censoring occurs when the event has already happened before the subject was first observed, so only an upper bound on $T$ is known: $T < t$, where $t$ is the time of first observation. The event time lies to the *left* of $t$ on the time axis.
@@ -72,8 +72,6 @@ $$
 \end{aligned}
 $$
 where $F_T$ is the CIF and $f_T$ the pdf of $T$. One of the proporties of the survival function is that it is monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
-
-{{< include /Examples/Survival_Analysis/Survival_Function.qmd >}}
 
 
 ## Hazard function {#sec-Hazard_Function}
