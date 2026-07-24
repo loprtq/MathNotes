@@ -1,12 +1,19 @@
 {{< include /preamble/commands.qmd >}}
 
 # Non-linear Regression {#sec-Non_linear_Regression}
+Non-linear regression is a regression on the form
+$$
+y = f(x, \alpha)
+$$
+where $f$ is a non-linear function of the exploratory variable(s) $x$ and the parameter(s) $\alpha$. Non-linear regression is used when the relationship between the response variable and the exploratory variable(s) is not linear, and it allows for more complex modeling of the data.
+
+
 ## Polynomial Regression {#sec-Polynomial_Regression}
 Polynomial regression is an extension of linear regression that allows for modeling non-linear relationships between the response variable and the exploratory variable(s). In polynomial regression, the relationship between the response variable and the exploratory variable(s) is modeled as a polynomial function of the exploratory variable(s). This means that the change in the response variable is not necessarily proportional to the change in the exploratory variable(s), but can be more complex.
 
 $$
 \begin{aligned}
     y &= X \cdot \alpha + \varepsilon \\
-    &= \sum_{i = 0}^{p} \alpha_i x^i + \varepsilon
+    &= \sum_{i = 0}^{p} \alpha_i \cdot x^i + \varepsilon
 \end{aligned}
 $$
