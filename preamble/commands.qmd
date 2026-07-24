@@ -24,6 +24,8 @@ $$
 \renewcommand{\exp}[1]{\operatorname{exp}\left(#1\right)}
 \renewcommand{\log}[1]{\operatorname{log}\left(#1\right)}
 \newcommand{\ln}[1]{\operatorname{ln}\left(#1\right)}
+\newcommand{\max}[1]{\operatorname{max}\left(#1\right)}
+\newcommand{\min}[1]{\operatorname{min}\left(#1\right)}
 \newcommand{\abs}[1]{\left|#1\right|}
 
 % Distributions
