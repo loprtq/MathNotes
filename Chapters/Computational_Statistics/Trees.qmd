@@ -6,6 +6,11 @@ Decision trees are fundamental models in machine learning that recursively parti
 {{< include /Examples/Computational_Statistics/Trees_Simple.qmd >}}
 {{< include /Examples/Computational_Statistics/Trees_Expanded.qmd >}}
 
+Decision trees are popular because they are easy to interpret, require little data preprocessing, and naturally handle both numerical and categorical variables as well as non-linear interactions. They make no distributional assumptions and can accommodate missing values through surrogate splits. 
+
+## Shortcomings {.unnumbered}
+Although trees are easy to interpret and flexible, small changes in the data can produce very different trees, and single trees tend to overfit. Ensemble methods such as bagging, random forests, and boosting address these weaknesses by combining many trees, trading interpretability for substantially improved accuracy and robustness. These ensemble methods are widely used in practice and often outperform single decision trees, especially on complex data sets.
+
 
 ## Nodes {.unnumbered}
 A decision tree consists of nodes that represent decisions based on feature values. Internal nodes correspond to tests on features, while terminal nodes (leaves) represent predicted outcomes. The tree is built by recursively splitting the data based on feature values that maximize some criterion (e.g., Gini impurity for classification or mean squared error for regression). However, fully grown trees can capture noise in the training data, leading to poor generalization on new data.
@@ -46,9 +51,7 @@ If each base learner has variance $\sigma^2$ and pairwise correlation $\rho$, th
 $$
 \Var{\hat f_{\text{bag}}} \approx \rho \sigma^2 + \frac{1 - \rho}{B}\sigma^2,
 $$
-
 which shows why larger $B$ and lower correlation improve stability.
-
 
 ### Random Forest {#sec-Random_Forest}
 Random Forest extends bagging by introducing additional randomness during tree construction—each split considers only a random subset of features. This extra randomness promotes greater diversity among trees, further reducing correlation between members and typically yielding superior performance compared to bagging alone. Random Forests are robust, scalable, and effective across a wide range of regression and classification problems.

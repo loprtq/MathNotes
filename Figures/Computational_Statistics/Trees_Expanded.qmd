@@ -66,7 +66,7 @@ digraph DecisionTree {
 
   Bath2 [
     label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
-      <TR><TD><B>2.8M DKK</B></TD></TR>
+      <TR><TD><B>2.4M DKK</B></TD></TR>
       <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">2 bathrooms</FONT></TD></TR>
     </TABLE>>
     shape = box
@@ -78,7 +78,7 @@ digraph DecisionTree {
 
   Bath3 [
     label = <<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
-      <TR><TD><B>3.5M DKK</B></TD></TR>
+      <TR><TD><B>2.8M DKK</B></TD></TR>
       <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">3 bathrooms</FONT></TD></TR>
     </TABLE>>
     shape = box
