@@ -5,14 +5,37 @@ Neural networks are computational models inspired by the human brain's network o
 
 
 ## Architecture {#sec-Neural_Network_Architecture}
-A neural network is organized into layers (see @fig-Neural_Network_Simple): an input layer (the blue circles in the figure) that receives the data, one or more hidden layers (the orange circles in the figure) that transform the data through learned representations, and an output layer (the green circles in the figure) that produces predictions. Each neuron in a layer receives inputs, applies a weighted sum, adds a bias term, and passes the result through an activation function. For example, a simple network for predicting whether a student will pass an exam might take input features (hours studied, previous test scores) in the input layer, process them through hidden layers, and output a probability of passing.
+A neural network is organized into layers (see @fig-Neural_Network_Simple): an input layer (the blue circles in the figure) that receives the data, one or more hidden layers (the orange circles in the figure) that transform the data through learned representations, and an output layer (the green circles in the figure) that produces predictions. Each neuron in a layer receives inputs, applies a weighted sum, adds a bias term, and passes the result through an activation function (see @sec-Activation_Functions). For example, a simple network for predicting whether a student will pass an exam might take input features (hours studied, previous test scores) in the input layer, process them through hidden layers, and output a probability of passing.
 
-The activation function introduces non-linearity into the network, allowing it to learn complex patterns. Common activation functions include the sigmoid function (which outputs values between 0 and 1), the hyperbolic tangent (tanh), and the Rectified Linear Unit (ReLU), which outputs the input if positive and zero otherwise. Without these non-linear activations, even deep networks would be equivalent to simple linear models.
+To determine the performance of a neural network, we typically use a loss function (see @sec-Loss_Functions) that quantifies the difference between the predicted outputs and the true outputs. The choice of loss function depends on the type of problem (e.g., regression or classification) and can significantly affect the training process and final model performance. Hence, it is another important aspect of neural network design, alongside architecture and activation functions.
 
-To determine the performance of a neural network, we typically use a loss function that quantifies the difference between the predicted outputs and the true outputs. Common loss functions include mean squared error (MSE) for regression tasks and cross-entropy loss for classification tasks.
+### Activation Functions {#sec-Activation_Functions}
+The activation function introduces non-linearity into the network, allowing it to learn complex patterns. Without these non-linear activation functions, even deep neural networks (neural networks with multiple hidden layers) would be equivalent to simple linear models.
+
+#### Sigmoid {#sec-Sigmoid_Activation_Function}
+#### Hyperbolic Tangent {#sec-Hyperbolic_Tangent_Activation_Function}
+#### Rectified Linear Unit {#sec-Rectified_Linear_Unit_Activation_Function}
 
 
-## Perceptron
-## Multi-layer
+## Perceptron {#sec-Perceptron_Neural_Network}
+The perceptron is the simplest neural network, consisting of a single neuron with no hidden layers. It computes a weighted sum of its inputs, adds a bias term, and passes the result through an activation function $\phi$ to produce an output. Formally, for inputs $x_1, \dots, x_n$ with weights $w_1, \dots, w_n$ and bias $b$, the output is
+$$
+\hat{y} = \phi\left(\sum_{i = 1}^{n} w_i \cdot x_i + b\right),
+$$ {#eq-Perceptron}
+where $\phi$ is the activation function. Because it has no hidden layers, a perceptron can only separate classes that are linearly separable, which limits it to simple problems. For example, a perceptron can classify whether an email is spam or not based on features like the presence of certain keywords, but it cannot handle more complex patterns that require non-linear decision boundaries.
+
+
+## Multi-layer {#sec-Multi_layer_Neural_Network}
+A multi-layer neural network (see @fig-Neural_Network_Multiple) stacks several hidden layers between the input and output layer, with each layer feeding its outputs forward as inputs to the next. This layered composition of non-linear activation functions lets the network learn hierarchical representations of the data and approximate highly complex, non-linear relationships that a single perceptron cannot. The added depth increases the model's capacity, but also the number of parameters to be estimated during training and the risk of overfitting. The number of hidden layers and the number of neurons in each layer must be chosen carefully, often through experimentation and cross-validation.
 
 {{< include /Figures/Computational_Statistics/Neural_Network_Multiple.qmd >}}
+
+The output of a multi-layer neural network is more complicated to interpret than that of a perceptron, as it is the result of multiple layers of transformations. For example, in a multi-layer network predicting house prices, the first hidden layer might learn to detect features like "number of bedrooms" or "proximity to schools," while subsequent layers could combine these features to capture more abstract concepts like "family-friendliness" or "investment potential." The final output layer would then produce a predicted price based on these learned representations. The model formulation is similar to that of a perceptron, but with multiple layers of weights and biases. For a network with $L$ hidden layers, we let $a^{(0)} = x = x_1, \dots, x_n$ denote the input(s) and define the layer activations recursively as
+$$
+a^{(l)} = \phi\left(\sum_{k = 1}^{h_{l - 1}} w_{k}^{(l)} \cdot a_k^{(l - 1)} + b^{(l)}\right), \quad l = 1, \dots, L,
+$$ {#eq-Multi_layer_Activation}
+where $h_{l - 1}$ is the number of neurons in layer $l - 1$. The prediction from the output layer is then given by
+$$
+\hat{y} = \phi\left(\sum_{k = 1}^{h_L} w_k^{(L + 1)} \cdot a_k^{(L)} + b^{(L + 1)}\right).
+$$ {#eq-Multi_layer_Output}
+Clearly, when $L = 0$ this reduces to the perceptron model (see @eq-Perceptron). When $L > 1$, the iterative nature is captured by the recursive definition of the layer activations, where each layer's output depends on the previous layer's output. The weights and biases are learned during training, allowing the network to adapt to the data and improve its predictions over time.
