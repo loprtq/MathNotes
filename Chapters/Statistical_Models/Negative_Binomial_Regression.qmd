@@ -20,3 +20,6 @@ $$
 The primary advantage of the negative binomial regression over the Poisson regression is its flexibility in handling overdispersion by estimating $\theta$. Compared to the scaled Poisson regression (see @sec-Scaled_Poisson_Regression), which only adjusts standard errors post hoc, the negative binomial regression explicitly models the overdispersion as part of the likelihood function. This makes it particularly suitable when the overdispersion is substantial, when unobserved heterogeneity is the source of overdispersion, or when accurate prediction of individual counts is important.
 
 {{< include /Examples/Statistical_Models/Negative_Binomial_Regression.qmd >}}
+
+
+## Zero-Inflated Negative Binomial Regression {#sec-Zero_Inflated_Negative_Binomial_Regression}

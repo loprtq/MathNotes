@@ -3,22 +3,20 @@
 # Poisson Regression {#sec-Poisson_Regression}
 Poisson regression is used to model count data, where the response variable represents the number of occurrences of an event. Consider the example where you are interested in modeling the number of births per year. Intuitively, the number of births are discrete ($\in\mathbb{N}$) and non-negative ($\geq 0$). As this is the case, linear regression (see @sec-Linear_Regression) is not applicable, as it can produce negative and continuous values. 
 
-Based on the Poisson distribution (see @sec-Poission_Stochastic_Variable), which describes count data and rare independent events, the Poisson regression models the conditional distribution of the response variable $Y$ given covariates $x$ as
+Based on the Poisson distribution (see @sec-Poisson_Stochastic_Variable), which describes count data and rare independent events, the Poisson regression models the conditional distribution of the response variable $Y$ given covariates $x$ as
 $$
 \begin{aligned}
     \Pr{Y = y \mid x} &= \exp{-\mu} \cdot \mu^{y}\frac{1}{y!} \\
     \E{Y \mid x} = \mu &= \exp{x \cdot \alpha}
 \end{aligned}
 $$
-where $X$ is the fixed effects design matrix, $\alpha$ is the fixed effects vector, and $y$ is non-negative and discrete. The exponential link function ensures that the predicted counts are always positive.
+where $X$ is the fixed effects design matrix, $\mu$ is the mean of the Poisson process, $\alpha$ is the fixed effects vector, and $y$ is non-negative and discrete. The exponential link function ensures that the predicted counts are always positive.
 
 Poisson regression is also appropriate for rate data, where the rate is a count by some measure of a unit, e.g. per year or per square kilometer. If we want to account for individual-level exposure time $t$ to a treatment, then we can include an offset term: $\E{Y \mid x} = \exp{\log{t} + X \cdot \alpha}$, where $\log{t}$ is referred to as the offset.
 
 
 ## Shortcomings {.unnumbered}
-Due to the constraints of the Poisson distribution, the Poisson regression assumes equidispersion - the mean and variance of $y$ are equal. This assumption is often violated in real-world data, where overdispersion (variance exceeding the mean) is common. If used incorrectly with overdispersed data, Poisson regression might present artificially small standard errors, leading to artificially small p-values for the regression coefficients and incorrect inference.
-
-When faced with overdispersion, two primary alternatives are available: the scaled Poisson regression, which adjusts the standard errors while maintaining the Poisson regression structure, or negative binomial regression (see @sec-Negative_Binomial_Regression), which explicitly models the overdispersion through an additional dispersion parameter.
+Due to the constraints of the Poisson distribution, the Poisson regression assumes equidispersion - the mean and variance of $y$ are equal. This assumption is often violated in real-world data, where overdispersion (variance exceeding the mean) is common. If used incorrectly with overdispersed data, Poisson regression might present artificially small standard errors, leading to artificially small p-values for the regression coefficients and incorrect inference. When faced with overdispersion, two primary alternatives are available: the scaled Poisson regression, which adjusts the standard errors while maintaining the Poisson regression structure, or negative binomial regression (see @sec-Negative_Binomial_Regression), which explicitly models the overdispersion through an additional dispersion parameter.
 
 {{< include /Examples/Statistical_Models/Poisson_Regression.qmd >}}
 
@@ -29,3 +27,27 @@ $$
 \sigma_{\textrm{scaled}} = \sqrt{\phi} \cdot \sigma,
 $$
 where $\phi$ is typically estimated as the Pearson chi-squared statistic divided by the residual degrees of freedom. When $\phi > 1$, overdispersion is present, and the scaled standard errors will be larger than the naive Poisson regression's standard errors, resulting in more conservative inference - larger p-values and wider confidence intervals. This method is computationally simpler than negative binomial regression (see @sec-Negative_Binomial_Regression) and is appropriate when the primary concern is correcting the standard errors rather than modeling the overdispersion mechanism explicitly. However, when the overdispersion is substantial or when the mechanism generating overdispersion is of interest, the negative binomial regression is preferred as it explicitly models the overdispersion as part of the likelihood function.
+
+
+## Robust Poisson Regression {#sec-Robust_Poisson_Regression}
+Robust Poisson regression addresses the equidispersion constraint by replacing the model-based variance of the estimated coefficients with a robust (sandwich) variance estimator. Like the scaled Poisson regression, this approach leaves the point estimates $\hat{\alpha}$ unchanged and only corrects their standard errors, but instead of applying a single global scaling factor $\phi$, it estimates the variance directly from the empirical variability of the data. This makes the resulting inference valid even when the mean-variance relationship of the Poisson distribution is misspecified. The robust variance of $\hat{\alpha}$ is given by the Huber-White sandwich estimator
+$$
+\Var{\hat{\alpha}} = A^{-1} B A^{-1},
+$$
+where the "bread" $A$ is the expected information and the "meat" $B$ is the empirical outer product of the score contributions,
+$$
+A = \sum_{i=1}^{n} \mu_i \, x_i x_i^\top, \quad B = \sum_{i=1}^{n} \left(y_i - \mu_i\right)^2 x_i x_i^\top.
+$$
+When the Poisson assumption holds exactly, $\E{(y_i - \mu_i)^2} = \mu_i$, so that $B \approx A$ and the sandwich estimator reduces to the usual model-based variance $A^{-1}$. When overdispersion is present, the squared residuals $(y_i - \mu_i)^2$ exceed $\mu_i$ on average, inflating $B$ and therefore producing larger, more honest standard errors.
+
+
+## Zero-Inflated Poisson Regression {#sec-Zero_Inflated_Poisson_Regression}
+Zero-inflated Poisson regression is used to model count data with an excess of zeros. This approach combines a binary process (whether an observation is a zero or not) with a Poisson process for the count data. The model assumes that zeros can arise from two sources: structural zeros (from the binary process) and sampling zeros (from the Poisson process). The zero-inflated Poisson model is specified as:
+$$
+\begin{aligned}
+    \Pr{Y = 0 \mid x} &= p_0 + (1 - p_0) \exp{-\mu} \\
+    \Pr{Y = y \mid x} &= (1 - p_0) \exp{-\mu} \cdot \mu^{y} \frac{1}{y!}, \quad y > 0 \\
+    \E{Y \mid x} &= (1 - p_0) \mu
+\end{aligned}
+$$
+where $p_0 \in [0, 1]$ is the probability of a structural zero, $\mu = \exp{x \cdot \alpha}$ is the mean of the Poisson process, $X$ is the fixed effects design matrix, and $\alpha$ is the fixed effects vector.
