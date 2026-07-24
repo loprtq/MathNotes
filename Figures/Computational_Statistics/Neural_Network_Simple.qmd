@@ -4,7 +4,7 @@
 digraph NeuralNetwork {
   rankdir = LR
   splines = line
-  nodesep = 0.6
+  nodesep = 0.3
   ranksep = 1.2
   node [shape = circle, fixedsize = true, width = 0.5, style = filled, fillcolor = white, penwidth = 2]
   edge [arrowhead = normal, color = gray40]
