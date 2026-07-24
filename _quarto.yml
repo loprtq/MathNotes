@@ -63,6 +63,7 @@ book:
 
     - part: Chapters/Computational_Statistics/Introduction.qmd
       chapters:
+        - Chapters/Computational_Statistics/Loss_Functions.qmd
         - Chapters/Computational_Statistics/k-Nearest-Neighbour.qmd
         - Chapters/Computational_Statistics/Trees.qmd
         - Chapters/Computational_Statistics/Neural_Networks.qmd

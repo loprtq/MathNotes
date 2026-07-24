@@ -1,0 +1,22 @@
+{{< include /preamble/commands.qmd >}}
+
+# Loss Functions {#sec-Loss_Functions}
+A loss function $L(y, \hat y)$ quantifies the discrepancy between an observed value $y$ and a prediction $\hat{y} = f(x)$. It turns the abstract goal of "fitting the data well" into a concrete objective that a learning algorithm can minimize. Training a model amounts to choosing $f$ from some class of functions so as to make the accumulated loss small.
+
+Because the true data generating distribution is typically unknown, models minimize the empirical risk, i.e. the average loss over the observed data:
+$$
+\hat{R}(f) = \frac{1}{n} \sum_{i = 1}^{n} L\left(y_i, f(x_i)\right),
+$$
+which approximates the (unknown) expected risk $\E{L(y, \hat{y})}$. The choice of loss encodes what kind of errors matter: it determines the optimal prediction, how sensitive the fit is to outliers, and how the resulting optimization behaves. The appropriate loss depends primarily on whether the task is regression (continuous $y$) or classification (categorical $y$).
+
+
+## Regression Loss Functions {#sec-Regression_Loss_Functions}
+### Squared Error {#sec-Squared_Error}
+### Absolute Error {#sec-Absolute_Error}
+
+
+## Classification Loss Functions {#sec-Classification_Loss_Functions}
+### Zero-One Loss {#sec-Zero_One_Loss}
+### Cross-Entropy {#sec-Cross_Entropy}
+### Hinge Loss {#sec-Hinge_Loss}
+### Exponential Loss {#sec-Exponential_Loss}
