@@ -29,20 +29,20 @@ Quasi-complete separation occurs when the outcomes can be nearly, but not perfec
 
 
 ## Odds Ratio {#sec-Odds_Ratio}
-The odds ratio (OR) is often utilized when there is a desire to compare the odds of an outcome in one group to the odds in another. The odds of an event with probability $p$ is $\frac{p}{1 - p}$, and the OR is the ratio of odds between two groups:
+The odds ratio (OR) compares the odds of an outcome between two groups. The odds of an event with probability $p$ is $\frac{p}{1 - p}$, and the OR is:
 $$
 \text{OR} = \frac{\frac{p_1}{1 - p_1}}{\frac{p_0}{1 - p_0}}
 $$
-In logistic regression, the OR for covariate $x_j$ is obtained by exponentiating its coefficient: $\text{OR}_j = \exp{\alpha_j}$.
+where $p_1$ is the probability of the outcome in one group and $p_0$ is the probability of the outcome in another group.
 
-Non-collapsible. Not a causal estimand.
+In logistic regression, the OR for covariate $x_j$ is obtained by exponentiating its coefficient: $\text{OR}_j = \exp{\alpha_j}$. It is important to note that the OR is non-collapsible and is not a causal estimand - it describes association in a specific model rather than a population-level causal effect. That the OR is non-collapsible means that when covariates are added or removed from the model, even when those covariates are not confounders (see @sec-Confounding_Covariates), the OR can change. For example, adding a covariate that is associated with the outcome but balanced between treatment groups will typically move the conditional OR further from 1 than the marginal OR - not because of bias, but as a mathematical property of the odds scale. Consequently, ORs from models with different covariate sets are not directly comparable, and a conditional OR should not be interpreted as a population-averaged effect. Similarly, the OR is not a causal estimand as it depends on which covariates it is conditioned on, so it does not correspond to a single well-defined population quantity. Even in a randomized clinical trial, the conditional OR from an adjusted logistic regression differs from the marginal OR that would be obtained by comparing the randomized groups directly. When a causal, population-level effect measure is desired, collapsible alternatives such as the risk ratio or risk difference - e.g. obtained via standardization/g-computation - are preferable.
 
-- $\text{OR} < 1$: decreased odds of the outcome, compared to reference
+The interpretation of the OR is as follows:
 
-- $\text{OR} = 1$: No difference in odds, compared to reference
-
-- $\text{OR} > 1$: increased odds of the outcome, compared to reference
+- $\text{OR} > 1$: increased odds of the outcome in comparison group
+- $\text{OR} = 1$: no difference in odds
+- $0 < \text{OR} < 1$: decreased odds of the outcome in comparison group
 
 ::: {#rem-OR}
-The confidence intervals for ORs are only symmetrical on the log-scale, and not the usually presented exp-scale.
+Confidence intervals (see @sec-Confidence_Intervals) for ORs are symmetrical only on the log-scale, not on the exponentiated scale typically presented.
 :::
