@@ -13,9 +13,14 @@ $$
 \newcommand{\Cov}[1]{\operatorname{Cov}\left[#1\right]}
 \newcommand{\Cor}[1]{\operatorname{Cor}\left[#1\right]}
 
-% 
+% Statistical Models
 \newcommand{\lik}[1]{\mathcal{L}\left(#1\right)}
 \newcommand{\loglik}[1]{\ell\left(#1\right)}
+
+% Calculus
+\renewcommand{\sin}[1]{\operatorname{sin}\left(#1\right)}
+\renewcommand{\cos}[1]{\operatorname{cos}\left(#1\right)}
+\renewcommand{\tan}[1]{\operatorname{tan}\left(#1\right)}
 
 % Linear algebra
 \renewcommand{\det}[1]{\operatorname{det}\left(#1\right)}
