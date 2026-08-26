@@ -26,6 +26,7 @@ book:
 
     - part: Chapters/Probability/Introduction.qmd
       chapters:
+        - Chapters/Probability/Combinatorics.qmd
         - Chapters/Probability/Stochastic_Variables.qmd
 
     - part: "Data Science"
