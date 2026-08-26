@@ -1,6 +1,6 @@
 :::{#exm-Coin_Toss}
 ## Coin Toss
-I want to determine the probability of getting a certain number of heads when tossing a coin five times. Each coin toss can result in either heads ($H$) or tails ($T$), each outcome is equally likely, and the tosses are independent of each other. The sample space for this experiment consists of all possible combinations of heads and tails in five tosses, which can be represented as:
+I want to determine the probability of getting a certain number of heads when tossing a coin five times. Each coin toss can result in either heads ($H$) or tails ($T$), each outcome is equally likely (50%), and the tosses are independent of each other. The sample space for this experiment consists of all possible combinations of heads and tails in five tosses, which can be represented as:
 $$
 \Omega = \{TTTTT, TTTTH, \dots, HHHHH\}.
 $$
