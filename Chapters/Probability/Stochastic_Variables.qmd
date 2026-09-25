@@ -27,7 +27,7 @@ The probability density function (PDF) is the continuous analogue of the PMF. Th
 $$
 f_X(x) = \frac{\partial}{\partial x} F_X(x)
 $$
-where $F_X$ is the CDF and $\int_0^\infty f_X(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1, meaning that the total probability is 1.
+where $F_X$ is the CDF and $\int_0^\infty f_X(x)\,\mathrm{d}x = 1$ - the area under the curve is exactly 1, meaning that the total probability is 1. Intuitively, the PDF describes the rate of change of the CDF with respect to $x$.
 
 $$
 F_X(x) = \int_{-\infty}^x f_X(t)\,\mathrm{d}t
