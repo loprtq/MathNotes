@@ -71,7 +71,21 @@ $$
     &= \Pr{T > t} = \int_t^\infty f_T(x) \,\mathrm{d}x
 \end{aligned}
 $$
-where $F_T$ is the CIF and $f_T$ the pdf of $T$. One of the proporties of the survival function is that it is monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
+where $F_T$ is the CIF and $f_T$ the PDF (see @sec-PDF) of $T$. One of the proporties of the survival function is that it is monotonically decreasing, i.e. $S(t_2) \leq S(t_1)$ for all $t_1 \geq t_2$.
+
+::: {.callout-note icon = false collapse = "true" title = "" #tip-Survival_Function}
+Mean survival time is given as
+$$
+\mu = \int_0^\infty S(t) \,\mathrm{d}t, \quad S(\infty) = 0
+$$
+where $S(\infty) = 0$ ensures that the mean survival time is finite. However, this assumption might not be true in all cases, particularly if there is a non-zero probability of survival beyond any finite time.
+
+The median survival time is the time $t_m$ at which the survival function equals 0.5: 
+$$
+S(t_m) = 0.5,
+$$
+which might not be defined for discrete stochastic variables. In this case, the median survival time can be approximated by the smallest $t$ for which $S(t) \leq 0.5$.
+:::
 
 
 ## Hazard function {#sec-Hazard_Function}
