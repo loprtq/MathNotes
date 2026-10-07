@@ -1,0 +1,15 @@
+{{< include /preamble/commands.qmd >}}
+
+# Nelson-Altschuler Estimator {#sec-Nelson-Altschuler}
+The Nelson-Altschuler estimator is a non-parametric statistic used to estimate the cumulative hazard function from time-to-event data. It is particularly useful in survival analysis for handling censored data without making assumptions about the underlying survival distribution. 
+$$
+H(t) = \sum_{t_i \leq t} \frac{d_{t_i}}{n_{t_i}}
+$$ {#eq-Nelson-Altschuler}
+where $t_i$ represents the event times, $d_{t_i} > 0$ is the number of events that occurred at time $t_i$, and $n_{t_i} \geq 0$ is the number of individuals at risk just prior to time $t_i$. According to @eq-Cumulative_Hazard_Function the survival function is then given by $S(t) = \exp{-H(t)}$.
+
+
+## Properties {.unnumbered}
+
+
+## Assumptions {.unnumbered}
+
