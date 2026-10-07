@@ -3,7 +3,7 @@
 # Cox Regression {#sec-Cox}
 The Cox proportional hazards model is one of the most widely used methods for analyzing time-to-event data. Unlike parametric survival models that require specifying the form of the baseline hazard function (see @sec-Hazard_Function), the Cox model is a semi-parametric approach that leaves the baseline hazard unspecified while modeling the effects of covariates on the hazard function.
 
-The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional.The Cox proportional hazards model is defined as:
+The Cox model does not make assumptions about the shape of the survival distribution, only requiring the proportional hazards assumption. This assumption states that the hazard ratio between any two individuals is constant over time - their hazard functions are proportional. The Cox proportional hazards model is defined as:
 $$
 h(t) = h_0(t) \cdot \exp{\sum_{i = 1}^p \beta_i x_i}
 $$ {#eq-Cox}

@@ -80,7 +80,7 @@ $$
 $$
 where $S(\infty) = 0$ ensures that the mean survival time is finite. However, this assumption might not be true in all cases, particularly if there is a non-zero probability of survival beyond any finite time.
 
-The median survival time is the time $t_m$ at which the survival function equals 0.5: 
+The median survival time is the time $t_m$ at which the survival function equals 0.5:
 $$
 S(t_m) = 0.5,
 $$
@@ -89,7 +89,7 @@ which might not be defined for discrete stochastic variables. In this case, the 
 
 
 ## Hazard function {#sec-Hazard_Function}
-The hazard function $h$ describes the instantaneous risk of an event at a time $t$. The instantaneous risk at a time $t$ is bounded from below by 0. Mathematically, in the discrete case, this instantaneous risk equals the number of events between $t$ and $t + \Delta t$ divided by the population size at risk at time $t$, divided by $\Delta t$. In the continuous case, the hazard function is given as
+The hazard function $h$ describes the instantaneous risk of an event at a time $t$ given survival up until this time. The instantaneous risk at a time $t$ is bounded from below by 0. Mathematically, in the discrete case, this instantaneous risk equals the number of events between $t$ and $t + \Delta t$ divided by the population size at risk at time $t$, divided by $\Delta t$. In the continuous case, the hazard function is given as
 $$
 \begin{aligned}
     h(t) &= \lambda(t)
@@ -105,8 +105,8 @@ $$
     H(t) &= \int_0^t h(u)\,\textrm{d}u\\
     &= \ln{S(t)}
 \end{aligned}
-$$
-As opposed to the survival function (see @sec-Survival_Function), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \leq H(t_1)$ for all $t_1 \geq t_2$.
+$$ {#eq-Cumulative_Hazard_Function}
+As opposed to the survival function (see @sec-Survival_Function), the cumulative hazard function is monotonically increasing, i.e. $H(t_2) \geq H(t_1)$ for all $t_2 \geq t_1$.
 
 ### Hazard ratio {#sec-Hazard_Ratio}
 The hazard ratio (HR) is often utilized when there is a desire to compare the hazard in one group to another, as it provides a relative measure of risk. The HR is, as the name suggests, defined as the ratio of the hazard in one group to the hazard in another group - $\frac{h_1(t)}{h_2(t)}$ where $h_1(t)$ and $h_2(t)$ are the hazard functions for the two groups. The interpretation of the HR can be confusing, but in general, the following applies:

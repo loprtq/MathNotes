@@ -13,7 +13,7 @@ $$
 $$ {#eq-Kaplan-Meier}
 where $t_i$ represents the event times, $d_{t_i} > 0$ is the number of events that occurred at time $t_i$, and $n_{t_i} \geq 0$ is the number of individuals at risk just prior to time $t_i$.
 
-The estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time $t_i$, the probability of surviving that time point is estimated as $1 - d_{t_i}/n_{t_i}$, which represents one minus the empirical hazard rate at that time.
+The estimator is constructed as a product of conditional probabilities of surviving each event time, given survival to that time. At each event time $t_i$, the probability of surviving that time point is estimated as $1 - d_{t_i}/n_{t_i}$, which represents one minus the empirical hazard rate at that time. This also implicates that the estimates between event times can be unstable for small sample sizes or if there is a long time between event times.
 
 
 ## Properties {.unnumbered}
