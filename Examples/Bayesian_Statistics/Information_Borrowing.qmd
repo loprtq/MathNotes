@@ -1,0 +1,105 @@
+:::{#exm-Information_Borrowing}
+## MAP prior borrowing
+To illustrate how historical information can be borrowed into a new trial using a meta-analytic-predictive prior, consider the following setting. The setting is a Poisson rate: three completed studies provide the number of events for a control arm together with the total exposure, measured in person-years. The aim is to estimate the event rate in the control arm in a new trial while letting the historical studies contribute to that estimate. The hope is that by borrowing information from the past studies, the new trial can achieve more precise estimates with potentially fewer subjects.
+
+The workflow proceeds in the following steps. First, a hierarchical Poisson regression is fitted to the historical studies, with a log-link and an offset for the log-exposure, yielding the predictive distribution for the rate in a new, exchangeable study - this is the meta-analytic-predictive prior. Because this prior is represented by Markov chain Monte Carlo samples, it is then approximated by a mixture of Gamma distributions (see @sec-Gamma_Stochastic_Variable), chosen because the Gamma distribution is the natural partner of the Poisson likelihood - combining the two returns a Gamma posterior and so keeps the updating in closed form. The prior is subsequently made robust by adding a weakly informative Gamma component, here chosen to carry 20 percent of the weight, so that the prior can be overruled should the new trial disagree with the historical evidence. This weight is a modelling choice specific to this example rather than a fixed rule, and in practice it is set to reflect how much scepticism towards the historical data is warranted. Finally, the robust prior is updated with the control arm data from the trial, here fifteen events over eighty person-years, to give the posterior estimate of the control event rate that reflects both the new data and the borrowed historical information.
+
+To demonstrate the benefit of borrowing, the trial data are also analysed with the weakly informative prior alone, that is, without any historical contribution. Borrowing shifts the estimate towards the historical rate and, by effectively adding prior observations, yields a narrower credible interval than the analysis of the trial on its own.
+
+The final step quantifies this gain through the effective sample size of each prior (see @sec-Effective_Sample_Size). Holding the target information for the control estimate fixed at eighty person-years, the effective sample size supplied by the prior is the amount of new exposure that no longer has to be collected, which translates the increased precision into a concrete reduction in the size of the control arm (see @sec-Information_Borrowing_Sample_Size). Here the robust prior is worth roughly forty person-years, so a trial aiming for eighty person-years of control information need collect only about half of that anew, whereas the analysis without borrowing must collect almost the full amount.
+
+:::{.panel-tabset}
+## Data
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+# Packages
+library(tibble)
+
+# Historical control data: events (y) over exposure in person-years
+tibble::tibble(
+  Study = c("Study 1", "Study 2", "Study 3"),
+  Events = c(8, 12, 5),
+  `Exposure (person-years)` = c(50, 70, 40)
+) |>
+  knitr::kable(
+    caption = "Historical control-arm data"
+  )
+```
+
+## R
+```{r}
+#| eval: true
+#| echo: true
+#| warning: false
+# Packages
+library(tibble)
+library(RBesT)
+
+# Historical control data
+hist_data <- tibble::tibble(
+  study = c("Study 1", "Study 2", "Study 3"),
+  y = c(8, 12, 5),
+  exposure = c(50, 70, 40)
+)
+
+# Derive a Meta-Analytic-Predictive (MAP) prior for the event rate
+set.seed(123)
+map_mcmc <- RBesT::gMAP(
+  y ~ 1 + offset(log(exposure)) | study,
+  data = hist_data,
+  family = poisson,
+  tau.dist = "HalfNormal",
+  tau.prior = 1,
+  beta.prior = 1
+)
+
+# Approximate the MAP prior as a mixture of Gamma distributions
+map_prior <- RBesT::automixfit(map_mcmc)
+
+# Robustify: add a weakly informative component (20% weight)
+robust_prior <- RBesT::robustify(map_prior, weight = 0.2, mean = 0.2)
+
+# Current trial control arm: 15 events over 80 person-years
+# With borrowing: robust MAP prior updated with the current data
+post_borrow <- RBesT::postmix(robust_prior, n = 80, m = 15 / 80)
+
+# Without borrowing: weakly informative prior only, no historical contribution
+vague_prior <- RBesT::mixgamma(c(1, 0.2, 1), param = "mn")
+post_plain <- RBesT::postmix(vague_prior, n = 80, m = 15 / 80)
+
+# Compare the control event rate with and without borrowing
+s_borrow <- summary(post_borrow)
+s_plain <- summary(post_plain)
+
+tibble::tibble(
+  Analysis = c("With borrowing", "Without borrowing"),
+  Mean = c(s_borrow[["mean"]], s_plain[["mean"]]),
+  SD = c(s_borrow[["sd"]], s_plain[["sd"]]),
+  `Lower 95%` = c(s_borrow[[" 2.5%"]], s_plain[[" 2.5%"]]),
+  Median = c(s_borrow[["50.0%"]], s_plain[["50.0%"]]),
+  `Upper 95%` = c(s_borrow[["97.5%"]], s_plain[["97.5%"]])
+) |>
+  knitr::kable(
+    digits = 3,
+    caption = "Posterior control event rate with and without historical borrowing"
+  )
+
+# Effective sample size: how much control-arm exposure each prior is worth
+ess_borrow <- RBesT::ess(robust_prior, method = "morita")
+ess_plain <- RBesT::ess(vague_prior, method = "morita")
+
+# Target information for the control estimate, in person-years
+target <- 80
+
+tibble::tibble(
+  Analysis = c("With borrowing", "Without borrowing"),
+  `Prior ESS (person-years)` = round(c(ess_borrow, ess_plain)),
+  `New exposure required (person-years)` = round(c(target - ess_borrow, target - ess_plain))
+) |>
+  knitr::kable(
+    caption = "Effective sample size and the resulting reduction in new exposure"
+  )
+```
+:::
