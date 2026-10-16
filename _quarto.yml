@@ -27,6 +27,10 @@ book:
         - Chapters/Statistical_Models/Linear_Mixed_Model.qmd
         - Chapters/Statistical_Models/Non-linear_Mixed_Model.qmd
 
+    - part: Chapters/Bayesian_Statistics/Introduction.qmd
+      chapters:
+        - Chapters/Bayesian_Statistics/Information_Borrowing.qmd
+
     - part: Chapters/Survival_Analysis/Introduction.qmd
       chapters:
         - Chapters/Survival_Analysis/Survival_Function.qmd

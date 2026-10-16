@@ -1,0 +1,37 @@
+{{< include /preamble/commands.qmd >}}
+
+# Bayesian Statistics {#sec-Bayesian_Statistics}
+Bayesian statistics is an approach to statistical inference in which unknown quantities - such as the parameters of a model - are treated as stochastic variables (see @sec-Stochastic_Variables) and described by probability distributions. This is a fundamental departure from the frequentist approach, where parameters are regarded as fixed but unknown constants. In the Bayesian framework, probability expresses a degree of belief about a quantity, and this belief is updated as new data become available. The mechanism for this update is Bayes' formula (see @sec-Bayes_Formula) - the foundation for Bayesian statistics.
+
+
+## The Bayesian Framework {#sec-Bayesian_Framework}
+Let $\theta$ denote the unknown parameter(s) of interest and let $y$ denote the observed data. Bayesian inference combines two ingredients, the prior and the likelihood, into a third, the posterior. The prior distribution $\pi(\theta)$ encodes what is believed about $\theta$ before observing the data. The likelihood $\lik{\theta \mid y}$ describes how probable the observed data are for a given value of $\theta$. The posterior distribution $\pi(\theta \mid y)$ then encodes what is believed about $\theta$ after observing the data.
+
+These are tied together by Bayes' formula (see @sec-Bayes_Formula), applied to parameters and data:
+$$
+\pi(\theta \mid y) = \frac{\lik{\theta \mid y}\pi(\theta)}{\displaystyle\int \lik{\theta \mid y}\pi(\theta)\,\mathrm{d}\theta}.
+$$
+The denominator is a normalising constant that does not depend on $\theta$, so the relationship is often written more compactly as
+$$
+\underbrace{\pi(\theta \mid y)}_{\text{posterior}} \propto \underbrace{\lik{\theta \mid y}}_{\text{likelihood}} \cdot \underbrace{\pi(\theta)}_{\text{prior}}.
+$$
+This illustrates that the posterior is proportional to the likelihood weighted by the prior. The data enter only through the likelihood, so the posterior can be seen as a compromise between the prior belief and the evidence contained in the data. As the amount of data grows, the likelihood typically dominates and the influence of the prior diminishes.
+
+
+## Priors {#sec-Priors}
+The prior distribution is what distinguishes the Bayesian approach most visibly from other methods, as it requires the analyst to state assumptions about the parameter before seeing the data. Priors are commonly grouped by how much information they contribute. Informative priors express genuine, substantive knowledge - for example, from previous studies, expert opinion, or physical constraints - and can meaningfully influence the posterior. Weakly informative priors impose mild, often regularising, constraints, such as ruling out implausibly large values, without committing to strong beliefs. Non-informative, or vague, priors aim to let the data speak for themselves by contributing as little information as possible, so that the posterior is driven almost entirely by the likelihood.
+
+A particularly convenient case arises with conjugate priors, where the prior and posterior belong to the same distributional family. For instance, a Beta prior (see @sec-Beta_Stochastic_Variable) combined with a binomial likelihood yields a Beta posterior, so the update amounts to simply adjusting the parameters. Conjugacy makes the posterior available in closed form, which is both computationally convenient and useful for building intuition, though modern Bayesian analysis usually relies on simulation-based methods when closed-form posteriors are unavailable.
+
+
+## Posterior Inference {#sec-Posterior_Inference}
+Once the posterior distribution has been obtained, it contains everything that is known about the parameter given the data and the prior. Point estimates can be extracted as summaries of the posterior, such as its mean, median, or mode (the latter being the maximum a posteriori estimate). Uncertainty is quantified through credible intervals (see @sec-Credible_Intervals).
+
+The key practical consequence of the Bayesian framework is that inference is cumulative: today's posterior can serve as tomorrow's prior. This property is what makes it natural to combine evidence from different sources, and it provides the foundation for information borrowing (see @sec-Information_Borrowing).
+
+### Credible Intervals {#sec-Credible_Intervals}
+A credible interval is an interval within which the parameter is believed to lie with a certain posterior probability. For example, a 95% credible interval $[\theta_{\text{low}}, \theta_{\text{high}}]$ satisfies
+$$
+\Pr{\theta_{\text{low}} \le \theta \le \theta_{\text{high}} \mid y} = 0.95,
+$$
+where $\theta_{\text{low}}$ and $\theta_{\text{high}}$ denote the lower and upper bounds of the credible interval. Credible intervals allow a direct probabilistic interpretation: given the observed data, there is a 95% probability that the parameter lies within the interval $[\theta_{\text{low}}, \theta_{\text{high}}]$. This is the interpretation that is often (incorrectly) attributed to frequentist confidence intervals, which instead describe the long-run behaviour of the interval-generating procedure over repeated samples, with the parameter regarded as fixed.
