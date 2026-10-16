@@ -3,22 +3,24 @@
 ## Data
 ```{r}
 #| eval: true
-#| echo: true
+#| echo: false
 #| warning: false
 ## Packages
 library(dplyr)
 library(mmrm)
+library(knitr)
 
 # Data
 mmrm::bcva_data |>
   dplyr::rename_with(toupper) |>
-  dplyr::slice_head(n = 15)
+  dplyr::slice_head(n = 15) |>
+  knitr::kable()
 ```
 
 ## R
 ```{r}
 #| eval: true
-#| echo: true
+#| echo: false
 #| warning: false
 ## Packages
 library(tidyverse)
