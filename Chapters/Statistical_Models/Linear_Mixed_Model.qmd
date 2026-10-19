@@ -51,13 +51,30 @@ $$ {#eq-LMM_Log-Likelihood}
 
 $$
 \hat{\alpha} = \left(X^\top V^{-1} X\right)^{-1} \left(X^\top V^{-1} y\right)
-$$
+$$ {#eq-LMM_Estimation_Fixed_Effects}
 
 ::: {.callout-note icon=false collapse="true"}
-
+## Derivitation of @eq-LMM_Estimation_Fixed_Effects
+Begin with @eq-LMM_Log-Likelihood and differentiate with regards to $\alpha$ and set it equal to 0. The goal is then to isolate $\alpha$ to derive 
 $$
 \begin{align*}
-    \frac{\partial}{\partial \alpha} \ell(\alpha, D, R \mid y) &= \\
+    \frac{\partial}{\partial \alpha} \ell(\alpha, D, R \mid y) &= 0\\
+    \left(X^\top V^{-1}\left(y - X \cdot \alpha\right)\right) &= 0 \\
+    X^\top V^{-1} y - X^\top V^{-1} X \cdot \alpha &= 0 \\
+    &\Downarrow \\
+    X^\top V^{-1}y &= X^\top V^{-1} X \alpha \\
+    &\Downarrow \\
+    \left(X^\top V^{-1} X\right)^{-1} \left(X^\top V^{-1} y\right) &= \alpha
+\end{align*}
+$$
+where
+$$
+\begin{align*}
+    \frac{\partial}{\partial \alpha} \ell(\alpha, D, R \mid y) &= \frac{\partial}{\partial \alpha} \left(-\frac{n}{2} \log{2\pi} - \frac{1}{2}\left(\log{\det{V}}\right) - \frac{1}{2}\left((y - X\alpha)^\top V^{-1} (y - X\alpha)\right)\right) \\
+    &= -\frac{\partial}{\partial \alpha}\frac{n}{2} \log{2\pi} - \frac{\partial}{\partial \alpha}\frac{1}{2}\left(\log{\det{V}}\right) - \frac{\partial}{\partial \alpha}\frac{1}{2}\left((y - X\alpha)^\top V^{-1} (y - X\alpha)\right) \\
+    &= -0 - 0 - \frac{\partial}{\partial \alpha}\frac{1}{2}\left(y^\top V^{-1} y - 2\alpha^\top X^\top V^{-1} y + \alpha^\top X^\top V^{-1} X\alpha\right) \\
+    &= -\frac{\partial}{\partial \alpha}\frac{1}{2}y^\top V^{-1} y + \frac{\partial}{\partial \alpha}\frac{1}{2} \cdot 2\alpha^\top X^\top V^{-1} y - \frac{\partial}{\partial \alpha}\frac{1}{2}\alpha^\top X^\top V^{-1} X\alpha \\
+    &= -0 + X^\top V^{-1} y - \frac{2}{2} X^\top V^{-1} X\alpha
 \end{align*}
 $$
 :::
