@@ -1,7 +1,7 @@
 {{< include /preamble/commands.qmd >}}
 
 # Discrete Stochastic Variables
-As described in @sec-Stochastic_Variables, discrete stochastic variables are measureable functions $X: \Omega \to  \mathcal{E}$, where $\Omega$ is the sample space. The distribution of a discrete stochastic variable describes the probabilities of the different outcomes of the stochastic variable.
+As described in @sec-Stochastic_Variables, discrete stochastic variables are measureable functions $X: \Omega \to \mathcal{E}$, where $\Omega$ is the sample space. The distribution of a discrete stochastic variable describes the probabilities of the different outcomes of the stochastic variable.
 
 
 ## Bernoulli {#sec-Bernoulli_Stochastic_Variable}
@@ -19,7 +19,10 @@ $$
 
 ### Expected Value {.unnumbered}
 $$
-\E{X} = p
+\begin{aligned}
+    \E{X} &= p \\
+    &= 1 \cdot p + 0 \cdot (1 - p)
+\end{aligned}
 $$
 
 ### Variance {.unnumbered}

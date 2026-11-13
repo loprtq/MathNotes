@@ -45,12 +45,12 @@ $$
 \end{aligned}
 $$ {#eq-Expected_Value}
 
-For a series of stochastic variables $X_1, X_2,\dots, X_n$, the sum of the expected values is the same as the expected value of the sum of stochastic variables - $\sum_{i=1}^n\E{X_i} = \E{\sum_{i=1}^n X_i}$.
+For a series of stochastic variables $X_1, X_2,\dots, X_n$, the sum of the expected values is the same as the expected value of the sum of stochastic variables - $\sum_{i = 1}^n\E{X_i} = \E{\sum_{i=1}^n X_i}$.
 
 If the two stochastic variables $X$ and $Y$ are independent, then $\E{X \cdot Y} = \E{X} \cdot \E{Y}$.
 
 ### Conditional Expected Value {#sec-Cond_Expected_Value}
-The conditional expected value of a stochastic variable $X$ given another stochastic variable $Y$ is the expected value of $X$ given that $Y$ takes on a specific value ($y$). The conditional expected value is defined as
+The conditional expected value of a stochastic variable $X$ given another stochastic variable $Y$ is the expected value of $X$ given that $Y$ takes on a value $y$. The conditional expected value is defined as
 $$
 \begin{aligned}
     \E{X \mid Y = y} &= \begin{cases}
@@ -60,9 +60,14 @@ $$
 \end{aligned}
 $$
 
+::: {.callout-tip collapse = true title = "Conditional Expected Value Properties" #tip-Cond_Expected_Value_Properties}
+For the stochastic variables $X$ and $Y$, the following properties hold
 $$
-\E{X} = \E{\E{X \mid Y}}
+\begin{aligned}
+    \E{X} &= \E{\E{X \mid Y}}
+\end{aligned}
 $$
+:::
 
 
 ## Variance {#sec-Variance}

@@ -14,6 +14,7 @@ For some experiments, the sample space can be empty ($\Omega = \emptyset$), mean
 Probability is assigned to events as a number between $0$ and $1$, where $0$ indicates impossibility and $1$ indicates certainty - $\mathbb{P}: \mathcal{A} \to [0, 1]$ for $E \subseteq \mathcal{A}$. For example, the probability of rolling a $4$ (E = $\{4\}$) on a fair six-sided die is $1/6$. Some basic rules of probability include: the probability of the entire sample space $\Omega$ is 1; if two events are mutually exclusive (cannot happen at the same time), the probability that either occurs is the sum of their individual probabilities.
 
 ::: {.callout-tip collapse = true title = "Probability Arithmetics" #tip-Probability_Arithmetics}
+For events $E$, $E_1$, and $E_2$, the following hold:
 $$
 \begin{aligned}
     \Pr{E^\mathrm{C}} &= 1 - \Pr{E} \\
@@ -31,9 +32,9 @@ $$
 
 Two events are said to be independent if $\Pr{E_1 \cap E_2} = \Pr{E_1}\Pr{E_2}$ meaning that if $\Pr{E_2} > 0$, then $\Pr{E_1 \mid E_2} = \Pr{E_1}$.
 
-### Law of Total Probability
+### Law of Total Probability {#sec-Law_of_Total_Probability}
 
 #### Bayes Formula {#sec-Bayes_Formula}
 $$
 \Pr{E_2 \mid E_1} = \frac{\Pr{E_1 \mid E_2}\Pr{E_1}}{\Pr{E_2}}, \quad \Pr{E_2} \neq 0
-$$
+$$ {#eq-Bayes_Formula}
