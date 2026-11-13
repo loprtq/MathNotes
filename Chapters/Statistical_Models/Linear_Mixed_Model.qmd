@@ -104,3 +104,8 @@ $$
 $$
 
 ### Prediction of Random Effects {#sec-LMM_Prediction_Random_Effects}
+Provided the estimated fixed effects and covariance parameters, the best linear unbiased predictor (BLUP) of the random effects is given by
+$$
+\hat{U} = \left(Z \Psi\right)^\top V^{-1} \left(y - X\hat{\alpha}\right)
+$$
+where $U \sim \Nd{0, \Psi}$.
