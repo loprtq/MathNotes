@@ -1,0 +1,98 @@
+﻿{{< include /preamble/commands.qmd >}}
+
+# Copulas {#sec-Copulas}
+A copula describes the dependence between stochastic variables separately from their individual distributions. For example, suppose we want to model two waiting times. Each waiting time may follow an exponential distribution, but knowing these two distributions does not tell us whether long waiting times tend to occur together. A copula provides the dependence needed to construct their joint distribution.
+
+
+## Joint and Marginal Distributions {#sec-Joint_Marginal_Distributions}
+For two stochastic variables $X$ and $Y$, the joint CDF (see @sec-CDF) is
+$$
+F_{X, Y}(x, y) = \Pr{X \leq x, Y \leq y}.
+$$
+The marginal CDFs describe each stochastic variable on its own. They can be recovered from the joint CDF as
+$$
+F_X(x) = \lim_{y \to \infty} F_{X, Y}(x, y), \quad F_Y(y) = \lim_{x \to \infty} F_{X, Y}(x, y).
+$$
+Different joint distributions can have the same marginal distributions. The difference lies in how the variables depend on one another. Independence is the special case where
+$$
+F_{X, Y}(x, y) = F_X(x) \cdot F_Y(y)
+$$
+for all $x$ and $y$.
+
+For discrete variables, conditional probabilities follow by dividing the joint probability mass by the relevant marginal probability. For variables with a joint density, the conditional density is
+$$
+f_{Y \mid X}(y \mid x) = \frac{f_{X, Y}(x, y)}{f_X(x)}, \quad f_X(x) > 0.
+$$
+Thus, a joint distribution also determines how the distribution of one variable changes when we know the value of the other.
+
+
+## Definition {#sec-Copula_Definition}
+A bivariate copula $C$ is a joint CDF on $[0, 1]^2$ with uniform marginal distributions. If $U$ and $V$ each follow $\Ud{0, 1}$, then
+$$
+\copula{u, v} = \Pr{U \leq u, V \leq v}.
+$$
+The variables $U$ and $V$ need not be independent. A copula satisfies
+$$
+\copula{u, 0} = \copula{0, v} = 0, \quad \copula{u, 1} = u, \quad \copula{1, v} = v.
+$$
+It must also assign non-negative probability to every rectangle: for $0 \leq u_1 \leq u_2 \leq 1$ and $0 \leq v_1 \leq v_2 \leq 1$,
+$$
+\copula{u_2, v_2} - \copula{u_1, v_2} - \copula{u_2, v_1} + \copula{u_1, v_1} \geq 0.
+$$
+
+For continuous marginal CDFs, the probability integral transform gives
+$$
+U = F_X(X) \sim \Ud{0, 1}, \quad V = F_Y(Y) \sim \Ud{0, 1}.
+$$
+This puts both variables on a common probability scale. Their copula describes how their positions within their respective distributions vary together.
+
+
+## Sklar's Theorem {#sec-Sklars_Theorem}
+For any joint CDF $F_{X, Y}$ with marginal CDFs $F_X$ and $F_Y$, there exists a copula $C$ such that
+$$
+F_{X, Y}(x, y) = \copula{F_X(x), F_Y(y)}.
+$$ {#eq-Sklars_Theorem}
+If both marginal CDFs are continuous, the copula is unique. For discrete margins it is only uniquely determined on the product of the ranges of the marginal CDFs, and the simple probability integral transform above is generally not uniform.
+
+Conversely, combining any copula with marginal CDFs gives a valid joint CDF. We can therefore choose distributions for the individual variables and a copula for their dependence separately. The same idea extends to more than two variables.
+
+When the copula and marginal distributions have suitable densities, differentiating @eq-Sklars_Theorem gives
+$$
+f_{X, Y}(x, y) = \copuladensity{F_X(x), F_Y(y)} f_X(x) f_Y(y), \quad \copuladensity{u, v} = \frac{\partial^2 \copula{u, v}}{\partial u\,\partial v}.
+$$
+Here, $c$ is the copula density.
+
+
+## Tail Dependence {#sec-Tail_Dependence}
+Tail dependence describes whether extreme values tend to occur together. For uniform variables $U$ and $V$ with copula $C$, the lower and upper tail dependence coefficients are, when the limits exist,
+$$
+\begin{aligned}
+    \lambda_L &= \lim_{q \downarrow 0}\Pr{V \leq q \mid U \leq q} = \lim_{q \downarrow 0}\frac{\copula{q, q}}{q}, \\
+    \lambda_U &= \lim_{q \uparrow 1}\Pr{V > q \mid U > q} = \lim_{q \uparrow 1}\frac{1 - 2q + \copula{q, q}}{1 - q}.
+\end{aligned}
+$$
+
+| Copula | Lower tail dependence $\lambda_L$ | Upper tail dependence $\lambda_U$ |
+|:--|:--|:--|
+| Independence | $0$ | $0$ |
+| Gaussian, $-1 < \rho < 1$ | $0$ | $0$ |
+| Clayton, $\theta > 0$ | $2^{-1/\theta}$ | $0$ |
+| Gumbel, $\theta \geq 1$ | $0$ | $2 - 2^{1/\theta}$ |
+
+A zero coefficient describes the limiting behaviour at increasingly extreme quantiles. It does not imply independence or rule out simultaneous extremes at a fixed threshold.
+
+
+## Copula Modeling {#sec-Copula_Modeling}
+To construct a model, choose marginal distributions, select a copula family, and estimate the marginal and dependence parameters. The choice of copula should reflect the dependence relevant to the application, including whether small or large values tend to occur together.
+
+For simulation with continuous margins, draw $(U, V)$ from the chosen copula and transform back using the marginal quantile functions:
+$$
+X = F_X^{-1}(U), \quad Y = F_Y^{-1}(V).
+$$
+For example, exponential margins with rates $a, b > 0$ give
+$$
+X = -\frac{\ln{1 - U}}{a}, \quad Y = -\frac{\ln{1 - V}}{b}.
+$$
+Changing the copula changes how these waiting times occur together while preserving their exponential margins.
+
+Covariance and correlation (see @sec-Covariance and @sec-Correlation) summarize aspects of dependence. A copula specifies the full dependence structure and can capture asymmetry and tail behaviour that these summaries do not determine. This connects copulas to @sec-Covariance_Structures and to modeling dependent event times in @sec-Survival_Analysis.

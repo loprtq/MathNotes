@@ -28,6 +28,7 @@ book:
       chapters:
         - Chapters/Probability/Combinatorics.qmd
         - Chapters/Probability/Stochastic_Variables.qmd
+        - Chapters/Probability/Copulas.qmd
 
     - part: "Data Science"
       chapters:
@@ -66,6 +67,7 @@ book:
   appendices: 
     - Chapters/Probability/APP-Discrete_Stochastic_Variables.qmd
     - Chapters/Probability/APP-Continuous_Stochastic_Variables.qmd
+    - Chapters/Probability/APP-Copulas.qmd
 
 reference-section-title: "References"
 bibliography:

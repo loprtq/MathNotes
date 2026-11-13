@@ -1,0 +1,33 @@
+﻿{{< include /preamble/commands.qmd >}}
+
+# Common Copulas {#sec-Common_Copulas}
+## Independence Copula {#sec-Independence_Copula}
+The independence copula is
+$$
+\copula{u, v} = u \cdot v.
+$$
+For example, if $F_X(x) = 0.2$ and $F_Y(y) = 0.3$, independence gives $\Pr{X \leq x, Y \leq y} = 0.2 \cdot 0.3 = 0.06$.
+
+
+## Gaussian Copula {#sec-Gaussian_Copula}
+The Gaussian copula is
+$$
+\copula[\rho]{u, v} = \Phi_\rho\left(\Phi^{-1}(u), \Phi^{-1}(v)\right), \quad -1 < \rho < 1,
+$$
+where $\Phi$ is the standard Gaussian CDF and $\Phi_\rho$ is the bivariate standard Gaussian CDF with correlation $\rho$. The parameter $\rho$ describes correlation on the transformed Gaussian scale; it need not equal the Pearson correlation of $X$ and $Y$. The marginal distributions can be non-Gaussian.
+
+
+## Clayton Copula {#sec-Clayton_Copula}
+For positive dependence, the Clayton copula is
+$$
+\copula[\theta]{u, v} = \left(u^{-\theta} + v^{-\theta} - 1\right)^{-1/\theta}, \quad \theta > 0.
+$$
+The formula applies for $u, v > 0$ and extends continuously to the boundary. Independence is obtained as $\theta \to 0$. This family has lower tail dependence.
+
+
+## Gumbel Copula {#sec-Gumbel_Copula}
+The Gumbel copula is
+$$
+\copula[\theta]{u, v} = \exp{-\left((-\ln{u})^\theta + (-\ln{v})^\theta\right)^{1/\theta}}, \quad \theta \geq 1.
+$$
+The formula extends continuously to the boundary. Independence occurs at $\theta = 1$; for $\theta > 1$, this family has upper tail dependence.

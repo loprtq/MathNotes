@@ -12,6 +12,8 @@ $$
 \newcommand{\Var}[1]{\operatorname{Var}\left[#1\right]}
 \newcommand{\Cov}[1]{\operatorname{Cov}\left[#1\right]}
 \newcommand{\Cor}[1]{\operatorname{Cor}\left[#1\right]}
+\newcommand{\copula}[2][]{C_{#1}\left(#2\right)}
+\newcommand{\copuladensity}[2][]{c_{#1}\left(#2\right)}
 
 % 
 \newcommand{\lik}[1]{\mathcal{L}\left(#1\right)}
