@@ -116,5 +116,7 @@ The hazard ratio (HR) is often utilized when there is a desire to compare the ha
 - $\textrm{HR} > 1$: decreased survival probability, compared to reference
 
 ::: {#rem-HR}
-It is important to note that the HR is non-collapsible, meaning it is not a causal estimand and can be influenced by the distribution of covariates in the population. Additionally, the confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale. This means that when interpreting HRs, it is crucial to consider the scale on which they are being analyzed and reported.
+It is important to note that the HR is non-collapsible, meaning it is not a causal estimand and can be influenced by the distribution of covariates in the population.
+
+Additionally, the confidence intervals for HRs are only symmetrical on the log-scale, and not the usually presented exp-scale. This means that when interpreting HRs, it is crucial to consider the scale on which they are being analyzed and reported.
 :::
