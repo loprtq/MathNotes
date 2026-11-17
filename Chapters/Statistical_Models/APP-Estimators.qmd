@@ -1,0 +1,38 @@
+{{< include /preamble/commands.qmd >}}
+
+# Estimators {#sec-Estimators}
+## Efficiency {.unnumbered}
+## Consistency {.unnumbered}
+
+
+## Method of Moments {#sec-Method_of_Moments}
+
+
+## Least Squares {#sec-Least_Squares_Estimation}
+### Ordinary Least Squares {#sec-Ordinary_Least_Squares}
+### Weighted Least Squares {#sec-Weighted_Least_Squares}
+### Generalized Least Squares {#sec-Generalized_Least_Squares}
+### Non-linear Least Squares {#sec-Non_linear_Least_Squares}
+
+
+## Maximum Likelihood Estimation {#sec-Maximum_Likelihood_Estimation}
+The maximum likelihood estimator (MLE) is obtained by maximizing the (log-)likelihood function with respect to the parameter of interest.
+
+### Restricted Maximum Likelihood {#sec-Restricted_Maximum_Likelihood_Estimation}
+
+
+## Sandwich Estimator {#sec-Sandwich_Estimator}
+The sandwich estimator
+
+Under the central limit theorem
+$$
+\sqrt{n}\left(\hat{\theta} - \theta\right) \xrightarrow{d} \Nd{0, V(\theta)}
+$$
+
+$$
+V(\theta) = A(\theta)^{-1} B(\theta) A(\theta)^{-1}
+$$
+
+
+## One-step Estimator {#sec-One_step_Estimator}
+The one-step estimator is an iterative method for computing the MLE, requiring a starting value for the parameter of interest. However, as the name suggests, it only performs a single update from the initial estimate. 
